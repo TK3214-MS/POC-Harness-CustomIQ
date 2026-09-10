@@ -41,6 +41,10 @@ ingress: {
 
 外部公開（`external: true`）へ切り替えるのは、明示的な承認を得た場合のみとされています。
 
+### 1.4 実 MCP プロトコルエンドポイント(`/mcp`)の Host/Origin 許可リスト
+
+`services/mcp-backend/mcp_backend/mcp_protocol_server.py` は、公式 `mcp` SDK が備える DNS リバインディング対策(`TransportSecuritySettings`)を有効にしています。`MCP_BACKEND_ALLOWED_HOSTS` 環境変数(カンマ区切り)で、実際のデプロイ先ホスト名(例: Container App の FQDN)を許可リストに追加してください。未設定でも `localhost`/`127.0.0.1`(任意ポート)と `testserver`(テスト用の固定ホスト名)は常に許可されます。許可されていない Host ヘッダーでのリクエストは `421 Misdirected Request` で拒否されます。詳細は [MCP-Design-and-Contract-Guide.md](MCP-Design-and-Contract-Guide.md) セクション5を参照してください。
+
 ## 2. 未実装のセキュリティ管理策（明示的なギャップ）
 
 以下は現時点で **実装されていません**。本番デプロイ前に評価・実装が必要です。

@@ -14,6 +14,7 @@ from iq_platform.contracts.capability import AdapterMode
 from iq_platform.contracts.manifest import IndustryPackManifest
 from iq_platform.orchestration.industry_pack_loader import load_manifest, load_plugin_module
 from mcp_backend.app import create_app
+from mcp_backend.mcp_protocol_server import build_mcp_server
 from mcp_backend.registry import ToolRegistry
 
 
@@ -39,6 +40,7 @@ def build_app(dataset: dict, pack_dir: Path, manifest: IndustryPackManifest | No
         source_label=f"mcp_backend:{manifest.id}",
         allowed_tools=_allowed_tools_from_env(),
     )
-    return create_app(registry)
+    mcp_server = build_mcp_server(registry, name=f"iiq-mcp-backend-{manifest.id}")
+    return create_app(registry, mcp_server=mcp_server)
 
 

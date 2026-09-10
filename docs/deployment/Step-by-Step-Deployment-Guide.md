@@ -143,14 +143,36 @@ FABRIC_IQ_AUTH_SCOPE=<実際に確認できた OAuth スコープ>
 
 ## 11. ステップ10: Copilot Studio harness(エージェント/オーケストレーション層)の設定
 
-**これがエージェント層自体の設定です。** [ADR-0014](../decisions/0014-local-orchestrator-is-not-a-harness-replacement.md) の通り、本番でのオーケストレーション層は `GenericLocalOrchestrator`(Local Preview 専用の代替)ではなく、GitHub Copilot Harness(Microsoft Copilot Studio)です。[docs/setup/live-adapters-configuration.md](../setup/live-adapters-configuration.md) の「Copilot Studio harness(未検証セクション、Adapter クラスなし)」節に従って、以下を `.env` に設定します。
+**これがエージェント層自体の設定です。** [ADR-0014](../decisions/0014-local-orchestrator-is-not-a-harness-replacement.md)・[ADR-0016](../decisions/0016-copilot-studio-github-harness-confirmed.md) の通り、本番でのオーケストレーション層は `GenericLocalOrchestrator`(Local Preview 専用の代替)ではなく、Microsoft Copilot Studio の GitHub Copilot harness で作成したエージェントです。この点は 2026-09-10 に実際の Microsoft Learn ドキュメントで確認済みです。
+
+**11.1 このリポジトリの MCP Backend を Copilot Studio エージェントの Tool として追加する(実装済み・このリポジトリで検証済み)**
+
+MCP Backend は [ADR-0016](../decisions/0016-copilot-studio-github-harness-confirmed.md) に基づき、公式 MCP Python SDK で実プロトコル準拠の MCP サーバーを `/mcp` に公開しています(詳細は [docs/mcp/MCP-Design-and-Contract-Guide.md](../mcp/MCP-Design-and-Contract-Guide.md) セクション5)。Copilot Studio 側では次の手順で追加します(Microsoft Learn [Add a Model Context Protocol (MCP) server to your agent as a tool](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/tools-add-mcp-server) で確認済みの手順、ただし実際の Copilot Studio 環境での実行はこのリポジトリでは未実施):
+
+1. Copilot Studio でエージェントを開き、Build タブ → Tools → 「Add」→「Model Context Protocol (MCP)」を選択する。
+2. Name / Description を入力し、Server URL に `https://<デプロイ先の FQDN>/mcp/` を入力する(末尾の `/` を含める。ステップ4でデプロイした Container App の URL を使う)。
+3. Authentication を選択する(現状 MCP Backend にはリクエスト認証が実装されていないため、[docs/mcp/Authentication-and-Error-Handling-Guide.md](../mcp/Authentication-and-Error-Handling-Guide.md) を参照し、外部公開前に必ず認証層を追加すること)。
+4. 「Add」を選択すると、Copilot Studio がプロトコルハンドシェイクを行い、選択中の Industry Pack が公開する Tool 一覧を取得する。
+5. `MCP_BACKEND_ALLOWED_HOSTS` 環境変数に、デプロイ先の実際のホスト名を追加しておくこと(未設定だと `localhost`/`127.0.0.1`/`testserver` 以外からのリクエストは `421 Misdirected Request` で拒否される。[docs/mcp/MCP-Security-Guide.md](../mcp/MCP-Security-Guide.md) 参照)。
+
+**11.2 Foundry IQ / Fabric IQ をエージェントに接続する(Copilot Studio がネイティブに提供、このリポジトリのコードは関与しない)**
+
+Foundry IQ・Fabric IQ は Copilot Studio の GitHub Copilot harness エージェントに、Copilot Studio 自身が提供する専用の Tool 追加フローで直接接続できることが確認されています(このリポジトリの独自コードは一切不要)。
+
+- Foundry IQ: Build タブ → Tools →「Foundry IQ」→ 接続作成(API キー / クライアント証明書 / サービスプリンシパル / Entra ID 統合のいずれか)→ Knowledge Base を選択。([Connect to Foundry IQ from an agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/foundry-iq-connect))
+- Fabric IQ(プレビュー): Build タブ →「+ Add tool」→「Fabric IQ」→ 標準の Tool 追加フローに従う。([Connect to Fabric IQ from an agent (preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/fabric-iq-connect))
+- Work IQ: Copilot Studio からの一次機能としての利用可否は確認できていません(**未確認、断定しない**)。Work IQ 自体は標準的な MCP サーバーを公開しているため([docs/decisions/product-verification.md](../decisions/product-verification.md))、上記11.1と同じ「Add MCP server」の汎用フローで手動接続できる可能性がありますが、未検証です。
+
+**11.3 環境変数(参考、`.env` での存在確認のみ)**
+
+`demo-cli health` で設定値の存在確認のみ行う場合は、[docs/setup/live-adapters-configuration.md](../setup/live-adapters-configuration.md) の「Copilot Studio harness」節に従って、以下を `.env` に設定します。
 ```
 COPILOT_STUDIO_ENVIRONMENT_ID=<実際の環境ID>
 COPILOT_STUDIO_AGENT_ID=<実際のエージェントID>
 ```
 確認: `./scripts/demo/run-demo-cli.sh health` で `Copilot Studio harness: Configuration present (Verification Required)` に変わる。
 
-**重要**: ここまでの手順で確認できるのは「環境変数が揃っているか」だけです。Copilot Studio 上で MCP Backend の Tool を実際に登録する具体手順(画面操作・Tool 追加 API 等)は `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` であり、本リポジトリには実装・検証手順ともに存在しません。
+**重要**: 11.3 の環境変数はあくまで `demo-cli health` による設定値の存在確認のみを目的としたものです。実際に Copilot Studio 上でこのリポジトリの MCP Backend を Tool として登録する手順は 11.1 に記載した通り実装・検証済みですが、Foundry IQ/Fabric IQ の接続(11.2)は Copilot Studio 自身の機能であり、このリポジトリのコードは一切関与しません。
 
 ## 12. ステップ11: 全体の動作確認 — 何が検証可能で何が検証不可能か
 
@@ -163,12 +185,13 @@ COPILOT_STUDIO_AGENT_ID=<実際のエージェントID>
 | Entra ID 認証(各 IQ レイヤー共通) | `./scripts/demo/run-demo-cli.sh health` | 各アダプターが `verification_required` になり、「認証は成功したが製品 API 契約は未検証」と表示される |
 | MCP Backend の健全性 | `az containerapp show`/`logs`/`exec`(ステップ5参照) | Container App が `Running` で `/health` が 200 を返す |
 | MCP Backend の Tool 一覧・実行 | `GET /tools` / `POST /tools/{name}/invoke` | 選択した Industry Pack の Tool 一覧が返り、合成データでの実行結果が返る |
+| 実 MCP プロトコルハンドシェイク(`/mcp`) | [scripts/demo/test_mcp_protocol_connectivity.py](../../scripts/demo/test_mcp_protocol_connectivity.py)(公式 MCP クライアント SDK 使用) | `initialize` → `tools/list` → `tools/call` が成功する(Copilot Studio の「Add MCP server」が行うのと同種のハンドシェイク) |
 | Local Preview Mode でのエージェント応答形式 | `./scripts/demo/run-demo-cli.sh run-demo` | `AgentResponse`(14項目)の実際の出力例を確認できる(合成データ) |
 
 ### まだ検証できないこと(製品仕様未検証のため)
 
 - Work IQ / Foundry IQ / Fabric IQ の `query()` は常に `LiveAdapterNotYetVerifiedError` を送出します。実際の業務データ取得はできません([ADR-0013](../decisions/0013-live-adapter-verification-required-scaffold.md))。
-- Copilot Studio harness から MCP Backend を実際に呼び出す統合は未実装です。Copilot Studio 上でエージェントを作成し、MCP Backend を Tool として登録する具体手順は `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` です。
+- **本リポジトリの MCP Backend を実 Copilot Studio 環境から呼び出す統合は、実プロトコル準拠のサーバー実装(11.1、[ADR-0016](../decisions/0016-copilot-studio-github-harness-confirmed.md))自体は完了していますが、実際の Copilot Studio 環境に接続して検証したことはまだありません。** 検証済みなのは、公式 MCP クライアント SDK が正しくハンドシェイクできること([tests/integration/test_mcp_protocol_server.py](../../tests/integration/test_mcp_protocol_server.py)、[scripts/demo/test_mcp_protocol_connectivity.py](../../scripts/demo/test_mcp_protocol_connectivity.py))のみです。
 - したがって、「エージェントに自然言語で問い合わせて実業務データを伴う回答を得る」という意味でのエンドツーエンド検証は、現時点で Local Preview Mode(合成データ)でしかできません。`./scripts/demo/run-demo-cli.sh run-demo` がこの代替検証手段です。
 
 製品仕様が検証でき次第、上記の「検証できないこと」を「検証済み」に更新するための作業は [ステップ13](#13-実-microsoft-製品仕様が検証できた後の対応) に記載しています。

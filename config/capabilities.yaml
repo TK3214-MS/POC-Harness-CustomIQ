@@ -20,9 +20,9 @@ capabilities:
     display_name: "GitHub Copilot harness (Microsoft Copilot Studio)"
     product: "Microsoft Copilot Studio"
     status: "Verify Before Use"
-    last_verified_date: null
-    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    last_verified_date: "2026-09-10"
+    documentation_reference: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview (ms.date 2026-07-28, fetched 2026-09-10) - confirms 'GitHub Copilot harness' is a real, named harness/runtime in Copilot Studio; see ADR-0016"
+    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION (billed via Copilot Credits, usage-based, per confirmed docs)"
     required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
@@ -30,9 +30,10 @@ capabilities:
     fallback_adapter: "orchestration.local_orchestrator"
     known_limitations:
       - "No dedicated Adapter class in this repo (Harness/Orchestrator, not an IQ-layer Adapter); config presence checked via demo-cli health (Phase 4)."
-      - "Existence, naming, and behavior of the 'harness' concept as described in source instructions is unverified."
-      - "This is the intended production orchestration layer per the source instructions; orchestration.local_orchestrator (below) is only a Local Preview Mode substitute and is not planned to be extended into a production orchestrator. See ADR-0014."
-    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
+      - "Verified 2026-09-10 (ADR-0016): the 'GitHub Copilot harness' concept is confirmed real and is one of three Copilot Studio harnesses. Foundry IQ and Fabric IQ connect to it as native first-party Tools, configured entirely within Copilot Studio (no code in this repo). Copilot Studio natively supports adding any MCP server as a generic Tool (Server URL + auth), which is the confirmed integration path for this repo's own MCP Backend."
+      - "This is the intended production orchestration layer per the source instructions; orchestration.local_orchestrator (below) is only a Local Preview Mode substitute and is not planned to be extended into a production orchestrator. See ADR-0014 and ADR-0016."
+      - "Work IQ's availability as a first-party Copilot Studio integration (analogous to Foundry IQ/Fabric IQ) was NOT confirmed - not found in the knowledge-source list or as a dedicated connect page. Flagged for user confirmation rather than assumed (see docs/decisions/product-verification.md)."
+    customer_facing_disclosure: "Partially verified against Microsoft Learn documentation on 2026-09-10 (AI-assisted fetch, not yet independently confirmed by a human reviewer). Licensing, required roles, and regional availability remain unverified."
 
   - capability_id: orchestration.local_orchestrator
     display_name: "Local Orchestrator (Local Preview Mode)"
