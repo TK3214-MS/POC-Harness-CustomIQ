@@ -7,6 +7,7 @@ points to a module exposing TOOL_FUNCTIONS/TOOL_DESCRIPTIONS.
 """
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from iq_platform.contracts.capability import AdapterMode
@@ -14,6 +15,17 @@ from iq_platform.contracts.manifest import IndustryPackManifest
 from iq_platform.orchestration.industry_pack_loader import load_manifest, load_plugin_module
 from mcp_backend.app import create_app
 from mcp_backend.registry import ToolRegistry
+
+
+def _allowed_tools_from_env() -> set[str] | None:
+    """Optional defense-in-depth allowlist (instruction §24). Set
+    MCP_BACKEND_ALLOWED_TOOLS to a comma-separated tool name list to restrict
+    which of a pack's tools this deployment exposes. Unset means "allow every
+    tool the pack declares"."""
+    raw = os.environ.get("MCP_BACKEND_ALLOWED_TOOLS")
+    if not raw:
+        return None
+    return {name.strip() for name in raw.split(",") if name.strip()}
 
 
 def build_app(dataset: dict, pack_dir: Path, manifest: IndustryPackManifest | None = None):
@@ -25,6 +37,8 @@ def build_app(dataset: dict, pack_dir: Path, manifest: IndustryPackManifest | No
         descriptions=tools_module.TOOL_DESCRIPTIONS,
         adapter_mode=AdapterMode.MOCK,
         source_label=f"mcp_backend:{manifest.id}",
+        allowed_tools=_allowed_tools_from_env(),
     )
     return create_app(registry)
+
 

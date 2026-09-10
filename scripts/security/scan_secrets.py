@@ -34,14 +34,23 @@ _PATTERNS: list[tuple[str, re.Pattern[str]]] = [
 
 def _tracked_files() -> list[Path]:
     """Tracked + untracked-but-not-gitignored files, so the scan is useful even
-    before anything has been committed."""
-    result = subprocess.run(
-        ["git", "-C", str(REPO_ROOT), "ls-files", "--cached", "--others", "--exclude-standard"],
-        capture_output=True,
-        text=True,
-        check=True,
-    )
-    return [REPO_ROOT / line for line in result.stdout.splitlines() if line]
+    before anything has been committed. Falls back to a plain filesystem walk
+    if git is unavailable or unusable in the current environment (e.g. no git
+    installed, or restricted sandbox), so the scan still runs somewhere."""
+    try:
+        result = subprocess.run(
+            ["git", "-C", str(REPO_ROOT), "ls-files", "--cached", "--others", "--exclude-standard"],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return [REPO_ROOT / line for line in result.stdout.splitlines() if line]
+    except (subprocess.CalledProcessError, FileNotFoundError, OSError):
+        return [
+            path
+            for path in REPO_ROOT.rglob("*")
+            if path.is_file() and not any(part in _EXCLUDED_DIR_PARTS for part in path.relative_to(REPO_ROOT).parts)
+        ]
 
 
 def _is_excluded(path: Path) -> bool:

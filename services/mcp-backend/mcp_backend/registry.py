@@ -24,20 +24,45 @@ class ToolRegistry:
         descriptions: dict[str, str],
         adapter_mode: AdapterMode,
         source_label: str,
+        allowed_tools: set[str] | None = None,
     ):
         self._dataset = dataset
         self._tool_functions = tool_functions
         self._descriptions = descriptions
         self._adapter_mode = adapter_mode
         self._source_label = source_label
+        # Defense-in-depth allowlist (instruction §24). None means "allow every
+        # tool this pack declares" - the pack's own TOOL_FUNCTIONS dict is
+        # already a closed set, so this is only useful to further restrict it
+        # (e.g. disabling a specific tool in a given deployment).
+        self._allowed_tools = allowed_tools
 
     def list_tools(self) -> list[dict[str, str]]:
-        return [{"tool_name": name, "description": desc} for name, desc in self._descriptions.items()]
+        return [
+            {"tool_name": name, "description": desc}
+            for name, desc in self._descriptions.items()
+            if self._is_allowed(name)
+        ]
+
+    def _is_allowed(self, tool_name: str) -> bool:
+        return self._allowed_tools is None or tool_name in self._allowed_tools
 
     def invoke(self, tool_name: str, params: dict[str, Any], correlation_id: str | None = None) -> MCPToolResponse:
         request_id = str(uuid.uuid4())
         correlation_id = correlation_id or request_id
         func = self._tool_functions.get(tool_name)
+
+        if not self._is_allowed(tool_name):
+            return MCPToolResponse(
+                tool_name=tool_name,
+                request_id=request_id,
+                correlation_id=correlation_id,
+                status="error",
+                source=self._source_label,
+                executed_at=datetime.now(UTC),
+                adapter_mode=self._adapter_mode,
+                errors=[f"Tool '{tool_name}' is not in the allowlist for this deployment"],
+            )
 
         if func is None:
             return MCPToolResponse(

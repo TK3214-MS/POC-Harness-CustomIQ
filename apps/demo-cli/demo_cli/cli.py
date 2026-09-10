@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
@@ -21,10 +22,7 @@ DEFAULT_PACK_ID = "manufacturing"
 
 ALL_PACK_IDS = ["manufacturing", "financial-services", "retail", "healthcare", "public-sector"]
 
-_NOT_YET_IMPLEMENTED = {
-    "setup": "Phase 2 (environment bootstrapping beyond venv/pip install)",
-    "cleanup": "Phase 5 (deployed-resource cleanup; local 'reset' already works)",
-}
+_NOT_YET_IMPLEMENTED: dict[str, str] = {}
 
 
 def _selected_pack_id() -> str:
@@ -230,6 +228,22 @@ def _cmd_reset(_args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_setup(_args: argparse.Namespace) -> int:
+    script = REPO_ROOT / "scripts" / "setup" / "setup.sh"
+    result = subprocess.run(["bash", str(script)], cwd=REPO_ROOT, check=False)
+    return result.returncode
+
+
+def _cmd_cleanup(_args: argparse.Namespace) -> int:
+    """Deployed-resource cleanup. This only affects real Azure resources created
+    via 'azd up' - it does nothing (and is safe to run) if no azd environment
+    exists yet. Delegates to scripts/cleanup/cleanup-azure.sh, which requires
+    typed environment-name confirmation before deleting anything."""
+    script = REPO_ROOT / "scripts" / "cleanup" / "cleanup-azure.sh"
+    result = subprocess.run(["bash", str(script)], cwd=REPO_ROOT, check=False)
+    return result.returncode
+
+
 def _cmd_evaluate(args: argparse.Namespace) -> int:
     import yaml
 
@@ -371,7 +385,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="iiq-demo", description="Industry IQ Platform Accelerator - Demo CLI")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    subparsers.add_parser("setup", help="(not yet implemented)")
+    subparsers.add_parser("setup", help="Bootstrap the local development environment (venv, deps, health check)").set_defaults(
+        func=_cmd_setup
+    )
     subparsers.add_parser("validate", help="Validate all Industry Pack manifests against the shared schema").set_defaults(
         func=_cmd_validate
     )
@@ -406,7 +422,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     subparsers.add_parser("reset", help="Clear generated demo output").set_defaults(func=_cmd_reset)
-    subparsers.add_parser("cleanup", help="(not yet implemented)")
+    subparsers.add_parser("cleanup", help="Delete real Azure resources created via 'azd up' (destructive, confirmation required)").set_defaults(
+        func=_cmd_cleanup
+    )
 
     return parser
 
