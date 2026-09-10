@@ -110,7 +110,8 @@ Adapter は認証エラー等で Live に接続できない場合、無言で Mo
 - `iq_platform/security/entra_auth.py`（`azure-identity` による実 Microsoft Entra ID 認証）
 - `iq_platform/observability/logging_config.py`（correlation_id 付き最小限のロギング）
 - `services/mcp-backend/`（FastAPI アプリ、汎用 `ToolRegistry`、`build_app()` は任意の Industry Pack の `mcp_tools_path` を読み込む。`server.py` は環境変数駆動の本番エントリポイント）
-- `apps/demo-cli/`（`health`（Live Adapter 状態表示含む）/ `validate` / `load-data` / `select-industry` / `run-demo` / `reset` を5業界すべてに対応させて実装。`setup` / `evaluate` / `generate-summary` / `cleanup` は未実装であることを明示するスタブ）
+- `apps/demo-cli/`（`setup` / `health`（Live Adapter 状態表示含む）/ `validate` / `load-data` / `select-industry` / `run-demo` / `evaluate` / `generate-summary` / `reset` / `cleanup` の全10コマンドを実装。`health` 以下8コマンドは5業界すべてに対応。`cleanup` は実 azd 環境が存在しない場合は安全に中断する)
+- `services/mcp-backend/mcp_backend/registry.py`（`MCP_BACKEND_ALLOWED_TOOLS` 環境変数によるツール許可リスト機能。未許可の Tool 名は構造化エラーで拒否）
 - `industry-packs/{manufacturing,financial-services,retail,healthcare,public-sector}/`（各業界の manifest、ontology、synthetic data generator、knowledge documents、work-context fixtures、MCP tools、semantics plugin、scenario plugin、prompts、expected-results、evaluations、terminology、responsible-ai）
 - `deployment/`（azd/Bicep/コンテナ、MCP Backend の Azure Container Apps デプロイ基盤、[ADR-0012](../decisions/0012-mcp-backend-deployment-target.md)）
 - `scripts/security/scan_secrets.py`、`scripts/cleanup/cleanup-azure.sh`
@@ -120,10 +121,12 @@ Adapter は認証エラー等で Live に接続できない場合、無言で Mo
 - `tests/unit/test_live_adapters.py`（Live Adapter の mode 遷移、Entra ID 認証成功/失敗時の挙動、`query()` が常に例外を送出することを検証。実ネットワーク呼び出しなし）
 - `docs/architecture/sample-outputs/`（実際に実行して得た Manufacturing の `AgentResponse` の実例）
 
-未実装（今後のフェーズ）:
+未実装（今後のフェーズ、または本番環境がないと検証不能な項目）:
 - Live Adapter の実 API 統合（`query()` の実装。Microsoft 製品仕様が検証でき次第、Phase 4 を再開）
-- 実 Azure サブスクリプションへの `azd up` デプロイ検証（Phase 5、認証情報待ち）
-- デモ・外部公開ドキュメント、評価エンジンの自動実行（Phase 6）
+- 実 Azure サブスクリプションへの `azd up` デプロイ検証（実行手順は [docs/deployment/Step-by-Step-Deployment-Guide.md](../deployment/Step-by-Step-Deployment-Guide.md) に記載済みだが、実サブスクリプションでの実行自体は未実施）
+- 実 Entra ID テナントに対する認証検証（コード・単体テストは実装済み、実テナントでの検証待ち）
+- Terraform 実装（[ADR-0008](../decisions/0008-deployment-tooling-priority.md) により優先度最低。`deployment/terraform/` は README のみで未着手）
+- `apps/demo-ui/`（Web UI）、追加の業界固有エンティティ種別の拡張（いずれもディスカッション項目として保留）
 - 各業界のエンティティ種別は instruction 記載の全種ではなく代表的なサブセットのみ（各 Industry Pack の README に詳細を明記）
 
 ## 9. Phase 3 で行った汎化（ADR-0011）

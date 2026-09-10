@@ -32,6 +32,9 @@ jobs:
       - name: Synthetic data validation (heuristic)
         run: python3 scripts/validation/validate_synthetic_data.py
 
+      - name: Markdown link check
+        run: python3 scripts/validation/check_doc_links.py
+
   validate-deployment:
     runs-on: ubuntu-latest
     steps:

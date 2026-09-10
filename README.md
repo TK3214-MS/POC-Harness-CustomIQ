@@ -14,7 +14,7 @@
 - [docs/architecture/architecture-guide.md](docs/architecture/architecture-guide.md) — レイヤー構成、Adapter パターン、実行モードの説明
 - [docs/decisions/](docs/decisions/) — 各 ADR (0001〜)
 
-## 現在の実装状況（Phase 1 まで）
+## 現在の実装状況（Phase 6 まで実装済み、ギャップ充足作業込み）
 
 - [x] Phase 0: 前提・未解決事項・Capability Registry 初期版
 - [x] Phase 1: リポジトリ骨格、契約（Pydantic モデル）、Capability Registry ローダー、ADR、Contract テスト
@@ -22,7 +22,7 @@
 - [x] Phase 3: 残り4業界の Industry Pack(Financial Services / Retail / Healthcare / Public Sector)+ Orchestrator の汎化 + Industry Pack 切り替えテスト
 - [x] Phase 4: Live Adapter(Copilot Studio / Work IQ / Foundry IQ / Fabric IQ)を verification_required スキャフォールドとして実装(実 Entra ID 認証コードは実装・単体テスト済み、実テナントでの検証は未実施。製品 API 自体は未検証のため `query()` は常に例外を送出)
 - [x] Phase 5: MCP Backend の azd/Bicep/コンテナデプロイ基盤(実デプロイは未検証。テスト用 Azure サブスクリプション接続後にユーザーが検証)
-- [x] Phase 6: 30分セルフガイドデモ一式([docs/self-guided-demo/](docs/self-guided-demo/))、評価エンジン（`demo-cli evaluate`）、完了サマリー生成（`demo-cli generate-summary`）、合成データ検証スクリプト。Workshop Guide・Executive/Technical Presentation・PowerPoint 相当は未着手。
+- [x] Phase 6: 30分セルフガイドデモ一式([docs/self-guided-demo/](docs/self-guided-demo/))、評価エンジン(`demo-cli evaluate`)、完了サマリー生成(`demo-cli generate-summary`)、合成データ検証スクリプト、CLI 全10コマンド実装完了(`setup`/`cleanup` 含む)、統合・セキュリティ・単体・ドキュメントリンク検証テスト73件追加(64→137件)、MCP Tool 許可リスト機能、ドキュメント一式(設定・コスト・ガバナンス・トラブルシューティング・Industry Pack Guide・MCP Guide・Observability Guide・FAQ・Known Limitations・Release Notes・実 Azure デプロイ手順書)、Workshop Guide・Executive/Technical Presentation(Markdown 形式)。
 
 このチェックリストで「未着手」と書かれている項目を、他のドキュメントで「完成」と記載しないでください。
 

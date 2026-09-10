@@ -1,0 +1,56 @@
+# MCP 設計・契約ガイド
+
+## 1. MCPToolResponse 契約
+
+すべての MCP Tool（汎用・業界固有を問わず）は、共通のレスポンス型 `iq_platform.contracts.mcp_tool.MCPToolResponse`（[iq_platform/contracts/mcp_tool.py](../../iq_platform/contracts/mcp_tool.py)、Pydantic モデル）を返します（[ADR-0006](../decisions/0006-mcp-tool-response-contract.md)）。フィールドは次のとおりです。
+
+| フィールド | 型 | 内容 |
+|---|---|---|
+| `tool_name` | `str` | 呼び出された Tool 名。 |
+| `request_id` | `str` | このリクエスト固有の ID（未指定時は自動生成される UUID）。 |
+| `correlation_id` | `str` | 呼び出し元から伝播される相関 ID。未指定時は `request_id` と同値になる。 |
+| `status` | `str` | `"ok"` または `"error"`。 |
+| `data` | `dict[str, Any]` | Tool 実行結果のペイロード。 |
+| `source` | `str` | レスポンスの出処ラベル（例: `mcp_backend:manufacturing`）。 |
+| `provenance` | `list[str]` | データの来歴情報。 |
+| `executed_at` | `datetime` | 実行日時（UTC）。 |
+| `adapter_mode` | `AdapterMode` | `live`/`mock`/`simulated`/`unavailable`/`verification_required` のいずれか。 |
+| `warnings` | `list[str]` | 警告メッセージ一覧。 |
+| `errors` | `list[str]` | エラーメッセージ一覧。 |
+| `human_approval_required` | `bool` | このアクションの実施に人間承認が必要かどうか。 |
+
+破壊的・高影響な操作は、実処理を行わずに `human_approval_required=True` を返すことで表現します（instruction §10 準拠）。
+
+## 2. ToolRegistry の設計
+
+`services/mcp_backend/mcp_backend/registry.py::ToolRegistry`（[services/mcp-backend/mcp_backend/registry.py](../../services/mcp-backend/mcp_backend/registry.py)）は、1つの Industry Pack が公開する Tool 群を保持し、共通の呼び出し処理を提供します。
+
+- コンストラクタは `dataset`（合成データセット）、`tool_functions`（`tool_name -> Callable[[dataset, params], dict]` の辞書）、`descriptions`、`adapter_mode`、`source_label`、任意の `allowed_tools`（許可リスト、[MCP-Security-Guide.md](MCP-Security-Guide.md) 参照）を受け取ります。
+- `list_tools()` は許可リストでフィルタした Tool 一覧を返します。
+- `invoke(tool_name, params, correlation_id=None)` は次の順序でチェックし、**どの分岐でも例外を送出せず** `MCPToolResponse` を返します。
+  1. 許可リストに含まれない Tool 名 → `status="error"`、`errors=["Tool '...' is not in the allowlist for this deployment"]`。
+  2. 未知の Tool 名 → `status="error"`、`errors=["Unknown tool '...'"]`。
+  3. Tool 関数呼び出し時の `KeyError`（必須パラメータ欠落）を捕捉 → `status="error"`、`errors=["Missing required parameter: ..."]`。
+  4. Tool 関数が返した `dict` に `"error"` キーが含まれる場合 → `status="error"`。
+  5. それ以外は `status="ok"`。
+
+この設計により、未知/不正な Tool 呼び出しがサービスをクラッシュさせたり生の例外を漏らしたりすることはありません。これは [tests/security/test_mcp_tool_safety.py](../../tests/security/test_mcp_tool_safety.py) と [tests/integration/test_mcp_backend_integration.py](../../tests/integration/test_mcp_backend_integration.py) で検証されています。
+
+## 3. Industry Pack ごとの Tool 宣言方法
+
+各 Industry Pack の `manifest.yaml` の `mcp_tools_path` フィールドが、その Pack の MCP Tool 実装モジュール（例: [industry-packs/manufacturing/tools/manufacturing_tools.py](../../industry-packs/manufacturing/tools/manufacturing_tools.py)）へのパスを示します。このモジュールは `iq_platform.orchestration.industry_pack_loader.load_plugin_module()` によって `importlib.util.spec_from_file_location` 経由で実行時に動的ロードされ（[ADR-0010](../decisions/0010-industry-pack-plugin-loading.md)）、以下の2つのモジュールレベル変数を公開しなければなりません。
+
+- `TOOL_FUNCTIONS: dict[str, Callable[[dict, dict], dict]]`
+- `TOOL_DESCRIPTIONS: dict[str, str]`
+
+`services/mcp-backend/mcp_backend/factory.py::build_app()` はこれらを読み込んで `ToolRegistry` を構築するため、`services/mcp-backend/` のコード自体には業界固有のロジックが一切含まれません。
+
+## 4. HTTP エンドポイント
+
+`services/mcp-backend/mcp_backend/app.py::create_app()` は次の3エンドポイントを公開する FastAPI アプリを構築します。
+
+- `GET /health` — `{"status": "ok"}` を返す簡易ヘルスチェック。
+- `GET /tools` — 現在の許可リストでフィルタされた Tool 一覧（`tool_name`/`description` の辞書配列）を返す。
+- `POST /tools/{tool_name}/invoke` — `{"params": {...}, "correlation_id": "..."}` を受け取り、`ToolRegistry.invoke()` の結果である `MCPToolResponse` を `response_model` として返す。
+
+重要な設計判断として、**Tool 呼び出しのレスポンスは常に HTTP 200 です。** エラー時も生の HTTP エラー（4xx/5xx）ではなく、`status="error"` を持つ構造化された `MCPToolResponse` の本文が返されます。これにより呼び出し元は常に同じ契約でレスポンスをパースできます（[tests/integration/test_mcp_backend_integration.py](../../tests/integration/test_mcp_backend_integration.py) の `test_invoke_unknown_tool_returns_structured_error_not_http_error` で検証済み）。
