@@ -4,7 +4,9 @@
 
 ## これは何か
 
-複数業界（Manufacturing / Financial Services / Retail / Healthcare / Public Sector）へ、共通のエージェント基盤・契約（Adapter / Industry Pack / MCP Tool / Agent Response）を変更せずに、Industry Pack の差し替えだけで展開できる Enterprise Intelligence Platform のアクセラレータです。
+複数業界(Manufacturing / Financial Services / Retail / Healthcare / Public Sector)へ、共通のエージェント基盤・契約(Adapter / Industry Pack / MCP Tool / Agent Response)を変更せずに、Industry Pack の差し替えだけで展開できる Enterprise Intelligence Platform のアクセラレータです。
+
+**エージェント/オーケストレーション層は GitHub Copilot harness(Microsoft Copilot Studio 上で実行されるハーネス)を採用する設計です。** ただし Copilot Studio 自体の製品仕様は[未検証](docs/decisions/product-verification.md)であり本開発環境には実テナントへのアクセスがないため、本リポジトリでは `GenericLocalOrchestrator`(CLI から呼び出す Local Preview Mode 専用の代替)で Adapter・Industry Pack・MCP Backend の開発とデモを進めています。これは本番アーキテクチャの一部ではなく、恒久的な代替でもありません。詳細は [ADR-0014](docs/decisions/0014-local-orchestrator-is-not-a-harness-replacement.md) と [docs/architecture/architecture-guide.md](docs/architecture/architecture-guide.md) セクション2.1を参照してください。同様に、追加のカスタム UI(`apps/demo-ui/`)も作っていません — Local Preview Mode の利用者インターフェースは CLI のみです([docs/decisions/assumptions.md](docs/decisions/assumptions.md) A3)。
 
 詳細な設計方針・非目標・成功条件は元の指示書（本リポジトリのセットアップ時にステークホルダーから提供されたもの）に基づき、以下のドキュメントに分解して記録しています。
 
@@ -35,9 +37,9 @@ python3 -m venv .venv && source .venv/bin/activate && pip install -e ".[dev]"
 
 その後は [docs/self-guided-demo/README.md](docs/self-guided-demo/README.md) から開始してください。
 
-## 実行モードについて（設計のみ、Phase 2 以降で実装）
+## 実行モードについて
 
-- **Local Preview Mode**: Azure/Microsoft SaaS 環境なしで、すべての IQ レイヤーをローカルの Mock/Simulated Adapter で模擬します。**Microsoft SaaS サービスの動作検証ではありません。**
+- **Local Preview Mode**: Azure/Microsoft SaaS 環境なしで、すべての IQ レイヤーをローカルの Mock/Simulated Adapter で模擬し、`GenericLocalOrchestrator` が GitHub Copilot harness の代替として動作します。**Microsoft SaaS サービスの動作検証ではありません。**
 - **Hybrid Mode**: 一部のサービスのみ実環境（テスト用 Azure サブスクリプション）に接続します。
 - **Full SaaS Mode**: 利用可能な Microsoft サービスを実環境に接続します。ただし利用可能性は必ず Capability Registry と Health Check で判定し、自動的に仮定しません。
 

@@ -23,3 +23,5 @@
 10. **Web UI は存在しません。** `apps/demo-ui/` はディレクトリとしては存在しますが、実装は行われておらず CLI（`apps/demo-cli/`）のみが利用可能です。実務上の意味: ブラウザベースの操作画面が必要な場合は別途実装が必要です。
 
 11. **ドキュメントは現時点で日本語のみです。** 英語版ドキュメントは提供されていません。実務上の意味: 英語話者向けの展開には別途翻訳作業が必要です。関連: [docs/decisions/open-questions.md](decisions/open-questions.md) Q1。
+
+12. **GitHub Copilot harness(Copilot Studio)への実接続はありません。これは最も本質的な制限です。** 指示書が前提とするオーケストレーション層は Copilot Studio 上で実行されるハーネスですが、製品仕様が未検証のため、`iq_platform/orchestration/generic_orchestrator.py` の `GenericLocalOrchestrator` を Local Preview Mode 専用の代替として使っています。これは本番アーキテクチャの一部ではなく、将来これを拡張して「本番オーケストレーター」に格上げする計画もありません。実務上の意味: 実際の Copilot Studio 上でこのアクセラレータの Industry Pack(MCP Tool・Agent instructions)を動かすには、別途 Copilot Studio 側の構成作業が必要で、その手順は本リポジトリでは検証できていません。関連: [ADR-0014](decisions/0014-local-orchestrator-is-not-a-harness-replacement.md)、[docs/architecture/architecture-guide.md](architecture/architecture-guide.md) セクション2.1。

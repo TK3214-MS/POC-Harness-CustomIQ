@@ -49,6 +49,12 @@ Work IQ / Foundry IQ / Fabric IQ の Live Adapter は、`mode` プロパティ�
 
 すべての `AgentResponse` には `mock_or_simulation_disclosure` フィールドが必須であり、どのレイヤーが Mock/Simulated で動作したかを回答内で必ず開示します（[ADR-0005](decisions/0005-agent-response-contract.md)）。
 
+## Q. `demo-cli` の `GenericLocalOrchestrator` が、このアクセラレータの本番のオーケストレーション層なのですか？
+
+**いいえ。** 指示書が前提とするオーケストレーション層は **GitHub Copilot harness(Microsoft Copilot Studio 上で実行されるハーネス)** です。`GenericLocalOrchestrator` は、Copilot Studio 自体の製品仕様が未検証で実テナントにもアクセスできないため、Adapter・Industry Pack・MCP Backend の開発とデモを進める目的だけで用意した **Local Preview Mode 専用の代替**です。
+
+この代替を将来「本番オーケストレーターに拡張する」計画はありません。Copilot Studio が利用可能になった段階で行うべき作業は、(1) MCP Backend を Copilot Studio から呼び出せる形で公開する、(2) 各 Industry Pack の `agent_instructions_path` を Copilot Studio 上のエージェント設定に反映する、(3) Live Adapter を実 API 接続に更新する、の3点です。同様の理由で、追加のカスタム UI(`apps/demo-ui/`)も作っていません — Local Preview Mode の利用者インターフェースは CLI のみです。詳細は [ADR-0014](decisions/0014-local-orchestrator-is-not-a-harness-replacement.md) と [docs/architecture/architecture-guide.md](architecture/architecture-guide.md) セクション2.1、[docs/Known-Limitations.md](Known-Limitations.md) の項目12を参照してください。
+
 ## Q. テストはどこにあり、どう実行しますか？
 
 `tests/contract/`、`tests/end-to-end/`、`tests/evaluation/`、`tests/integration/`、`tests/security/`、`tests/unit/`、`tests/validation/` の7カテゴリに分かれており、合計137件です。次のコマンドで全テストを実行できます。

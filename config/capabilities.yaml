@@ -31,6 +31,7 @@ capabilities:
     known_limitations:
       - "No dedicated Adapter class in this repo (Harness/Orchestrator, not an IQ-layer Adapter); config presence checked via demo-cli health (Phase 4)."
       - "Existence, naming, and behavior of the 'harness' concept as described in source instructions is unverified."
+      - "This is the intended production orchestration layer per the source instructions; orchestration.local_orchestrator (below) is only a Local Preview Mode substitute and is not planned to be extended into a production orchestrator. See ADR-0014."
     customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
 
   - capability_id: orchestration.local_orchestrator
@@ -47,6 +48,7 @@ capabilities:
     fallback_adapter: null
     known_limitations:
       - "Does not validate availability, behavior, security, licensing, or performance of any Microsoft SaaS service."
+      - "This is a Local Preview Mode substitute for the harness.copilot_studio capability above, not an alternative production orchestrator; there is no plan to extend this into a production orchestration layer (ADR-0014)."
     customer_facing_disclosure: "Local Preview Mode uses synthetic data and local adapters. It does not validate the availability, behavior, security, licensing, or performance of Microsoft SaaS services."
 
   - capability_id: work_iq

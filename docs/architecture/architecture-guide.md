@@ -46,7 +46,20 @@ flowchart TB
 
 ### 2.1 GitHub Copilot harness / Local Orchestrator
 
-複雑なタスクの計画・ツール選択・結果統合を担う Agent Runtime。単純な FAQ やルールベース処理には、Standard harness や通常の Workflow の方が適切な場合があり、その選択理由は本ガイドの改訂時に追記します（Phase 2 以降）。
+**本来のオーケストレーション層は GitHub Copilot harness(Microsoft Copilot Studio 上で実行されるハーネス)であり、これは指示書が前提とする設計です。** ハーネスは複雑なタスクの計画・ツール選択・結果統合を担う Agent Runtime です。
+
+しかし、Copilot Studio 自体の存在・API 仕様・MCP Tool 登録方法は[未検証](../decisions/product-verification.md)であり、本開発環境には実テナントへのアクセスがありません([open-questions.md](../decisions/open-questions.md) Q3)。そのため、`iq_platform/orchestration/generic_orchestrator.py` の `GenericLocalOrchestrator` を **Local Preview Mode 専用の代替**として実装しています。これは Adapter・Industry Pack・MCP Backend・評価エンジンの開発とデモを、ハーネスへのアクセスを待たずに進めるためのものであり、**恒久的な設計選択ではありません**。[ADR-0014](../decisions/0014-local-orchestrator-is-not-a-harness-replacement.md) を参照してください。
+
+重要な点として、`GenericLocalOrchestrator` を将来「本番用に拡張する」計画はありません。Copilot Studio が利用可能になった段階で行うべきことは、(1) MCP Backend を Copilot Studio から呼び出せる形で公開する、(2) 各 Industry Pack の `agent_instructions_path` の内容を Copilot Studio 上のエージェント設定に反映する、(3) Work IQ / Foundry IQ / Fabric IQ の Live Adapter を実 API 接続に更新する、の3点です。同様に、`apps/demo-cli/` の CLI は Local Preview Mode 専用の利用者インターフェースであり、本番では Copilot Studio 側がその役割を担うため、追加のカスタム UI(`apps/demo-ui/`)を作る計画もありません([docs/decisions/assumptions.md](../decisions/assumptions.md) A3)。
+
+Copilot Studio harness には専用の `Adapter` クラスを作りません。IQ レイヤーの Adapter ではなくハーネス/オーケストレーターそのものだからです([ADR-0013](../decisions/0013-live-adapter-verification-required-scaffold.md) 決定5)。設定値の存在確認のみ `demo-cli health` に実装しています。
+
+| レイヤー | Local Preview Mode での役割 | 本番での役割 |
+|---|---|---|
+| GitHub Copilot harness | `GenericLocalOrchestrator` が代替 | Copilot Studio 上で実行(未検証・未接続) |
+| Work IQ / Foundry IQ / Fabric IQ | Mock/Simulated Adapter | Live Adapter(verification_required スキャフォールドのみ) |
+| MCP Backend | 同一コードをローカルでプロセス内呼び出し | 同一コードを Azure Container Apps 等にデプロイ([ADR-0012](../decisions/0012-mcp-backend-deployment-target.md)) |
+
 
 ### 2.2 Work IQ / Foundry IQ / Fabric IQ
 
