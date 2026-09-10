@@ -4,6 +4,8 @@
 
 1. **Live Adapter は実 Microsoft 製品 API に接続しません。** Work IQ / Foundry IQ / Fabric IQ / Copilot Studio の実際の製品 API 統合は、製品仕様が未検証であるため完全に未実装です（`query()` は常に例外を送出）。実務上の意味: このリポジトリだけでは実際の Microsoft 365 データ・Copilot・Fabric ワークスペースには一切アクセスできません。関連: [ADR-0013](decisions/0013-live-adapter-verification-required-scaffold.md)、[docs/decisions/product-verification.md](decisions/product-verification.md)。
 
+1b. **Live Adapter は、Work IQ / Foundry IQ / Fabric IQ が公式に文書化している MCP エンドポイントへの接続を実装していません。** 2026-09-10 に実際の Microsoft Learn ドキュメントを検証した結果（[ADR-0015](decisions/0015-mcp-native-iq-layer-integration.md)）、これら3製品はいずれも Model Context Protocol (MCP) を正式な統合方式として公開しており、独自の REST 呼び出しではなく MCP クライアントとして各エンドポイントに接続するのが実際の統合方式であることが判明しました。現行の Live Adapter は3レイヤー共通の単純な Entra ID クライアントクレデンシャル認証のみを行うスタブであり、この実際の MCP ベースの統合方式にも、各製品・アイテム種別ごとに異なる実際の認証方式(委任 OAuth、マネージド ID 等)にも対応していません。実務上の意味: Live Adapter を実装し直す場合、現行の設計をそのまま拡張するのではなく、MCP クライアントとしての再設計が必要になります。また、文書中でエージェントホストとして一貫して登場するのは Copilot Studio ではなく Microsoft Foundry Agent Service であり、本番のオーケストレーション層が本当に Copilot Studio なのかも未解決です（[open-questions.md](decisions/open-questions.md) Q11）。関連: [ADR-0015](decisions/0015-mcp-native-iq-layer-integration.md)。
+
 2. **実 Azure への `azd up` デプロイは実行・検証されていません。** azd/Bicep のスキャフォールドは存在し Bicep はコンパイルに成功していますが、実サブスクリプションに対するデプロイ実績はありません。実務上の意味: 現状の IaC がそのまま本番相当の Azure 環境で動作するかは未確認です。関連: [docs/deployment/README.md](deployment/README.md)、[ADR-0012](decisions/0012-mcp-backend-deployment-target.md)。
 
 3. **Docker イメージのビルドはローカル環境で検証されていません。** このリポジトリを構築した開発環境には Docker がインストールされておらず、`docker build` はローカルでは一度も実行されていません。CI（`.github/workflows/ci.yml` の `validate-deployment` ジョブ）でのみ実際のビルドが行われます。実務上の意味: Dockerfile はコードレビューベースで作成されており、GitHub Actions 上のビルド結果を信頼の根拠としてください。

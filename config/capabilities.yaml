@@ -53,10 +53,10 @@ capabilities:
 
   - capability_id: work_iq
     display_name: "Work IQ"
-    product: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    product: "Microsoft 365 Copilot extensibility - Work IQ MCP server"
     status: "Unknown"
     last_verified_date: null
-    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    documentation_reference: "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/overview (fetched 2026-09-10; existence and MCP design confirmed, GA/Preview maturity not stated on this page - see docs/decisions/product-verification.md)"
     required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
@@ -65,17 +65,17 @@ capabilities:
     fallback_adapter: "adapters.work_context.simulated_adapter"
     known_limitations:
       - "Live adapter is a verification_required scaffold (Phase 4): real Entra ID auth + config presence checks implemented, but query() always raises because the product API contract is unverified (ADR-0013)."
-      - "Product existence/name/status unverified."
+      - "Verified 2026-09-10 (ADR-0015): Work IQ exposes a real MCP server with 10 fixed tools (fetch/create_entity/update_entity/delete_entity/do_action/call_function/ask/list_agents/get_schema/search_paths) operating on relative resource paths, with Entra ID auth auto-discovered via /.well-known/oauth-protected-resource. This repo's Live Adapter does NOT connect to this MCP server - status stays Unknown (not Preview/GA) because explicit maturity labeling was not found."
     customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
 
   - capability_id: foundry_iq
     display_name: "Foundry IQ"
-    product: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    status: "Unknown"
-    last_verified_date: null
-    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    product: "Azure AI Search agentic-retrieval knowledge base, connected to Microsoft Foundry Agent Service via MCP"
+    status: "Preview"
+    last_verified_date: "2026-09-10"
+    documentation_reference: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect (ms.date 2026-08-07, fetched 2026-09-10)"
     required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_role: "Foundry Project Manager (create the MCP connection) and Foundry User (use the tool); Search Index Data Reader on the Azure AI Search service for the project's managed identity"
     required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     supported_modes: ["live", "mock", "unavailable", "verification_required"]
@@ -83,24 +83,27 @@ capabilities:
     known_limitations:
       - "Live adapter is a verification_required scaffold (Phase 4): real Entra ID auth + config presence checks implemented, but query() always raises because the product API contract is unverified (ADR-0013)."
       - "application_confidence is an accelerator-derived value, not a native Microsoft confidence score."
-    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
+      - "Verified 2026-09-10 (ADR-0015): the real integration mechanism is an MCP endpoint at {search_service_endpoint}/knowledgebases/{knowledge_base_name}/mcp?api-version=2026-08-01-preview, exposing a single knowledge_base_retrieve MCP tool, authenticated via a Foundry project RemoteTool connection (ProjectManagedIdentity or per-request user token). This repo's Live Adapter does NOT connect to this MCP endpoint - see docs/decisions/0015-mcp-native-iq-layer-integration.md for the gap and required follow-up."
+      - "The 2026-08-01-preview REST API version used for this MCP connection is Preview; some underlying agentic-retrieval features are GA in the 2026-04-01 API, but the MCP connection flow itself is not."
+    customer_facing_disclosure: "Verified against Microsoft Learn documentation on 2026-09-10 (AI-assisted fetch, not yet independently confirmed by a human reviewer). Still Preview, not GA - do not represent as production-ready without your own review."
 
   - capability_id: fabric_iq
     display_name: "Fabric IQ"
-    product: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    status: "Unknown"
-    last_verified_date: null
-    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    product: "Microsoft Fabric workload (Ontology / Fabric data agent / Power BI semantic model), connected to Microsoft Foundry Agent Service via MCP"
+    status: "Preview"
+    last_verified_date: "2026-09-10"
+    documentation_reference: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/fabric-iq (ms.date 2026-08-05, fetched 2026-09-10)"
+    required_license: "A Microsoft Fabric license granting access to the queried Fabric items; a published data agent needs paid F2+ Fabric capacity or Power BI Premium P1+ with Fabric enabled"
+    required_role: "Foundry User role on the Foundry project; Foundry Project Manager role to create the Fabric IQ connection"
+    required_admin_setting: "A Global Administrator must grant tenant-wide admin consent for the Entra app registration (one-time, per organization) before ontology connections work"
+    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION (Fabric IQ is unavailable in regions where Power BI is the only Fabric workload)"
     supported_modes: ["live", "mock", "unavailable", "verification_required"]
     fallback_adapter: "adapters.semantic.mock_adapter"
     known_limitations:
       - "Live adapter is a verification_required scaffold (Phase 4): real Entra ID auth + config presence checks implemented, but query() always raises because the product API contract is unverified (ADR-0013)."
       - "Fabric IQ, Fabric Data Agent, and Fabric IQ Ontology MCP are tracked as separate capability_id values, not merged."
-    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
+      - "Verified 2026-09-10 (ADR-0015): each Fabric item type (Ontology, Fabric data agent, Power BI semantic model) has its own MCP endpoint URL pattern (e.g. https://api.fabric.microsoft.com/v1/mcp/workspaces/{workspaceId}/dataagents/{dataAgentId}/agent for a data agent), connected to a Foundry agent as a fabric_iq_preview tool or via a toolbox. Auth is BYO Entra app / managed OAuth (delegated OBO) for Ontology and Power BI semantic models; the data agent MCP endpoint additionally accepts a direct user/service-principal bearer token. This repo's Live Adapter does NOT connect to any of these MCP endpoints - see docs/decisions/0015-mcp-native-iq-layer-integration.md."
+    customer_facing_disclosure: "Verified against Microsoft Learn documentation on 2026-09-10 (AI-assisted fetch, not yet independently confirmed by a human reviewer). Explicitly labeled Preview by Microsoft - do not represent as production-ready without your own review."
 
   - capability_id: mcp_backend
     display_name: "MCP Backend (FastAPI)"
