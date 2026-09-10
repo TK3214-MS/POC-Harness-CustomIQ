@@ -60,6 +60,36 @@ Copilot Studio harness には専用の `Adapter` クラスを作りません。I
 | Work IQ / Foundry IQ / Fabric IQ | Mock/Simulated Adapter | Live Adapter(verification_required スキャフォールドのみ) |
 | MCP Backend | 同一コードをローカルでプロセス内呼び出し | 同一コードを Azure Container Apps 等にデプロイ([ADR-0012](../decisions/0012-mcp-backend-deployment-target.md)) |
 
+### 2.2 本番構成(想定)アーキテクチャ図
+
+以下は、指示書が前提とする**目標構成**を示す図です。GitHub Copilot harness を中心に、3つの IQ レイヤーがそれぞれのソリューション領域(未検証)に接続し、MCP Backend が業務データ・業務アクションを仲介する構成を表します。**この図は目標設計であり、現時点でこの通りに動作するものではありません**(実際に動作するのは Local Preview Mode、[8. 現在の実装状況](#8-現在の実装状況phase-4-終了時点)参照)。より詳細な図・データフローのシーケンス図は [docs/presentations/Architecture-Diagrams.md](../presentations/Architecture-Diagrams.md) の図8・図9を参照してください(顧客説明用に整理したもので、内容はこの節と一致させています)。
+
+```mermaid
+flowchart TB
+    User["業務ユーザー"]
+
+    subgraph Harness2["エージェント/オーケストレーション層"]
+        CS["GitHub Copilot Harness<br/>(Microsoft Copilot Studio)"]
+    end
+
+    subgraph IQLayers2["IQ レイヤー(ソリューション別、未検証)"]
+        direction TB
+        WIQ2["Work IQ → Microsoft 365 系"]
+        FIQ2["Foundry IQ → ナレッジ/検索基盤"]
+        FabIQ2["Fabric IQ → Microsoft Fabric 系"]
+    end
+
+    MCP2["MCP Backend<br/>(業界別 Tool、Industry Pack が供給)"]
+
+    User --> CS
+    CS --> WIQ2
+    CS --> FIQ2
+    CS --> FabIQ2
+    CS --> MCP2
+```
+
+新しい業界の追加はこの構成を変えず、Industry Pack(manifest・ontology・MCP Tool・Agent instructions)の差し替えのみで行います([ADR-0011](../decisions/0011-generic-orchestrator-and-semantic-adapter.md))。
+
 
 ### 2.2 Work IQ / Foundry IQ / Fabric IQ
 
