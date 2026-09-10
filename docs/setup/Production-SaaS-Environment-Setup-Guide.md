@@ -4,7 +4,7 @@
 >
 > **対象読者**: [docs/deployment/Step-by-Step-Deployment-Guide.md](../deployment/Step-by-Step-Deployment-Guide.md) のステップ6〜11(Entra ID 登録・Work IQ/Foundry IQ/Fabric IQ 設定・Copilot Studio harness 設定)を終えた後、実際に Fabric IQ・Foundry IQ・Work IQ を**実データで動作する状態**まで構築したい開発者・管理者。
 >
-> **前提**: オーケストレーション層は Microsoft Copilot Studio の GitHub Copilot Harness です([ADR-0014](../decisions/0014-local-orchestrator-is-not-a-harness-replacement.md)、[ADR-0016](../decisions/0016-copilot-studio-github-harness-confirmed.md))。Foundry IQ・Fabric IQ は Copilot Studio に**一次機能(Tool)として直接接続**します。Work IQ は Copilot Studio の一次機能としては確認できておらず、Foundry IQ の Knowledge Base に組み込む形での間接接続のみ確認できています(詳細は Part C)。
+> **前提**: オーケストレーション層は Microsoft Copilot Studio の GitHub Copilot Harness です([ADR-0014](../decisions/0014-local-orchestrator-is-not-a-harness-replacement.md)、[ADR-0016](../decisions/0016-copilot-studio-github-harness-confirmed.md))。Foundry IQ・Fabric IQ は Copilot Studio に**一次機能(Tool)として直接接続**します。Work IQ は **MCP(Model Context Protocol)をプロトコルとして公式にサポート**しており([Microsoft Work IQ API](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview) — A2A・Local MCP・Remote MCP・REST の4プロトコルに対応)、Copilot Studio は汎用の「Add MCP server」フローで任意の MCP サーバーを追加できるため、原理上は Work IQ の Remote MCP サーバーを直接 Tool として追加できる可能性があります。ただし **Copilot Studio 向けの具体的な Remote MCP 接続エンドポイント URL・認証設定手順は本調査では確認できていません**(未確認、断定しません)。確認できている経路は、Foundry IQ の Knowledge Base に Work IQ Knowledge Source として組み込む間接接続です(詳細は Part C)。
 
 ## 0. 全体像
 
@@ -55,7 +55,21 @@ Fabric IQ の Ontology(プレビュー)アイテムを使うには、Fabric ワ�
 
 **確認できた事実**: Ontology アイテムは *entity types*(実体の型、例: Product・Order)・*properties*(プロパティ)・*relationships*(関係)・*data binding*(データ結合)から構成されます([What Is Ontology (Preview)?](https://learn.microsoft.com/en-us/fabric/iq/ontology/overview))。
 
-**未確認の事項**: Ontology アイテムそのものを新規作成する具体的な画面操作手順(「+ New item」からの選択名等)を示す専用ページを本調査では見つけられませんでした(`fabric/iq/ontology/create-ontology` 等の推測 URL は 404)。Fabric ポータルの **+ New item** ダイアログで "Ontology" を検索する想定ですが、`TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` として、実際に Fabric ポータルで確認してください。
+**Ontology アイテムの新規作成(前提設定含む)**:
+
+1. Fabric 管理者は、管理ポータルの [テナント設定](https://learn.microsoft.com/en-us/fabric/iq/ontology/overview-tenant-settings) で **Enable Ontology item (preview)** を有効化する(未設定の場合、新規 Ontology アイテム作成時にエラーになります)。Fabric Data Agent と組み合わせる場合は [Fabric data agent のテナント設定](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-tenant-settings) も併せて有効化してください。
+2. Fabric ワークスペースを開き、**+ New item** から Ontology アイテムを作成する。
+
+   > `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION`: **+ New item** ギャラリー内の正確な項目名・アイコン表記までは、Ontology 専用の作成手順ページ(quickstart 相当)が本調査では見つからなかったため確認できていません(`fabric/iq/ontology/quickstart` は404)。ただし、Lakehouse 等の他の Fabric アイテムと同じ **+ New item** ギャラリーの作成パターンに従うことは、[Create Entity Types](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-create-entity-types) の前提条件(「An ontology (preview) item.」がエンティティ型作成の前提として記載)から強く示唆されます。実際の Fabric ポータルで確認してください。
+
+**エンティティ型の作成**(確認済み、[Create Entity Types](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-create-entity-types)):
+
+1. Ontology アイテムの Home 設定キャンバスで、トップリボンまたはキャンバス中央の **Add entity type** を選択。
+2. エンティティ型名を入力し(1〜26文字、英数字・ハイフン・アンダースコアのみ、先頭/末尾は英数字)、**Add Entity Type** を選択。キャンバスに新しいエンティティ型が表示されます。
+3. **プロパティの追加**(データバインドと同時でも、事前でも可): エンティティ型名を選択 → 上部リボンの **View entity type details** → **Configure** タブ → **Manage property bindings** を展開 → **Add properties** を選択。各プロパティに名前と型(または型を指定せず `Define at binding` を選び、データバインド時に型を確定する「型なしプロパティ」)を設定して **Save**。
+   - プロパティ名は同一エンティティ型内で重複不可・1〜26文字の制約あり。異なるエンティティ型間では同名でも型が同じなら重複可。
+4. 必要に応じて、いずれかのプロパティを **display name property**(下流の表示名)として指定。
+5. エンティティ型の削除は Explorer 上で **... > Delete entity type** から行う(関連する entity type key・relationship type の設定も連動して削除される点に注意)。
 
 データバインドの手順(確認済み、[Bind Data](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-bind-data)):
 
@@ -166,7 +180,7 @@ Content-Type: application/json
 
 ---
 
-## Part C: Work IQ の有効化と(間接的な)Copilot Studio 接続
+## Part C: Work IQ の有効化と Copilot Studio 接続
 
 ### C-1. テナントの Work IQ 有効化(一度きり)
 
@@ -180,9 +194,31 @@ Content-Type: application/json
 - **Graph Explorer**: POST `https://graph.microsoft.com/v1.0/servicePrincipals`、リクエストボディ `{"appId": "fdcc1f02-fc51-4226-8753-f668596af7f7"}`。`201 Created` で成功、既存なら競合エラー。
 - **Azure CLI**: `az ad sp create --id fdcc1f02-fc51-4226-8753-f668596af7f7`
 
-### C-2. Foundry IQ Knowledge Base に Work IQ を組み込む(確認済みの唯一の経路)
+### C-2. Work IQ MCP サーバー(確認済み: Work IQ 自体が MCP を公式サポート)
 
-**重要な確認結果**: Work IQ を Copilot Studio の一次機能として直接追加する専用フローは見つかりませんでした(Part D 参照)。しかし、**Work IQ は Azure AI Search の Knowledge Source の1種類として明確にサポートされています**([What is a Knowledge Source?](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-overview) の一覧表、[Create a Work IQ Knowledge Source](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-work-iq))。Part B で作成した Foundry IQ の Knowledge Base に Work IQ Knowledge Source を追加すれば、Copilot Studio の「Foundry IQ」Tool 経由で間接的に Work IQ のデータにも到達できる可能性があります(**この間接経路の実際の動作は本リポジトリでは未検証**、C-3 参照)。
+**確認できた事実**([Microsoft Work IQ API](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview)、[Work IQ MCP overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/overview)、[Work IQ MCP tool reference](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/tool-reference)):
+
+- Work IQ は **Local MCP** と **Remote MCP** の2種類の MCP プロトコルを公式サポートしています(A2A・REST と合わせて計4プロトコル)。
+- MCP サーバーは 10個の汎用ツール(`fetch`/`fetch_blob`/`create_entity`/`update_entity`/`delete_entity`/`do_action`/`call_function`/`ask`/`list_agents`/`get_schema`/`search_paths`)を公開し、相対リソースパス(例: `fetch /me/messages`)でツールの対象を指定します。新しいワークロードが追加されてもツール数(10個)は変わらず、パスが増える設計です。
+- 認証は Microsoft Entra ID の委任認証のみ(アプリケーション専用認証は非サポート)。MCP クライアントは `/.well-known/oauth-protected-resource` エンドポイントで認証設定を自動検出します。
+- **既定では書き込み系操作(create/update/delete/action)はテナントポリシーでブロックされています**。管理者が Microsoft 365 管理センターの **Agents > Tools > Work IQ MCP > Policy** タブで明示的に許可する必要があります([Policy governance for Work IQ MCP](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/policy-governance-mcp))。
+- **Local MCP** はローカル開発環境(IDE・CLI)向けで、[Work IQ CLI](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview) をインストールし、以下のように stdio 型 MCP サーバーとして設定します:
+
+  ```json
+  {
+    "workiq": {
+      "type": "stdio",
+      "command": "workiq",
+      "args": ["mcp"]
+    }
+  }
+  ```
+
+**未確認の事項(断定しません)**: **Remote MCP** サーバーの実際の接続エンドポイント URL、および Copilot Studio の汎用「Add MCP server」フロー(Server URL + Authentication を入力する画面、[Add a Model Context Protocol (MCP) server to your agent as a tool (preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/tools-add-mcp-server))で Work IQ の Remote MCP サーバーを直接追加できるかどうかの具体的な手順は、本調査で参照した公式ページには明記されていませんでした。Copilot Studio がこの汎用フローで任意の MCP サーバーを追加できる以上、原理上は可能と考えられますが、`TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` として、実際の Copilot Studio 画面・Work IQ 管理者向けドキュメントで確認してください。
+
+### C-3. Foundry IQ Knowledge Base に Work IQ を組み込む(確認済みの代替経路)
+
+**Work IQ は Azure AI Search の Knowledge Source の1種類としても明確にサポートされています**([What is a Knowledge Source?](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-overview) の一覧表、[Create a Work IQ Knowledge Source](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-work-iq))。C-2 の Remote MCP 経路の Copilot Studio 対応が未確認である一方、この経路は Foundry IQ の Knowledge Base 経由での間接接続として確認できています。Part B で作成した Foundry IQ の Knowledge Base に Work IQ Knowledge Source を追加すれば、Copilot Studio の「Foundry IQ」Tool 経由で間接的に Work IQ のデータにも到達できる可能性があります(**この間接経路の実際の動作は本リポジトリでは未検証**、C-4 参照)。
 
 手順(`2026-08-01-preview` API 版が必要、GA 版では未対応):
 
@@ -225,10 +261,11 @@ Content-Type: application/json
 9. Knowledge Base(B-3)にこの Knowledge Source を追加する。
 10. クエリ時は、`x-ms-query-work-iq-source-authorization` ヘッダーにサインイン中ユーザーのアサーション(`api://<application-client-id>/access_as_user` スコープの MSAL PKCE トークン)を渡す必要がある(通常の `x-ms-query-source-authorization` とは別ヘッダー)。**Work IQ の応答には40〜60秒以上かかることがあるため、`maxRuntimeInSeconds` を120以上に設定すること。**
 
-### C-3. 未確認事項(断定しないこと)
+### C-4. 未確認事項(断定しないこと)
 
-- Copilot Studio の「Foundry IQ」ネイティブ Tool 接続が、上記の Work IQ 固有ヘッダー(`x-ms-query-work-iq-source-authorization`)を自動的に転送するかどうかは **未確認** です。Copilot Studio 側のドキュメントにこの詳細は記載されていません。実際に構築した際は、Activity trace で Work IQ からの応答が実際に返っているかを確認してください。
-- Work IQ 自体がデータ取得だけでなくアクション実行も行いうる(プレビュー機能)ため、信頼できるアプリケーション・利用者に限定し、権限・ガバナンス設定を事前にレビューしてください([Create a Work IQ Knowledge Source](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-work-iq) の Warning 参照)。
+- Work IQ の Remote MCP サーバーを Copilot Studio の汎用「Add MCP server」フローで直接追加できるかどうか、その際の接続エンドポイント URL・認証設定の具体的な手順は **未確認** です(C-2 参照)。
+- Copilot Studio の「Foundry IQ」ネイティブ Tool 接続が、Work IQ Knowledge Source 経由の場合に必要となる固有ヘッダー(`x-ms-query-work-iq-source-authorization`)を自動的に転送するかどうかは **未確認** です。Copilot Studio 側のドキュメントにこの詳細は記載されていません。実際に構築した際は、Activity trace で Work IQ からの応答が実際に返っているかを確認してください。
+- Work IQ 自体がデータ取得だけでなくアクション実行も行いうる(プレビュー機能・既定でブロック)ため、信頼できるアプリケーション・利用者に限定し、権限・ガバナンス設定(C-2 のポリシー層、[Create a Work IQ Knowledge Source](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-work-iq) の Warning)を事前にレビューしてください。
 - データガバナンス: Work IQ はリクエストごとに Microsoft 365 の権限を適用し、署名したユーザーがアクセス可能な組織データのみを返します。プロンプト・応答・Microsoft Graph 経由でアクセスしたデータは基盤言語モデルの学習に使用されません。
 
 ---
@@ -251,7 +288,8 @@ Content-Type: application/json
 | Fabric Data Agent の応答 | Fabric ポータルでテスト質問を送り、SQL/DAX/KQL 生成結果が返る | [Create a Fabric data agent](https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-data-agent) |
 | Foundry IQ Knowledge Source の取り込み状況 | `GET /knowledgesources/{name}/status` で `itemsUpdatesFailed` が 0 | [Create a Blob Knowledge Source](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-blob) |
 | Copilot Studio 側の Fabric IQ / Foundry IQ 接続 | Preview タブでの Activity trace に該当 Tool の呼び出しが記録される | [Foundry IQ 接続ガイド](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/foundry-iq-connect)、[Fabric IQ 接続ガイド](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/fabric-iq-connect) |
-| Work IQ 経由データの取得(間接経路) | Knowledge Base retrieve レスポンスの `references` に `type: "workIQ"` のエントリがある | [Create a Work IQ Knowledge Source](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-work-iq) |
+| Work IQ MCP サーバーの直接応答(Local/Remote MCP) | `tools/call` の応答に `structuredContent`/`text` が返る(例: `ask` ツールで `response`/`conversationId`) | [Work IQ MCP tool reference](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/tool-reference) |
+| Work IQ 経由データの取得(Foundry IQ 間接経路) | Knowledge Base retrieve レスポンスの `references` に `type: "workIQ"` のエントリがある | [Create a Work IQ Knowledge Source](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-work-iq) |
 | MCP Backend の接続 | `docs/deployment/Step-by-Step-Deployment-Guide.md` ステップ12参照 | 本リポジトリ実装・検証済み |
 
 ---
@@ -263,7 +301,7 @@ Content-Type: application/json
 1. [docs/decisions/product-verification.md](../decisions/product-verification.md) — 各手順の実行結果(成功/失敗・所要時間・遭遇したエラー)を追記。
 2. [config/capabilities.yaml](../../config/capabilities.yaml) — `work_iq`/`foundry_iq`/`fabric_iq`/`harness.copilot_studio` の `status`/`last_verified_date` を実測結果で更新(GA/Preview 昇格には実日付と非 TBD の参照が必須、[ADR-0007](../decisions/0007-capability-registry-authority.md))。
 3. `iq_platform/adapters/*/live_adapter.py` の `query()` — 実際に検証された API 呼び出し(または MCP クライアント接続)に置き換える([ADR-0015](../decisions/0015-mcp-native-iq-layer-integration.md) の対応手順参照)。
-4. 本ガイド自体 — 「A-3 Ontology アイテムの作成」等、未確認と明記した箇所を実際の画面操作で確認し、確定情報に更新する。
+4. 本ガイド自体 — 「A-3 Ontology アイテムの新規作成」の **+ New item** ギャラリー項目名、「C-2 Work IQ Remote MCP」の接続エンドポイント・Copilot Studio 対応可否等、未確認と明記した箇所を実際の画面操作で確認し、確定情報に更新する。
 
 ## 4. 出典一覧(2026-09-10 取得)
 
@@ -283,7 +321,13 @@ Content-Type: application/json
 - [Create a Blob Knowledge Source for Agentic Retrieval](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-blob)
 - [Create a Work IQ Knowledge Source](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-work-iq)
 - [Enable your tenant for Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/enable-work-iq)
+- [Microsoft Work IQ API (protocol overview: A2A/MCP/REST)](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview)
 - [Work IQ MCP overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/overview)
+- [Work IQ MCP tool reference](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/tool-reference)
+- [Policy governance for Work IQ MCP](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/policy-governance-mcp)
+- [Create Entity Types (Ontology preview)](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-create-entity-types)
+- [Ontology (Preview) Required Tenant Settings](https://learn.microsoft.com/en-us/fabric/iq/ontology/overview-tenant-settings)
+- [View Entity Type Details (Ontology preview)](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-view-entity-type-details)
 - [Harnesses in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview)
 - [Start building - Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/authoring-first-bot)
 - [Available tools for agents - Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/tools-available)
