@@ -1,7 +1,7 @@
 # 開発者向け構成ステップバイステップガイド(実 Azure 環境へのデプロイ)
 
-> **対象読者**: このリポジトリを実際の Azure サブスクリプションにデプロイしようとしている開発者。
-> **対象範囲**: MCP Backend(`services/mcp-backend/`)を Azure Container Apps にデプロイする手順のみ。Work IQ / Foundry IQ / Fabric IQ / Copilot Studio の実 API 統合はこのガイドの範囲外です(理由は [§7](#7-live-adapter-を実サービスに接続したい場合任意) を参照)。
+> **対象読者**: 何もない状態から、このリポジトリを実環境(Azure サブスクリプション + Microsoft Entra ID テナント)に構成し、エージェント(GitHub Copilot Harness)と IQ レイヤー(Work IQ / Foundry IQ / Fabric IQ)までを一通り設定・動作確認したい開発者。
+> **対象範囲**: (1) MCP Backend(`services/mcp-backend/`)を Azure Container Apps にデプロイする手順、(2) Microsoft Entra ID アプリ登録と Work IQ / Foundry IQ / Fabric IQ の環境変数設定手順、(3) Copilot Studio harness 側の設定に必要な前提情報、(4) 現時点で実際に検証可能な範囲と、まだ検証できない範囲の明示、をすべて含みます。**このガイドだけで「実際の Microsoft 365/Copilot データに接続したエージェントが動く」という状態にはなりません** — Work IQ / Foundry IQ / Fabric IQ / Copilot Studio harness の製品 API 仕様自体が[未検証](../decisions/product-verification.md)のためです。これはガイドの不備ではなく、リポジトリ全体の現在の実装状況です([ADR-0013](../decisions/0013-live-adapter-verification-required-scaffold.md)、[ADR-0014](../decisions/0014-local-orchestrator-is-not-a-harness-replacement.md))。何が今日検証可能で何がまだ不可能かは [ステップ12](#12-ステップ11-全体の動作確認-何が検証可能で何が検証不可能か) で正直に一覧化しています。
 > **現在の検証状態**: `az bicep build` によるコンパイル検証(2026-09-10)と CI 上での Docker イメージビルド検証([.github/workflows/ci.yml](../../.github/workflows/ci.yml) の `validate-deployment` ジョブ)は完了しています。**しかし `azd up` を実 Azure サブスクリプションに対して実行した実績はこのリポジトリにはありません。** このガイドの手順自体は [ADR-0012](../decisions/0012-mcp-backend-deployment-target.md) の設計に基づく「実行可能なはずの手順」であり、実行結果を実測したものではないことを明記します。実行して問題が見つかった場合は、本ガイドと [docs/troubleshooting/README.md](../troubleshooting/README.md) を更新してください。
 
 ## 0. 前提として理解しておくべきこと
@@ -99,20 +99,91 @@ az containerapp exec --name ca-mcp-backend-<トークン> --resource-group rg-<�
 
 外部からアクセス可能にしたい場合は `resources.bicep` の `ingress.external` を `true` に変更する必要がありますが、これは公開範囲を広げるセキュリティ上の判断であり、必ずチーム内でレビューしてから行ってください([docs/mcp/MCP-Security-Guide.md](../mcp/MCP-Security-Guide.md) 参照。**MCP Backend にはリクエスト認証機能が未実装**であるため、外部公開する場合は別途 API Gateway や認証層を用意することを強く推奨します)。
 
-## 7. Live Adapter を実サービスに接続したい場合(任意)
+## 7. ステップ6: Microsoft Entra ID アプリ登録(Work IQ / Foundry IQ / Fabric IQ / Copilot Studio 共通)
 
-MCP Backend のデプロイと、Work IQ / Foundry IQ / Fabric IQ の Live Adapter 接続は独立した関心事です。Live Adapter は現状 `query()` が常に `LiveAdapterNotYetVerifiedError` を送出するため([ADR-0013](../decisions/0013-live-adapter-verification-required-scaffold.md))、実際の業務データ取得には使えません。それでも Entra ID 認証部分だけを実タイテナントで検証したい場合は、[docs/setup/live-adapters-configuration.md](../setup/live-adapters-configuration.md) の手順に従い `.env` に `ENTRA_TENANT_ID` / `ENTRA_CLIENT_ID` / `ENTRA_CLIENT_SECRET` 等を設定し、`./scripts/demo/run-demo-cli.sh health` の Live Adapters セクションが `unavailable` から `verification_required` に変わることを確認してください。
+Work IQ / Foundry IQ / Fabric IQ の Live Adapter と Copilot Studio harness はすべて同じ Entra ID アプリ登録(クライアントID・シークレット・テナントID)を共有します。実施手順は [docs/setup/live-adapters-configuration.md](../setup/live-adapters-configuration.md) の「前提: Microsoft Entra ID アプリ登録(今すぐ実施可能)」節に全手順(目的・必要権限・操作手順・失敗時のエラー・Rollback 方法含む)がまとまっています。このステップは**任意ではなく、Work IQ/Foundry IQ/Fabric IQ/Copilot Studio のいずれかを設定する前に必ず完了させてください**。
 
-## 8. 実 Microsoft 製品仕様が検証できた後の対応
+完了後の `.env` 設定例:
+```
+ENTRA_TENANT_ID=<Directory (tenant) ID>
+ENTRA_CLIENT_ID=<Application (client) ID>
+ENTRA_CLIENT_SECRET=<クライアントシークレットの値>
+```
+
+確認: `./scripts/demo/run-demo-cli.sh health` で Live Adapters の各行が `unavailable` から変化する(他の必須値が未設定なら `Missing required configuration` のまま)。
+
+## 8. ステップ7: Work IQ の設定
+
+[docs/setup/live-adapters-configuration.md](../setup/live-adapters-configuration.md) の「Work IQ(未検証セクション)」節に従って、以下を `.env` に設定します。
+```
+WORK_IQ_WORKSPACE_ID=<実際のワークスペースID>
+WORK_IQ_AUTH_SCOPE=<実際に確認できた OAuth スコープ>  # 未設定(TBD プレースホルダー)のままだと health check は認証を試行しない
+```
+ワークスペースIDの具体的な取得方法や必要な API アクセス許可は `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION`(製品仕様未検証のため)。確認: `./scripts/demo/run-demo-cli.sh health` で `Work IQ (live): verification_required` に変わる。
+
+## 9. ステップ8: Foundry IQ の設定
+
+[docs/setup/live-adapters-configuration.md](../setup/live-adapters-configuration.md) の「Foundry IQ(未検証セクション)」節に従って、以下を `.env` に設定します。
+```
+FOUNDRY_IQ_PROJECT_ENDPOINT=<実際のプロジェクトエンドポイント>
+FOUNDRY_IQ_KNOWLEDGE_BASE_ID=<実際のナレッジベースID>
+FOUNDRY_IQ_AUTH_SCOPE=<実際に確認できた OAuth スコープ>
+```
+確認: `./scripts/demo/run-demo-cli.sh health` で `Foundry IQ (live): verification_required` に変わる。
+
+## 10. ステップ9: Fabric IQ の設定
+
+[docs/setup/live-adapters-configuration.md](../setup/live-adapters-configuration.md) の「Fabric IQ(未検証セクション)」節に従って、以下を `.env` に設定します。
+```
+FABRIC_WORKSPACE_ID=<実際のワークスペースID>
+FABRIC_ONTOLOGY_ID=<実際のオントロジーID>
+FABRIC_IQ_AUTH_SCOPE=<実際に確認できた OAuth スコープ>
+```
+確認: `./scripts/demo/run-demo-cli.sh health` で `Fabric IQ (live): verification_required` に変わる。
+
+## 11. ステップ10: Copilot Studio harness(エージェント/オーケストレーション層)の設定
+
+**これがエージェント層自体の設定です。** [ADR-0014](../decisions/0014-local-orchestrator-is-not-a-harness-replacement.md) の通り、本番でのオーケストレーション層は `GenericLocalOrchestrator`(Local Preview 専用の代替)ではなく、GitHub Copilot Harness(Microsoft Copilot Studio)です。[docs/setup/live-adapters-configuration.md](../setup/live-adapters-configuration.md) の「Copilot Studio harness(未検証セクション、Adapter クラスなし)」節に従って、以下を `.env` に設定します。
+```
+COPILOT_STUDIO_ENVIRONMENT_ID=<実際の環境ID>
+COPILOT_STUDIO_AGENT_ID=<実際のエージェントID>
+```
+確認: `./scripts/demo/run-demo-cli.sh health` で `Copilot Studio harness: Configuration present (Verification Required)` に変わる。
+
+**重要**: ここまでの手順で確認できるのは「環境変数が揃っているか」だけです。Copilot Studio 上で MCP Backend の Tool を実際に登録する具体手順(画面操作・Tool 追加 API 等)は `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` であり、本リポジトリには実装・検証手順ともに存在しません。
+
+## 12. ステップ11: 全体の動作確認 — 何が検証可能で何が検証不可能か
+
+ステップ6〜10をすべて完了した後でも、「エージェントが実際の業務データで回答する」という意味でのエンドツーエンド動作確認はできません。以下を正直に切り分けます。
+
+### 今日検証可能なこと
+
+| 項目 | 確認方法 | 期待される結果 |
+|---|---|---|
+| Entra ID 認証(各 IQ レイヤー共通) | `./scripts/demo/run-demo-cli.sh health` | 各アダプターが `verification_required` になり、「認証は成功したが製品 API 契約は未検証」と表示される |
+| MCP Backend の健全性 | `az containerapp show`/`logs`/`exec`(ステップ5参照) | Container App が `Running` で `/health` が 200 を返す |
+| MCP Backend の Tool 一覧・実行 | `GET /tools` / `POST /tools/{name}/invoke` | 選択した Industry Pack の Tool 一覧が返り、合成データでの実行結果が返る |
+| Local Preview Mode でのエージェント応答形式 | `./scripts/demo/run-demo-cli.sh run-demo` | `AgentResponse`(14項目)の実際の出力例を確認できる(合成データ) |
+
+### まだ検証できないこと(製品仕様未検証のため)
+
+- Work IQ / Foundry IQ / Fabric IQ の `query()` は常に `LiveAdapterNotYetVerifiedError` を送出します。実際の業務データ取得はできません([ADR-0013](../decisions/0013-live-adapter-verification-required-scaffold.md))。
+- Copilot Studio harness から MCP Backend を実際に呼び出す統合は未実装です。Copilot Studio 上でエージェントを作成し、MCP Backend を Tool として登録する具体手順は `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` です。
+- したがって、「エージェントに自然言語で問い合わせて実業務データを伴う回答を得る」という意味でのエンドツーエンド検証は、現時点で Local Preview Mode(合成データ)でしかできません。`./scripts/demo/run-demo-cli.sh run-demo` がこの代替検証手段です。
+
+製品仕様が検証でき次第、上記の「検証できないこと」を「検証済み」に更新するための作業は [ステップ13](#13-実-microsoft-製品仕様が検証できた後の対応) に記載しています。
+
+## 13. 実 Microsoft 製品仕様が検証できた後の対応
 
 Work IQ / Foundry IQ / Fabric IQ / Copilot Studio の実際の API 仕様・認証スコープ・ライセンス条件が検証できた時点で、次の順序で更新してください([docs/decisions/product-verification.md](../decisions/product-verification.md) の Process 節参照):
 
 1. `docs/decisions/product-verification.md` の該当行を、検証者名・日付・参照元 URL・結果とともに更新する。
 2. `config/capabilities.yaml` の対応する `capability_id` の `status` / `last_verified_date` / `documentation_reference` 等を、検証済みの実際の値に更新する(`iq_platform.contracts.capability.Capability` の validator が GA/Preview/Private Preview ステータスには実日付と非 TBD の参照を要求する)。
 3. 該当する Live Adapter(`iq_platform/adapters/*/live_adapter.py`)の `query()` を、検証済みの実 API 呼び出しに置き換える。この時点で初めて `mode` が `live` に到達しうるようになる。
-4. 関連するテスト(`tests/unit/test_live_adapters.py` 等)を実 API 呼び出しに対応する形で更新・追加する。
+4. コピロットスタジオ上で MCP Backend を Tool として登録し、エージェントの指示(`agent_instructions_path`)を反映する。
+5. 関連するテスト(`tests/unit/test_live_adapters.py` 等)を実 API 呼び出しに対応する形で更新・追加する。
 
-## 9. ロールバック・削除
+## 14. ロールバック・削除
 
 デプロイしたリソースをすべて削除するには、このリポジトリの CLI から呼び出してください(誤操作防止のため、現在選択中の azd 環境名の入力確認が必須です):
 
@@ -122,14 +193,15 @@ Work IQ / Foundry IQ / Fabric IQ / Copilot Studio の実際の API 仕様・認�
 
 内部的には [scripts/cleanup/cleanup-azure.sh](../../scripts/cleanup/cleanup-azure.sh) が `azd env get-values` で現在の環境名を取得し、入力された環境名と一致した場合のみ `azd down --purge --force` を実行します。一致しない場合、または azd 環境が存在しない場合は何も削除せず安全に中断します(2026-09-10 に azd 環境が存在しない状態で実行し、中断することを確認済み)。
 
-## 10. トラブルシューティング
+## 15. トラブルシューティング
 
 デプロイ関連の問題は [docs/troubleshooting/README.md](../troubleshooting/README.md) を参照してください。それでも解決しない場合は、遭遇した実際のエラーメッセージを添えて本ガイドまたはトラブルシューティングガイドに追記してください(推測での「解決策らしきもの」を書き足さないこと)。
 
-## 11. 最終チェックリスト(このガイドを使う前に)
+## 16. 最終チェックリスト(このガイドを使う前に)
 
 - [ ] [docs/cost/README.md](../cost/README.md) を読み、コスト管理方針を決めた
 - [ ] [docs/governance/README.md](../governance/README.md) と [docs/security/README.md](../security/README.md) を読み、ガバナンス・セキュリティ上の未実装事項(MCP Backend の認証がないこと等)を理解した
 - [ ] テスト用・使い捨て可能な Azure サブスクリプションを用意した
 - [ ] ローカルの Local Preview Mode デモが正常に動作することを確認した(`./scripts/demo/run-demo-cli.sh health`)
+- [ ] Work IQ / Foundry IQ / Fabric IQ / Copilot Studio の設定手順(ステップ6〜10)はすべて Entra ID 認証までしか検証できず、製品 API 接続自体は未実装であることを理解した(ステップ12)
 - [ ] 本ガイドの手順が「設計上想定される手順であり実行結果は未実測」であることを理解した
