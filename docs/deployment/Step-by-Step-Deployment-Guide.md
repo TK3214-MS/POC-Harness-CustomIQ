@@ -157,7 +157,7 @@ MCP Backend は [ADR-0016](../decisions/0016-copilot-studio-github-harness-confi
 
 **11.2 Foundry IQ / Fabric IQ をエージェントに接続する(Copilot Studio がネイティブに提供、このリポジトリのコードは関与しない)**
 
-Foundry IQ・Fabric IQ は Copilot Studio の GitHub Copilot harness エージェントに、Copilot Studio 自身が提供する専用の Tool 追加フローで直接接続できることが確認されています(このリポジトリの独自コードは一切不要)。
+Foundry IQ・Fabric IQ は Copilot Studio の GitHub Copilot harness エージェントに、Copilot Studio 自身が提供する専用の Tool 追加フローで直接接続できることが確認されています(このリポジトリの独自コードは一切不要)。**SaaS 側(Fabric ワークスペース・Lakehouse・Ontology・Azure AI Search Knowledge Base・Work IQ テナント有効化)を実際に構築してサンプルデータで動かす詳細手順は [docs/setup/Production-SaaS-Environment-Setup-Guide.md](../setup/Production-SaaS-Environment-Setup-Guide.md) にまとめています。**
 
 - Foundry IQ: Build タブ → Tools →「Foundry IQ」→ 接続作成(API キー / クライアント証明書 / サービスプリンシパル / Entra ID 統合のいずれか)→ Knowledge Base を選択。([Connect to Foundry IQ from an agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/foundry-iq-connect))
 - Fabric IQ(プレビュー): Build タブ →「+ Add tool」→「Fabric IQ」→ 標準の Tool 追加フローに従う。([Connect to Fabric IQ from an agent (preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/fabric-iq-connect))

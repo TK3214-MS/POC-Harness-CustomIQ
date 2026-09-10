@@ -107,5 +107,6 @@ Industry Pack の切り替えは、プラットフォームのコード（`iq_pl
 ## この先に進みたい場合
 
 - **Live Adapter（Work IQ / Foundry IQ / Fabric IQ / Copilot Studio）を設定したい**場合は、[docs/setup/live-adapters-configuration.md](live-adapters-configuration.md) を参照してください。Microsoft Entra ID アプリ登録の手順は今すぐ実施可能ですが、各製品固有の手順の多くは製品仕様が未検証のため `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` のままです。Live Adapter は設定を完了しても `verification_required` までしか到達せず、`query()` は常に例外を送出します（実 API 統合は未実装、[ADR-0013](../decisions/0013-live-adapter-verification-required-scaffold.md)）。
+- **実際に Fabric IQ / Foundry IQ / Work IQ に接続し、Copilot Studio エージェントから使える状態まで構築したい**場合は、[docs/setup/Production-SaaS-Environment-Setup-Guide.md](Production-SaaS-Environment-Setup-Guide.md) を参照してください。Fabric ワークスペース・Lakehouse・Ontology・Azure AI Search Knowledge Base・Work IQ テナント有効化・Copilot Studio 側の Tool 接続まで、実際の公式ドキュメントに基づく手順をまとめています。
 - **実際に Azure へデプロイしたい**場合は、[docs/deployment/Step-by-Step-Deployment-Guide.md](../deployment/Step-by-Step-Deployment-Guide.md) を参照してください。MCP Backend 用の azd/Bicep 構成は用意されていますが、実 Azure サブスクリプションに対する `azd up` の実行自体はまだ検証されていません。
 - 動作しなかった場合や既知の制限事項を確認したい場合は、[docs/FAQ.md](../FAQ.md) と [docs/Known-Limitations.md](../Known-Limitations.md) を参照してください。
