@@ -1,0 +1,35 @@
+id: retail
+display_name: Retail
+version: 0.1.0
+description: >-
+  Retail Industry Pack for the Industry IQ Platform Accelerator. Standard
+  scenario: Retail Demand and Inventory Analysis. All data is synthetic (see
+  instruction section 23 / SECURITY.md).
+default_scenario: demand-and-inventory-analysis
+
+ontology_path: ontology/entities.yaml
+semantic_model_path: ontology/entities.yaml
+sample_data_path: data/generator.py
+knowledge_path: knowledge/
+work_context_path: work-context/fixtures.json
+mcp_tools_path: tools/retail_tools.py
+semantic_relationships_path: semantics/retail_semantics.py
+scenario_module_path: agents/scenario.py
+agent_instructions_path: agents/investigation_agent_instructions.md
+demo_prompts_path: prompts/demo_prompts.yaml
+expected_results_path: expected-results/demand_and_inventory_analysis.md
+evaluation_path: evaluations/rubric.yaml
+terminology_path: terminology/glossary.md
+responsible_ai_path: responsible-ai/notice.md
+
+prohibited_actions:
+  - "Automatically placing a reorder without human approval"
+  - "Automatically changing product pricing"
+
+human_approval_rules:
+  - action: place_reorder
+    reason: "Placing a reorder commits budget and supply chain capacity."
+    required_approver_role: inventory_manager
+  - action: change_pricing
+    reason: "Pricing changes affect revenue and customer experience."
+    required_approver_role: merchandising_lead

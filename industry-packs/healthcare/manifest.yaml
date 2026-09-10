@@ -1,0 +1,36 @@
+id: healthcare
+display_name: Healthcare
+version: 0.1.0
+description: >-
+  Healthcare Industry Pack for the Industry IQ Platform Accelerator. Standard
+  scenario: Healthcare Case History Search. Uses fully synthetic patient data
+  only (see instruction section 23 / SECURITY.md). This pack never diagnoses,
+  never recommends treatment, and never recommends medication.
+default_scenario: case-history-search
+
+ontology_path: ontology/entities.yaml
+semantic_model_path: ontology/entities.yaml
+sample_data_path: data/generator.py
+knowledge_path: knowledge/
+work_context_path: work-context/fixtures.json
+mcp_tools_path: tools/healthcare_tools.py
+semantic_relationships_path: semantics/healthcare_semantics.py
+scenario_module_path: agents/scenario.py
+agent_instructions_path: agents/investigation_agent_instructions.md
+demo_prompts_path: prompts/demo_prompts.yaml
+expected_results_path: expected-results/case_history_search.md
+evaluation_path: evaluations/rubric.yaml
+terminology_path: terminology/glossary.md
+responsible_ai_path: responsible-ai/notice.md
+
+prohibited_actions:
+  - "Automatically confirming a diagnosis"
+  - "Automatically deciding a treatment"
+  - "Automatically recommending a medication"
+  - "Using real patient data"
+  - "Making a clinical judgment without human review"
+
+human_approval_rules:
+  - action: close_case_review
+    reason: "Closing a case history review requires clinical judgment."
+    required_approver_role: clinician

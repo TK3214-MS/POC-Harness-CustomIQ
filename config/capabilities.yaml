@@ -1,0 +1,166 @@
+# Capability Registry
+#
+# Single source of truth for what platform/Microsoft capabilities exist, their
+# verification state, and what mode(s) each supports. Nothing here may claim a
+# verified fact (license, price, region, GA/Preview) that has not actually been
+# checked — see docs/decisions/product-verification.md for the verification
+# process. Unverified fields use "TBD - VERIFY AGAINST CURRENT MICROSOFT
+# DOCUMENTATION" verbatim.
+#
+# Schema (see platform/contracts for the Pydantic model that validates this file):
+#   capability_id, display_name, product, status, last_verified_date,
+#   documentation_reference, required_license, required_role,
+#   required_admin_setting, regional_availability, supported_modes,
+#   fallback_adapter, known_limitations, customer_facing_disclosure
+
+schema_version: "1.0.0"
+
+capabilities:
+  - capability_id: harness.copilot_studio
+    display_name: "GitHub Copilot harness (Microsoft Copilot Studio)"
+    product: "Microsoft Copilot Studio"
+    status: "Verify Before Use"
+    last_verified_date: null
+    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    supported_modes: ["live", "unavailable"]
+    fallback_adapter: "orchestration.local_orchestrator"
+    known_limitations:
+      - "No dedicated Adapter class in this repo (Harness/Orchestrator, not an IQ-layer Adapter); config presence checked via demo-cli health (Phase 4)."
+      - "Existence, naming, and behavior of the 'harness' concept as described in source instructions is unverified."
+    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
+
+  - capability_id: orchestration.local_orchestrator
+    display_name: "Local Orchestrator (Local Preview Mode)"
+    product: "Industry IQ Platform Accelerator (this repo)"
+    status: "Mock Only"
+    last_verified_date: "2026-09-08"
+    documentation_reference: "docs/architecture (Phase 1)"
+    required_license: "None"
+    required_role: "None"
+    required_admin_setting: "None"
+    regional_availability: "N/A (runs locally)"
+    supported_modes: ["simulated"]
+    fallback_adapter: null
+    known_limitations:
+      - "Does not validate availability, behavior, security, licensing, or performance of any Microsoft SaaS service."
+    customer_facing_disclosure: "Local Preview Mode uses synthetic data and local adapters. It does not validate the availability, behavior, security, licensing, or performance of Microsoft SaaS services."
+
+  - capability_id: work_iq
+    display_name: "Work IQ"
+    product: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    status: "Unknown"
+    last_verified_date: null
+    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    supported_modes: ["live", "simulated", "unavailable", "verification_required"]
+    fallback_adapter: "adapters.work_context.simulated_adapter"
+    known_limitations:
+      - "Live adapter is a verification_required scaffold (Phase 4): real Entra ID auth + config presence checks implemented, but query() always raises because the product API contract is unverified (ADR-0013)."
+      - "Product existence/name/status unverified."
+    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
+
+  - capability_id: foundry_iq
+    display_name: "Foundry IQ"
+    product: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    status: "Unknown"
+    last_verified_date: null
+    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    supported_modes: ["live", "mock", "unavailable", "verification_required"]
+    fallback_adapter: "adapters.knowledge.mock_adapter"
+    known_limitations:
+      - "Live adapter is a verification_required scaffold (Phase 4): real Entra ID auth + config presence checks implemented, but query() always raises because the product API contract is unverified (ADR-0013)."
+      - "application_confidence is an accelerator-derived value, not a native Microsoft confidence score."
+    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
+
+  - capability_id: fabric_iq
+    display_name: "Fabric IQ"
+    product: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    status: "Unknown"
+    last_verified_date: null
+    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    supported_modes: ["live", "mock", "unavailable", "verification_required"]
+    fallback_adapter: "adapters.semantic.mock_adapter"
+    known_limitations:
+      - "Live adapter is a verification_required scaffold (Phase 4): real Entra ID auth + config presence checks implemented, but query() always raises because the product API contract is unverified (ADR-0013)."
+      - "Fabric IQ, Fabric Data Agent, and Fabric IQ Ontology MCP are tracked as separate capability_id values, not merged."
+    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
+
+  - capability_id: mcp_backend
+    display_name: "MCP Backend (FastAPI)"
+    product: "Industry IQ Platform Accelerator (this repo)"
+    status: "Mock Only"
+    last_verified_date: "2026-09-08"
+    documentation_reference: "docs/architecture (Phase 1), services/mcp-backend (Phase 2)"
+    required_license: "None (self-hosted)"
+    required_role: "None"
+    required_admin_setting: "None"
+    regional_availability: "N/A (self-hosted)"
+    supported_modes: ["live", "mock"]
+    fallback_adapter: null
+    known_limitations:
+      - "Not implemented yet (Phase 2). Placeholder entry created in Phase 0."
+    customer_facing_disclosure: "This is accelerator-owned code, not a Microsoft service. It ships with mock/synthetic data by default."
+
+  - capability_id: identity.entra_id
+    display_name: "Microsoft Entra ID"
+    product: "Microsoft Entra ID"
+    status: "Verify Before Use"
+    last_verified_date: null
+    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    supported_modes: ["live", "unavailable"]
+    fallback_adapter: null
+    known_limitations:
+      - "Authentication code path implemented (iq_platform/security/entra_auth.py, ClientSecretCredential) and unit-tested with mocked token acquisition (Phase 4)."
+      - "Not tested against a real Entra ID tenant in this repo (no test subscription credentials available yet)."
+    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
+
+  - capability_id: governance.purview
+    display_name: "Microsoft Purview"
+    product: "Microsoft Purview"
+    status: "Unknown"
+    last_verified_date: null
+    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    supported_modes: ["unavailable"]
+    fallback_adapter: null
+    known_limitations:
+      - "Not integrated in this repo; considerations only documented (Phase 5/6)."
+    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
+
+  - capability_id: observability.monitoring
+    display_name: "Monitoring and Evaluation (accelerator-owned)"
+    product: "Industry IQ Platform Accelerator (this repo)"
+    status: "Mock Only"
+    last_verified_date: "2026-09-08"
+    documentation_reference: "docs/architecture (Phase 1), platform/observability (Phase 2+)"
+    required_license: "None"
+    required_role: "None"
+    required_admin_setting: "None"
+    regional_availability: "N/A"
+    supported_modes: ["live", "mock"]
+    fallback_adapter: null
+    known_limitations:
+      - "Not implemented yet (Phase 2+). Placeholder entry created in Phase 0."
+    customer_facing_disclosure: "This is accelerator-owned code, not a Microsoft monitoring service."

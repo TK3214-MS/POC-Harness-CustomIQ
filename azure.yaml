@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+#
+# azd requires azure.yaml at the project root to be auto-discovered - this is
+# a tooling constraint, not a repository-structure deviation (bicep/container
+# files still live under deployment/, per instruction section 15).
+name: industry-iq-platform
+metadata:
+  template: industry-iq-platform@0.1.0
+
+infra:
+  provider: bicep
+  path: deployment/bicep
+
+services:
+  mcp-backend:
+    project: services/mcp-backend
+    host: containerapp
+    language: python
+    docker:
+      path: ../../deployment/containers/mcp-backend/Dockerfile
+      context: ../..

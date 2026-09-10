@@ -1,0 +1,38 @@
+id: public-sector
+display_name: Public Sector
+version: 0.1.0
+description: >-
+  Public Sector Industry Pack for the Industry IQ Platform Accelerator.
+  Standard scenario: Public Sector Case Investigation. Uses fully synthetic
+  citizen data only (see instruction section 23 / SECURITY.md). This pack
+  never automates a benefit/permit decision or ranks citizens by risk.
+default_scenario: case-investigation
+
+ontology_path: ontology/entities.yaml
+semantic_model_path: ontology/entities.yaml
+sample_data_path: data/generator.py
+knowledge_path: knowledge/
+work_context_path: work-context/fixtures.json
+mcp_tools_path: tools/public_sector_tools.py
+semantic_relationships_path: semantics/public_sector_semantics.py
+scenario_module_path: agents/scenario.py
+agent_instructions_path: agents/investigation_agent_instructions.md
+demo_prompts_path: prompts/demo_prompts.yaml
+expected_results_path: expected-results/case_investigation.md
+evaluation_path: evaluations/rubric.yaml
+terminology_path: terminology/glossary.md
+responsible_ai_path: responsible-ai/notice.md
+
+prohibited_actions:
+  - "Automatically deciding a benefit or permit outcome"
+  - "Automating an administrative/legal action"
+  - "Ranking citizens by risk"
+  - "Making a decision based on a protected attribute"
+
+human_approval_rules:
+  - action: approve_application
+    reason: "Approving or denying an application is an administrative/legal decision."
+    required_approver_role: case_officer
+  - action: close_case
+    reason: "Closing a case affects the citizen's record and appeal rights."
+    required_approver_role: case_supervisor

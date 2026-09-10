@@ -1,0 +1,7 @@
+prompts:
+  - id: fraud-investigation
+    text: "Investigate the most recent fraud case and recommend next steps."
+    scenario: financial-fraud-investigation
+  - id: fraud-investigation-by-id
+    text: "Investigate fraud case {case_id} and recommend next steps."
+    scenario: financial-fraud-investigation

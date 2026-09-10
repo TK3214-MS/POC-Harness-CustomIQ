@@ -1,0 +1,35 @@
+entity_types:
+  - name: SyntheticPatient
+    description: A fully synthetic patient. Not a real person.
+    identifier_field: patient_id
+    dataset_key: patients
+    fields: [patient_id, age_band, note]
+  - name: Provider
+    description: A synthetic healthcare provider role.
+    identifier_field: provider_id
+    dataset_key: providers
+    fields: [provider_id, role]
+  - name: Encounter
+    description: A synthetic clinical encounter between a SyntheticPatient and a Provider.
+    identifier_field: encounter_id
+    dataset_key: encounters
+    fields: [encounter_id, patient_id, provider_id, encounter_date, reason]
+  - name: ClinicalEvent
+    description: A synthetic event recorded during an Encounter.
+    identifier_field: event_id
+    dataset_key: clinical_events
+    fields: [event_id, encounter_id, event_type, description, recorded_at]
+
+relationships:
+  - name: involves
+    subject_type: Encounter
+    object_type: SyntheticPatient
+    description: Encounter involves a SyntheticPatient.
+  - name: attendedBy
+    subject_type: Encounter
+    object_type: Provider
+    description: Encounter is attended by a Provider.
+  - name: occursDuring
+    subject_type: ClinicalEvent
+    object_type: Encounter
+    description: ClinicalEvent occurs during an Encounter.

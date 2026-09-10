@@ -1,0 +1,16 @@
+# Keep the Docker build context small and avoid leaking local dev artifacts
+# into images (instruction section 24).
+.venv/
+.git/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+**/__pycache__/
+*.pyc
+tests/
+docs/
+scripts/demo/output/
+apps/demo-ui/
+.env
+*.env
+.DS_Store

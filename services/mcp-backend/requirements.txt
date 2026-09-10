@@ -1,0 +1,9 @@
+# Runtime-only dependencies for the MCP Backend container image.
+# Kept separate from pyproject.toml's [dev] extras so the production image
+# never ships pytest/ruff (smaller image, smaller attack surface - instruction
+# section 24). Versions are pinned to what was actually installed and tested
+# in .venv on 2026-09-10 (see docs/decisions/repo build/test notes).
+fastapi==0.141.1
+pydantic==2.13.5
+PyYAML==6.0.3
+uvicorn[standard]==0.52.4

@@ -1,0 +1,39 @@
+[project]
+name = "industry-iq-platform"
+version = "0.1.0"
+description = "Industry IQ Platform Accelerator - shared Python contracts, capability registry, and orchestration code."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "pydantic>=2.6,<3",
+    "pyyaml>=6.0,<7",
+    "fastapi>=0.115,<1",
+    "httpx>=0.27,<1",
+    "azure-identity>=1.19,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0,<9",
+    "ruff>=0.5,<1",
+    "uvicorn[standard]>=0.30,<1",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["iq_platform*"]
+
+[tool.pytest.ini_options]
+# apps/demo-cli and services/mcp-backend are not installed as packages (their
+# folder names are kebab-case per instruction section 15); pythonpath makes
+# demo_cli/mcp_backend importable for tests. See docs/decisions/0009 and 0010.
+pythonpath = [".", "apps/demo-cli", "services/mcp-backend"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"

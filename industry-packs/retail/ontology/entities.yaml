@@ -1,0 +1,44 @@
+entity_types:
+  - name: Store
+    description: A synthetic retail store.
+    identifier_field: store_id
+    dataset_key: stores
+    fields: [store_id, name, region]
+  - name: Product
+    description: A synthetic retail product.
+    identifier_field: product_id
+    dataset_key: products
+    fields: [product_id, name, category]
+  - name: InventoryRecord
+    description: On-hand inventory of a Product at a Store.
+    identifier_field: inventory_id
+    dataset_key: inventory_records
+    fields: [inventory_id, store_id, product_id, quantity_on_hand, reorder_point]
+  - name: Order
+    description: A replenishment order for a Product at a Store.
+    identifier_field: order_id
+    dataset_key: orders
+    fields: [order_id, store_id, product_id, quantity, order_date, status]
+  - name: DemandSignal
+    description: A detected demand change for a Product at a Store.
+    identifier_field: signal_id
+    dataset_key: demand_signals
+    fields: [signal_id, product_id, store_id, signal_type, trend_percent, detected_at]
+
+relationships:
+  - name: stocks
+    subject_type: Store
+    object_type: Product
+    description: Store stocks a Product (via InventoryRecord).
+  - name: ordered
+    subject_type: Store
+    object_type: Order
+    description: Store placed an Order.
+  - name: relatesTo
+    subject_type: DemandSignal
+    object_type: Product
+    description: DemandSignal relates to a Product.
+  - name: observedAt
+    subject_type: DemandSignal
+    object_type: Store
+    description: DemandSignal was observed at a Store.

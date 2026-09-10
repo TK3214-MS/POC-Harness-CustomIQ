@@ -1,0 +1,37 @@
+id: financial-services
+display_name: Financial Services
+version: 0.1.0
+description: >-
+  Financial Services Industry Pack for the Industry IQ Platform Accelerator.
+  Standard scenario: Financial Fraud Investigation. All data is synthetic (see
+  instruction section 23 / SECURITY.md).
+default_scenario: fraud-investigation
+
+ontology_path: ontology/entities.yaml
+semantic_model_path: ontology/entities.yaml
+sample_data_path: data/generator.py
+knowledge_path: knowledge/
+work_context_path: work-context/fixtures.json
+mcp_tools_path: tools/financial_services_tools.py
+semantic_relationships_path: semantics/financial_services_semantics.py
+scenario_module_path: agents/scenario.py
+agent_instructions_path: agents/investigation_agent_instructions.md
+demo_prompts_path: prompts/demo_prompts.yaml
+expected_results_path: expected-results/fraud_investigation.md
+evaluation_path: evaluations/rubric.yaml
+terminology_path: terminology/glossary.md
+responsible_ai_path: responsible-ai/notice.md
+
+prohibited_actions:
+  - "Automatically freezing an account"
+  - "Automatically denying or reversing a transaction"
+  - "Automatically making a legal determination about fraud"
+  - "Automatically scoring an individual's creditworthiness"
+
+human_approval_rules:
+  - action: freeze_account
+    reason: "Freezing an account has direct customer impact and may have legal implications."
+    required_approver_role: fraud_analyst
+  - action: close_fraud_case
+    reason: "Closing a fraud case affects customer records and compliance reporting."
+    required_approver_role: compliance_officer

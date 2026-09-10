@@ -1,0 +1,14 @@
+Industry IQ Platform Accelerator
+Copyright (c) 2026 Yasuki Takami
+
+このプロジェクトは MIT License の下で提供されています（LICENSE を参照）。
+
+第三者ソフトウェアの通知:
+Phase 1 時点では、本リポジトリの実行時依存関係は次の通りです。依存関係を追加した場合は、このファイルを更新してください。
+
+- pydantic (MIT License)
+- PyYAML (MIT License)
+- pytest (MIT License, 開発時のみ)
+- ruff (MIT License, 開発時のみ)
+
+本アクセラレータは Microsoft の公式製品ではありません。Microsoft 製品名・サービス名は各社の商標です。

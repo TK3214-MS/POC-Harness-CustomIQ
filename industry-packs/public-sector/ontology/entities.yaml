@@ -1,0 +1,35 @@
+entity_types:
+  - name: SyntheticCitizen
+    description: A fully synthetic citizen. Not a real person.
+    identifier_field: citizen_id
+    dataset_key: citizens
+    fields: [citizen_id, note]
+  - name: Agency
+    description: A synthetic government agency.
+    identifier_field: agency_id
+    dataset_key: agencies
+    fields: [agency_id, name]
+  - name: Case
+    description: A synthetic administrative case involving a SyntheticCitizen and handled by an Agency.
+    identifier_field: case_id
+    dataset_key: cases
+    fields: [case_id, citizen_id, agency_id, case_type, status, opened_at]
+  - name: Application
+    description: A synthetic application submitted as part of a Case.
+    identifier_field: application_id
+    dataset_key: applications
+    fields: [application_id, case_id, application_type, status, submitted_at]
+
+relationships:
+  - name: involves
+    subject_type: Case
+    object_type: SyntheticCitizen
+    description: Case involves a SyntheticCitizen.
+  - name: handledBy
+    subject_type: Case
+    object_type: Agency
+    description: Case is handled by an Agency.
+  - name: partOf
+    subject_type: Application
+    object_type: Case
+    description: Application is part of a Case.

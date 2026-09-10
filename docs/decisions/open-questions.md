@@ -1,0 +1,20 @@
+# Open Questions
+
+Status: Unresolved items that need a human decision (stakeholder, product owner, or Microsoft account team). None of these are blocking Phase 0/1/2 work — each has a documented interim default (see [assumptions.md](./assumptions.md)) so implementation can continue, but the answer may change downstream contracts.
+
+| # | Question | Interim default in use | Impacts | Blocking for phase |
+|---|---|---|---|---|
+| Q1 | Should documentation be English-only or bilingual EN/JA? | RESOLVED (2026-09-08): Japanese only, for now. | All docs, README, self-guided demo | Phase 6 |
+| Q2 | Is there a preferred implementation stack other than Python (e.g., .NET for MCP backend, TypeScript for demo UI)? | RESOLVED (2026-09-08): All Python. | Repo skeleton, CI, contracts | Phase 1 |
+| Q3 | Do we have (or will we get) an actual Microsoft Copilot Studio environment, Foundry IQ knowledge base, and Fabric workspace to validate Live adapters against? | RESOLVED (2026-09-08): Assume the real products/solutions (Copilot Studio, Work IQ, Foundry IQ, Fabric IQ) will be available. Any SaaS-side configuration/setup required must be documented in the SaaS Configuration Guide (§20). | Phase 4 scope and credibility of "Ready" health-check states | Phase 4 |
+| Q4 | Which Azure subscription/tenant (if any) will host the deployed demo environment for Hybrid/Full SaaS mode testing? | RESOLVED (2026-09-08): A test Azure subscription will be used; design so Full Hybrid Mode testing (and Full SaaS Mode where feasible) is possible against it. | Deployment guide, cost analysis realism | Phase 5 |
+| Q5 | Is a GitHub Actions CI environment available/authorized for this repo, or should CI config be authored but not activated? | RESOLVED (2026-09-08): CI is available and will be used; document required CI configuration (secrets, environments, etc.) as it comes up. | CI, security scanning cadence | Phase 5 |
+| Q6 | Should Healthcare/Public Sector/Financial Services packs include a disclaimer banner rendered in every UI surface, or only in the final agent response schema (item 13/12)? | RESOLVED (2026-09-08): Default — render in both the agent response schema and CLI/UI banner. | Industry Pack contract, demo-ui | Phase 3 |
+| Q7 | What is the expected audience literacy level for the 30-minute demo — technical (developer) or mixed (exec + technical)? | RESOLVED (2026-09-08): Mixed audience. | Self-guided demo docs, presenter notes | Phase 6 |
+| Q8 | Should Capability Registry values (license/role/region) be periodically re-verified by an automated doc-scraper, or is manual quarterly review acceptable? | RESOLVED (2026-09-08): Default — manual review only; `last_verified_date` field tracks staleness. | Capability Registry maintenance process | Phase 4+ |
+| Q9 | Is there an existing corporate style guide/naming convention (e.g., internal Microsoft accelerator naming rules) this repo must follow? | RESOLVED (2026-09-08): Default — none known; use section 15's structure verbatim. | Repo structure, README branding | Phase 1 |
+| Q10 | Should synthetic data volumes target "just enough for demo" (tens of records) or "realistic scale" (thousands of records) for performance/evaluation testing? | RESOLVED (2026-09-08): Realistic scale — thousands of records per entity type. | Sample data generators, evaluation tests | Phase 2 |
+
+All ten initial open questions are resolved as of 2026-09-08. New questions should be appended as additional numbered rows below.
+
+Add new rows as they arise; do not delete resolved rows — mark them `RESOLVED (date): <decision>` in the "Interim default" column instead, to preserve decision history.

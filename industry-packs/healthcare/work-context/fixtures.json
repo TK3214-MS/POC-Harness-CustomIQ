@@ -1,0 +1,24 @@
+{
+  "messages": [
+    {
+      "id": "MSG-001",
+      "channel": "email",
+      "subject": "Re: Case history review",
+      "from": "Care Coordinator (synthetic)",
+      "body": "Reviewing the synthetic case history to confirm all encounters are documented before the next follow-up.",
+      "tags": ["case_history", "review"]
+    }
+  ],
+  "meetings": [
+    {
+      "id": "MTG-001",
+      "title": "Weekly Care Team Huddle (synthetic)",
+      "summary": "Discussed documentation completeness for a synthetic case; no clinical decisions were made in this meeting record.",
+      "tags": ["case_history", "documentation"]
+    }
+  ],
+  "people": [
+    {"role": "Care Coordinator", "note": "Synthetic role placeholder, not a real person."},
+    {"role": "Attending Clinician", "note": "Synthetic role placeholder, not a real person."}
+  ]
+}

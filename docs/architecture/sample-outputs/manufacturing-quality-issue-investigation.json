@@ -1,0 +1,105 @@
+{
+  "executive_summary": "Investigated quality issue QI-00001 (Seal leakage detected during pressure test) at Aurelport Plant 1, affecting part Valve Body 1 supplied by Northfield Components Co. #3.",
+  "confirmed_facts": [
+    "Quality issue QI-00001 was detected on 2026-06-04 with severity 'low'.",
+    "Defect rate is 9.25%.",
+    "Issue affects part PART-00001 supplied by Northfield Components Co. #3 (SUP-0003).",
+    "Issue was observed at factory Aurelport Plant 1."
+  ],
+  "data_sources_used": [
+    "simulated_work_context_adapter",
+    "mock_knowledge_adapter",
+    "mock_semantic_adapter",
+    "mcp_backend (mock)"
+  ],
+  "documents_and_citations": [
+    {
+      "document_id": "quality_control_procedure",
+      "title": "Quality Control Procedure",
+      "source_type": "markdown",
+      "source_uri": "mock://knowledge/quality_control_procedure.md",
+      "citation": "Quality Control Procedure (synthetic reference document)",
+      "retrieval_score": 0.8,
+      "adapter_mode": "mock"
+    },
+    {
+      "document_id": "supplier_quality_manual",
+      "title": "Supplier Quality Manual",
+      "source_type": "markdown",
+      "source_uri": "mock://knowledge/supplier_quality_manual.md",
+      "citation": "Supplier Quality Manual (synthetic reference document)",
+      "retrieval_score": 0.6,
+      "adapter_mode": "mock"
+    },
+    {
+      "document_id": "engineering_change_process",
+      "title": "Engineering Change Process",
+      "source_type": "markdown",
+      "source_uri": "mock://knowledge/engineering_change_process.md",
+      "citation": "Engineering Change Process (synthetic reference document)",
+      "retrieval_score": 0.52,
+      "adapter_mode": "mock"
+    }
+  ],
+  "entities_and_relationships": [
+    {
+      "subject": "QI-00001",
+      "relationship": "affects",
+      "object": "PART-00001",
+      "source": "mock_semantic_adapter"
+    },
+    {
+      "subject": "QI-00001",
+      "relationship": "observedAt",
+      "object": "FAC-001",
+      "source": "mock_semantic_adapter"
+    },
+    {
+      "subject": "SUP-0003",
+      "relationship": "supplies",
+      "object": "PART-00001",
+      "source": "mock_semantic_adapter"
+    }
+  ],
+  "mcp_tool_results": [
+    {
+      "tool_name": "get_part_traceability",
+      "status": "ok",
+      "summary": "Part Valve Body 1 supplied by Northfield Components Co. #3.",
+      "adapter_mode": "mock"
+    },
+    {
+      "tool_name": "get_engineering_changes",
+      "status": "ok",
+      "summary": "0 engineering change(s) found.",
+      "adapter_mode": "mock"
+    },
+    {
+      "tool_name": "recommend_quality_actions",
+      "status": "ok",
+      "summary": "Defect rate is high - recommend a supplier audit for the responsible part.; No engineering change exists yet - recommend opening one for engineering review.",
+      "adapter_mode": "mock"
+    }
+  ],
+  "uncertainty_and_conflicts": [
+    "No engineering change has been created yet for this issue; root cause is not yet confirmed."
+  ],
+  "recommended_next_actions": [
+    "Defect rate is high - recommend a supplier audit for the responsible part.",
+    "No engineering change exists yet - recommend opening one for engineering review."
+  ],
+  "human_in_the_loop_requirements": [
+    "A quality engineer must review and approve any recommended action before implementation.",
+    "Closing this quality issue requires quality_engineer approval (see manifest.yaml human_approval_rules)."
+  ],
+  "iq_layers_used": [
+    "Work IQ (simulated)",
+    "Foundry IQ (mock)",
+    "Fabric IQ (mock)",
+    "MCP Backend (mock)"
+  ],
+  "execution_mode": "local_preview",
+  "mock_or_simulation_disclosure": "Local Preview Mode: all data in this response is synthetic. Work IQ ran in simulated mode; Foundry IQ and Fabric IQ ran in mock mode; the MCP Backend served mock data. Nothing here reflects a real Microsoft SaaS environment. See docs/decisions/product-verification.md.",
+  "responsible_ai_notice": "This response is generated from synthetic Manufacturing data in Local Preview Mode. It is a decision-support aid only; it does not automate manufacturing safety, compliance, or quality-release decisions. A qualified quality engineer must review and approve any recommended action before implementation.",
+  "trace_or_correlation_id": "a7177b29-3ab9-4755-b59f-7095897081dd"
+}

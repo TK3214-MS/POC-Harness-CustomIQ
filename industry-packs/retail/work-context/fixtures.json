@@ -1,0 +1,33 @@
+{
+  "messages": [
+    {
+      "id": "MSG-001",
+      "channel": "email",
+      "subject": "Re: Low stock alert",
+      "from": "Store Manager (synthetic)",
+      "body": "We are seeing a demand spike on one of our products and stock is running low. Can we get a reorder review?",
+      "tags": ["inventory", "demand", "escalation"]
+    },
+    {
+      "id": "MSG-002",
+      "channel": "teams_chat",
+      "subject": "Merchandising follow-up",
+      "from": "Merchandising Analyst (synthetic)",
+      "body": "Reviewing the demand signal now before recommending a reorder quantity.",
+      "tags": ["inventory", "merchandising"]
+    }
+  ],
+  "meetings": [
+    {
+      "id": "MTG-001",
+      "title": "Weekly Inventory Review (synthetic)",
+      "summary": "Discussed a demand spike for one product at one store; agreed to review reorder quantity with the inventory manager.",
+      "tags": ["inventory", "demand"]
+    }
+  ],
+  "people": [
+    {"role": "Store Manager", "note": "Synthetic role placeholder, not a real person."},
+    {"role": "Merchandising Analyst", "note": "Synthetic role placeholder, not a real person."},
+    {"role": "Inventory Manager", "note": "Synthetic role placeholder, not a real person."}
+  ]
+}

@@ -1,0 +1,39 @@
+entity_types:
+  - name: Customer
+    description: A synthetic bank customer.
+    identifier_field: customer_id
+    dataset_key: customers
+    fields: [customer_id, display_name, segment]
+  - name: Account
+    description: An account owned by a Customer.
+    identifier_field: account_id
+    dataset_key: accounts
+    fields: [account_id, customer_id, account_type, opened_at]
+  - name: Transaction
+    description: A transaction posted against an Account.
+    identifier_field: transaction_id
+    dataset_key: transactions
+    fields: [transaction_id, account_id, amount, currency, merchant, transaction_type, occurred_at]
+  - name: FraudCase
+    description: A fraud investigation case opened against a flagged Transaction.
+    identifier_field: case_id
+    dataset_key: fraud_cases
+    fields: [case_id, transaction_id, account_id, status, risk_score, opened_at]
+
+relationships:
+  - name: owns
+    subject_type: Customer
+    object_type: Account
+    description: Customer owns an Account.
+  - name: has
+    subject_type: Account
+    object_type: Transaction
+    description: Account has a Transaction posted against it.
+  - name: flags
+    subject_type: FraudCase
+    object_type: Transaction
+    description: FraudCase flags a Transaction.
+  - name: relatesTo
+    subject_type: FraudCase
+    object_type: Account
+    description: FraudCase relates to an Account.

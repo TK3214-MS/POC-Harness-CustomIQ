@@ -1,0 +1,7 @@
+prompts:
+  - id: quality-issue-investigation
+    text: "Investigate the most recent quality issue and recommend next actions."
+    scenario: manufacturing-quality-issue-investigation
+  - id: quality-issue-investigation-by-id
+    text: "Investigate quality issue {issue_id} and recommend next actions."
+    scenario: manufacturing-quality-issue-investigation

@@ -1,0 +1,41 @@
+id: manufacturing
+display_name: Manufacturing
+version: 0.1.0
+description: >-
+  Manufacturing Industry Pack for the Industry IQ Platform Accelerator. Standard
+  scenario: Manufacturing Quality Issue Investigation. All data is synthetic
+  (see instruction section 23 / SECURITY.md).
+default_scenario: quality-issue-investigation
+
+# NOTE: ontology_path and semantic_model_path intentionally point at the same
+# file in this Phase 2 minimal pack (entity/relationship schema doubles as the
+# semantic model for now). They may diverge once a real semantic-measures layer
+# is added.
+ontology_path: ontology/entities.yaml
+semantic_model_path: ontology/entities.yaml
+
+sample_data_path: data/generator.py
+knowledge_path: knowledge/
+work_context_path: work-context/fixtures.json
+mcp_tools_path: tools/manufacturing_tools.py
+semantic_relationships_path: semantics/manufacturing_semantics.py
+scenario_module_path: agents/scenario.py
+agent_instructions_path: agents/investigation_agent_instructions.md
+demo_prompts_path: prompts/demo_prompts.yaml
+expected_results_path: expected-results/quality_issue_investigation.md
+evaluation_path: evaluations/rubric.yaml
+terminology_path: terminology/glossary.md
+responsible_ai_path: responsible-ai/notice.md
+
+prohibited_actions:
+  - "Automatically closing a quality issue without human review"
+  - "Automatically approving an engineering change"
+  - "Automatically initiating a product recall"
+
+human_approval_rules:
+  - action: close_quality_issue
+    reason: "Closing a quality issue affects production release decisions."
+    required_approver_role: quality_engineer
+  - action: approve_engineering_change
+    reason: "Engineering changes affect part specifications and safety."
+    required_approver_role: engineering_lead

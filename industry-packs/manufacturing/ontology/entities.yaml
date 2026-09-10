@@ -1,0 +1,57 @@
+entity_types:
+  - name: Factory
+    description: A synthetic manufacturing plant.
+    identifier_field: factory_id
+    dataset_key: factories
+    fields: [factory_id, name, location]
+  - name: ProductionLine
+    description: A production line within a Factory.
+    identifier_field: line_id
+    dataset_key: production_lines
+    fields: [line_id, factory_id, name]
+  - name: Supplier
+    description: A synthetic parts supplier.
+    identifier_field: supplier_id
+    dataset_key: suppliers
+    fields: [supplier_id, name, region, reliability_score]
+  - name: Part
+    description: A part sourced from a Supplier and used in one or more ProductionLines.
+    identifier_field: part_id
+    dataset_key: parts
+    fields: [part_id, name, supplier_id, used_in_line_ids]
+  - name: QualityIssue
+    description: A quality issue detected for a Part at a Factory.
+    identifier_field: issue_id
+    dataset_key: quality_issues
+    fields: [issue_id, part_id, factory_id, summary, severity, status, defect_rate_percent, detected_at]
+  - name: EngineeringChange
+    description: An engineering change opened to address a QualityIssue.
+    identifier_field: change_id
+    dataset_key: engineering_changes
+    fields: [change_id, issue_id, description, status, created_at]
+
+relationships:
+  - name: produces
+    subject_type: Factory
+    object_type: ProductionLine
+    description: Factory operates a ProductionLine.
+  - name: supplies
+    subject_type: Supplier
+    object_type: Part
+    description: Supplier supplies a Part.
+  - name: usedIn
+    subject_type: Part
+    object_type: ProductionLine
+    description: Part is used in a ProductionLine.
+  - name: affects
+    subject_type: QualityIssue
+    object_type: Part
+    description: QualityIssue affects a Part.
+  - name: observedAt
+    subject_type: QualityIssue
+    object_type: Factory
+    description: QualityIssue was observed at a Factory.
+  - name: addresses
+    subject_type: EngineeringChange
+    object_type: QualityIssue
+    description: EngineeringChange addresses a QualityIssue.

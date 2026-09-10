@@ -1,0 +1,7 @@
+prompts:
+  - id: case-investigation
+    text: "Investigate the most recent case and recommend next review steps."
+    scenario: public-sector-case-investigation
+  - id: case-investigation-by-id
+    text: "Investigate case {case_id} and recommend next review steps."
+    scenario: public-sector-case-investigation

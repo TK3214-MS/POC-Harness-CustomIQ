@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test / lint / type-check caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Secrets / environment
+.env
+.env.local
+*.env
+
+# Node (apps/demo-ui, future)
+node_modules/
+
+# IaC local state (never commit real state files)
+deployment/terraform/**/.terraform/
+deployment/terraform/**/*.tfstate
+deployment/terraform/**/*.tfstate.*
+deployment/bicep/**/*.bicep.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Logs and generated demo output
+*.log
+scripts/demo/output/

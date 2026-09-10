@@ -1,0 +1,24 @@
+{
+  "messages": [
+    {
+      "id": "MSG-001",
+      "channel": "email",
+      "subject": "Re: Case follow-up needed",
+      "from": "Case Officer (synthetic)",
+      "body": "One of our cases has an application pending more information - following up with the citizen before proceeding.",
+      "tags": ["case", "application", "follow_up"]
+    }
+  ],
+  "meetings": [
+    {
+      "id": "MTG-001",
+      "title": "Weekly Case Review (synthetic)",
+      "summary": "Discussed pending cases; agreed no decisions would be finalized without supervisor sign-off.",
+      "tags": ["case", "review"]
+    }
+  ],
+  "people": [
+    {"role": "Case Officer", "note": "Synthetic role placeholder, not a real person."},
+    {"role": "Case Supervisor", "note": "Synthetic role placeholder, not a real person."}
+  ]
+}
