@@ -1,6 +1,6 @@
 # Live Adapter 設定ガイド（Copilot Studio / Work IQ / Foundry IQ / Fabric IQ）
 
-> **最終確認日**: 一部確認済み(2026-09-10、下記参照)。このガイドはこのリポジトリの Live Adapter(`iq_platform/adapters/*/live_adapter.py`)向けの環境変数設定に焦点を当てています。**実際に Fabric IQ / Foundry IQ / Work IQ を SaaS 側で構築し、Copilot Studio エージェントの Tool として接続する詳細手順は [docs/setup/Production-SaaS-Environment-Setup-Guide.md](Production-SaaS-Environment-Setup-Guide.md) にまとめました**(2026-09-10 に実際の Microsoft Learn ドキュメントを調査して作成)。
+> **用途**: このガイドはLocal Preview内部のLive Adapterスキャフォールドを確認するためのものです。Copilot StudioのGitHub Copilot harnessからFabric IQ、Foundry IQ、Work IQへ直接接続する本番構成では、このガイドのIQ用環境変数・Adapter設定は使用しません。SaaS側の構築とCopilot Studio接続は [docs/setup/Production-SaaS-Environment-Setup-Guide.md](Production-SaaS-Environment-Setup-Guide.md) を参照してください。
 >
 > このガイドは [ADR-0013](../decisions/0013-live-adapter-verification-required-scaffold.md) の設計に基づき、**今すぐ実施可能な部分（Entra ID アプリ登録、環境変数設定）** と **未検証で後から埋める部分（各 Microsoft 製品固有の手順）** を明確に分離しています。
 

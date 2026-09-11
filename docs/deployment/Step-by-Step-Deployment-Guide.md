@@ -112,18 +112,22 @@ ENTRA_CLIENT_SECRET=<クライアントシークレットの値>
 
 確認: `./scripts/demo/run-demo-cli.sh health` で Live Adapters の各行が `unavailable` から変化する(他の必須値が未設定なら `Missing required configuration` のまま)。
 
-## 8. ステップ7: Work IQ の設定
+## 8. ステップ7: Work IQ の設定(Local Preview用、Production SaaSでは不要)
 
-[docs/setup/live-adapters-configuration.md](../setup/live-adapters-configuration.md) の「Work IQ(未検証セクション)」節に従って、以下を `.env` に設定します。
+Copilot StudioからWork IQ (preview)を直接接続する本番構成では、以下のAdapter環境変数は設定しません。これらはLocal PreviewでLive Adapterの状態表示を確認する場合だけ使用します。本番のWork IQテナント有効化、M365データ・権限・spending policy、Copilot Studio接続は[Production SaaS Environment Setup Guide](../setup/Production-SaaS-Environment-Setup-Guide.md)のPart Cを実施してください。
+
+Local PreviewでAdapterの状態を確認する場合だけ、[live-adapters-configuration.md](../setup/live-adapters-configuration.md) のWork IQ節に従って以下を `.env` に設定します。
 ```
 WORK_IQ_WORKSPACE_ID=<実際のワークスペースID>
 WORK_IQ_AUTH_SCOPE=<実際に確認できた OAuth スコープ>  # 未設定(TBD プレースホルダー)のままだと health check は認証を試行しない
 ```
 ワークスペースIDの具体的な取得方法や必要な API アクセス許可は `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION`(製品仕様未検証のため)。確認: `./scripts/demo/run-demo-cli.sh health` で `Work IQ (live): verification_required` に変わる。
 
-## 9. ステップ8: Foundry IQ の設定
+## 9. ステップ8: Foundry IQ の設定(Local Preview用、Production SaaSでは不要)
 
-[docs/setup/live-adapters-configuration.md](../setup/live-adapters-configuration.md) の「Foundry IQ(未検証セクション)」節に従って、以下を `.env` に設定します。
+Copilot StudioからFoundry IQを直接接続する本番構成では、以下のAdapter環境変数は設定しません。Azure AI Search/Foundry側のKnowledge SourceとKnowledge Baseを作成し、Copilot Studioで完成済みKnowledge Baseを選択します。詳細は[Production SaaS Environment Setup Guide](../setup/Production-SaaS-Environment-Setup-Guide.md)のPart Bを実施してください。
+
+Local PreviewでAdapterの状態を確認する場合だけ、[live-adapters-configuration.md](../setup/live-adapters-configuration.md) のFoundry IQ節に従って以下を `.env` に設定します。
 ```
 FOUNDRY_IQ_PROJECT_ENDPOINT=<実際のプロジェクトエンドポイント>
 FOUNDRY_IQ_KNOWLEDGE_BASE_ID=<実際のナレッジベースID>
@@ -131,9 +135,11 @@ FOUNDRY_IQ_AUTH_SCOPE=<実際に確認できた OAuth スコープ>
 ```
 確認: `./scripts/demo/run-demo-cli.sh health` で `Foundry IQ (live): verification_required` に変わる。
 
-## 10. ステップ9: Fabric IQ の設定
+## 10. ステップ9: Fabric IQ の設定(Local Preview用、Production SaaSでは不要)
 
-[docs/setup/live-adapters-configuration.md](../setup/live-adapters-configuration.md) の「Fabric IQ(未検証セクション)」節に従って、以下を `.env` に設定します。
+Copilot StudioからFabric IQ MCP (Preview)を直接接続する本番構成では、以下のAdapter環境変数は設定しません。Fabric側でWorkspace、Lakehouse、Ontology、entity types、properties、relationships、data bindingを完成させ、Copilot StudioでFabric IQ MCP Toolを追加します。詳細は[Production SaaS Environment Setup Guide](../setup/Production-SaaS-Environment-Setup-Guide.md)のPart Aを実施してください。
+
+Local PreviewでAdapterの状態を確認する場合だけ、[live-adapters-configuration.md](../setup/live-adapters-configuration.md) のFabric IQ節に従って以下を `.env` に設定します。
 ```
 FABRIC_WORKSPACE_ID=<実際のワークスペースID>
 FABRIC_ONTOLOGY_ID=<実際のオントロジーID>

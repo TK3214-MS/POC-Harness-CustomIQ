@@ -35,6 +35,20 @@ flowchart TB
 
 **コストに関する注記**: このガイドで作成するリソース(Azure AI Search、Fabric 容量、Azure OpenAI 等)には課金が発生します。金額は本ガイドでは一切確定しません。[docs/cost/README.md](../cost/README.md) の方針に従い、実行前に Azure Pricing Calculator 等で見積もりを確認し、`docs/decisions/product-verification.md` にその結果を追記してください。
 
+### 1-1. 作業の境界と実行順序
+
+このガイドでは、**SaaS側の環境構成**と**Copilot Studio側の接続**を分けて扱います。Copilot Studioから3つのIQへ直接接続する本番経路では、本リポジトリのIQ用Live Adapterは使用しません。
+
+| 順序 | 担当領域 | 実施する作業 | 完了条件 |
+|---|---|---|---|
+| 1 | Fabric側 | Workspace・Lakehouse、managed table、Ontology item、entity type、property、relationship、data bindingを作成 | Ontologyのentity type detailsでインスタンスとグラフを確認できる |
+| 2 | Foundry/Azure側 | Azure AI Search、Knowledge Source、文書インデックス、Knowledge Base、検索/回答設定を作成 | Knowledge BaseのPlayground/Retrieveで引用付き回答を確認できる |
+| 3 | Work IQ/Microsoft 365側 | Work IQテナント有効化、Copilot Studio課金、spending policy、M365側のユーザー権限・対象データを確認 | テストユーザーが対象メール・予定表・Teamsデータを通常のM365権限で参照できる |
+| 4 | Copilot Studio側 | GitHub Copilot harnessエージェントにFabric IQ MCP、Foundry IQ、Work IQ (preview)を追加し、接続同意とテストを実施 | Activity traceで各Toolの呼び出しと応答を確認できる |
+| 5 | 本リポジトリ | 必要な場合だけ、独自業務ツールを提供するMCP Backendを追加 | Copilot Studioが`/mcp`でtools/listとtools/callを完了できる |
+
+Fabric/Foundry/Work IQの接続先を使うためだけに、`iq_platform/adapters/*/live_adapter.py`の環境変数や`query()`を設定する必要はありません。AdapterはLocal Previewの内部抽象として残っていますが、この本番構成のデータ経路には入りません。
+
 ---
 
 ## Part A: Fabric IQ(Ontology / Fabric Data Agent)の構築
@@ -50,6 +64,8 @@ Fabric IQ の Ontology(プレビュー)アイテムを使うには、Fabric ワ�
    - **パイプラインでのコピー**: **+ New item** → **Pipeline** → **Copy data** アクティビティで、任意のソース(Azure Blob 等)から Lakehouse の `Files` 配下にコピーします。([Lakehouse tutorial - Ingest data](https://learn.microsoft.com/en-us/fabric/data-engineering/tutorial-lakehouse-data-ingestion) — このチュートリアルは Microsoft 提供の公開サンプルデータ `https://fabrictutorialdata.blob.core.windows.net/sampledata/`(Wide World Importers)を使う例で、匿名認証で接続可能です。本リポジトリの合成データ(`industry-packs/*/sample-data/` 生成物)を使う場合は、まず任意の Blob Storage コンテナーにアップロードしてから同様にコピーしてください)。
    - **直接アップロード**: Lakehouse Explorer の **Files** に直接ファイルをアップロードし、テーブルとして読み込む方法もあります(具体的なクリック手順は [Load data into a lakehouse](https://learn.microsoft.com/en-us/fabric/data-engineering/load-data-lakehouse) を参照 — このリポジトリでは未確認、`TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION`)。
 3. Ontology のデータバインドは **managed** な Lakehouse テーブル(OneLake セキュリティ無効・列マッピング無効)のみサポートされるため([Bind Data の制限事項](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-bind-data#limitations-and-troubleshooting))、生ファイルのままではなく **テーブルとして読み込む** 必要があります。
+
+ここがFabric側で行うサンプルデータ登録の実体です。`industry-packs/*/sample-data/` のファイルをFilesに置くだけではOntologyから利用できないため、対象データをLakehouseのmanaged tableへ変換・ロードし、Ontologyのentity type keyとプロパティへ列を割り当てます。登録完了の判定は、ファイルの存在ではなく、entity type detailsのInstancesとOverview/Graphで期待する行・関係が見えることです。
 
 ### A-3. Ontology(プレビュー)アイテムの作成とエンティティ型の定義
 
@@ -157,6 +173,8 @@ Ontologyを他のMCPクライアントから使う場合の公式Endpointは `ht
 
    これにより、データソース・スキルセット(チャンク化・ベクトル化)・インデックス・インデクサーが自動生成されます。作成後、`GET {{search-endpoint}}/knowledgesources/my-blob-ks/status` で取り込み状況(`itemUpdatesProcessed`/`itemsUpdatesFailed`)を確認できます。
 
+Foundry側での「ナレッジ登録」は、Blobへファイルを置くだけでは完了しません。Knowledge Sourceの作成、取り込みパイプラインの完了、生成されたインデックスの確認、Knowledge BaseへのKnowledge Source追加、検索計画・回答生成の設定、テスト質問と引用の確認までを実施します。複数の業務領域を登録する場合は、Knowledge Sourceを分けるか、1つのKnowledge Baseにまとめるかを先に決め、Copilot Studio側ではKnowledge Baseを作り直さず、完成済みのKnowledge Baseだけを選択します。
+
 他の Knowledge Source 種別(Azure SQL・File・OneLake・SharePoint・Fabric Data Agent・Fabric Ontology・MCP server・Web)も同じ仕組みでサポートされています([What is a Knowledge Source?](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-overview) の一覧表参照)。**Fabric Data Agent / Fabric Ontology を Knowledge Source として Foundry IQ に取り込むことも可能**です(Part A で作成したアイテムをここに接続する代替経路)。
 
 ### B-3. Knowledge Base の作成とFoundry側の検証
@@ -208,6 +226,18 @@ Foundryポータルを使う場合は、**Build > Knowledge > Create knowledge b
 
 - **Graph Explorer**: POST `https://graph.microsoft.com/v1.0/servicePrincipals`、リクエストボディ `{"appId": "fdcc1f02-fc51-4226-8753-f668596af7f7"}`。`201 Created` で成功、既存なら競合エラー。
 - **Azure CLI**: `az ad sp create --id fdcc1f02-fc51-4226-8753-f668596af7f7`
+
+### C-1-1. Microsoft 365側のデータと権限を準備する
+
+Work IQでは、Fabric LakehouseやFoundry BlobのようにデータをWork IQへアップロード・インデックス登録する作業は行いません。Work IQはユーザーのMicrosoft 365データを権限付きで参照するため、SaaS側で必要なのは**テストユーザーが実際に参照できるM365データを用意し、管理ポリシーと課金を設定すること**です。
+
+1. テスト用ユーザーを用意し、対象ユーザーがExchange Onlineのメール・予定表、Microsoft Teamsのメッセージ、SharePoint/OneDriveの文書など、検証したいM365データへ通常のMicrosoft 365権限でアクセスできることを確認する。
+2. テスト用のメール、会議、Teams会話、SharePoint/OneDrive文書を、機密情報を含まない検証用データとして準備する。Work IQへ別途アップロードするのではなく、各M365サービス側に保存する。
+3. Microsoft 365 admin centerの **Agents > Tools > Work IQ MCP** でテナントポリシーを確認する。読み取りテストは既定の読み取り専用で開始し、メール送信・予定作成等の書き込み操作は本番検証で必要な場合に限って管理者承認後に有効化する。
+4. Work IQ用のspending policyを作成し、利用者・利用量・上限を組織の運用ルールに合わせて設定する。課金ポリシーの具体的な金額・地域条件は、現行のMicrosoft公式情報を確認する。
+5. テストユーザーでCopilot StudioからC-2の接続を作成し、読み取り質問を実行する。ユーザーがアクセスできないデータが返らないことも、権限トリミングの検証として確認する。
+
+このため、Work IQ側の登録完了条件は「Work IQへファイルを登録した」ではなく、テストユーザーのM365データがWork IQ (preview) Toolから、ユーザー権限の範囲内で取得できることです。
 
 ### C-2. Copilot Studio から Work IQ (preview) を追加する
 
@@ -314,8 +344,7 @@ Foundryポータルを使う場合は、**Build > Knowledge > Create knowledge b
 
 1. [docs/decisions/product-verification.md](../decisions/product-verification.md) — 各手順の実行結果(成功/失敗・所要時間・遭遇したエラー)を追記。
 2. [config/capabilities.yaml](../../config/capabilities.yaml) — `work_iq`/`foundry_iq`/`fabric_iq`/`harness.copilot_studio` の `status`/`last_verified_date` を実測結果で更新(GA/Preview 昇格には実日付と非 TBD の参照が必須、[ADR-0007](../decisions/0007-capability-registry-authority.md))。
-3. `iq_platform/adapters/*/live_adapter.py` の `query()` — 実際に検証された API 呼び出し(または MCP クライアント接続)に置き換える([ADR-0015](../decisions/0015-mcp-native-iq-layer-integration.md) の対応手順参照)。
-4. 本ガイド自体 — 「A-3 Ontology アイテムの新規作成」の **+ New item** ギャラリー項目名、Work IQ (preview) のテナント内表示・課金・Preview提供条件等、未確認と明記した箇所を実際の画面操作で確認し、確定情報に更新する。
+3. 本ガイド自体 — 「A-3 Ontology アイテムの新規作成」の **+ New item** ギャラリー項目名、Work IQ (preview) のテナント内表示・課金・Preview提供条件等、未確認と明記した箇所を実際の画面操作で確認し、確定情報に更新する。
 
 ## 4. 出典一覧(2026-09-10 取得)
 
