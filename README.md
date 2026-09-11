@@ -19,7 +19,6 @@ Fabric IQ、Foundry IQ、Work IQをMicrosoft Copilot StudioのGitHub Copilot har
 
 本リポジトリが提供するものは、Industry Pack、MCP Tool契約、MCP Backend、Azureデプロイ定義、テストです。Fabric IQ、Foundry IQ、Work IQのSaaS側構成と、IQデータの取得は各SaaS管理画面およびCopilot Studioが担当します。
 
-
 ## 開発者向け確認
 
 MCP BackendやIndustry Packを変更した場合:
@@ -32,14 +31,11 @@ ruff check .
 pytest tests/
 ```
 
-MCP BackendのAzureデプロイ定義は [deployment/README.md](docs/deployment/README.md) を参照してください。
+MCP BackendのAzureデプロイ定義は [本番環境構築ガイド](docs/Production-Environment-Setup.md) と [Bicep README](deployment/bicep/README.md) を参照してください。
 
 ## 設計・検証記録
 
 - [本番環境構築ガイド](docs/Production-Environment-Setup.md)
-- [アーキテクチャガイド](docs/architecture/architecture-guide.md)
-- [製品検証台帳](docs/decisions/product-verification.md)
-- [既知の制限事項](docs/Known-Limitations.md)
 - [MCP設計ガイド](docs/mcp/MCP-Design-and-Contract-Guide.md)
 
 ## ライセンス

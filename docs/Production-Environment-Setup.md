@@ -69,7 +69,7 @@ pytest tests/
 サンプルデータを投入しなくても、空のSaaS環境とCopilot Studio接続の確認は実施できます。回答内容まで検証する場合は、各Industry Packの`sample-data/`を使用してください。すべて合成データであり、実在の個人、企業、患者、顧客、口座、住民、従業員の情報は含めません。
 
 | 業界 | Fabric投入用CSV | Foundry用ナレッジ | Work IQ用M365テンプレート |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Manufacturing | `industry-packs/manufacturing/sample-data/fabric/quality_issues.csv` | `industry-packs/manufacturing/knowledge/` | `industry-packs/manufacturing/sample-data/work-iq/` |
 | Financial Services | `industry-packs/financial-services/sample-data/fabric/fraud_cases.csv` | `industry-packs/financial-services/knowledge/` | `industry-packs/financial-services/sample-data/work-iq/` |
 | Retail | `industry-packs/retail/sample-data/fabric/inventory_records.csv` | `industry-packs/retail/knowledge/` | `industry-packs/retail/sample-data/work-iq/` |
@@ -83,7 +83,7 @@ pytest tests/
 各Packには、既存generatorから再現可能なenterprise規模のCSVと、業界5シナリオ×10件、合計50件のpromptライブラリを用意しています。
 
 | 業界 | Enterprise CSV | Foundry JSONL | Promptライブラリ | レコード規模の目安 |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Manufacturing | `sample-data/fabric/enterprise/` | `sample-data/foundry/enterprise/records.jsonl` | `sample-data/prompts/enterprise_prompts.yaml` | 約23,000行 |
 | Financial Services | `sample-data/fabric/enterprise/` | `sample-data/foundry/enterprise/records.jsonl` | `sample-data/prompts/enterprise_prompts.yaml` | 約65,000行 |
 | Retail | `sample-data/fabric/enterprise/` | `sample-data/foundry/enterprise/records.jsonl` | `sample-data/prompts/enterprise_prompts.yaml` | 約160,000行 |
@@ -236,9 +236,9 @@ Blob以外にAzure SQL、OneLake、SharePoint、Fabric Data Agent、Fabric Ontol
 az ad sp create --id fdcc1f02-fc51-4226-8753-f668596af7f7
 ```
 
-3. Microsoft 365 admin centerのWork IQ MCP設定が利用可能になることを確認する。
-4. Work IQ用のspending policyを作成する。
-5. Work IQ MCP policyを確認する。読み取り専用を初期値とし、書き込み操作は明示的な承認がある場合だけ有効化する。
+1. Microsoft 365 admin centerのWork IQ MCP設定が利用可能になることを確認する。
+2. Work IQ用のspending policyを作成する。
+3. Work IQ MCP policyを確認する。読み取り専用を初期値とし、書き込み操作は明示的な承認がある場合だけ有効化する。
 
 参照:
 
@@ -323,7 +323,7 @@ IQのデータ取得は上記のCopilot Studio Toolが担当します。本リ�
 業界別のサンプルToolは次のPackに含まれています。
 
 | 業界 | サンプルTool実装 | 主なサンプルdataset |
-|---|---|---|
+| --- | --- | --- |
 | Manufacturing | `industry-packs/manufacturing/tools/manufacturing_tools.py` | Factory、ProductionLine、Supplier、Part、QualityIssue、EngineeringChange |
 | Financial Services | `industry-packs/financial-services/tools/financial_services_tools.py` | Customer、Account、Transaction、FraudCase |
 | Retail | `industry-packs/retail/tools/retail_tools.py` | Store、Product、InventoryRecord、Order、DemandSignal |
@@ -339,7 +339,7 @@ IQのデータ取得は上記のCopilot Studio Toolが担当します。本リ�
 
 現時点の`run_dev_server.py`は、5業界のうちManufacturingの合成datasetを使って共通Backendを起動する開発用サンプルです。これは顧客Business Systemへの接続完了を意味しません。
 
-1. [deployment/README.md](deployment/README.md)のazd/Bicep手順でMCP Backendをデプロイする。
+1. [deployment/bicep/README.md](../deployment/bicep/README.md)と[deployment/azd/README.md](../deployment/azd/README.md)の手順でMCP Backendをデプロイする。
 2. HTTPSの`/mcp` endpointを公開する。
 3. Copilot Studioの**Tools > Add Tool > Model Context Protocol**から、MCP BackendのURLを追加する。
 4. `tools/list`で期待するIndustry Packのツールが表示されることを確認する。
@@ -348,7 +348,7 @@ IQのデータ取得は上記のCopilot Studio Toolが担当します。本リ�
 ## 7. 最終検証
 
 | 検証対象 | 合格条件 |
-|---|---|
+| --- | --- |
 | Fabric IQ | OntologyのInstances/Graphが表示され、Copilot Studioから業務概念で回答できる |
 | Foundry IQ | Knowledge Baseの回答に登録文書の引用が含まれる |
 | Work IQ | テストユーザーがアクセス可能なメール・予定表・Teamsデータだけが返る |

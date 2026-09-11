@@ -1,6 +1,6 @@
 # MCP Backend ドキュメント インデックス
 
-このフォルダは、本アクセラレータの MCP（Model Context Protocol 相当の内部呼称。実際の MCP プロトコル仕様との対応関係は `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION`、[docs/decisions/product-verification.md](../decisions/product-verification.md) 参照）Backend（`services/mcp-backend/`）に関するドキュメントの入口です。MCP Backend は、外部システム・業務データ・業務アクションを標準化された Tool として公開する Integration and Action Layer であり、FastAPI で実装されています（[アーキテクチャガイド §2.3](../architecture/architecture-guide.md)）。
+このフォルダは、`services/mcp-backend/`のMCP Backendに関するドキュメントです。MCP Backendは顧客Business Systemを標準化されたToolとして公開するIntegration Layerであり、FastAPIと公式MCP SDKで実装されています。
 
 ## ドキュメント一覧
 
@@ -9,7 +9,4 @@
 
 ## 関連ドキュメント
 
-- [ADR-0006: MCP Tool response contract](../decisions/0006-mcp-tool-response-contract.md)
-- [ADR-0010: Industry Pack はプラグインとして動的ロードする](../decisions/0010-industry-pack-plugin-loading.md)
-- [ADR-0012: MCP Backend のデプロイターゲット](../decisions/0012-mcp-backend-deployment-target.md)
 - [本番環境構築ガイド](../Production-Environment-Setup.md) — Industry Pack ToolをCopilot Studioへ接続する手順

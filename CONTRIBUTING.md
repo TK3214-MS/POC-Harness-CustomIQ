@@ -4,9 +4,9 @@
 
 ## 開発の進め方
 
-1. 大きな設計判断は [docs/decisions/](docs/decisions/) に ADR として記録してください（テンプレートは既存の ADR ファイルを参照）。
-2. 未解決事項は、新しく作らず [docs/decisions/open-questions.md](docs/decisions/open-questions.md) に追記してください。製品仕様は[docs/decisions/product-verification.md](docs/decisions/product-verification.md)に記録してください。
-3. Microsoft 製品の仕様・ライセンス・価格・リージョン・GA/Preview 状態を推測で確定情報として書かないでください。不明な場合は `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` と明記し、[docs/decisions/product-verification.md](docs/decisions/product-verification.md) に追記してください。
+1. 大きな設計判断は、変更対象のドキュメントまたはコードの近くに記録してください。
+2. Microsoft製品の仕様・ライセンス・価格・リージョン・GA/Preview状態を推測で確定情報として書かないでください。不明な場合は `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` と明記してください。
+3. 未解決事項は、本番環境構築ガイドの対象手順に追記してください。
 4. Mock/Simulated な実装には、コード・ログ・回答のいずれにも Mock であることが分かる表示を必ず含めてください。
 5. 実装していない機能を README やドキュメントで完成済みと記載しないでください。
 6. コミット前に該当するテストを実行し、失敗したテストを削除・無効化して成功扱いにしないでください。
@@ -23,8 +23,8 @@ pytest
 
 ## コーディング規約
 
-- 実装言語は Python 3.11+ に統一します（[ADR-0002](docs/decisions/0002-python-primary-language.md)）。
-- パッケージ命名規則は [ADR-0009](docs/decisions/0009-python-package-naming.md) に従ってください（標準ライブラリの `platform` と衝突する名前を避ける）。
+- 実装言語は Python 3.11+ に統一します。
+- Pythonパッケージ名は標準ライブラリの`platform`と衝突しない名前を使用します。
 - Lint は `ruff` を使用します。
 
 ## テストの追加方針
@@ -50,4 +50,4 @@ python3 scripts/security/scan_secrets.py
 python3 scripts/validation/validate_synthetic_data.py
 ```
 
-いずれかが失敗する場合は、テストを削除・無効化して成功扱いにするのではなく、失敗の原因を修正するか、修正できない既知の制限として正直に報告してください（[docs/Known-Limitations.md](docs/Known-Limitations.md) 参照）。
+いずれかが失敗する場合は、テストを削除・無効化して成功扱いにせず、失敗の原因を修正するか、回答で正直に報告してください。

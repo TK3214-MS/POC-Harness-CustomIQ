@@ -6,6 +6,6 @@ FastAPI で実装する MCP Backend（Integration and Action Layer）。
 
 `services/mcp-backend/run_dev_server.py`でサンプルdatasetを使ったHTTPサーバーとして起動できます。Azureデプロイ後はCopilot Studioの汎用MCP Toolから`/mcp`へ接続します。
 
-内部の Python パッケージ名は `mcp_backend`（このフォルダ名 `mcp-backend` はケバブケースのままで問題ない。理由は [ADR-0009](../../docs/decisions/0009-python-package-naming.md) を参照）。`mcp_backend` はまだ pip パッケージとしてインストールされない（テストは `pyproject.toml` の `pythonpath` 経由で解決する）。
+内部のPythonパッケージ名は`mcp_backend`です。フォルダ名`mcp-backend`はデプロイ用コンテナ名として維持します。
 
 5業界のIndustry Packがそれぞれ独自の業務Toolを公開します。Toolの追加は各Packの`manifest.yaml`と`tools/*.py`で行い、Backend本体は変更しません。

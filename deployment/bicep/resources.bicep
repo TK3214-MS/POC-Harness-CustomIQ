@@ -15,7 +15,7 @@ param tags object = {}
 @description('Container image for the MCP Backend.')
 param mcpBackendImage string
 
-var containerRegistryName = 'acr${resourceToken}'
+var containerRegistryName = 'acrxx${resourceToken}'
 var logAnalyticsName = 'log-${resourceToken}'
 var containerAppsEnvironmentName = 'cae-${resourceToken}'
 var userAssignedIdentityName = 'id-${resourceToken}'
