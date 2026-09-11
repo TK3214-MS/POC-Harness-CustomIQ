@@ -29,10 +29,9 @@ build-backend = "setuptools.build_meta"
 include = ["iq_platform*"]
 
 [tool.pytest.ini_options]
-# apps/demo-cli and services/mcp-backend are not installed as packages (their
-# folder names are kebab-case per instruction section 15); pythonpath makes
-# demo_cli/mcp_backend importable for tests. See docs/decisions/0009 and 0010.
-pythonpath = [".", "apps/demo-cli", "services/mcp-backend"]
+# services/mcp-backend is not installed as a package because its folder name is
+# kebab-case; pythonpath makes mcp_backend importable for tests.
+pythonpath = [".", "services/mcp-backend"]
 testpaths = ["tests"]
 
 [tool.ruff]

@@ -32,7 +32,7 @@
 ## Option C: Hybrid Mode（MCP Backend デプロイ + 一部 Live Adapter 接続）
 
 - **内容**: Option B に加え、Work IQ / Foundry IQ / Fabric IQ のいずれか1つ以上を実 Microsoft SaaS 製品に接続する構成（[docs/decisions/open-questions.md](../decisions/open-questions.md) Q4 のテスト用 Azure サブスクリプションを利用）。
-- **現状の実装範囲**: Live Adapter は `verification_required` スキャフォールドまでの実装であり（[ADR-0013](../decisions/0013-live-adapter-verification-required-scaffold.md)）、`query()` は常に例外を送出するため、この Option C は**設計上は想定されているが、実際に「動作する」Hybrid Mode としては未実現**です。
+- **現状の実装範囲**: 本リポジトリが提供するのはMCP BackendとAzureデプロイ定義です。Fabric IQ、Foundry IQ、Work IQのSaaS利用料金・Copilot Credits・Fabric capacity・Azure AI Search・Storage等は、実環境の構成に応じて別途見積もります。
 - **追加コスト**: 各 Microsoft 製品（Work IQ / Foundry IQ / Fabric IQ）自体のライセンス費用・従量課金は、製品の存在・仕様自体が [docs/decisions/product-verification.md](../decisions/product-verification.md) の通り未検証であるため、完全に `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` です。
 - **想定コストドライバー（製品仕様確定後に埋めるべき項目)**: ライセンス階層、API 呼び出し回数課金の有無、テナント/ワークスペース単位の固定費用など。いずれも現時点では不明です。
 

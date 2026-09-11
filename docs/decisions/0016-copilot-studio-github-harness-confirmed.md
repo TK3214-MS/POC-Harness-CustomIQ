@@ -5,7 +5,7 @@
 
 ## コンテキスト
 
-[ADR-0015](0015-mcp-native-iq-layer-integration.md) は、Work IQ / Foundry IQ / Fabric IQ が実際に MCP ベースで統合されることを検証した一方、フェッチした3ページには "Copilot Studio" も "GitHub Copilot harness" も一切登場せず、代わりに "Microsoft Foundry Agent Service" が一貫してエージェントホストとして登場したため、[open-questions.md](open-questions.md) Q11 として「本番の対象は Copilot Studio か Foundry Agent Service か」を未解決事項とした。
+初期調査では、Work IQ / Foundry IQ / Fabric IQのMCP統合資料がFoundry Agent Serviceをホストとして説明していたため、[open-questions.md](open-questions.md) Q11として「本番の対象はCopilot StudioかFoundry Agent Serviceか」を未解決事項とした。
 
 ユーザーから「オーケストレーション層は Copilot Studio GitHub Harness で作成したエージェントを想定している」との確認と、追加の実 URL(Microsoft Tech Community ブログ記事)が提供されたため、2026-09-10 に以下の実際の Microsoft Learn ページを追加で取得・確認した。
 
@@ -18,7 +18,7 @@
 
 ## 判明した事実(すべて上記の実ページで確認済み)
 
-1. **"GitHub Copilot harness" は実在し、指示書が前提とする概念そのものである。** Copilot Studio には3種類の Harness(ランタイム)があり、GitHub Copilot harness はそのうち「複雑な多段階業務プロセス向けの最も高機能なもの」で、コネクタ・ナレッジ・MCP・接続済みエージェントを横断してツールを呼び出せる([harnesses-overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview))。**[ADR-0014](0014-local-orchestrator-is-not-a-harness-replacement.md) の前提(GitHub Copilot harness が本番のオーケストレーション層)は正しかった。**
+1. **"GitHub Copilot harness" は実在し、指示書が前提とする概念そのものである。** Copilot Studioには3種類のHarness(ランタイム)があり、GitHub Copilot harnessは複雑な多段階業務プロセス向けで、コネクタ・ナレッジ・MCP・接続済みエージェントを横断してツールを呼び出せる([harnesses-overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview))。
 2. **Foundry IQ は Copilot Studio の GitHub Copilot harness エージェントに、専用の一次機能として直接接続できる。** Build タブ → Tools → 「Foundry IQ」を選択し、API キー・クライアント証明書・サービスプリンシパル・Entra ID 統合のいずれかで接続を作成する。この接続設定は Copilot Studio 自身が提供する UI/バックエンドで完結する。
 3. **Fabric IQ も同様に、Copilot Studio の GitHub Copilot harness エージェントに専用の一次機能として直接接続できる**(プレビュー)。
 4. **Copilot Studio の GitHub Copilot harness は、汎用の Tool 種別として任意の MCP サーバーへの接続もネイティブにサポートする。**「Add a Model Context Protocol (MCP) server as a tool」フローで、Server URL(HTTPS エンドポイント)・認証方式を入力すると、Copilot Studio がプロトコルハンドシェイクを行い、そのサーバーが公開する Tool 一覧を取得する。**これは本リポジトリの MCP Backend が Copilot Studio に接続される際の正式な経路である。**
@@ -26,7 +26,7 @@
 
 ## 決定
 
-1. **[open-questions.md](open-questions.md) Q11 を解決する。本番のオーケストレーション層は Microsoft Foundry Agent Service ではなく、Copilot Studio の GitHub Copilot harness で作成されたエージェントである。** [ADR-0014](0014-local-orchestrator-is-not-a-harness-replacement.md) の結論(`GenericLocalOrchestrator` は Local Preview Mode 専用の代替であり、本番の設計要素ではない)は変更しない。
+1. **[open-questions.md](open-questions.md) Q11 を解決する。本番のオーケストレーション層は Microsoft Foundry Agent Service ではなく、Copilot Studio の GitHub Copilot harness で作成されたエージェントである。** Local Preview用の代替Orchestratorは本リポジトリから削除し、本番経路だけを維持する。
 2. **本リポジトリのコード側の責務は、Copilot Studio の GitHub Copilot harness が「Add MCP server」フローで接続できる、実プロトコル準拠の MCP サーバーを提供することに限定される。** Foundry IQ / Fabric IQ への接続は Copilot Studio 自身が一次機能として提供するため、本リポジトリが Foundry IQ / Fabric IQ 用の独自クライアントコードを実装する必要はない。
 3. **現行の `services/mcp-backend/` は、`/health` / `/tools` / `/tools/{name}/invoke` という独自形状の REST API であり、Model Context Protocol の実際のワイヤーフォーマット(JSON-RPC 2.0 ベースの initialize/tools-list/tools-call ハンドシェイク)には準拠していない。** Copilot Studio の「Add MCP server」フローが行う「プロトコルハンドシェイク」に応答できるようにするため、実際の MCP プロトコルに準拠したサーバー実装を追加する。
 4. **実装言語は Python とする。** 本リポジトリは既に Python 3.11+ で統一されており([ADR-0002](0002-python-primary-language.md))、Model Context Protocol の公式 SDK(`mcp` パッケージ、`mcp.server.fastmcp.FastMCP` を含む)は Python と TypeScript の双方で最も高いカバレッジ・公式サポートを持つ。追加言語を導入するコストを避けるため、Python 版の公式 SDK を採用する。
@@ -38,6 +38,6 @@
 - `services/mcp-backend/` に実 MCP プロトコル準拠のサーバー実装を追加する(`mcp` パッケージの `FastMCP` を使用し、既存の `ToolRegistry` のロジックに委譲する)。
 - 追加した MCP サーバーに対して、実際に Copilot Studio が行うのと同種のハンドシェイク(initialize → tools/list → tools/call)を行う MCP クライアントによる検証スクリプトを用意する。
 - `docs/mcp/` 配下のドキュメントを、実プロトコル準拠の MCP サーバーの追加を反映する形で更新する。
-- `docs/deployment/Step-by-Step-Deployment-Guide.md` のステップ10(Copilot Studio harness の設定)を、実際に確認された「Add MCP server」フロー(Server URL・認証方式の入力、Copilot Studio 側でのハンドシェイク)に基づいて具体化する。
+- [docs/Production-Environment-Setup.md](../Production-Environment-Setup.md)のCopilot Studio接続手順を、確認済みのToolフローに基づく正本として維持する。
 - `config/capabilities.yaml` の `harness.copilot_studio` エントリを、確認された事実(Copilot Studio に3種類の Harness が存在し、GitHub Copilot harness が対象であること)で更新する。
 - Work IQ の Copilot Studio 対応は、ユーザーへの確認事項として [docs/decisions/product-verification.md](product-verification.md) に明記したままにする。

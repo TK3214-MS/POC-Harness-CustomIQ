@@ -1,9 +1,20 @@
-# docs/deployment/
+# MCP Backendデプロイ
 
-デプロイガイド（azd / Bicep / Terraform、[ADR-0008](../decisions/0008-deployment-tooling-priority.md)）。
+本リポジトリでAzureへデプロイする対象は、Copilot Studioから業務ツールとして呼び出すMCP Backendです。Fabric IQ、Foundry IQ、Work IQのSaaS環境は、[本番環境構築ガイド](../Production-Environment-Setup.md)に従って各サービス側で構成します。
 
-**状態: 基礎実装済み。** MCP Backend を Azure Container Apps にデプロイする azd/Bicep 構成を [deployment/azd/](../../deployment/azd/)、[deployment/bicep/](../../deployment/bicep/)、[deployment/containers/](../../deployment/containers/) に実装。設計判断は [ADR-0012](../decisions/0012-mcp-backend-deployment-target.md) を参照。
+## 手順
 
-**実際に Azure へデプロイする手順は [Step-by-Step-Deployment-Guide.md](Step-by-Step-Deployment-Guide.md) にまとめました。** MCP Backend のデプロイだけでなく、Microsoft Entra ID アプリ登録、Work IQ / Foundry IQ / Fabric IQ / Copilot Studio harness の環境変数設定手順、そして「現時点で何が検証可能で何がまだ検証不可能か」の正直な一覧までを一通り記載しています。
+1. [deployment/azd/](../../deployment/azd/)のAzure Developer CLI構成を確認する。
+2. [deployment/bicep/](../../deployment/bicep/)と[deployment/containers/](../../deployment/containers/)を確認する。
+3. Azureへログインし、対象subscription・location・environmentを選択する。
+4. `azd provision`と`azd deploy`を実行する。実行前に必ずBicepのwhat-ifと権限を確認する。
+5. HTTPSのMCP endpointが利用可能になったら、[本番環境構築ガイド](../Production-Environment-Setup.md)のCopilot Studio接続手順を実施する。
 
-**重要**: Bicep は `az bicep build` でコンパイル検証済み、Docker イメージのビルドは CI([.github/workflows/ci.yml](../../.github/workflows/ci.yml) の `validate-deployment` ジョブ)で検証済みだが、実際の Azure への `azd up` はこのリポジトリの開発環境では未実施(テスト用 Azure サブスクリプションへの接続が必要)。Work IQ / Foundry IQ / Fabric IQ Live Adapter 用のインフラは実装していない(製品 API 仕様が未検証のため、[ADR-0013](../decisions/0013-live-adapter-verification-required-scaffold.md) 参照)。Terraform([deployment/terraform/](../../deployment/terraform/))は README のみで未実装([ADR-0008](../decisions/0008-deployment-tooling-priority.md) の優先順位により最低優先度)。
+```bash
+azd auth login
+azd env select <environment-name>
+azd provision
+azd deploy
+```
+
+実Azureへのデプロイ結果、実際のendpoint、認証方式、権限は環境ごとに記録してください。IQ用AdapterやLocal Preview用の環境変数は設定しません。

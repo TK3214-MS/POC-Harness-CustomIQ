@@ -1,6 +1,6 @@
 # MCP セキュリティガイド
 
-認証そのもの（誰がリクエストできるか）については [Authentication-and-Error-Handling-Guide.md](Authentication-and-Error-Handling-Guide.md) を参照してください。本ページは、認証以外に実装済みのセキュリティ管理策と、未実装のセキュリティ管理策を整理します。
+認証そのもの（誰がリクエストできるか）は、MCP Backendを公開するAzure環境とCopilot Studioの接続設定で構成します。本ページは、認証以外のMCP Backendセキュリティ管理策を整理します。
 
 ## 1. 実装済みの管理策
 
@@ -49,7 +49,7 @@ ingress: {
 
 以下は現時点で **実装されていません**。本番デプロイ前に評価・実装が必要です。
 
-- **API 認証**: [Authentication-and-Error-Handling-Guide.md](Authentication-and-Error-Handling-Guide.md) に記載のとおり、MCP Backend への受信リクエストを検証する仕組みは存在しません。
+- **API 認証**: MCP Backendへの受信リクエスト認証は未実装です。公開前にAzureの認証層またはCopilot Studio接続の認証方式を構成してください。
 - **依存関係の脆弱性スキャン**: `services/mcp-backend/` および Industry Pack コードが依存する Python パッケージに対する自動脆弱性スキャン（例: `pip-audit`、Dependabot 相当）は、本リポジトリのドキュメント作成時点では確認できていません。CI ワークフロー（`.github/workflows/`）に組み込む場合は、その内容を本ページに追記してください。
 - **プロンプトインジェクション・テストスイート**: MCP Tool やエージェント指示に対するプロンプトインジェクション耐性を検証する専用のテストスイートは、まだ実装されていません。
 

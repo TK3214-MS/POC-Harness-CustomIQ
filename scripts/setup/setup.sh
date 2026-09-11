@@ -29,12 +29,12 @@ echo "Installing project (editable) with dev extras..."
 pip install --upgrade pip -q
 pip install -e ".[dev]" -q
 
-echo "Running lint and contract+unit test suite to confirm the environment is healthy..."
+echo "Running lint and the production MCP/contract test suite to confirm the environment is healthy..."
 ruff check .
 pytest tests/ -q
 
 echo
 echo "Setup complete. Activate the environment in new shells with:"
 echo "  source .venv/bin/activate"
-echo "Then try:"
-echo "  ./scripts/demo/run-demo-cli.sh health"
+echo "Next:"
+echo "  See docs/Production-Environment-Setup.md for SaaS and Copilot Studio configuration."

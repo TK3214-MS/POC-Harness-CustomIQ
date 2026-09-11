@@ -38,7 +38,7 @@ pytest
 - `tests/evaluation/` — 評価エンジン（`iq_platform/evaluation/rubric_evaluator.py`）やルーブリック（`evaluations/rubric.yaml`）を変更した場合。
 - `tests/security/` — Secret スキャンや合成データ検証など、セキュリティ関連スクリプトの挙動を変更した場合。
 
-新しい Industry Pack を追加する場合は、`tests/contract/test_all_industry_packs_manifest_schema.py` と `tests/end-to-end/test_industry_pack_switching.py` に対象パックを追加する必要があります。詳細な手順は [docs/industry-packs/Industry-Pack-Guide.md](docs/industry-packs/Industry-Pack-Guide.md) を参照してください。
+新しい Industry Pack を追加する場合は、`manifest.yaml`、`mcp_tools_path`、Tool契約、関連する契約テストを追加してください。実際の利用・接続手順は[本番環境構築ガイド](docs/Production-Environment-Setup.md)を参照してください。
 
 ## 提出前の検証ループ
 

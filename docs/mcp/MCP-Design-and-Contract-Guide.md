@@ -66,6 +66,6 @@
 - **ホスト許可リスト**: `mcp` SDK は DNS リバインディング対策として Host/Origin ヘッダーを検証します。`MCP_BACKEND_ALLOWED_HOSTS` 環境変数（カンマ区切り）で実際のデプロイ先ホスト名を追加してください。`localhost`/`127.0.0.1`（任意ポート）と `testserver`（`fastapi.testclient.TestClient` の固定ホスト名）は常に許可されます。詳細は [MCP-Security-Guide.md](MCP-Security-Guide.md) を参照してください。
 - **検証方法**:
   - [tests/integration/test_mcp_protocol_server.py](../../tests/integration/test_mcp_protocol_server.py) — `fastapi.testclient.TestClient` 経由で生の JSON-RPC リクエスト（`initialize` → `notifications/initialized` → `tools/list` → `tools/call`）を送り、5業界すべてで検証済み（インプロセス、高速）。
-  - [scripts/demo/test_mcp_protocol_connectivity.py](../../scripts/demo/test_mcp_protocol_connectivity.py) — 実際に `uvicorn` サーバーをバックグラウンドスレッドで起動し、公式 MCP クライアント SDK（`mcp.client.streamable_http` + `mcp.ClientSession`）で実 HTTP 経由の接続を行う、より現実に近い検証（Copilot Studio が行うのと同じ種類のハンドシェイクを模擬）。5業界すべてで実行・成功確認済み(2026-09-10)。
+  - [tests/integration/test_mcp_protocol_server.py](../../tests/integration/test_mcp_protocol_server.py) — MCPプロトコルのハンドシェイクとtools/list/tools/callを検証する統合テスト。
 - **未実施**: 実際の Microsoft Copilot Studio 環境からこの `/mcp` エンドポイントに接続する検証は、実 Copilot Studio 環境へのアクセスがないため未実施です。上記2つの検証は、公式 SDK ベースの MCP クライアントが正しくハンドシェイクできることを示すものであり、Copilot Studio 自身の実装の挙動を保証するものではありません。
 

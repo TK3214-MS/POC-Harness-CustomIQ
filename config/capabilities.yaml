@@ -1,172 +1,85 @@
-# Capability Registry
-#
-# Single source of truth for what platform/Microsoft capabilities exist, their
-# verification state, and what mode(s) each supports. Nothing here may claim a
-# verified fact (license, price, region, GA/Preview) that has not actually been
-# checked — see docs/decisions/product-verification.md for the verification
-# process. Unverified fields use "TBD - VERIFY AGAINST CURRENT MICROSOFT
-# DOCUMENTATION" verbatim.
-#
-# Schema (see platform/contracts for the Pydantic model that validates this file):
-#   capability_id, display_name, product, status, last_verified_date,
-#   documentation_reference, required_license, required_role,
-#   required_admin_setting, regional_availability, supported_modes,
-#   fallback_adapter, known_limitations, customer_facing_disclosure
-
+# Production capability registry.
+# Product maturity, pricing, licensing, and regional availability must be
+# rechecked against current official documentation before deployment.
 schema_version: "1.0.0"
 
 capabilities:
+  - capability_id: mcp_backend
+    display_name: "Industry Pack MCP Backend"
+    product: "This repository"
+    status: "Verify Before Use"
+    last_verified_date: "2026-09-11"
+    documentation_reference: "docs/mcp/MCP-Design-and-Contract-Guide.md"
+    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_role: "Azure deployment permissions and Copilot Studio MCP Tool permissions"
+    required_admin_setting: "HTTPS ingress, request authentication, and MCP host allowlist"
+    regional_availability: "Depends on the selected Azure deployment region"
+    supported_modes: ["live", "unavailable"]
+    fallback_adapter: null
+    known_limitations:
+      - "Real Azure deployment and real Copilot Studio connection require environment-specific validation."
+    customer_facing_disclosure: "This service exposes Industry Pack business tools through the Model Context Protocol."
+
   - capability_id: harness.copilot_studio
     display_name: "GitHub Copilot harness (Microsoft Copilot Studio)"
     product: "Microsoft Copilot Studio"
     status: "Verify Before Use"
-    last_verified_date: "2026-09-10"
-    documentation_reference: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview (ms.date 2026-07-28, fetched 2026-09-10) - confirms 'GitHub Copilot harness' is a real, named harness/runtime in Copilot Studio; see ADR-0016"
-    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION (billed via Copilot Credits, usage-based, per confirmed docs)"
-    required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    supported_modes: ["live", "unavailable"]
-    fallback_adapter: "orchestration.local_orchestrator"
-    known_limitations:
-      - "No dedicated Adapter class in this repo (Harness/Orchestrator, not an IQ-layer Adapter); config presence checked via demo-cli health (Phase 4)."
-      - "Verified 2026-09-10 (ADR-0016): the 'GitHub Copilot harness' concept is confirmed real and is one of three Copilot Studio harnesses. Foundry IQ and Fabric IQ connect to it as native first-party Tools, configured entirely within Copilot Studio (no code in this repo). Copilot Studio natively supports adding any MCP server as a generic Tool (Server URL + auth), which is the confirmed integration path for this repo's own MCP Backend."
-      - "This is the intended production orchestration layer per the source instructions; orchestration.local_orchestrator (below) is only a Local Preview Mode substitute and is not planned to be extended into a production orchestrator. See ADR-0014 and ADR-0016."
-      - "Work IQ's availability as a first-party Copilot Studio integration (analogous to Foundry IQ/Fabric IQ) was NOT confirmed - not found in the knowledge-source list or as a dedicated connect page. Flagged for user confirmation rather than assumed (see docs/decisions/product-verification.md)."
-    customer_facing_disclosure: "Partially verified against Microsoft Learn documentation on 2026-09-10 (AI-assisted fetch, not yet independently confirmed by a human reviewer). Licensing, required roles, and regional availability remain unverified."
-
-  - capability_id: orchestration.local_orchestrator
-    display_name: "Local Orchestrator (Local Preview Mode)"
-    product: "Industry IQ Platform Accelerator (this repo)"
-    status: "Mock Only"
-    last_verified_date: "2026-09-08"
-    documentation_reference: "docs/architecture (Phase 1)"
-    required_license: "None"
-    required_role: "None"
-    required_admin_setting: "None"
-    regional_availability: "N/A (runs locally)"
-    supported_modes: ["simulated"]
-    fallback_adapter: null
-    known_limitations:
-      - "Does not validate availability, behavior, security, licensing, or performance of any Microsoft SaaS service."
-      - "This is a Local Preview Mode substitute for the harness.copilot_studio capability above, not an alternative production orchestrator; there is no plan to extend this into a production orchestration layer (ADR-0014)."
-    customer_facing_disclosure: "Local Preview Mode uses synthetic data and local adapters. It does not validate the availability, behavior, security, licensing, or performance of Microsoft SaaS services."
-
-  - capability_id: work_iq
-    display_name: "Work IQ"
-    product: "Microsoft 365 Copilot extensibility - Work IQ MCP server"
-    status: "Unknown"
-    last_verified_date: null
-    documentation_reference: "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/overview (fetched 2026-09-10; existence and MCP design confirmed, GA/Preview maturity not stated on this page - see docs/decisions/product-verification.md)"
+    last_verified_date: "2026-09-11"
+    documentation_reference: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview"
     required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    supported_modes: ["live", "simulated", "unavailable", "verification_required"]
-    fallback_adapter: "adapters.work_context.simulated_adapter"
+    supported_modes: ["live", "unavailable"]
+    fallback_adapter: null
     known_limitations:
-      - "Live adapter is a verification_required scaffold (Phase 4): real Entra ID auth + config presence checks implemented, but query() always raises because the product API contract is unverified (ADR-0013)."
-      - "Verified 2026-09-10 (ADR-0015): Work IQ exposes a real MCP server with 10 fixed tools (fetch/create_entity/update_entity/delete_entity/do_action/call_function/ask/list_agents/get_schema/search_paths) operating on relative resource paths, with Entra ID auth auto-discovered via /.well-known/oauth-protected-resource. This repo's Live Adapter does NOT connect to this MCP server - status stays Unknown (not Preview/GA) because explicit maturity labeling was not found."
-    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
+      - "Preview, licensing, regional availability, and production eligibility require tenant-level confirmation."
+    customer_facing_disclosure: "The production orchestration layer is Copilot Studio's GitHub Copilot harness."
+
+  - capability_id: work_iq
+    display_name: "Work IQ (preview)"
+    product: "Microsoft 365 Copilot extensibility - Work IQ"
+    status: "Preview"
+    last_verified_date: "2026-09-11"
+    documentation_reference: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-work-iq"
+    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_role: "Global Administrator for tenant enablement; user permissions for Microsoft 365 data"
+    required_admin_setting: "Work IQ tenant enablement, spending policy, and MCP policy"
+    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    supported_modes: ["live", "unavailable"]
+    fallback_adapter: null
+    known_limitations:
+      - "Work IQ data is accessed through the Copilot Studio Work IQ (preview) Tool; this repository does not upload or index Microsoft 365 data."
+    customer_facing_disclosure: "Work IQ is a preview Copilot Studio Tool and uses user-scoped Microsoft 365 permissions."
 
   - capability_id: foundry_iq
     display_name: "Foundry IQ"
-    product: "Azure AI Search agentic-retrieval knowledge base, connected to Microsoft Foundry Agent Service via MCP"
+    product: "Azure AI Search agentic retrieval Knowledge Base"
     status: "Preview"
-    last_verified_date: "2026-09-10"
-    documentation_reference: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect (ms.date 2026-08-07, fetched 2026-09-10)"
-    required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    required_role: "Foundry Project Manager (create the MCP connection) and Foundry User (use the tool); Search Index Data Reader on the Azure AI Search service for the project's managed identity"
-    required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    supported_modes: ["live", "mock", "unavailable", "verification_required"]
-    fallback_adapter: "adapters.knowledge.mock_adapter"
-    known_limitations:
-      - "Live adapter is a verification_required scaffold (Phase 4): real Entra ID auth + config presence checks implemented, but query() always raises because the product API contract is unverified (ADR-0013)."
-      - "application_confidence is an accelerator-derived value, not a native Microsoft confidence score."
-      - "Verified 2026-09-10 (ADR-0015): the real integration mechanism is an MCP endpoint at {search_service_endpoint}/knowledgebases/{knowledge_base_name}/mcp?api-version=2026-08-01-preview, exposing a single knowledge_base_retrieve MCP tool, authenticated via a Foundry project RemoteTool connection (ProjectManagedIdentity or per-request user token). This repo's Live Adapter does NOT connect to this MCP endpoint - see docs/decisions/0015-mcp-native-iq-layer-integration.md for the gap and required follow-up."
-      - "The 2026-08-01-preview REST API version used for this MCP connection is Preview; some underlying agentic-retrieval features are GA in the 2026-04-01 API, but the MCP connection flow itself is not."
-    customer_facing_disclosure: "Verified against Microsoft Learn documentation on 2026-09-10 (AI-assisted fetch, not yet independently confirmed by a human reviewer). Still Preview, not GA - do not represent as production-ready without your own review."
-
-  - capability_id: fabric_iq
-    display_name: "Fabric IQ"
-    product: "Microsoft Fabric workload (Ontology / Fabric data agent / Power BI semantic model), connected to Microsoft Foundry Agent Service via MCP"
-    status: "Preview"
-    last_verified_date: "2026-09-10"
-    documentation_reference: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/fabric-iq (ms.date 2026-08-05, fetched 2026-09-10)"
-    required_license: "A Microsoft Fabric license granting access to the queried Fabric items; a published data agent needs paid F2+ Fabric capacity or Power BI Premium P1+ with Fabric enabled"
-    required_role: "Foundry User role on the Foundry project; Foundry Project Manager role to create the Fabric IQ connection"
-    required_admin_setting: "A Global Administrator must grant tenant-wide admin consent for the Entra app registration (one-time, per organization) before ontology connections work"
-    regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION (Fabric IQ is unavailable in regions where Power BI is the only Fabric workload)"
-    supported_modes: ["live", "mock", "unavailable", "verification_required"]
-    fallback_adapter: "adapters.semantic.mock_adapter"
-    known_limitations:
-      - "Live adapter is a verification_required scaffold (Phase 4): real Entra ID auth + config presence checks implemented, but query() always raises because the product API contract is unverified (ADR-0013)."
-      - "Fabric IQ, Fabric Data Agent, and Fabric IQ Ontology MCP are tracked as separate capability_id values, not merged."
-      - "Verified 2026-09-10 (ADR-0015): each Fabric item type (Ontology, Fabric data agent, Power BI semantic model) has its own MCP endpoint URL pattern (e.g. https://api.fabric.microsoft.com/v1/mcp/workspaces/{workspaceId}/dataagents/{dataAgentId}/agent for a data agent), connected to a Foundry agent as a fabric_iq_preview tool or via a toolbox. Auth is BYO Entra app / managed OAuth (delegated OBO) for Ontology and Power BI semantic models; the data agent MCP endpoint additionally accepts a direct user/service-principal bearer token. This repo's Live Adapter does NOT connect to any of these MCP endpoints - see docs/decisions/0015-mcp-native-iq-layer-integration.md."
-    customer_facing_disclosure: "Verified against Microsoft Learn documentation on 2026-09-10 (AI-assisted fetch, not yet independently confirmed by a human reviewer). Explicitly labeled Preview by Microsoft - do not represent as production-ready without your own review."
-
-  - capability_id: mcp_backend
-    display_name: "MCP Backend (FastAPI)"
-    product: "Industry IQ Platform Accelerator (this repo)"
-    status: "Mock Only"
-    last_verified_date: "2026-09-08"
-    documentation_reference: "docs/architecture (Phase 1), services/mcp-backend (Phase 2)"
-    required_license: "None (self-hosted)"
-    required_role: "None"
-    required_admin_setting: "None"
-    regional_availability: "N/A (self-hosted)"
-    supported_modes: ["live", "mock"]
-    fallback_adapter: null
-    known_limitations:
-      - "Not implemented yet (Phase 2). Placeholder entry created in Phase 0."
-    customer_facing_disclosure: "This is accelerator-owned code, not a Microsoft service. It ships with mock/synthetic data by default."
-
-  - capability_id: identity.entra_id
-    display_name: "Microsoft Entra ID"
-    product: "Microsoft Entra ID"
-    status: "Verify Before Use"
-    last_verified_date: null
-    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    last_verified_date: "2026-09-11"
+    documentation_reference: "https://github.com/Azure/Copilot-Studio-and-Azure"
     required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_admin_setting: "Azure AI Search, Foundry project, model, storage, and Knowledge Base permissions"
     regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     supported_modes: ["live", "unavailable"]
     fallback_adapter: null
     known_limitations:
-      - "Authentication code path implemented (iq_platform/security/entra_auth.py, ClientSecretCredential) and unit-tested with mocked token acquisition (Phase 4)."
-      - "Not tested against a real Entra ID tenant in this repo (no test subscription credentials available yet)."
-    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
+      - "Knowledge Sources and Knowledge Base must be created and validated before Copilot Studio connects."
+    customer_facing_disclosure: "Foundry IQ is configured in Foundry/Azure AI Search and selected from Copilot Studio."
 
-  - capability_id: governance.purview
-    display_name: "Microsoft Purview"
-    product: "Microsoft Purview"
-    status: "Unknown"
-    last_verified_date: null
-    documentation_reference: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+  - capability_id: fabric_iq
+    display_name: "Fabric IQ / Ontology (preview)"
+    product: "Microsoft Fabric"
+    status: "Preview"
+    last_verified_date: "2026-09-11"
+    documentation_reference: "https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-create-agent-copilot-studio"
     required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    required_admin_setting: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
+    required_role: "Fabric workspace and Ontology permissions"
+    required_admin_setting: "Enable Ontology item (preview)"
     regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
-    supported_modes: ["unavailable"]
+    supported_modes: ["live", "unavailable"]
     fallback_adapter: null
     known_limitations:
-      - "Not integrated in this repo; considerations only documented (Phase 5/6)."
-    customer_facing_disclosure: "This capability has not been verified against current Microsoft documentation. Treat all claims about it as provisional."
-
-  - capability_id: observability.monitoring
-    display_name: "Monitoring and Evaluation (accelerator-owned)"
-    product: "Industry IQ Platform Accelerator (this repo)"
-    status: "Mock Only"
-    last_verified_date: "2026-09-08"
-    documentation_reference: "docs/architecture (Phase 1), platform/observability (Phase 2+)"
-    required_license: "None"
-    required_role: "None"
-    required_admin_setting: "None"
-    regional_availability: "N/A"
-    supported_modes: ["live", "mock"]
-    fallback_adapter: null
-    known_limitations:
-      - "Not implemented yet (Phase 2+). Placeholder entry created in Phase 0."
-    customer_facing_disclosure: "This is accelerator-owned code, not a Microsoft monitoring service."
+      - "Lakehouse managed tables, Ontology definitions, relationships, and data bindings must be configured in Fabric first."
+    customer_facing_disclosure: "Fabric IQ is connected from Copilot Studio through Fabric IQ MCP (Preview)."

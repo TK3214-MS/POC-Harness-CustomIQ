@@ -9,7 +9,7 @@
 - `configure_logging()` は、`correlation_id` を含むフォーマット文字列（`%(asctime)s %(levelname)s %(name)s [correlation_id=%(correlation_id)s] %(message)s`）を持つ `logging.StreamHandler` をルートロガーに設定します。
 - 実装は `logging.setLogRecordFactory()` ではなく、カスタムの `logging.Formatter` サブクラス（`_CorrelationIdFormatter`）を使っています。これは、呼び出し側が既に `extra={"correlation_id": ...}` を渡している場合、`LogRecordFactory` で事前に `correlation_id` 属性をレコードに設定していると Python の `logging` モジュールが `KeyError` を送出してしまう競合を避けるためです。`correlation_id` が未設定のレコードには `"-"` を補います。
 - `iq_platform/orchestration/generic_orchestrator.py` は、シナリオ実行の開始・完了ログに `AgentResponse.trace_or_correlation_id` と同一の `correlation_id` を付与します。
-- この挙動は [tests/integration/test_correlation_id_logging.py](../../tests/integration/test_correlation_id_logging.py) で `caplog` を用いて検証済みです。同テストは、シナリオ実行中に出力されるログレコードのうち、レスポンスの `trace_or_correlation_id` と一致する `correlation_id` を持つものが存在すること、かつ「開始」「完了」を示すログがそれぞれ存在することを確認します。
+- MCP Backendのログにはcorrelation IDを付与し、Copilot StudioのActivity traceと突合できるようにします。実環境ではContainer Appsログ、Copilot Studio Activity trace、各SaaS側監査ログを同一の相関IDで確認してください。
 
 ## 2. 未実装: Application Insights / Azure Monitor 連携（明示的な TBD）
 

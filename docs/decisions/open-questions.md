@@ -1,21 +1,16 @@
-# Open Questions
+# 未解決事項
 
-Status: Unresolved items that need a human decision (stakeholder, product owner, or Microsoft account team). None of these are blocking Phase 0/1/2 work — each has a documented interim default (see [assumptions.md](./assumptions.md)) so implementation can continue, but the answer may change downstream contracts.
+## Q11: オーケストレーション層
 
-| # | Question | Interim default in use | Impacts | Blocking for phase |
-|---|---|---|---|---|
-| Q1 | Should documentation be English-only or bilingual EN/JA? | RESOLVED (2026-09-08): Japanese only, for now. | All docs, README, self-guided demo | Phase 6 |
-| Q2 | Is there a preferred implementation stack other than Python (e.g., .NET for MCP backend, TypeScript for demo UI)? | RESOLVED (2026-09-08): All Python. | Repo skeleton, CI, contracts | Phase 1 |
-| Q3 | Do we have (or will we get) an actual Microsoft Copilot Studio environment, Foundry IQ knowledge base, and Fabric workspace to validate Live adapters against? | RESOLVED (2026-09-08): Assume the real products/solutions (Copilot Studio, Work IQ, Foundry IQ, Fabric IQ) will be available. Any SaaS-side configuration/setup required must be documented in the SaaS Configuration Guide (§20). | Phase 4 scope and credibility of "Ready" health-check states | Phase 4 |
-| Q4 | Which Azure subscription/tenant (if any) will host the deployed demo environment for Hybrid/Full SaaS mode testing? | RESOLVED (2026-09-08): A test Azure subscription will be used; design so Full Hybrid Mode testing (and Full SaaS Mode where feasible) is possible against it. | Deployment guide, cost analysis realism | Phase 5 |
-| Q5 | Is a GitHub Actions CI environment available/authorized for this repo, or should CI config be authored but not activated? | RESOLVED (2026-09-08): CI is available and will be used; document required CI configuration (secrets, environments, etc.) as it comes up. | CI, security scanning cadence | Phase 5 |
-| Q6 | Should Healthcare/Public Sector/Financial Services packs include a disclaimer banner rendered in every UI surface, or only in the final agent response schema (item 13/12)? | RESOLVED (2026-09-08): Default — render in both the agent response schema and CLI/UI banner. | Industry Pack contract, demo-ui | Phase 3 |
-| Q7 | What is the expected audience literacy level for the 30-minute demo — technical (developer) or mixed (exec + technical)? | RESOLVED (2026-09-08): Mixed audience. | Self-guided demo docs, presenter notes | Phase 6 |
-| Q8 | Should Capability Registry values (license/role/region) be periodically re-verified by an automated doc-scraper, or is manual quarterly review acceptable? | RESOLVED (2026-09-08): Default — manual review only; `last_verified_date` field tracks staleness. | Capability Registry maintenance process | Phase 4+ |
-| Q9 | Is there an existing corporate style guide/naming convention (e.g., internal Microsoft accelerator naming rules) this repo must follow? | RESOLVED (2026-09-08): Default — none known; use section 15's structure verbatim. | Repo structure, README branding | Phase 1 |
-| Q10 | Should synthetic data volumes target "just enough for demo" (tens of records) or "realistic scale" (thousands of records) for performance/evaluation testing? | RESOLVED (2026-09-08): Realistic scale — thousands of records per entity type. | Sample data generators, evaluation tests | Phase 2 |
-| Q11 | The instructions specify "GitHub Copilot harness (Microsoft Copilot Studio)" as the orchestration/agent layer. However, live Microsoft Learn docs verified on 2026-09-10 ([ADR-0015](0015-mcp-native-iq-layer-integration.md)) consistently show **Microsoft Foundry Agent Service** (Azure AI Foundry), not Copilot Studio, as the agent host that consumes Work IQ / Foundry IQ / Fabric IQ via MCP. Is Copilot Studio still the intended production orchestration layer, or should this repo target Foundry Agent Service instead? | **RESOLVED (2026-09-10, via further live doc verification, [ADR-0016](0016-copilot-studio-github-harness-confirmed.md)).** The user confirmed the intent is an agent built with the Copilot Studio GitHub Copilot harness. Live Microsoft Learn docs confirm "GitHub Copilot harness" is a real, named harness type in Copilot Studio (one of three: GitHub Copilot harness, standard harness, Copilot chat harness), and that Foundry IQ and Fabric IQ are natively connectable to it as first-party Tools. Foundry Agent Service (found during the ADR-0015 pass) is a separate, valid way to consume these IQ layers, but is not this repo's target - Copilot Studio's GitHub Copilot harness is. | Orchestration layer design (ADR-0014, ADR-0016), production architecture diagrams, MCP Backend protocol compliance | Resolved |
+- **回答**: Microsoft Copilot StudioのGitHub Copilot harnessを本番のオーケストレーション層とする。
+- **Foundry Agent Service**: IQを利用できる別ホストだが、本リポジトリの対象ではない。
+- **根拠**: [Copilot Studio harnesses](https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview)、[本番環境構築ガイド](../Production-Environment-Setup.md)
+- **状態**: 解決済み
 
-All ten initial open questions are resolved as of 2026-09-08. New questions should be appended as additional numbered rows below.
+## 残る実環境確認
 
-Add new rows as they arise; do not delete resolved rows — mark them `RESOLVED (date): <decision>` in the "Interim default" column instead, to preserve decision history.
+- Copilot Studioから実MCP Backendへ接続する認証・ネットワーク設定
+- Fabric IQ、Foundry IQ、Work IQのPreview提供、価格、リージョン、課金条件
+- 実テナントでのデータ権限、Activity trace、監査ログ
+
+不明な製品仕様は `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` として、公式情報を確認してから更新します。
