@@ -1,0 +1,1001 @@
+supplier_id,name,region,reliability_score
+SUP-0001,Windrift Precision Works #1,Kestrel Bay,0.7
+SUP-0002,Windrift Fabrication Ltd. #2,Aurelport,0.86
+SUP-0003,Amberfield Precision Works #3,Marrow Vale,0.89
+SUP-0004,Amberfield Precision Works #4,Aurelport,0.9
+SUP-0005,Cobalt Peak Tooling Group #5,Verdant Hollow,0.76
+SUP-0006,Amberfield Tooling Group #6,Windrift,0.8
+SUP-0007,Ashgrove Metal Forms Inc. #7,Northfell,0.86
+SUP-0008,Silverline Components Co. #8,Northfell,0.77
+SUP-0009,Graystone Precision Works #9,Emberfield,0.71
+SUP-0010,Cobalt Peak Tooling Group #10,Stonebrook Junction,0.98
+SUP-0011,Graystone Metal Forms Inc. #11,Northfell,0.86
+SUP-0012,Kestrel Components Co. #12,Kestrel Bay,0.91
+SUP-0013,Cobalt Peak Fabrication Ltd. #13,Marrow Vale,0.7
+SUP-0014,Ashgrove Metal Forms Inc. #14,Northfell,0.88
+SUP-0015,Ashgrove Fabrication Ltd. #15,Windrift,0.72
+SUP-0016,Ashgrove Metal Forms Inc. #16,Marrow Vale,0.86
+SUP-0017,Ironwood Components Co. #17,Marrow Vale,0.74
+SUP-0018,Silverline Components Co. #18,Aurelport,0.8
+SUP-0019,Cobalt Peak Components Co. #19,Verdant Hollow,0.79
+SUP-0020,Northfield Precision Works #20,Marrow Vale,0.9
+SUP-0021,Riverside Components Co. #21,Stonebrook Junction,0.84
+SUP-0022,Kestrel Fabrication Ltd. #22,Verdant Hollow,0.75
+SUP-0023,Northfield Fabrication Ltd. #23,Aurelport,0.79
+SUP-0024,Cobalt Peak Metal Forms Inc. #24,Aurelport,0.8
+SUP-0025,Cobalt Peak Fabrication Ltd. #25,Northfell,0.86
+SUP-0026,Amberfield Components Co. #26,Emberfield,0.86
+SUP-0027,Cobalt Peak Tooling Group #27,Lindmoor,0.94
+SUP-0028,Riverside Precision Works #28,Kestrel Bay,0.85
+SUP-0029,Ironwood Tooling Group #29,Kestrel Bay,0.89
+SUP-0030,Windrift Tooling Group #30,Northfell,0.7
+SUP-0031,Graystone Fabrication Ltd. #31,Verdant Hollow,0.75
+SUP-0032,Graystone Components Co. #32,Verdant Hollow,0.92
+SUP-0033,Windrift Components Co. #33,Windrift,0.88
+SUP-0034,Ironwood Metal Forms Inc. #34,Emberfield,0.81
+SUP-0035,Windrift Metal Forms Inc. #35,Verdant Hollow,0.74
+SUP-0036,Graystone Metal Forms Inc. #36,Draymoor,0.86
+SUP-0037,Ashgrove Fabrication Ltd. #37,Draymoor,0.84
+SUP-0038,Ironwood Tooling Group #38,Verdant Hollow,0.9
+SUP-0039,Cobalt Peak Tooling Group #39,Verdant Hollow,0.9
+SUP-0040,Riverside Metal Forms Inc. #40,Kestrel Bay,0.79
+SUP-0041,Windrift Components Co. #41,Aurelport,0.86
+SUP-0042,Kestrel Precision Works #42,Kestrel Bay,0.83
+SUP-0043,Amberfield Metal Forms Inc. #43,Stonebrook Junction,0.71
+SUP-0044,Riverside Components Co. #44,Kestrel Bay,0.88
+SUP-0045,Windrift Precision Works #45,Verdant Hollow,0.85
+SUP-0046,Riverside Components Co. #46,Lindmoor,0.9
+SUP-0047,Northfield Components Co. #47,Kestrel Bay,0.88
+SUP-0048,Ironwood Fabrication Ltd. #48,Marrow Vale,0.86
+SUP-0049,Northfield Metal Forms Inc. #49,Marrow Vale,0.96
+SUP-0050,Amberfield Precision Works #50,Verdant Hollow,0.97
+SUP-0051,Kestrel Tooling Group #51,Kestrel Bay,0.92
+SUP-0052,Silverline Components Co. #52,Kestrel Bay,0.78
+SUP-0053,Amberfield Components Co. #53,Stonebrook Junction,0.71
+SUP-0054,Silverline Metal Forms Inc. #54,Draymoor,0.95
+SUP-0055,Ironwood Metal Forms Inc. #55,Windrift,0.87
+SUP-0056,Kestrel Components Co. #56,Lindmoor,0.85
+SUP-0057,Graystone Tooling Group #57,Marrow Vale,0.86
+SUP-0058,Ashgrove Metal Forms Inc. #58,Aurelport,0.81
+SUP-0059,Ironwood Components Co. #59,Emberfield,0.97
+SUP-0060,Windrift Fabrication Ltd. #60,Lindmoor,0.86
+SUP-0061,Ashgrove Fabrication Ltd. #61,Verdant Hollow,0.82
+SUP-0062,Amberfield Precision Works #62,Lindmoor,0.75
+SUP-0063,Ashgrove Tooling Group #63,Draymoor,0.82
+SUP-0064,Amberfield Fabrication Ltd. #64,Marrow Vale,0.7
+SUP-0065,Ironwood Tooling Group #65,Kestrel Bay,0.83
+SUP-0066,Ashgrove Precision Works #66,Draymoor,0.96
+SUP-0067,Windrift Metal Forms Inc. #67,Marrow Vale,0.83
+SUP-0068,Northfield Metal Forms Inc. #68,Stonebrook Junction,0.87
+SUP-0069,Graystone Metal Forms Inc. #69,Windrift,0.95
+SUP-0070,Riverside Tooling Group #70,Verdant Hollow,0.88
+SUP-0071,Ashgrove Components Co. #71,Northfell,0.82
+SUP-0072,Riverside Fabrication Ltd. #72,Verdant Hollow,0.8
+SUP-0073,Kestrel Tooling Group #73,Lindmoor,0.82
+SUP-0074,Windrift Tooling Group #74,Lindmoor,0.82
+SUP-0075,Cobalt Peak Components Co. #75,Lindmoor,0.97
+SUP-0076,Windrift Fabrication Ltd. #76,Marrow Vale,0.91
+SUP-0077,Graystone Fabrication Ltd. #77,Stonebrook Junction,0.96
+SUP-0078,Northfield Components Co. #78,Kestrel Bay,0.97
+SUP-0079,Northfield Fabrication Ltd. #79,Northfell,0.9
+SUP-0080,Cobalt Peak Precision Works #80,Northfell,0.77
+SUP-0081,Amberfield Metal Forms Inc. #81,Marrow Vale,0.81
+SUP-0082,Riverside Components Co. #82,Verdant Hollow,0.81
+SUP-0083,Amberfield Tooling Group #83,Emberfield,0.96
+SUP-0084,Ashgrove Precision Works #84,Draymoor,0.96
+SUP-0085,Windrift Components Co. #85,Verdant Hollow,0.76
+SUP-0086,Riverside Precision Works #86,Emberfield,0.86
+SUP-0087,Kestrel Tooling Group #87,Lindmoor,0.88
+SUP-0088,Riverside Components Co. #88,Kestrel Bay,0.97
+SUP-0089,Ironwood Precision Works #89,Marrow Vale,0.73
+SUP-0090,Kestrel Tooling Group #90,Kestrel Bay,0.82
+SUP-0091,Ironwood Tooling Group #91,Emberfield,0.78
+SUP-0092,Ironwood Fabrication Ltd. #92,Stonebrook Junction,0.99
+SUP-0093,Windrift Metal Forms Inc. #93,Marrow Vale,0.96
+SUP-0094,Ashgrove Precision Works #94,Marrow Vale,0.78
+SUP-0095,Riverside Fabrication Ltd. #95,Kestrel Bay,0.84
+SUP-0096,Northfield Components Co. #96,Marrow Vale,0.75
+SUP-0097,Silverline Metal Forms Inc. #97,Draymoor,0.8
+SUP-0098,Windrift Metal Forms Inc. #98,Lindmoor,0.79
+SUP-0099,Northfield Tooling Group #99,Aurelport,0.88
+SUP-0100,Riverside Fabrication Ltd. #100,Emberfield,0.86
+SUP-0101,Windrift Metal Forms Inc. #101,Northfell,0.96
+SUP-0102,Amberfield Fabrication Ltd. #102,Northfell,0.74
+SUP-0103,Kestrel Fabrication Ltd. #103,Draymoor,0.94
+SUP-0104,Windrift Tooling Group #104,Emberfield,0.93
+SUP-0105,Windrift Precision Works #105,Northfell,0.98
+SUP-0106,Windrift Fabrication Ltd. #106,Draymoor,0.92
+SUP-0107,Amberfield Precision Works #107,Marrow Vale,0.84
+SUP-0108,Riverside Precision Works #108,Stonebrook Junction,0.87
+SUP-0109,Cobalt Peak Fabrication Ltd. #109,Northfell,0.9
+SUP-0110,Riverside Tooling Group #110,Verdant Hollow,0.97
+SUP-0111,Riverside Components Co. #111,Marrow Vale,0.93
+SUP-0112,Silverline Metal Forms Inc. #112,Draymoor,0.84
+SUP-0113,Ironwood Metal Forms Inc. #113,Verdant Hollow,0.76
+SUP-0114,Riverside Precision Works #114,Marrow Vale,0.88
+SUP-0115,Kestrel Metal Forms Inc. #115,Verdant Hollow,0.89
+SUP-0116,Riverside Fabrication Ltd. #116,Emberfield,0.9
+SUP-0117,Ashgrove Components Co. #117,Kestrel Bay,0.78
+SUP-0118,Kestrel Components Co. #118,Northfell,0.78
+SUP-0119,Ashgrove Fabrication Ltd. #119,Marrow Vale,0.87
+SUP-0120,Ashgrove Components Co. #120,Lindmoor,0.91
+SUP-0121,Amberfield Tooling Group #121,Draymoor,0.82
+SUP-0122,Windrift Components Co. #122,Windrift,0.91
+SUP-0123,Amberfield Tooling Group #123,Northfell,0.89
+SUP-0124,Amberfield Metal Forms Inc. #124,Kestrel Bay,0.89
+SUP-0125,Kestrel Fabrication Ltd. #125,Aurelport,0.95
+SUP-0126,Cobalt Peak Metal Forms Inc. #126,Northfell,0.97
+SUP-0127,Ironwood Components Co. #127,Emberfield,0.92
+SUP-0128,Kestrel Fabrication Ltd. #128,Northfell,0.93
+SUP-0129,Kestrel Metal Forms Inc. #129,Windrift,0.94
+SUP-0130,Amberfield Components Co. #130,Stonebrook Junction,0.83
+SUP-0131,Ironwood Fabrication Ltd. #131,Marrow Vale,0.85
+SUP-0132,Graystone Precision Works #132,Windrift,0.82
+SUP-0133,Ironwood Fabrication Ltd. #133,Stonebrook Junction,0.84
+SUP-0134,Graystone Fabrication Ltd. #134,Windrift,0.88
+SUP-0135,Graystone Tooling Group #135,Aurelport,0.97
+SUP-0136,Kestrel Metal Forms Inc. #136,Marrow Vale,0.93
+SUP-0137,Windrift Precision Works #137,Windrift,0.74
+SUP-0138,Riverside Precision Works #138,Aurelport,0.81
+SUP-0139,Amberfield Metal Forms Inc. #139,Verdant Hollow,0.97
+SUP-0140,Amberfield Fabrication Ltd. #140,Northfell,0.82
+SUP-0141,Ironwood Fabrication Ltd. #141,Northfell,0.95
+SUP-0142,Ashgrove Precision Works #142,Stonebrook Junction,0.97
+SUP-0143,Silverline Precision Works #143,Kestrel Bay,0.89
+SUP-0144,Windrift Tooling Group #144,Windrift,0.79
+SUP-0145,Ironwood Tooling Group #145,Stonebrook Junction,0.72
+SUP-0146,Windrift Tooling Group #146,Kestrel Bay,0.7
+SUP-0147,Ironwood Tooling Group #147,Kestrel Bay,0.99
+SUP-0148,Graystone Fabrication Ltd. #148,Draymoor,0.97
+SUP-0149,Kestrel Fabrication Ltd. #149,Stonebrook Junction,0.77
+SUP-0150,Amberfield Components Co. #150,Verdant Hollow,0.96
+SUP-0151,Silverline Components Co. #151,Emberfield,0.79
+SUP-0152,Silverline Precision Works #152,Northfell,0.88
+SUP-0153,Windrift Metal Forms Inc. #153,Draymoor,0.81
+SUP-0154,Northfield Precision Works #154,Windrift,0.97
+SUP-0155,Amberfield Precision Works #155,Lindmoor,0.85
+SUP-0156,Ashgrove Components Co. #156,Marrow Vale,0.74
+SUP-0157,Silverline Precision Works #157,Emberfield,0.89
+SUP-0158,Silverline Fabrication Ltd. #158,Stonebrook Junction,0.83
+SUP-0159,Kestrel Tooling Group #159,Northfell,0.96
+SUP-0160,Graystone Tooling Group #160,Marrow Vale,0.72
+SUP-0161,Cobalt Peak Components Co. #161,Windrift,0.83
+SUP-0162,Ashgrove Metal Forms Inc. #162,Kestrel Bay,0.9
+SUP-0163,Northfield Tooling Group #163,Lindmoor,0.9
+SUP-0164,Ironwood Tooling Group #164,Northfell,0.98
+SUP-0165,Amberfield Tooling Group #165,Marrow Vale,0.79
+SUP-0166,Northfield Precision Works #166,Emberfield,0.73
+SUP-0167,Riverside Metal Forms Inc. #167,Northfell,0.79
+SUP-0168,Northfield Precision Works #168,Windrift,0.96
+SUP-0169,Ironwood Metal Forms Inc. #169,Northfell,0.94
+SUP-0170,Kestrel Metal Forms Inc. #170,Stonebrook Junction,0.86
+SUP-0171,Cobalt Peak Precision Works #171,Stonebrook Junction,0.79
+SUP-0172,Riverside Metal Forms Inc. #172,Stonebrook Junction,0.72
+SUP-0173,Cobalt Peak Tooling Group #173,Kestrel Bay,0.78
+SUP-0174,Windrift Components Co. #174,Northfell,0.9
+SUP-0175,Northfield Components Co. #175,Lindmoor,0.92
+SUP-0176,Cobalt Peak Tooling Group #176,Windrift,0.77
+SUP-0177,Riverside Precision Works #177,Verdant Hollow,0.71
+SUP-0178,Cobalt Peak Tooling Group #178,Northfell,0.86
+SUP-0179,Windrift Tooling Group #179,Kestrel Bay,0.78
+SUP-0180,Cobalt Peak Fabrication Ltd. #180,Windrift,0.75
+SUP-0181,Windrift Components Co. #181,Marrow Vale,0.82
+SUP-0182,Cobalt Peak Precision Works #182,Aurelport,0.74
+SUP-0183,Northfield Fabrication Ltd. #183,Marrow Vale,0.98
+SUP-0184,Cobalt Peak Tooling Group #184,Aurelport,0.8
+SUP-0185,Windrift Precision Works #185,Marrow Vale,0.8
+SUP-0186,Kestrel Tooling Group #186,Emberfield,0.71
+SUP-0187,Riverside Tooling Group #187,Aurelport,0.79
+SUP-0188,Silverline Tooling Group #188,Aurelport,0.77
+SUP-0189,Silverline Tooling Group #189,Lindmoor,0.99
+SUP-0190,Amberfield Metal Forms Inc. #190,Aurelport,0.74
+SUP-0191,Ashgrove Fabrication Ltd. #191,Aurelport,0.85
+SUP-0192,Ashgrove Precision Works #192,Emberfield,0.94
+SUP-0193,Windrift Metal Forms Inc. #193,Emberfield,0.85
+SUP-0194,Northfield Metal Forms Inc. #194,Emberfield,0.76
+SUP-0195,Ashgrove Precision Works #195,Lindmoor,0.72
+SUP-0196,Silverline Components Co. #196,Draymoor,0.9
+SUP-0197,Graystone Metal Forms Inc. #197,Windrift,0.9
+SUP-0198,Silverline Fabrication Ltd. #198,Marrow Vale,0.96
+SUP-0199,Ironwood Components Co. #199,Windrift,0.75
+SUP-0200,Kestrel Tooling Group #200,Emberfield,0.82
+SUP-0201,Windrift Fabrication Ltd. #201,Lindmoor,0.81
+SUP-0202,Windrift Components Co. #202,Kestrel Bay,0.77
+SUP-0203,Northfield Metal Forms Inc. #203,Emberfield,0.83
+SUP-0204,Kestrel Fabrication Ltd. #204,Draymoor,0.89
+SUP-0205,Silverline Metal Forms Inc. #205,Northfell,0.94
+SUP-0206,Riverside Precision Works #206,Aurelport,0.94
+SUP-0207,Silverline Components Co. #207,Lindmoor,0.74
+SUP-0208,Windrift Components Co. #208,Draymoor,0.88
+SUP-0209,Windrift Components Co. #209,Draymoor,0.78
+SUP-0210,Cobalt Peak Tooling Group #210,Aurelport,0.97
+SUP-0211,Northfield Metal Forms Inc. #211,Aurelport,0.87
+SUP-0212,Cobalt Peak Tooling Group #212,Northfell,0.79
+SUP-0213,Cobalt Peak Metal Forms Inc. #213,Windrift,0.88
+SUP-0214,Graystone Tooling Group #214,Aurelport,0.74
+SUP-0215,Kestrel Precision Works #215,Northfell,0.89
+SUP-0216,Riverside Metal Forms Inc. #216,Aurelport,0.9
+SUP-0217,Amberfield Metal Forms Inc. #217,Draymoor,0.92
+SUP-0218,Cobalt Peak Metal Forms Inc. #218,Windrift,0.96
+SUP-0219,Silverline Components Co. #219,Stonebrook Junction,0.82
+SUP-0220,Amberfield Tooling Group #220,Northfell,0.82
+SUP-0221,Riverside Metal Forms Inc. #221,Emberfield,0.72
+SUP-0222,Cobalt Peak Precision Works #222,Emberfield,0.99
+SUP-0223,Graystone Fabrication Ltd. #223,Draymoor,0.8
+SUP-0224,Northfield Metal Forms Inc. #224,Northfell,0.99
+SUP-0225,Amberfield Components Co. #225,Aurelport,0.99
+SUP-0226,Windrift Components Co. #226,Stonebrook Junction,0.83
+SUP-0227,Windrift Components Co. #227,Kestrel Bay,0.78
+SUP-0228,Kestrel Fabrication Ltd. #228,Marrow Vale,0.93
+SUP-0229,Ashgrove Fabrication Ltd. #229,Draymoor,0.96
+SUP-0230,Northfield Precision Works #230,Verdant Hollow,0.89
+SUP-0231,Ashgrove Fabrication Ltd. #231,Emberfield,0.82
+SUP-0232,Windrift Metal Forms Inc. #232,Lindmoor,0.95
+SUP-0233,Amberfield Metal Forms Inc. #233,Kestrel Bay,0.91
+SUP-0234,Kestrel Tooling Group #234,Verdant Hollow,0.71
+SUP-0235,Riverside Components Co. #235,Windrift,0.82
+SUP-0236,Northfield Fabrication Ltd. #236,Kestrel Bay,0.91
+SUP-0237,Kestrel Precision Works #237,Aurelport,0.71
+SUP-0238,Amberfield Precision Works #238,Draymoor,0.89
+SUP-0239,Ironwood Tooling Group #239,Lindmoor,0.97
+SUP-0240,Cobalt Peak Components Co. #240,Stonebrook Junction,0.73
+SUP-0241,Northfield Precision Works #241,Northfell,0.99
+SUP-0242,Riverside Tooling Group #242,Aurelport,0.71
+SUP-0243,Kestrel Metal Forms Inc. #243,Draymoor,0.83
+SUP-0244,Northfield Precision Works #244,Aurelport,0.98
+SUP-0245,Northfield Fabrication Ltd. #245,Stonebrook Junction,0.71
+SUP-0246,Kestrel Components Co. #246,Draymoor,0.94
+SUP-0247,Riverside Tooling Group #247,Windrift,0.92
+SUP-0248,Cobalt Peak Precision Works #248,Windrift,0.87
+SUP-0249,Silverline Tooling Group #249,Emberfield,0.94
+SUP-0250,Graystone Fabrication Ltd. #250,Marrow Vale,0.91
+SUP-0251,Kestrel Precision Works #251,Windrift,0.81
+SUP-0252,Riverside Precision Works #252,Northfell,0.73
+SUP-0253,Kestrel Fabrication Ltd. #253,Northfell,0.73
+SUP-0254,Northfield Metal Forms Inc. #254,Aurelport,0.83
+SUP-0255,Riverside Precision Works #255,Verdant Hollow,0.88
+SUP-0256,Ironwood Precision Works #256,Kestrel Bay,0.82
+SUP-0257,Ashgrove Tooling Group #257,Aurelport,0.7
+SUP-0258,Ironwood Fabrication Ltd. #258,Aurelport,0.86
+SUP-0259,Northfield Components Co. #259,Marrow Vale,0.76
+SUP-0260,Ashgrove Metal Forms Inc. #260,Marrow Vale,0.73
+SUP-0261,Ashgrove Components Co. #261,Kestrel Bay,0.71
+SUP-0262,Northfield Precision Works #262,Emberfield,0.89
+SUP-0263,Ironwood Components Co. #263,Verdant Hollow,0.73
+SUP-0264,Riverside Fabrication Ltd. #264,Emberfield,0.87
+SUP-0265,Riverside Tooling Group #265,Stonebrook Junction,0.95
+SUP-0266,Ironwood Fabrication Ltd. #266,Marrow Vale,0.81
+SUP-0267,Silverline Fabrication Ltd. #267,Stonebrook Junction,0.88
+SUP-0268,Northfield Tooling Group #268,Aurelport,0.91
+SUP-0269,Northfield Fabrication Ltd. #269,Lindmoor,0.75
+SUP-0270,Ironwood Components Co. #270,Emberfield,0.72
+SUP-0271,Ironwood Components Co. #271,Windrift,0.8
+SUP-0272,Cobalt Peak Components Co. #272,Lindmoor,0.98
+SUP-0273,Amberfield Metal Forms Inc. #273,Verdant Hollow,0.71
+SUP-0274,Graystone Tooling Group #274,Marrow Vale,0.74
+SUP-0275,Kestrel Metal Forms Inc. #275,Draymoor,0.96
+SUP-0276,Riverside Precision Works #276,Stonebrook Junction,0.89
+SUP-0277,Northfield Fabrication Ltd. #277,Kestrel Bay,0.88
+SUP-0278,Amberfield Components Co. #278,Aurelport,0.97
+SUP-0279,Kestrel Components Co. #279,Aurelport,0.7
+SUP-0280,Graystone Metal Forms Inc. #280,Stonebrook Junction,0.83
+SUP-0281,Kestrel Metal Forms Inc. #281,Windrift,0.71
+SUP-0282,Graystone Tooling Group #282,Verdant Hollow,0.79
+SUP-0283,Amberfield Components Co. #283,Windrift,0.88
+SUP-0284,Cobalt Peak Precision Works #284,Lindmoor,0.93
+SUP-0285,Riverside Tooling Group #285,Stonebrook Junction,0.75
+SUP-0286,Ashgrove Tooling Group #286,Windrift,0.74
+SUP-0287,Northfield Components Co. #287,Emberfield,0.72
+SUP-0288,Northfield Fabrication Ltd. #288,Windrift,0.9
+SUP-0289,Ironwood Metal Forms Inc. #289,Draymoor,0.81
+SUP-0290,Cobalt Peak Fabrication Ltd. #290,Kestrel Bay,0.96
+SUP-0291,Ashgrove Precision Works #291,Kestrel Bay,0.9
+SUP-0292,Ashgrove Metal Forms Inc. #292,Aurelport,0.75
+SUP-0293,Ashgrove Components Co. #293,Stonebrook Junction,0.97
+SUP-0294,Silverline Precision Works #294,Emberfield,0.81
+SUP-0295,Northfield Metal Forms Inc. #295,Windrift,0.78
+SUP-0296,Silverline Precision Works #296,Verdant Hollow,0.91
+SUP-0297,Amberfield Components Co. #297,Verdant Hollow,0.82
+SUP-0298,Silverline Precision Works #298,Kestrel Bay,0.79
+SUP-0299,Ironwood Precision Works #299,Emberfield,0.81
+SUP-0300,Northfield Components Co. #300,Kestrel Bay,0.71
+SUP-0301,Ashgrove Fabrication Ltd. #301,Windrift,0.78
+SUP-0302,Ironwood Fabrication Ltd. #302,Lindmoor,0.93
+SUP-0303,Windrift Metal Forms Inc. #303,Lindmoor,0.9
+SUP-0304,Ashgrove Precision Works #304,Emberfield,0.87
+SUP-0305,Cobalt Peak Precision Works #305,Windrift,0.97
+SUP-0306,Graystone Metal Forms Inc. #306,Northfell,0.77
+SUP-0307,Windrift Tooling Group #307,Northfell,0.75
+SUP-0308,Ashgrove Metal Forms Inc. #308,Stonebrook Junction,0.98
+SUP-0309,Windrift Fabrication Ltd. #309,Windrift,0.73
+SUP-0310,Northfield Fabrication Ltd. #310,Aurelport,0.96
+SUP-0311,Graystone Tooling Group #311,Emberfield,0.75
+SUP-0312,Amberfield Precision Works #312,Kestrel Bay,0.73
+SUP-0313,Amberfield Precision Works #313,Kestrel Bay,0.82
+SUP-0314,Amberfield Fabrication Ltd. #314,Verdant Hollow,0.8
+SUP-0315,Amberfield Tooling Group #315,Kestrel Bay,0.71
+SUP-0316,Kestrel Components Co. #316,Northfell,0.79
+SUP-0317,Amberfield Fabrication Ltd. #317,Lindmoor,0.9
+SUP-0318,Kestrel Components Co. #318,Verdant Hollow,0.73
+SUP-0319,Amberfield Components Co. #319,Kestrel Bay,0.96
+SUP-0320,Riverside Fabrication Ltd. #320,Windrift,0.73
+SUP-0321,Graystone Components Co. #321,Stonebrook Junction,0.76
+SUP-0322,Graystone Precision Works #322,Marrow Vale,0.81
+SUP-0323,Riverside Components Co. #323,Stonebrook Junction,0.77
+SUP-0324,Graystone Fabrication Ltd. #324,Lindmoor,0.82
+SUP-0325,Riverside Tooling Group #325,Draymoor,0.86
+SUP-0326,Windrift Metal Forms Inc. #326,Draymoor,0.87
+SUP-0327,Ashgrove Metal Forms Inc. #327,Marrow Vale,0.8
+SUP-0328,Silverline Metal Forms Inc. #328,Draymoor,0.72
+SUP-0329,Kestrel Metal Forms Inc. #329,Verdant Hollow,0.96
+SUP-0330,Kestrel Components Co. #330,Verdant Hollow,0.96
+SUP-0331,Amberfield Components Co. #331,Aurelport,0.76
+SUP-0332,Riverside Components Co. #332,Emberfield,0.83
+SUP-0333,Graystone Tooling Group #333,Marrow Vale,0.92
+SUP-0334,Ashgrove Metal Forms Inc. #334,Marrow Vale,0.76
+SUP-0335,Riverside Fabrication Ltd. #335,Northfell,0.98
+SUP-0336,Amberfield Components Co. #336,Marrow Vale,0.78
+SUP-0337,Riverside Tooling Group #337,Marrow Vale,0.79
+SUP-0338,Northfield Precision Works #338,Verdant Hollow,0.77
+SUP-0339,Northfield Fabrication Ltd. #339,Lindmoor,0.74
+SUP-0340,Riverside Components Co. #340,Aurelport,0.99
+SUP-0341,Windrift Precision Works #341,Aurelport,0.81
+SUP-0342,Northfield Fabrication Ltd. #342,Lindmoor,0.89
+SUP-0343,Amberfield Precision Works #343,Verdant Hollow,0.85
+SUP-0344,Ironwood Fabrication Ltd. #344,Stonebrook Junction,0.83
+SUP-0345,Northfield Fabrication Ltd. #345,Windrift,0.71
+SUP-0346,Amberfield Precision Works #346,Northfell,0.75
+SUP-0347,Ashgrove Components Co. #347,Stonebrook Junction,0.98
+SUP-0348,Northfield Precision Works #348,Marrow Vale,0.71
+SUP-0349,Amberfield Precision Works #349,Lindmoor,0.81
+SUP-0350,Riverside Fabrication Ltd. #350,Stonebrook Junction,0.97
+SUP-0351,Ashgrove Fabrication Ltd. #351,Northfell,0.91
+SUP-0352,Silverline Precision Works #352,Aurelport,0.78
+SUP-0353,Ironwood Precision Works #353,Kestrel Bay,0.96
+SUP-0354,Ironwood Precision Works #354,Lindmoor,0.99
+SUP-0355,Graystone Components Co. #355,Kestrel Bay,0.79
+SUP-0356,Riverside Metal Forms Inc. #356,Kestrel Bay,0.74
+SUP-0357,Ironwood Metal Forms Inc. #357,Draymoor,0.79
+SUP-0358,Kestrel Components Co. #358,Draymoor,0.76
+SUP-0359,Amberfield Tooling Group #359,Draymoor,0.76
+SUP-0360,Ironwood Components Co. #360,Aurelport,0.8
+SUP-0361,Amberfield Metal Forms Inc. #361,Emberfield,0.88
+SUP-0362,Ashgrove Metal Forms Inc. #362,Kestrel Bay,0.93
+SUP-0363,Riverside Metal Forms Inc. #363,Lindmoor,0.71
+SUP-0364,Kestrel Components Co. #364,Northfell,0.98
+SUP-0365,Ironwood Tooling Group #365,Lindmoor,0.84
+SUP-0366,Northfield Tooling Group #366,Kestrel Bay,0.72
+SUP-0367,Graystone Precision Works #367,Stonebrook Junction,0.92
+SUP-0368,Windrift Fabrication Ltd. #368,Windrift,0.94
+SUP-0369,Ironwood Tooling Group #369,Verdant Hollow,0.94
+SUP-0370,Northfield Precision Works #370,Aurelport,0.88
+SUP-0371,Northfield Precision Works #371,Northfell,0.71
+SUP-0372,Ashgrove Precision Works #372,Northfell,0.82
+SUP-0373,Graystone Components Co. #373,Northfell,0.93
+SUP-0374,Cobalt Peak Fabrication Ltd. #374,Kestrel Bay,0.73
+SUP-0375,Ironwood Precision Works #375,Emberfield,0.98
+SUP-0376,Northfield Precision Works #376,Kestrel Bay,0.98
+SUP-0377,Silverline Fabrication Ltd. #377,Emberfield,0.74
+SUP-0378,Ironwood Metal Forms Inc. #378,Northfell,0.99
+SUP-0379,Kestrel Tooling Group #379,Emberfield,0.94
+SUP-0380,Cobalt Peak Metal Forms Inc. #380,Emberfield,0.75
+SUP-0381,Ironwood Tooling Group #381,Draymoor,0.84
+SUP-0382,Graystone Tooling Group #382,Emberfield,0.77
+SUP-0383,Cobalt Peak Fabrication Ltd. #383,Windrift,0.75
+SUP-0384,Silverline Metal Forms Inc. #384,Stonebrook Junction,0.75
+SUP-0385,Kestrel Tooling Group #385,Northfell,0.73
+SUP-0386,Kestrel Components Co. #386,Draymoor,0.76
+SUP-0387,Cobalt Peak Components Co. #387,Kestrel Bay,0.98
+SUP-0388,Northfield Precision Works #388,Draymoor,0.95
+SUP-0389,Ashgrove Components Co. #389,Emberfield,0.92
+SUP-0390,Northfield Precision Works #390,Stonebrook Junction,0.88
+SUP-0391,Graystone Components Co. #391,Lindmoor,0.76
+SUP-0392,Windrift Components Co. #392,Aurelport,0.85
+SUP-0393,Graystone Components Co. #393,Lindmoor,0.73
+SUP-0394,Amberfield Components Co. #394,Northfell,0.88
+SUP-0395,Northfield Fabrication Ltd. #395,Windrift,0.76
+SUP-0396,Kestrel Tooling Group #396,Kestrel Bay,0.88
+SUP-0397,Ironwood Components Co. #397,Marrow Vale,0.75
+SUP-0398,Ashgrove Precision Works #398,Marrow Vale,0.91
+SUP-0399,Ironwood Metal Forms Inc. #399,Lindmoor,0.9
+SUP-0400,Silverline Components Co. #400,Draymoor,0.98
+SUP-0401,Kestrel Fabrication Ltd. #401,Lindmoor,0.94
+SUP-0402,Amberfield Tooling Group #402,Verdant Hollow,0.98
+SUP-0403,Kestrel Fabrication Ltd. #403,Northfell,0.91
+SUP-0404,Cobalt Peak Tooling Group #404,Verdant Hollow,0.73
+SUP-0405,Ironwood Fabrication Ltd. #405,Lindmoor,0.8
+SUP-0406,Ironwood Tooling Group #406,Verdant Hollow,0.77
+SUP-0407,Windrift Fabrication Ltd. #407,Northfell,0.91
+SUP-0408,Ironwood Precision Works #408,Lindmoor,0.8
+SUP-0409,Ashgrove Precision Works #409,Verdant Hollow,0.94
+SUP-0410,Cobalt Peak Precision Works #410,Lindmoor,0.75
+SUP-0411,Graystone Fabrication Ltd. #411,Stonebrook Junction,0.78
+SUP-0412,Silverline Fabrication Ltd. #412,Kestrel Bay,0.83
+SUP-0413,Riverside Metal Forms Inc. #413,Northfell,0.85
+SUP-0414,Ironwood Fabrication Ltd. #414,Marrow Vale,0.7
+SUP-0415,Northfield Components Co. #415,Marrow Vale,0.72
+SUP-0416,Ironwood Tooling Group #416,Verdant Hollow,0.75
+SUP-0417,Amberfield Precision Works #417,Verdant Hollow,0.79
+SUP-0418,Ironwood Metal Forms Inc. #418,Kestrel Bay,0.94
+SUP-0419,Amberfield Fabrication Ltd. #419,Windrift,0.71
+SUP-0420,Graystone Fabrication Ltd. #420,Draymoor,0.87
+SUP-0421,Amberfield Metal Forms Inc. #421,Draymoor,0.7
+SUP-0422,Northfield Fabrication Ltd. #422,Marrow Vale,0.99
+SUP-0423,Kestrel Tooling Group #423,Verdant Hollow,0.7
+SUP-0424,Ironwood Components Co. #424,Marrow Vale,0.97
+SUP-0425,Amberfield Metal Forms Inc. #425,Marrow Vale,0.97
+SUP-0426,Riverside Tooling Group #426,Windrift,0.79
+SUP-0427,Silverline Tooling Group #427,Aurelport,0.88
+SUP-0428,Amberfield Components Co. #428,Windrift,0.83
+SUP-0429,Graystone Tooling Group #429,Emberfield,0.94
+SUP-0430,Cobalt Peak Fabrication Ltd. #430,Lindmoor,0.86
+SUP-0431,Windrift Metal Forms Inc. #431,Draymoor,0.94
+SUP-0432,Northfield Components Co. #432,Emberfield,0.79
+SUP-0433,Graystone Components Co. #433,Aurelport,0.97
+SUP-0434,Northfield Tooling Group #434,Aurelport,0.77
+SUP-0435,Kestrel Precision Works #435,Draymoor,0.79
+SUP-0436,Cobalt Peak Tooling Group #436,Windrift,0.88
+SUP-0437,Cobalt Peak Precision Works #437,Windrift,0.79
+SUP-0438,Kestrel Precision Works #438,Stonebrook Junction,0.99
+SUP-0439,Cobalt Peak Precision Works #439,Draymoor,0.84
+SUP-0440,Ashgrove Precision Works #440,Lindmoor,0.75
+SUP-0441,Ashgrove Precision Works #441,Windrift,0.87
+SUP-0442,Amberfield Fabrication Ltd. #442,Windrift,0.89
+SUP-0443,Ironwood Components Co. #443,Lindmoor,0.99
+SUP-0444,Ashgrove Precision Works #444,Draymoor,0.81
+SUP-0445,Riverside Components Co. #445,Verdant Hollow,0.74
+SUP-0446,Northfield Fabrication Ltd. #446,Northfell,0.83
+SUP-0447,Graystone Fabrication Ltd. #447,Kestrel Bay,0.88
+SUP-0448,Northfield Fabrication Ltd. #448,Northfell,0.86
+SUP-0449,Ashgrove Fabrication Ltd. #449,Marrow Vale,0.82
+SUP-0450,Graystone Tooling Group #450,Marrow Vale,0.74
+SUP-0451,Ashgrove Metal Forms Inc. #451,Northfell,0.75
+SUP-0452,Amberfield Precision Works #452,Northfell,0.98
+SUP-0453,Ashgrove Metal Forms Inc. #453,Aurelport,0.97
+SUP-0454,Riverside Fabrication Ltd. #454,Verdant Hollow,0.93
+SUP-0455,Ironwood Tooling Group #455,Stonebrook Junction,0.79
+SUP-0456,Cobalt Peak Metal Forms Inc. #456,Emberfield,0.89
+SUP-0457,Silverline Fabrication Ltd. #457,Kestrel Bay,0.91
+SUP-0458,Windrift Components Co. #458,Windrift,0.71
+SUP-0459,Ironwood Tooling Group #459,Emberfield,0.89
+SUP-0460,Graystone Tooling Group #460,Kestrel Bay,0.96
+SUP-0461,Ironwood Fabrication Ltd. #461,Windrift,0.75
+SUP-0462,Northfield Tooling Group #462,Aurelport,0.83
+SUP-0463,Northfield Precision Works #463,Kestrel Bay,0.8
+SUP-0464,Ironwood Precision Works #464,Stonebrook Junction,0.98
+SUP-0465,Graystone Components Co. #465,Windrift,0.74
+SUP-0466,Amberfield Fabrication Ltd. #466,Draymoor,0.91
+SUP-0467,Ashgrove Tooling Group #467,Northfell,0.95
+SUP-0468,Northfield Fabrication Ltd. #468,Northfell,0.8
+SUP-0469,Northfield Tooling Group #469,Stonebrook Junction,0.72
+SUP-0470,Windrift Tooling Group #470,Emberfield,0.93
+SUP-0471,Amberfield Metal Forms Inc. #471,Stonebrook Junction,0.84
+SUP-0472,Amberfield Metal Forms Inc. #472,Marrow Vale,0.98
+SUP-0473,Kestrel Fabrication Ltd. #473,Lindmoor,0.71
+SUP-0474,Graystone Fabrication Ltd. #474,Verdant Hollow,0.76
+SUP-0475,Riverside Tooling Group #475,Aurelport,0.95
+SUP-0476,Ironwood Components Co. #476,Northfell,0.94
+SUP-0477,Amberfield Fabrication Ltd. #477,Emberfield,0.94
+SUP-0478,Ashgrove Fabrication Ltd. #478,Kestrel Bay,0.83
+SUP-0479,Riverside Components Co. #479,Draymoor,0.89
+SUP-0480,Silverline Tooling Group #480,Kestrel Bay,0.85
+SUP-0481,Kestrel Metal Forms Inc. #481,Draymoor,0.85
+SUP-0482,Graystone Precision Works #482,Draymoor,0.8
+SUP-0483,Northfield Precision Works #483,Emberfield,0.7
+SUP-0484,Silverline Precision Works #484,Marrow Vale,0.92
+SUP-0485,Kestrel Components Co. #485,Windrift,0.87
+SUP-0486,Ironwood Components Co. #486,Marrow Vale,0.72
+SUP-0487,Ironwood Fabrication Ltd. #487,Emberfield,0.71
+SUP-0488,Northfield Precision Works #488,Emberfield,0.85
+SUP-0489,Silverline Precision Works #489,Windrift,0.89
+SUP-0490,Silverline Metal Forms Inc. #490,Emberfield,0.83
+SUP-0491,Northfield Fabrication Ltd. #491,Marrow Vale,0.97
+SUP-0492,Kestrel Fabrication Ltd. #492,Draymoor,0.8
+SUP-0493,Amberfield Fabrication Ltd. #493,Draymoor,0.87
+SUP-0494,Amberfield Components Co. #494,Kestrel Bay,0.9
+SUP-0495,Northfield Metal Forms Inc. #495,Aurelport,0.85
+SUP-0496,Windrift Components Co. #496,Kestrel Bay,0.95
+SUP-0497,Cobalt Peak Components Co. #497,Emberfield,0.83
+SUP-0498,Ironwood Components Co. #498,Marrow Vale,0.85
+SUP-0499,Northfield Components Co. #499,Stonebrook Junction,0.71
+SUP-0500,Amberfield Components Co. #500,Kestrel Bay,0.83
+SUP-0501,Silverline Fabrication Ltd. #501,Draymoor,0.96
+SUP-0502,Cobalt Peak Components Co. #502,Windrift,0.88
+SUP-0503,Riverside Precision Works #503,Kestrel Bay,0.84
+SUP-0504,Northfield Components Co. #504,Emberfield,0.78
+SUP-0505,Ironwood Metal Forms Inc. #505,Northfell,0.86
+SUP-0506,Ironwood Metal Forms Inc. #506,Northfell,0.79
+SUP-0507,Kestrel Metal Forms Inc. #507,Stonebrook Junction,0.9
+SUP-0508,Northfield Metal Forms Inc. #508,Verdant Hollow,0.95
+SUP-0509,Cobalt Peak Fabrication Ltd. #509,Draymoor,0.83
+SUP-0510,Amberfield Fabrication Ltd. #510,Kestrel Bay,0.85
+SUP-0511,Amberfield Fabrication Ltd. #511,Draymoor,0.76
+SUP-0512,Riverside Components Co. #512,Marrow Vale,0.95
+SUP-0513,Ashgrove Metal Forms Inc. #513,Verdant Hollow,0.83
+SUP-0514,Kestrel Fabrication Ltd. #514,Verdant Hollow,0.84
+SUP-0515,Windrift Components Co. #515,Northfell,0.74
+SUP-0516,Cobalt Peak Tooling Group #516,Stonebrook Junction,0.9
+SUP-0517,Silverline Tooling Group #517,Northfell,0.92
+SUP-0518,Kestrel Fabrication Ltd. #518,Verdant Hollow,0.81
+SUP-0519,Graystone Metal Forms Inc. #519,Emberfield,0.93
+SUP-0520,Northfield Fabrication Ltd. #520,Emberfield,0.82
+SUP-0521,Northfield Components Co. #521,Windrift,0.81
+SUP-0522,Kestrel Metal Forms Inc. #522,Aurelport,0.91
+SUP-0523,Riverside Metal Forms Inc. #523,Northfell,0.95
+SUP-0524,Silverline Tooling Group #524,Windrift,0.98
+SUP-0525,Ironwood Metal Forms Inc. #525,Stonebrook Junction,0.99
+SUP-0526,Windrift Components Co. #526,Windrift,0.73
+SUP-0527,Kestrel Components Co. #527,Lindmoor,0.87
+SUP-0528,Silverline Precision Works #528,Marrow Vale,0.88
+SUP-0529,Windrift Precision Works #529,Verdant Hollow,0.96
+SUP-0530,Riverside Tooling Group #530,Emberfield,0.79
+SUP-0531,Windrift Components Co. #531,Emberfield,0.86
+SUP-0532,Kestrel Metal Forms Inc. #532,Northfell,0.97
+SUP-0533,Amberfield Precision Works #533,Northfell,0.83
+SUP-0534,Graystone Tooling Group #534,Verdant Hollow,0.82
+SUP-0535,Kestrel Fabrication Ltd. #535,Aurelport,0.76
+SUP-0536,Windrift Tooling Group #536,Kestrel Bay,0.81
+SUP-0537,Graystone Precision Works #537,Verdant Hollow,0.85
+SUP-0538,Silverline Tooling Group #538,Kestrel Bay,0.98
+SUP-0539,Cobalt Peak Tooling Group #539,Windrift,0.94
+SUP-0540,Ironwood Components Co. #540,Verdant Hollow,0.94
+SUP-0541,Northfield Fabrication Ltd. #541,Verdant Hollow,0.91
+SUP-0542,Amberfield Components Co. #542,Marrow Vale,0.86
+SUP-0543,Riverside Precision Works #543,Windrift,0.96
+SUP-0544,Ironwood Tooling Group #544,Northfell,0.86
+SUP-0545,Amberfield Components Co. #545,Aurelport,0.72
+SUP-0546,Ashgrove Metal Forms Inc. #546,Aurelport,0.82
+SUP-0547,Riverside Fabrication Ltd. #547,Stonebrook Junction,0.97
+SUP-0548,Graystone Precision Works #548,Stonebrook Junction,0.94
+SUP-0549,Cobalt Peak Metal Forms Inc. #549,Verdant Hollow,0.95
+SUP-0550,Silverline Precision Works #550,Emberfield,0.73
+SUP-0551,Amberfield Fabrication Ltd. #551,Northfell,0.71
+SUP-0552,Kestrel Fabrication Ltd. #552,Emberfield,0.83
+SUP-0553,Northfield Tooling Group #553,Northfell,0.95
+SUP-0554,Cobalt Peak Metal Forms Inc. #554,Northfell,0.95
+SUP-0555,Cobalt Peak Components Co. #555,Emberfield,0.84
+SUP-0556,Riverside Fabrication Ltd. #556,Verdant Hollow,0.84
+SUP-0557,Ironwood Metal Forms Inc. #557,Windrift,0.81
+SUP-0558,Graystone Metal Forms Inc. #558,Northfell,0.73
+SUP-0559,Northfield Components Co. #559,Kestrel Bay,0.72
+SUP-0560,Riverside Components Co. #560,Northfell,0.93
+SUP-0561,Cobalt Peak Tooling Group #561,Windrift,0.91
+SUP-0562,Ashgrove Fabrication Ltd. #562,Windrift,0.93
+SUP-0563,Kestrel Components Co. #563,Windrift,0.75
+SUP-0564,Windrift Tooling Group #564,Verdant Hollow,0.88
+SUP-0565,Graystone Precision Works #565,Emberfield,0.94
+SUP-0566,Riverside Metal Forms Inc. #566,Lindmoor,0.87
+SUP-0567,Riverside Fabrication Ltd. #567,Marrow Vale,0.82
+SUP-0568,Ashgrove Tooling Group #568,Kestrel Bay,0.72
+SUP-0569,Silverline Fabrication Ltd. #569,Kestrel Bay,0.95
+SUP-0570,Northfield Components Co. #570,Lindmoor,0.9
+SUP-0571,Ashgrove Tooling Group #571,Draymoor,0.99
+SUP-0572,Silverline Tooling Group #572,Stonebrook Junction,0.79
+SUP-0573,Graystone Tooling Group #573,Draymoor,0.79
+SUP-0574,Ashgrove Metal Forms Inc. #574,Aurelport,0.76
+SUP-0575,Silverline Tooling Group #575,Lindmoor,0.85
+SUP-0576,Ironwood Metal Forms Inc. #576,Northfell,0.72
+SUP-0577,Ironwood Fabrication Ltd. #577,Marrow Vale,0.93
+SUP-0578,Graystone Metal Forms Inc. #578,Lindmoor,0.95
+SUP-0579,Northfield Precision Works #579,Windrift,0.83
+SUP-0580,Amberfield Fabrication Ltd. #580,Draymoor,0.93
+SUP-0581,Windrift Precision Works #581,Northfell,0.97
+SUP-0582,Ashgrove Metal Forms Inc. #582,Verdant Hollow,0.73
+SUP-0583,Windrift Precision Works #583,Northfell,0.92
+SUP-0584,Cobalt Peak Fabrication Ltd. #584,Northfell,0.89
+SUP-0585,Ironwood Tooling Group #585,Stonebrook Junction,0.78
+SUP-0586,Windrift Components Co. #586,Verdant Hollow,0.79
+SUP-0587,Windrift Tooling Group #587,Draymoor,0.73
+SUP-0588,Ashgrove Metal Forms Inc. #588,Lindmoor,0.84
+SUP-0589,Ashgrove Metal Forms Inc. #589,Lindmoor,0.9
+SUP-0590,Riverside Components Co. #590,Kestrel Bay,0.7
+SUP-0591,Riverside Fabrication Ltd. #591,Windrift,0.71
+SUP-0592,Amberfield Tooling Group #592,Draymoor,0.77
+SUP-0593,Cobalt Peak Fabrication Ltd. #593,Lindmoor,0.85
+SUP-0594,Cobalt Peak Metal Forms Inc. #594,Emberfield,0.76
+SUP-0595,Silverline Metal Forms Inc. #595,Draymoor,0.89
+SUP-0596,Graystone Components Co. #596,Aurelport,0.75
+SUP-0597,Cobalt Peak Tooling Group #597,Windrift,0.71
+SUP-0598,Windrift Precision Works #598,Kestrel Bay,0.85
+SUP-0599,Cobalt Peak Components Co. #599,Verdant Hollow,0.85
+SUP-0600,Silverline Precision Works #600,Kestrel Bay,0.87
+SUP-0601,Ashgrove Components Co. #601,Windrift,0.91
+SUP-0602,Graystone Tooling Group #602,Northfell,0.83
+SUP-0603,Ironwood Tooling Group #603,Emberfield,0.84
+SUP-0604,Graystone Metal Forms Inc. #604,Kestrel Bay,0.85
+SUP-0605,Riverside Precision Works #605,Emberfield,0.89
+SUP-0606,Ashgrove Fabrication Ltd. #606,Draymoor,0.83
+SUP-0607,Kestrel Tooling Group #607,Draymoor,0.81
+SUP-0608,Cobalt Peak Precision Works #608,Verdant Hollow,0.82
+SUP-0609,Kestrel Components Co. #609,Marrow Vale,0.76
+SUP-0610,Northfield Metal Forms Inc. #610,Verdant Hollow,0.95
+SUP-0611,Ironwood Metal Forms Inc. #611,Verdant Hollow,0.74
+SUP-0612,Graystone Metal Forms Inc. #612,Marrow Vale,0.85
+SUP-0613,Ashgrove Precision Works #613,Draymoor,0.88
+SUP-0614,Northfield Components Co. #614,Windrift,0.87
+SUP-0615,Northfield Metal Forms Inc. #615,Verdant Hollow,0.82
+SUP-0616,Windrift Precision Works #616,Lindmoor,0.93
+SUP-0617,Kestrel Precision Works #617,Windrift,0.96
+SUP-0618,Northfield Precision Works #618,Aurelport,0.91
+SUP-0619,Ashgrove Metal Forms Inc. #619,Marrow Vale,0.98
+SUP-0620,Cobalt Peak Fabrication Ltd. #620,Marrow Vale,0.88
+SUP-0621,Windrift Tooling Group #621,Northfell,0.91
+SUP-0622,Ashgrove Components Co. #622,Stonebrook Junction,0.89
+SUP-0623,Amberfield Tooling Group #623,Kestrel Bay,0.79
+SUP-0624,Ashgrove Metal Forms Inc. #624,Emberfield,0.75
+SUP-0625,Cobalt Peak Fabrication Ltd. #625,Windrift,0.96
+SUP-0626,Ashgrove Components Co. #626,Lindmoor,0.86
+SUP-0627,Cobalt Peak Tooling Group #627,Kestrel Bay,0.88
+SUP-0628,Silverline Tooling Group #628,Northfell,0.73
+SUP-0629,Ashgrove Tooling Group #629,Draymoor,0.94
+SUP-0630,Cobalt Peak Components Co. #630,Lindmoor,0.78
+SUP-0631,Riverside Tooling Group #631,Aurelport,0.74
+SUP-0632,Cobalt Peak Precision Works #632,Northfell,0.78
+SUP-0633,Kestrel Precision Works #633,Lindmoor,0.85
+SUP-0634,Ashgrove Metal Forms Inc. #634,Windrift,0.98
+SUP-0635,Riverside Components Co. #635,Verdant Hollow,0.94
+SUP-0636,Riverside Precision Works #636,Northfell,0.74
+SUP-0637,Windrift Components Co. #637,Kestrel Bay,0.84
+SUP-0638,Ashgrove Fabrication Ltd. #638,Lindmoor,0.86
+SUP-0639,Kestrel Tooling Group #639,Emberfield,0.75
+SUP-0640,Riverside Components Co. #640,Northfell,0.9
+SUP-0641,Kestrel Tooling Group #641,Draymoor,0.86
+SUP-0642,Kestrel Precision Works #642,Kestrel Bay,0.88
+SUP-0643,Cobalt Peak Fabrication Ltd. #643,Draymoor,0.9
+SUP-0644,Silverline Fabrication Ltd. #644,Aurelport,0.83
+SUP-0645,Ashgrove Components Co. #645,Northfell,0.88
+SUP-0646,Northfield Precision Works #646,Emberfield,0.79
+SUP-0647,Silverline Precision Works #647,Aurelport,0.71
+SUP-0648,Silverline Tooling Group #648,Windrift,0.74
+SUP-0649,Northfield Tooling Group #649,Northfell,0.98
+SUP-0650,Cobalt Peak Tooling Group #650,Marrow Vale,0.93
+SUP-0651,Cobalt Peak Components Co. #651,Northfell,0.81
+SUP-0652,Ashgrove Metal Forms Inc. #652,Northfell,0.78
+SUP-0653,Cobalt Peak Components Co. #653,Emberfield,0.9
+SUP-0654,Silverline Metal Forms Inc. #654,Draymoor,0.74
+SUP-0655,Northfield Precision Works #655,Lindmoor,0.72
+SUP-0656,Riverside Tooling Group #656,Lindmoor,0.86
+SUP-0657,Windrift Metal Forms Inc. #657,Verdant Hollow,0.78
+SUP-0658,Ironwood Components Co. #658,Kestrel Bay,0.71
+SUP-0659,Amberfield Fabrication Ltd. #659,Northfell,0.87
+SUP-0660,Kestrel Components Co. #660,Marrow Vale,0.94
+SUP-0661,Cobalt Peak Precision Works #661,Aurelport,0.95
+SUP-0662,Amberfield Tooling Group #662,Kestrel Bay,0.82
+SUP-0663,Ironwood Tooling Group #663,Draymoor,0.89
+SUP-0664,Windrift Tooling Group #664,Lindmoor,0.73
+SUP-0665,Cobalt Peak Metal Forms Inc. #665,Draymoor,0.84
+SUP-0666,Kestrel Metal Forms Inc. #666,Kestrel Bay,0.9
+SUP-0667,Riverside Components Co. #667,Lindmoor,0.8
+SUP-0668,Riverside Components Co. #668,Windrift,0.86
+SUP-0669,Northfield Precision Works #669,Emberfield,0.81
+SUP-0670,Silverline Fabrication Ltd. #670,Aurelport,0.79
+SUP-0671,Amberfield Components Co. #671,Marrow Vale,0.93
+SUP-0672,Riverside Tooling Group #672,Emberfield,0.91
+SUP-0673,Windrift Fabrication Ltd. #673,Marrow Vale,0.95
+SUP-0674,Amberfield Fabrication Ltd. #674,Windrift,0.98
+SUP-0675,Amberfield Fabrication Ltd. #675,Windrift,0.89
+SUP-0676,Graystone Components Co. #676,Aurelport,0.76
+SUP-0677,Cobalt Peak Metal Forms Inc. #677,Windrift,0.85
+SUP-0678,Riverside Precision Works #678,Lindmoor,0.77
+SUP-0679,Silverline Metal Forms Inc. #679,Stonebrook Junction,0.86
+SUP-0680,Graystone Tooling Group #680,Verdant Hollow,0.91
+SUP-0681,Riverside Components Co. #681,Aurelport,0.71
+SUP-0682,Graystone Tooling Group #682,Draymoor,0.75
+SUP-0683,Ironwood Metal Forms Inc. #683,Northfell,0.73
+SUP-0684,Kestrel Precision Works #684,Stonebrook Junction,0.83
+SUP-0685,Northfield Tooling Group #685,Verdant Hollow,0.83
+SUP-0686,Amberfield Fabrication Ltd. #686,Draymoor,0.96
+SUP-0687,Amberfield Components Co. #687,Marrow Vale,0.89
+SUP-0688,Cobalt Peak Tooling Group #688,Emberfield,0.83
+SUP-0689,Graystone Precision Works #689,Aurelport,0.72
+SUP-0690,Ironwood Precision Works #690,Kestrel Bay,0.85
+SUP-0691,Silverline Metal Forms Inc. #691,Emberfield,0.78
+SUP-0692,Riverside Precision Works #692,Verdant Hollow,0.95
+SUP-0693,Graystone Metal Forms Inc. #693,Kestrel Bay,0.77
+SUP-0694,Ashgrove Tooling Group #694,Verdant Hollow,0.73
+SUP-0695,Ironwood Tooling Group #695,Northfell,0.86
+SUP-0696,Kestrel Precision Works #696,Stonebrook Junction,0.8
+SUP-0697,Cobalt Peak Precision Works #697,Lindmoor,0.83
+SUP-0698,Riverside Metal Forms Inc. #698,Aurelport,0.77
+SUP-0699,Riverside Precision Works #699,Stonebrook Junction,0.72
+SUP-0700,Riverside Tooling Group #700,Windrift,0.98
+SUP-0701,Windrift Components Co. #701,Lindmoor,0.85
+SUP-0702,Amberfield Precision Works #702,Stonebrook Junction,0.88
+SUP-0703,Riverside Metal Forms Inc. #703,Kestrel Bay,0.87
+SUP-0704,Northfield Fabrication Ltd. #704,Draymoor,0.73
+SUP-0705,Riverside Fabrication Ltd. #705,Emberfield,0.81
+SUP-0706,Cobalt Peak Fabrication Ltd. #706,Stonebrook Junction,0.87
+SUP-0707,Ashgrove Precision Works #707,Kestrel Bay,0.77
+SUP-0708,Kestrel Tooling Group #708,Windrift,0.79
+SUP-0709,Amberfield Metal Forms Inc. #709,Aurelport,0.81
+SUP-0710,Windrift Components Co. #710,Draymoor,0.99
+SUP-0711,Riverside Precision Works #711,Stonebrook Junction,0.77
+SUP-0712,Amberfield Fabrication Ltd. #712,Emberfield,0.81
+SUP-0713,Amberfield Tooling Group #713,Northfell,0.96
+SUP-0714,Graystone Tooling Group #714,Kestrel Bay,0.76
+SUP-0715,Windrift Tooling Group #715,Windrift,0.86
+SUP-0716,Ironwood Components Co. #716,Verdant Hollow,0.97
+SUP-0717,Silverline Tooling Group #717,Marrow Vale,0.93
+SUP-0718,Silverline Fabrication Ltd. #718,Lindmoor,0.99
+SUP-0719,Ashgrove Components Co. #719,Marrow Vale,0.75
+SUP-0720,Ironwood Components Co. #720,Verdant Hollow,0.8
+SUP-0721,Amberfield Components Co. #721,Emberfield,0.87
+SUP-0722,Windrift Fabrication Ltd. #722,Draymoor,0.81
+SUP-0723,Amberfield Fabrication Ltd. #723,Aurelport,0.7
+SUP-0724,Amberfield Components Co. #724,Northfell,0.73
+SUP-0725,Cobalt Peak Tooling Group #725,Marrow Vale,0.98
+SUP-0726,Ironwood Fabrication Ltd. #726,Lindmoor,0.96
+SUP-0727,Amberfield Tooling Group #727,Kestrel Bay,0.97
+SUP-0728,Amberfield Components Co. #728,Verdant Hollow,0.75
+SUP-0729,Ironwood Fabrication Ltd. #729,Marrow Vale,0.95
+SUP-0730,Kestrel Fabrication Ltd. #730,Stonebrook Junction,0.86
+SUP-0731,Kestrel Fabrication Ltd. #731,Windrift,0.79
+SUP-0732,Amberfield Fabrication Ltd. #732,Lindmoor,0.85
+SUP-0733,Silverline Tooling Group #733,Stonebrook Junction,0.72
+SUP-0734,Northfield Metal Forms Inc. #734,Aurelport,0.74
+SUP-0735,Graystone Tooling Group #735,Northfell,0.91
+SUP-0736,Cobalt Peak Fabrication Ltd. #736,Stonebrook Junction,0.77
+SUP-0737,Windrift Precision Works #737,Marrow Vale,0.72
+SUP-0738,Graystone Tooling Group #738,Aurelport,0.92
+SUP-0739,Amberfield Components Co. #739,Verdant Hollow,0.78
+SUP-0740,Graystone Fabrication Ltd. #740,Marrow Vale,0.72
+SUP-0741,Windrift Precision Works #741,Northfell,0.83
+SUP-0742,Kestrel Precision Works #742,Draymoor,0.94
+SUP-0743,Riverside Precision Works #743,Kestrel Bay,0.72
+SUP-0744,Ironwood Fabrication Ltd. #744,Stonebrook Junction,0.9
+SUP-0745,Kestrel Precision Works #745,Kestrel Bay,0.95
+SUP-0746,Ashgrove Metal Forms Inc. #746,Emberfield,0.84
+SUP-0747,Silverline Components Co. #747,Lindmoor,0.94
+SUP-0748,Cobalt Peak Precision Works #748,Verdant Hollow,0.94
+SUP-0749,Riverside Precision Works #749,Marrow Vale,0.94
+SUP-0750,Cobalt Peak Metal Forms Inc. #750,Stonebrook Junction,0.71
+SUP-0751,Silverline Fabrication Ltd. #751,Verdant Hollow,0.98
+SUP-0752,Riverside Tooling Group #752,Marrow Vale,0.81
+SUP-0753,Ironwood Components Co. #753,Verdant Hollow,0.83
+SUP-0754,Riverside Metal Forms Inc. #754,Marrow Vale,0.84
+SUP-0755,Northfield Components Co. #755,Northfell,0.72
+SUP-0756,Ashgrove Fabrication Ltd. #756,Kestrel Bay,0.95
+SUP-0757,Northfield Tooling Group #757,Kestrel Bay,0.87
+SUP-0758,Ironwood Components Co. #758,Kestrel Bay,0.75
+SUP-0759,Windrift Metal Forms Inc. #759,Windrift,0.9
+SUP-0760,Cobalt Peak Components Co. #760,Stonebrook Junction,0.93
+SUP-0761,Graystone Fabrication Ltd. #761,Lindmoor,0.96
+SUP-0762,Graystone Tooling Group #762,Draymoor,0.85
+SUP-0763,Ironwood Components Co. #763,Windrift,0.83
+SUP-0764,Kestrel Tooling Group #764,Stonebrook Junction,0.83
+SUP-0765,Cobalt Peak Precision Works #765,Kestrel Bay,0.77
+SUP-0766,Silverline Precision Works #766,Stonebrook Junction,0.87
+SUP-0767,Riverside Fabrication Ltd. #767,Kestrel Bay,0.75
+SUP-0768,Silverline Components Co. #768,Kestrel Bay,0.92
+SUP-0769,Northfield Precision Works #769,Northfell,0.84
+SUP-0770,Amberfield Components Co. #770,Verdant Hollow,0.9
+SUP-0771,Northfield Tooling Group #771,Windrift,0.96
+SUP-0772,Amberfield Metal Forms Inc. #772,Stonebrook Junction,0.92
+SUP-0773,Graystone Metal Forms Inc. #773,Kestrel Bay,0.78
+SUP-0774,Ironwood Tooling Group #774,Windrift,0.8
+SUP-0775,Amberfield Metal Forms Inc. #775,Windrift,0.96
+SUP-0776,Amberfield Components Co. #776,Windrift,0.91
+SUP-0777,Windrift Precision Works #777,Marrow Vale,0.86
+SUP-0778,Amberfield Components Co. #778,Marrow Vale,0.74
+SUP-0779,Riverside Metal Forms Inc. #779,Northfell,0.79
+SUP-0780,Graystone Precision Works #780,Aurelport,0.88
+SUP-0781,Ashgrove Metal Forms Inc. #781,Stonebrook Junction,0.89
+SUP-0782,Ashgrove Metal Forms Inc. #782,Lindmoor,0.94
+SUP-0783,Ironwood Metal Forms Inc. #783,Emberfield,0.78
+SUP-0784,Windrift Components Co. #784,Kestrel Bay,0.8
+SUP-0785,Amberfield Components Co. #785,Lindmoor,0.87
+SUP-0786,Graystone Precision Works #786,Aurelport,0.83
+SUP-0787,Ironwood Metal Forms Inc. #787,Windrift,0.81
+SUP-0788,Kestrel Metal Forms Inc. #788,Lindmoor,0.92
+SUP-0789,Cobalt Peak Metal Forms Inc. #789,Kestrel Bay,0.88
+SUP-0790,Riverside Tooling Group #790,Northfell,0.91
+SUP-0791,Graystone Precision Works #791,Aurelport,0.93
+SUP-0792,Northfield Tooling Group #792,Marrow Vale,0.83
+SUP-0793,Ironwood Precision Works #793,Stonebrook Junction,0.81
+SUP-0794,Kestrel Precision Works #794,Verdant Hollow,0.84
+SUP-0795,Ashgrove Tooling Group #795,Aurelport,0.89
+SUP-0796,Northfield Components Co. #796,Kestrel Bay,0.98
+SUP-0797,Graystone Tooling Group #797,Kestrel Bay,0.97
+SUP-0798,Riverside Metal Forms Inc. #798,Stonebrook Junction,0.86
+SUP-0799,Windrift Tooling Group #799,Draymoor,0.93
+SUP-0800,Amberfield Fabrication Ltd. #800,Marrow Vale,0.71
+SUP-0801,Kestrel Metal Forms Inc. #801,Marrow Vale,0.97
+SUP-0802,Ironwood Precision Works #802,Windrift,0.89
+SUP-0803,Riverside Tooling Group #803,Aurelport,0.95
+SUP-0804,Cobalt Peak Tooling Group #804,Northfell,0.73
+SUP-0805,Northfield Metal Forms Inc. #805,Northfell,0.91
+SUP-0806,Amberfield Tooling Group #806,Marrow Vale,0.97
+SUP-0807,Graystone Tooling Group #807,Northfell,0.85
+SUP-0808,Windrift Precision Works #808,Kestrel Bay,0.75
+SUP-0809,Silverline Precision Works #809,Lindmoor,0.98
+SUP-0810,Windrift Components Co. #810,Stonebrook Junction,0.82
+SUP-0811,Kestrel Fabrication Ltd. #811,Northfell,0.96
+SUP-0812,Riverside Metal Forms Inc. #812,Aurelport,0.98
+SUP-0813,Amberfield Fabrication Ltd. #813,Draymoor,0.73
+SUP-0814,Windrift Components Co. #814,Lindmoor,0.71
+SUP-0815,Ironwood Precision Works #815,Windrift,0.97
+SUP-0816,Kestrel Metal Forms Inc. #816,Emberfield,0.9
+SUP-0817,Riverside Components Co. #817,Verdant Hollow,0.91
+SUP-0818,Ironwood Precision Works #818,Lindmoor,0.98
+SUP-0819,Graystone Tooling Group #819,Kestrel Bay,0.77
+SUP-0820,Windrift Tooling Group #820,Draymoor,0.85
+SUP-0821,Northfield Fabrication Ltd. #821,Stonebrook Junction,0.76
+SUP-0822,Graystone Metal Forms Inc. #822,Kestrel Bay,0.95
+SUP-0823,Kestrel Tooling Group #823,Draymoor,0.89
+SUP-0824,Amberfield Metal Forms Inc. #824,Lindmoor,0.73
+SUP-0825,Northfield Precision Works #825,Draymoor,0.84
+SUP-0826,Kestrel Metal Forms Inc. #826,Marrow Vale,0.86
+SUP-0827,Ashgrove Tooling Group #827,Emberfield,0.74
+SUP-0828,Ashgrove Metal Forms Inc. #828,Marrow Vale,0.72
+SUP-0829,Graystone Components Co. #829,Lindmoor,0.82
+SUP-0830,Cobalt Peak Fabrication Ltd. #830,Windrift,0.79
+SUP-0831,Ashgrove Components Co. #831,Windrift,0.94
+SUP-0832,Amberfield Metal Forms Inc. #832,Verdant Hollow,0.95
+SUP-0833,Silverline Fabrication Ltd. #833,Verdant Hollow,0.78
+SUP-0834,Windrift Components Co. #834,Verdant Hollow,0.76
+SUP-0835,Riverside Tooling Group #835,Aurelport,0.87
+SUP-0836,Amberfield Components Co. #836,Kestrel Bay,0.73
+SUP-0837,Ironwood Fabrication Ltd. #837,Northfell,0.81
+SUP-0838,Riverside Fabrication Ltd. #838,Windrift,0.84
+SUP-0839,Amberfield Fabrication Ltd. #839,Windrift,0.71
+SUP-0840,Northfield Precision Works #840,Kestrel Bay,0.92
+SUP-0841,Amberfield Tooling Group #841,Kestrel Bay,0.91
+SUP-0842,Ironwood Components Co. #842,Draymoor,0.92
+SUP-0843,Graystone Tooling Group #843,Draymoor,0.82
+SUP-0844,Ironwood Components Co. #844,Windrift,0.73
+SUP-0845,Cobalt Peak Metal Forms Inc. #845,Marrow Vale,0.77
+SUP-0846,Windrift Components Co. #846,Stonebrook Junction,0.93
+SUP-0847,Windrift Components Co. #847,Emberfield,0.79
+SUP-0848,Windrift Metal Forms Inc. #848,Windrift,0.85
+SUP-0849,Riverside Metal Forms Inc. #849,Windrift,0.89
+SUP-0850,Cobalt Peak Precision Works #850,Stonebrook Junction,0.95
+SUP-0851,Northfield Components Co. #851,Verdant Hollow,0.88
+SUP-0852,Cobalt Peak Tooling Group #852,Kestrel Bay,0.9
+SUP-0853,Graystone Metal Forms Inc. #853,Aurelport,0.76
+SUP-0854,Northfield Metal Forms Inc. #854,Lindmoor,0.72
+SUP-0855,Graystone Metal Forms Inc. #855,Marrow Vale,0.77
+SUP-0856,Windrift Fabrication Ltd. #856,Windrift,0.93
+SUP-0857,Northfield Components Co. #857,Windrift,0.74
+SUP-0858,Ashgrove Precision Works #858,Verdant Hollow,0.76
+SUP-0859,Ashgrove Precision Works #859,Lindmoor,0.93
+SUP-0860,Ashgrove Precision Works #860,Stonebrook Junction,0.8
+SUP-0861,Amberfield Metal Forms Inc. #861,Emberfield,0.79
+SUP-0862,Graystone Metal Forms Inc. #862,Lindmoor,0.96
+SUP-0863,Ironwood Precision Works #863,Northfell,0.9
+SUP-0864,Kestrel Fabrication Ltd. #864,Lindmoor,0.89
+SUP-0865,Windrift Fabrication Ltd. #865,Kestrel Bay,0.77
+SUP-0866,Silverline Components Co. #866,Stonebrook Junction,0.72
+SUP-0867,Ashgrove Precision Works #867,Stonebrook Junction,0.7
+SUP-0868,Northfield Precision Works #868,Kestrel Bay,0.94
+SUP-0869,Riverside Fabrication Ltd. #869,Draymoor,0.83
+SUP-0870,Riverside Components Co. #870,Draymoor,0.94
+SUP-0871,Kestrel Tooling Group #871,Kestrel Bay,0.82
+SUP-0872,Cobalt Peak Components Co. #872,Emberfield,0.81
+SUP-0873,Windrift Components Co. #873,Marrow Vale,0.86
+SUP-0874,Kestrel Fabrication Ltd. #874,Lindmoor,0.92
+SUP-0875,Amberfield Fabrication Ltd. #875,Verdant Hollow,0.89
+SUP-0876,Riverside Metal Forms Inc. #876,Windrift,0.84
+SUP-0877,Graystone Components Co. #877,Marrow Vale,0.87
+SUP-0878,Amberfield Components Co. #878,Draymoor,0.79
+SUP-0879,Graystone Fabrication Ltd. #879,Kestrel Bay,0.89
+SUP-0880,Graystone Metal Forms Inc. #880,Lindmoor,0.98
+SUP-0881,Graystone Metal Forms Inc. #881,Stonebrook Junction,0.7
+SUP-0882,Cobalt Peak Tooling Group #882,Verdant Hollow,0.93
+SUP-0883,Riverside Components Co. #883,Windrift,0.97
+SUP-0884,Cobalt Peak Metal Forms Inc. #884,Stonebrook Junction,0.8
+SUP-0885,Northfield Components Co. #885,Verdant Hollow,0.78
+SUP-0886,Cobalt Peak Precision Works #886,Northfell,0.74
+SUP-0887,Cobalt Peak Tooling Group #887,Verdant Hollow,0.72
+SUP-0888,Ashgrove Components Co. #888,Draymoor,0.88
+SUP-0889,Graystone Precision Works #889,Northfell,0.71
+SUP-0890,Ironwood Precision Works #890,Marrow Vale,0.72
+SUP-0891,Kestrel Tooling Group #891,Draymoor,0.77
+SUP-0892,Northfield Tooling Group #892,Verdant Hollow,0.89
+SUP-0893,Ironwood Tooling Group #893,Northfell,0.81
+SUP-0894,Graystone Metal Forms Inc. #894,Northfell,0.87
+SUP-0895,Ashgrove Components Co. #895,Aurelport,0.73
+SUP-0896,Amberfield Metal Forms Inc. #896,Marrow Vale,0.88
+SUP-0897,Silverline Tooling Group #897,Northfell,0.75
+SUP-0898,Cobalt Peak Metal Forms Inc. #898,Marrow Vale,0.75
+SUP-0899,Amberfield Tooling Group #899,Emberfield,0.8
+SUP-0900,Silverline Fabrication Ltd. #900,Emberfield,0.86
+SUP-0901,Amberfield Tooling Group #901,Lindmoor,0.74
+SUP-0902,Ashgrove Components Co. #902,Emberfield,0.78
+SUP-0903,Northfield Tooling Group #903,Verdant Hollow,0.81
+SUP-0904,Cobalt Peak Components Co. #904,Verdant Hollow,0.82
+SUP-0905,Kestrel Fabrication Ltd. #905,Northfell,0.73
+SUP-0906,Northfield Tooling Group #906,Marrow Vale,0.75
+SUP-0907,Kestrel Tooling Group #907,Kestrel Bay,0.74
+SUP-0908,Windrift Tooling Group #908,Kestrel Bay,0.97
+SUP-0909,Riverside Precision Works #909,Lindmoor,0.94
+SUP-0910,Graystone Precision Works #910,Verdant Hollow,0.91
+SUP-0911,Northfield Metal Forms Inc. #911,Draymoor,0.79
+SUP-0912,Kestrel Metal Forms Inc. #912,Verdant Hollow,0.92
+SUP-0913,Windrift Tooling Group #913,Emberfield,0.85
+SUP-0914,Northfield Metal Forms Inc. #914,Northfell,0.81
+SUP-0915,Cobalt Peak Metal Forms Inc. #915,Verdant Hollow,0.75
+SUP-0916,Windrift Components Co. #916,Verdant Hollow,0.73
+SUP-0917,Silverline Tooling Group #917,Northfell,0.85
+SUP-0918,Northfield Fabrication Ltd. #918,Kestrel Bay,0.95
+SUP-0919,Riverside Metal Forms Inc. #919,Marrow Vale,0.79
+SUP-0920,Windrift Tooling Group #920,Stonebrook Junction,0.7
+SUP-0921,Amberfield Fabrication Ltd. #921,Stonebrook Junction,0.94
+SUP-0922,Northfield Fabrication Ltd. #922,Lindmoor,0.87
+SUP-0923,Kestrel Tooling Group #923,Lindmoor,0.84
+SUP-0924,Windrift Components Co. #924,Aurelport,0.75
+SUP-0925,Windrift Metal Forms Inc. #925,Stonebrook Junction,0.81
+SUP-0926,Riverside Metal Forms Inc. #926,Kestrel Bay,0.73
+SUP-0927,Ironwood Metal Forms Inc. #927,Marrow Vale,0.85
+SUP-0928,Kestrel Tooling Group #928,Aurelport,0.96
+SUP-0929,Windrift Metal Forms Inc. #929,Draymoor,0.97
+SUP-0930,Ashgrove Components Co. #930,Kestrel Bay,0.91
+SUP-0931,Riverside Components Co. #931,Lindmoor,0.95
+SUP-0932,Riverside Tooling Group #932,Verdant Hollow,0.87
+SUP-0933,Windrift Components Co. #933,Lindmoor,0.76
+SUP-0934,Ironwood Tooling Group #934,Kestrel Bay,0.84
+SUP-0935,Northfield Precision Works #935,Emberfield,0.88
+SUP-0936,Ironwood Fabrication Ltd. #936,Lindmoor,0.96
+SUP-0937,Graystone Fabrication Ltd. #937,Stonebrook Junction,0.92
+SUP-0938,Ashgrove Tooling Group #938,Verdant Hollow,0.9
+SUP-0939,Kestrel Precision Works #939,Lindmoor,0.87
+SUP-0940,Windrift Metal Forms Inc. #940,Lindmoor,0.91
+SUP-0941,Northfield Precision Works #941,Draymoor,0.8
+SUP-0942,Cobalt Peak Components Co. #942,Marrow Vale,0.95
+SUP-0943,Northfield Tooling Group #943,Emberfield,0.73
+SUP-0944,Cobalt Peak Tooling Group #944,Kestrel Bay,0.83
+SUP-0945,Ironwood Metal Forms Inc. #945,Verdant Hollow,0.96
+SUP-0946,Ironwood Tooling Group #946,Northfell,0.98
+SUP-0947,Graystone Components Co. #947,Verdant Hollow,0.78
+SUP-0948,Amberfield Precision Works #948,Verdant Hollow,0.77
+SUP-0949,Windrift Metal Forms Inc. #949,Marrow Vale,0.77
+SUP-0950,Graystone Metal Forms Inc. #950,Kestrel Bay,0.88
+SUP-0951,Northfield Components Co. #951,Verdant Hollow,0.83
+SUP-0952,Amberfield Components Co. #952,Lindmoor,0.76
+SUP-0953,Ironwood Metal Forms Inc. #953,Verdant Hollow,0.84
+SUP-0954,Kestrel Components Co. #954,Aurelport,0.91
+SUP-0955,Kestrel Precision Works #955,Draymoor,0.71
+SUP-0956,Riverside Precision Works #956,Verdant Hollow,0.8
+SUP-0957,Cobalt Peak Tooling Group #957,Emberfield,0.96
+SUP-0958,Graystone Components Co. #958,Stonebrook Junction,0.81
+SUP-0959,Ashgrove Metal Forms Inc. #959,Windrift,0.93
+SUP-0960,Kestrel Precision Works #960,Northfell,0.75
+SUP-0961,Ashgrove Tooling Group #961,Draymoor,0.88
+SUP-0962,Cobalt Peak Fabrication Ltd. #962,Marrow Vale,0.74
+SUP-0963,Amberfield Components Co. #963,Kestrel Bay,0.77
+SUP-0964,Ashgrove Precision Works #964,Kestrel Bay,0.77
+SUP-0965,Silverline Precision Works #965,Emberfield,0.82
+SUP-0966,Cobalt Peak Components Co. #966,Verdant Hollow,0.74
+SUP-0967,Ironwood Components Co. #967,Windrift,0.73
+SUP-0968,Amberfield Fabrication Ltd. #968,Lindmoor,0.9
+SUP-0969,Silverline Components Co. #969,Draymoor,0.89
+SUP-0970,Amberfield Precision Works #970,Emberfield,0.81
+SUP-0971,Ironwood Precision Works #971,Marrow Vale,0.81
+SUP-0972,Northfield Precision Works #972,Draymoor,0.9
+SUP-0973,Windrift Metal Forms Inc. #973,Draymoor,0.94
+SUP-0974,Northfield Precision Works #974,Aurelport,0.75
+SUP-0975,Cobalt Peak Tooling Group #975,Draymoor,0.88
+SUP-0976,Ironwood Precision Works #976,Aurelport,0.85
+SUP-0977,Graystone Metal Forms Inc. #977,Aurelport,0.82
+SUP-0978,Northfield Tooling Group #978,Windrift,0.95
+SUP-0979,Cobalt Peak Metal Forms Inc. #979,Lindmoor,0.77
+SUP-0980,Cobalt Peak Fabrication Ltd. #980,Marrow Vale,0.8
+SUP-0981,Ashgrove Tooling Group #981,Aurelport,0.78
+SUP-0982,Riverside Fabrication Ltd. #982,Aurelport,0.81
+SUP-0983,Windrift Components Co. #983,Aurelport,0.88
+SUP-0984,Riverside Fabrication Ltd. #984,Emberfield,0.89
+SUP-0985,Northfield Tooling Group #985,Marrow Vale,0.72
+SUP-0986,Ashgrove Metal Forms Inc. #986,Aurelport,0.75
+SUP-0987,Kestrel Precision Works #987,Windrift,0.84
+SUP-0988,Amberfield Components Co. #988,Emberfield,0.83
+SUP-0989,Riverside Components Co. #989,Windrift,0.77
+SUP-0990,Silverline Fabrication Ltd. #990,Lindmoor,0.88
+SUP-0991,Graystone Fabrication Ltd. #991,Marrow Vale,0.72
+SUP-0992,Cobalt Peak Tooling Group #992,Marrow Vale,0.7
+SUP-0993,Windrift Components Co. #993,Verdant Hollow,0.94
+SUP-0994,Riverside Tooling Group #994,Lindmoor,0.92
+SUP-0995,Riverside Tooling Group #995,Kestrel Bay,0.78
+SUP-0996,Northfield Precision Works #996,Emberfield,0.76
+SUP-0997,Kestrel Precision Works #997,Verdant Hollow,0.82
+SUP-0998,Ironwood Metal Forms Inc. #998,Kestrel Bay,0.99
+SUP-0999,Silverline Tooling Group #999,Emberfield,0.83
+SUP-1000,Graystone Precision Works #1000,Aurelport,0.99

@@ -1,0 +1,152 @@
+# Enterprise-scale synthetic prompts; all values are safe test content.
+prompts:
+  - id: enterprise-quality-investigation-01
+    text: "Summarize the highest-severity open quality issues and their affected factories."
+    scenario: manufacturing-quality-investigation
+  - id: enterprise-quality-investigation-02
+    text: "Find recurring defects by part and recommend a human-reviewed investigation plan."
+    scenario: manufacturing-quality-investigation
+  - id: enterprise-quality-investigation-03
+    text: "Compare defect rates across factories for the latest reporting period."
+    scenario: manufacturing-quality-investigation
+  - id: enterprise-quality-investigation-04
+    text: "Trace the supplier history for the part with the most critical issues."
+    scenario: manufacturing-quality-investigation
+  - id: enterprise-quality-investigation-05
+    text: "Identify quality issues without an engineering change and explain the risk."
+    scenario: manufacturing-quality-investigation
+  - id: enterprise-quality-investigation-06
+    text: "Which production lines are associated with the most unresolved issues?"
+    scenario: manufacturing-quality-investigation
+  - id: enterprise-quality-investigation-07
+    text: "Prepare an evidence-based briefing for the quality engineering lead."
+    scenario: manufacturing-quality-investigation
+  - id: enterprise-quality-investigation-08
+    text: "Find issues whose defect rate exceeds the review threshold and group them by supplier."
+    scenario: manufacturing-quality-investigation
+  - id: enterprise-quality-investigation-09
+    text: "Summarize the timeline of the latest issue from detection through engineering review."
+    scenario: manufacturing-quality-investigation
+  - id: enterprise-quality-investigation-10
+    text: "What additional information is needed before a quality issue can be closed?"
+    scenario: manufacturing-quality-investigation
+  - id: enterprise-supplier-risk-11
+    text: "Rank suppliers by reliability score and related unresolved quality issues."
+    scenario: manufacturing-supplier-risk
+  - id: enterprise-supplier-risk-12
+    text: "Identify parts supplied by suppliers with repeated quality signals."
+    scenario: manufacturing-supplier-risk
+  - id: enterprise-supplier-risk-13
+    text: "Compare supplier risk across factories without making an automatic decision."
+    scenario: manufacturing-supplier-risk
+  - id: enterprise-supplier-risk-14
+    text: "Find the supplier associated with the largest number of affected parts."
+    scenario: manufacturing-supplier-risk
+  - id: enterprise-supplier-risk-15
+    text: "Summarize open supplier quality actions for management review."
+    scenario: manufacturing-supplier-risk
+  - id: enterprise-supplier-risk-16
+    text: "Which suppliers need a manual audit recommendation based on current data?"
+    scenario: manufacturing-supplier-risk
+  - id: enterprise-supplier-risk-17
+    text: "Trace a part from supplier to production line and quality issue."
+    scenario: manufacturing-supplier-risk
+  - id: enterprise-supplier-risk-18
+    text: "Identify gaps in supplier history for the latest critical issue."
+    scenario: manufacturing-supplier-risk
+  - id: enterprise-supplier-risk-19
+    text: "Create a supplier review agenda from the highest-risk records."
+    scenario: manufacturing-supplier-risk
+  - id: enterprise-supplier-risk-20
+    text: "Explain uncertainty in the supplier risk ranking."
+    scenario: manufacturing-supplier-risk
+  - id: enterprise-engineering-change-21
+    text: "List proposed engineering changes that address high-severity issues."
+    scenario: manufacturing-engineering-change
+  - id: enterprise-engineering-change-22
+    text: "Find engineering changes that are still in progress and summarize blockers."
+    scenario: manufacturing-engineering-change
+  - id: enterprise-engineering-change-23
+    text: "Compare implemented changes with their originating quality issues."
+    scenario: manufacturing-engineering-change
+  - id: enterprise-engineering-change-24
+    text: "Which issues have no corresponding engineering change?"
+    scenario: manufacturing-engineering-change
+  - id: enterprise-engineering-change-25
+    text: "Prepare a human approval checklist for engineering change review."
+    scenario: manufacturing-engineering-change
+  - id: enterprise-engineering-change-26
+    text: "Summarize changes created during the latest reporting period."
+    scenario: manufacturing-engineering-change
+  - id: enterprise-engineering-change-27
+    text: "Identify engineering changes that may affect multiple production lines."
+    scenario: manufacturing-engineering-change
+  - id: enterprise-engineering-change-28
+    text: "Find unresolved issues related to an implemented change."
+    scenario: manufacturing-engineering-change
+  - id: enterprise-engineering-change-29
+    text: "Explain which facts support prioritizing an engineering change."
+    scenario: manufacturing-engineering-change
+  - id: enterprise-engineering-change-30
+    text: "Draft questions for the engineering lead before approval."
+    scenario: manufacturing-engineering-change
+  - id: enterprise-factory-operations-31
+    text: "Summarize quality issues observed at each factory."
+    scenario: manufacturing-factory-operations
+  - id: enterprise-factory-operations-32
+    text: "Compare production lines by unresolved issue count."
+    scenario: manufacturing-factory-operations
+  - id: enterprise-factory-operations-33
+    text: "Find factories with both high defect rates and open issues."
+    scenario: manufacturing-factory-operations
+  - id: enterprise-factory-operations-34
+    text: "Prepare an operations review for the factory quality lead."
+    scenario: manufacturing-factory-operations
+  - id: enterprise-factory-operations-35
+    text: "Identify missing factory or production-line relationships."
+    scenario: manufacturing-factory-operations
+  - id: enterprise-factory-operations-36
+    text: "Which factory should be reviewed first and why?"
+    scenario: manufacturing-factory-operations
+  - id: enterprise-factory-operations-37
+    text: "Trace a quality issue to its factory and production line."
+    scenario: manufacturing-factory-operations
+  - id: enterprise-factory-operations-38
+    text: "Summarize operational trends without inferring unsupported causes."
+    scenario: manufacturing-factory-operations
+  - id: enterprise-factory-operations-39
+    text: "Find factories with no recent quality records."
+    scenario: manufacturing-factory-operations
+  - id: enterprise-factory-operations-40
+    text: "List follow-up questions for a factory inspection."
+    scenario: manufacturing-factory-operations
+  - id: enterprise-governance-41
+    text: "Check whether the requested action requires a quality engineer review."
+    scenario: manufacturing-governance
+  - id: enterprise-governance-42
+    text: "Separate confirmed facts from recommendations in this quality investigation."
+    scenario: manufacturing-governance
+  - id: enterprise-governance-43
+    text: "Identify prohibited automatic actions in the current scenario."
+    scenario: manufacturing-governance
+  - id: enterprise-governance-44
+    text: "Explain which evidence is missing before a recall decision."
+    scenario: manufacturing-governance
+  - id: enterprise-governance-45
+    text: "Generate a traceable summary with source records for audit review."
+    scenario: manufacturing-governance
+  - id: enterprise-governance-46
+    text: "Flag conflicting quality records and explain the conflict."
+    scenario: manufacturing-governance
+  - id: enterprise-governance-47
+    text: "Recommend a human-in-the-loop checkpoint for this case."
+    scenario: manufacturing-governance
+  - id: enterprise-governance-48
+    text: "Identify data freshness concerns in the quality dataset."
+    scenario: manufacturing-governance
+  - id: enterprise-governance-49
+    text: "List assumptions used in the investigation."
+    scenario: manufacturing-governance
+  - id: enterprise-governance-50
+    text: "Produce an audit-ready investigation summary without approving an action."
+    scenario: manufacturing-governance

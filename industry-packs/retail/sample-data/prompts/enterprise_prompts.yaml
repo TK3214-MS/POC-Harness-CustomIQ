@@ -1,0 +1,152 @@
+# Enterprise-scale synthetic prompts; all values are safe test content.
+prompts:
+  - id: enterprise-inventory-01
+    text: "Find products below reorder point across all stores."
+    scenario: retail-inventory
+  - id: enterprise-inventory-02
+    text: "Summarize the most urgent inventory shortages."
+    scenario: retail-inventory
+  - id: enterprise-inventory-03
+    text: "Compare stock coverage by store and product category."
+    scenario: retail-inventory
+  - id: enterprise-inventory-04
+    text: "Identify stores with repeated low-stock records."
+    scenario: retail-inventory
+  - id: enterprise-inventory-05
+    text: "Trace a demand signal to the affected inventory record."
+    scenario: retail-inventory
+  - id: enterprise-inventory-06
+    text: "Prepare a replenishment review without placing an order."
+    scenario: retail-inventory
+  - id: enterprise-inventory-07
+    text: "Find products with high stock but declining demand."
+    scenario: retail-inventory
+  - id: enterprise-inventory-08
+    text: "List inventory records with missing product or store references."
+    scenario: retail-inventory
+  - id: enterprise-inventory-09
+    text: "Explain which shortages need manual confirmation."
+    scenario: retail-inventory
+  - id: enterprise-inventory-10
+    text: "Summarize inventory risk for the operations lead."
+    scenario: retail-inventory
+  - id: enterprise-demand-analysis-11
+    text: "Investigate the latest demand signals and recommend analysis steps."
+    scenario: retail-demand-analysis
+  - id: enterprise-demand-analysis-12
+    text: "Compare demand trends by store and product."
+    scenario: retail-demand-analysis
+  - id: enterprise-demand-analysis-13
+    text: "Find products with sharp demand increases."
+    scenario: retail-demand-analysis
+  - id: enterprise-demand-analysis-14
+    text: "Identify declining demand signals with excess inventory."
+    scenario: retail-demand-analysis
+  - id: enterprise-demand-analysis-15
+    text: "Summarize seasonal signals for the planning team."
+    scenario: retail-demand-analysis
+  - id: enterprise-demand-analysis-16
+    text: "Trace a demand signal to stock and recent orders."
+    scenario: retail-demand-analysis
+  - id: enterprise-demand-analysis-17
+    text: "Find demand signals with incomplete context."
+    scenario: retail-demand-analysis
+  - id: enterprise-demand-analysis-18
+    text: "Prepare a demand review agenda."
+    scenario: retail-demand-analysis
+  - id: enterprise-demand-analysis-19
+    text: "Explain uncertainty in the demand trend data."
+    scenario: retail-demand-analysis
+  - id: enterprise-demand-analysis-20
+    text: "List questions for the merchandising analyst."
+    scenario: retail-demand-analysis
+  - id: enterprise-orders-21
+    text: "Summarize pending replenishment orders by store."
+    scenario: retail-orders
+  - id: enterprise-orders-22
+    text: "Find orders associated with low-stock products."
+    scenario: retail-orders
+  - id: enterprise-orders-23
+    text: "Compare order quantities across stores."
+    scenario: retail-orders
+  - id: enterprise-orders-24
+    text: "Identify cancelled orders that may affect inventory."
+    scenario: retail-orders
+  - id: enterprise-orders-25
+    text: "Trace an order from store to product and demand signal."
+    scenario: retail-orders
+  - id: enterprise-orders-26
+    text: "Prepare an order review without automatically changing status."
+    scenario: retail-orders
+  - id: enterprise-orders-27
+    text: "Find products with no recent order activity."
+    scenario: retail-orders
+  - id: enterprise-orders-28
+    text: "Summarize order status distribution."
+    scenario: retail-orders
+  - id: enterprise-orders-29
+    text: "Identify inconsistent order and inventory records."
+    scenario: retail-orders
+  - id: enterprise-orders-30
+    text: "Draft follow-up questions for supply planning."
+    scenario: retail-orders
+  - id: enterprise-store-operations-31
+    text: "Compare store inventory risk across regions."
+    scenario: retail-store-operations
+  - id: enterprise-store-operations-32
+    text: "Find stores with the largest number of shortages."
+    scenario: retail-store-operations
+  - id: enterprise-store-operations-33
+    text: "Summarize operational actions needed by store."
+    scenario: retail-store-operations
+  - id: enterprise-store-operations-34
+    text: "Identify stores with no recent demand signals."
+    scenario: retail-store-operations
+  - id: enterprise-store-operations-35
+    text: "Prepare a regional inventory briefing."
+    scenario: retail-store-operations
+  - id: enterprise-store-operations-36
+    text: "Trace a shortage to its store, product, and order context."
+    scenario: retail-store-operations
+  - id: enterprise-store-operations-37
+    text: "Find stores with unusual order patterns."
+    scenario: retail-store-operations
+  - id: enterprise-store-operations-38
+    text: "Explain limitations of the current store sample."
+    scenario: retail-store-operations
+  - id: enterprise-store-operations-39
+    text: "List high-priority store follow-ups."
+    scenario: retail-store-operations
+  - id: enterprise-store-operations-40
+    text: "Create an evidence-based operations summary."
+    scenario: retail-store-operations
+  - id: enterprise-governance-41
+    text: "Separate confirmed inventory facts from recommendations."
+    scenario: retail-governance
+  - id: enterprise-governance-42
+    text: "Identify actions that require manager approval."
+    scenario: retail-governance
+  - id: enterprise-governance-43
+    text: "Flag data freshness and duplicate-record concerns."
+    scenario: retail-governance
+  - id: enterprise-governance-44
+    text: "Explain why an automatic order change should not be made."
+    scenario: retail-governance
+  - id: enterprise-governance-45
+    text: "Prepare an audit-friendly replenishment summary."
+    scenario: retail-governance
+  - id: enterprise-governance-46
+    text: "Identify missing evidence for a stockout decision."
+    scenario: retail-governance
+  - id: enterprise-governance-47
+    text: "List assumptions used in the inventory analysis."
+    scenario: retail-governance
+  - id: enterprise-governance-48
+    text: "Find conflicting stock and order records."
+    scenario: retail-governance
+  - id: enterprise-governance-49
+    text: "Recommend a human review checkpoint."
+    scenario: retail-governance
+  - id: enterprise-governance-50
+    text: "Summarize the source records used in the analysis."
+    scenario: retail-governance

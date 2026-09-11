@@ -1,0 +1,152 @@
+# Enterprise-scale synthetic prompts; all values are safe test content.
+prompts:
+  - id: enterprise-case-review-01
+    text: "Summarize the highest-priority open cases."
+    scenario: public-sector-case-review
+  - id: enterprise-case-review-02
+    text: "Investigate the latest synthetic administrative case."
+    scenario: public-sector-case-review
+  - id: enterprise-case-review-03
+    text: "Find cases awaiting a decision or more information."
+    scenario: public-sector-case-review
+  - id: enterprise-case-review-04
+    text: "Trace a case to citizen, agency, and application context."
+    scenario: public-sector-case-review
+  - id: enterprise-case-review-05
+    text: "Compare case status by agency."
+    scenario: public-sector-case-review
+  - id: enterprise-case-review-06
+    text: "Prepare a case review without making an eligibility decision."
+    scenario: public-sector-case-review
+  - id: enterprise-case-review-07
+    text: "Identify cases with missing application context."
+    scenario: public-sector-case-review
+  - id: enterprise-case-review-08
+    text: "Summarize the latest case timeline."
+    scenario: public-sector-case-review
+  - id: enterprise-case-review-09
+    text: "List unresolved review actions."
+    scenario: public-sector-case-review
+  - id: enterprise-case-review-10
+    text: "Draft questions for the caseworker."
+    scenario: public-sector-case-review
+  - id: enterprise-application-processing-11
+    text: "Find applications pending review by agency."
+    scenario: public-sector-application-processing
+  - id: enterprise-application-processing-12
+    text: "Compare application types and statuses."
+    scenario: public-sector-application-processing
+  - id: enterprise-application-processing-13
+    text: "Identify cases with multiple applications."
+    scenario: public-sector-application-processing
+  - id: enterprise-application-processing-14
+    text: "Summarize application processing bottlenecks."
+    scenario: public-sector-application-processing
+  - id: enterprise-application-processing-15
+    text: "Find applications without a valid case reference."
+    scenario: public-sector-application-processing
+  - id: enterprise-application-processing-16
+    text: "Prepare a processing review agenda."
+    scenario: public-sector-application-processing
+  - id: enterprise-application-processing-17
+    text: "Trace an application to its case and agency."
+    scenario: public-sector-application-processing
+  - id: enterprise-application-processing-18
+    text: "Explain uncertainty in the application sample."
+    scenario: public-sector-application-processing
+  - id: enterprise-application-processing-19
+    text: "List missing evidence for manual review."
+    scenario: public-sector-application-processing
+  - id: enterprise-application-processing-20
+    text: "Create a status summary for operations leadership."
+    scenario: public-sector-application-processing
+  - id: enterprise-agency-operations-21
+    text: "Compare case workload across agencies."
+    scenario: public-sector-agency-operations
+  - id: enterprise-agency-operations-22
+    text: "Find agencies with the largest open-case backlog."
+    scenario: public-sector-agency-operations
+  - id: enterprise-agency-operations-23
+    text: "Summarize case types by agency."
+    scenario: public-sector-agency-operations
+  - id: enterprise-agency-operations-24
+    text: "Identify agencies with no recent applications."
+    scenario: public-sector-agency-operations
+  - id: enterprise-agency-operations-25
+    text: "Prepare an inter-agency workload briefing."
+    scenario: public-sector-agency-operations
+  - id: enterprise-agency-operations-26
+    text: "Find unusual case status distributions."
+    scenario: public-sector-agency-operations
+  - id: enterprise-agency-operations-27
+    text: "Explain the limitations of the synthetic workload data."
+    scenario: public-sector-agency-operations
+  - id: enterprise-agency-operations-28
+    text: "Trace workload to agency and case type."
+    scenario: public-sector-agency-operations
+  - id: enterprise-agency-operations-29
+    text: "List operational follow-up questions."
+    scenario: public-sector-agency-operations
+  - id: enterprise-agency-operations-30
+    text: "Create an evidence-based agency summary."
+    scenario: public-sector-agency-operations
+  - id: enterprise-service-review-31
+    text: "Identify cases that need a manual service review."
+    scenario: public-sector-service-review
+  - id: enterprise-service-review-32
+    text: "Find cases awaiting citizen documents."
+    scenario: public-sector-service-review
+  - id: enterprise-service-review-33
+    text: "Summarize pending decisions without recommending eligibility."
+    scenario: public-sector-service-review
+  - id: enterprise-service-review-34
+    text: "Compare open and closed cases by case type."
+    scenario: public-sector-service-review
+  - id: enterprise-service-review-35
+    text: "Prepare a service review checklist."
+    scenario: public-sector-service-review
+  - id: enterprise-service-review-36
+    text: "Identify conflicting case and application statuses."
+    scenario: public-sector-service-review
+  - id: enterprise-service-review-37
+    text: "Find stale cases requiring attention."
+    scenario: public-sector-service-review
+  - id: enterprise-service-review-38
+    text: "List evidence needed before a decision."
+    scenario: public-sector-service-review
+  - id: enterprise-service-review-39
+    text: "Explain confirmed facts versus assumptions."
+    scenario: public-sector-service-review
+  - id: enterprise-service-review-40
+    text: "Draft questions for an authorized reviewer."
+    scenario: public-sector-service-review
+  - id: enterprise-governance-41
+    text: "Separate case facts from recommendations."
+    scenario: public-sector-governance
+  - id: enterprise-governance-42
+    text: "Identify actions that require authorized human approval."
+    scenario: public-sector-governance
+  - id: enterprise-governance-43
+    text: "Prepare an audit-ready case summary."
+    scenario: public-sector-governance
+  - id: enterprise-governance-44
+    text: "Flag privacy and access-control concerns."
+    scenario: public-sector-governance
+  - id: enterprise-governance-45
+    text: "Identify data-quality gaps in citizen and case records."
+    scenario: public-sector-governance
+  - id: enterprise-governance-46
+    text: "Explain why an automatic decision is not appropriate."
+    scenario: public-sector-governance
+  - id: enterprise-governance-47
+    text: "List assumptions used in the review."
+    scenario: public-sector-governance
+  - id: enterprise-governance-48
+    text: "Find records with inconsistent relationships."
+    scenario: public-sector-governance
+  - id: enterprise-governance-49
+    text: "Recommend a human-in-the-loop checkpoint."
+    scenario: public-sector-governance
+  - id: enterprise-governance-50
+    text: "Summarize source records used for this response."
+    scenario: public-sector-governance

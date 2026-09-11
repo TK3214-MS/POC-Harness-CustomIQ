@@ -60,6 +60,7 @@ class ClinicalEvent:
 _SCALE_COUNTS = {
     "demo": {"patients": 5, "providers": 4, "encounters": 15, "clinical_events": 30},
     "realistic": {"patients": 300, "providers": 60, "encounters": 1500, "clinical_events": 4000},
+    "enterprise": {"patients": 5000, "providers": 500, "encounters": 20000, "clinical_events": 60000},
 }
 
 

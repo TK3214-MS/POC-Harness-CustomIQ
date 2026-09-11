@@ -1,0 +1,501 @@
+store_id,name,region
+STORE-0001,Windrift Store 1,Northfell
+STORE-0002,Lindmoor Store 2,Stonebrook Junction
+STORE-0003,Aurelport Store 3,Kestrel Bay
+STORE-0004,Marrow Vale Store 4,Emberfield
+STORE-0005,Northfell Store 5,Stonebrook Junction
+STORE-0006,Verdant Hollow Store 6,Kestrel Bay
+STORE-0007,Windrift Store 7,Verdant Hollow
+STORE-0008,Marrow Vale Store 8,Aurelport
+STORE-0009,Emberfield Store 9,Emberfield
+STORE-0010,Aurelport Store 10,Windrift
+STORE-0011,Marrow Vale Store 11,Marrow Vale
+STORE-0012,Stonebrook Junction Store 12,Windrift
+STORE-0013,Marrow Vale Store 13,Windrift
+STORE-0014,Northfell Store 14,Stonebrook Junction
+STORE-0015,Lindmoor Store 15,Emberfield
+STORE-0016,Kestrel Bay Store 16,Emberfield
+STORE-0017,Kestrel Bay Store 17,Windrift
+STORE-0018,Emberfield Store 18,Lindmoor
+STORE-0019,Verdant Hollow Store 19,Lindmoor
+STORE-0020,Marrow Vale Store 20,Draymoor
+STORE-0021,Windrift Store 21,Kestrel Bay
+STORE-0022,Kestrel Bay Store 22,Lindmoor
+STORE-0023,Windrift Store 23,Northfell
+STORE-0024,Aurelport Store 24,Marrow Vale
+STORE-0025,Draymoor Store 25,Stonebrook Junction
+STORE-0026,Kestrel Bay Store 26,Marrow Vale
+STORE-0027,Marrow Vale Store 27,Stonebrook Junction
+STORE-0028,Kestrel Bay Store 28,Aurelport
+STORE-0029,Northfell Store 29,Windrift
+STORE-0030,Verdant Hollow Store 30,Draymoor
+STORE-0031,Kestrel Bay Store 31,Stonebrook Junction
+STORE-0032,Marrow Vale Store 32,Windrift
+STORE-0033,Northfell Store 33,Northfell
+STORE-0034,Draymoor Store 34,Stonebrook Junction
+STORE-0035,Northfell Store 35,Marrow Vale
+STORE-0036,Aurelport Store 36,Emberfield
+STORE-0037,Aurelport Store 37,Northfell
+STORE-0038,Draymoor Store 38,Marrow Vale
+STORE-0039,Kestrel Bay Store 39,Emberfield
+STORE-0040,Lindmoor Store 40,Northfell
+STORE-0041,Windrift Store 41,Stonebrook Junction
+STORE-0042,Marrow Vale Store 42,Stonebrook Junction
+STORE-0043,Northfell Store 43,Marrow Vale
+STORE-0044,Verdant Hollow Store 44,Kestrel Bay
+STORE-0045,Lindmoor Store 45,Kestrel Bay
+STORE-0046,Marrow Vale Store 46,Northfell
+STORE-0047,Verdant Hollow Store 47,Marrow Vale
+STORE-0048,Lindmoor Store 48,Marrow Vale
+STORE-0049,Draymoor Store 49,Stonebrook Junction
+STORE-0050,Northfell Store 50,Windrift
+STORE-0051,Lindmoor Store 51,Draymoor
+STORE-0052,Verdant Hollow Store 52,Windrift
+STORE-0053,Lindmoor Store 53,Draymoor
+STORE-0054,Emberfield Store 54,Marrow Vale
+STORE-0055,Windrift Store 55,Aurelport
+STORE-0056,Verdant Hollow Store 56,Aurelport
+STORE-0057,Marrow Vale Store 57,Kestrel Bay
+STORE-0058,Emberfield Store 58,Lindmoor
+STORE-0059,Aurelport Store 59,Northfell
+STORE-0060,Draymoor Store 60,Northfell
+STORE-0061,Aurelport Store 61,Verdant Hollow
+STORE-0062,Verdant Hollow Store 62,Verdant Hollow
+STORE-0063,Lindmoor Store 63,Kestrel Bay
+STORE-0064,Marrow Vale Store 64,Aurelport
+STORE-0065,Aurelport Store 65,Stonebrook Junction
+STORE-0066,Stonebrook Junction Store 66,Kestrel Bay
+STORE-0067,Verdant Hollow Store 67,Verdant Hollow
+STORE-0068,Kestrel Bay Store 68,Windrift
+STORE-0069,Lindmoor Store 69,Northfell
+STORE-0070,Aurelport Store 70,Verdant Hollow
+STORE-0071,Marrow Vale Store 71,Northfell
+STORE-0072,Stonebrook Junction Store 72,Aurelport
+STORE-0073,Northfell Store 73,Northfell
+STORE-0074,Northfell Store 74,Northfell
+STORE-0075,Marrow Vale Store 75,Lindmoor
+STORE-0076,Stonebrook Junction Store 76,Lindmoor
+STORE-0077,Emberfield Store 77,Marrow Vale
+STORE-0078,Northfell Store 78,Marrow Vale
+STORE-0079,Lindmoor Store 79,Aurelport
+STORE-0080,Aurelport Store 80,Kestrel Bay
+STORE-0081,Kestrel Bay Store 81,Marrow Vale
+STORE-0082,Verdant Hollow Store 82,Windrift
+STORE-0083,Kestrel Bay Store 83,Windrift
+STORE-0084,Windrift Store 84,Northfell
+STORE-0085,Lindmoor Store 85,Aurelport
+STORE-0086,Marrow Vale Store 86,Northfell
+STORE-0087,Verdant Hollow Store 87,Kestrel Bay
+STORE-0088,Stonebrook Junction Store 88,Marrow Vale
+STORE-0089,Aurelport Store 89,Verdant Hollow
+STORE-0090,Windrift Store 90,Windrift
+STORE-0091,Aurelport Store 91,Windrift
+STORE-0092,Verdant Hollow Store 92,Emberfield
+STORE-0093,Emberfield Store 93,Emberfield
+STORE-0094,Windrift Store 94,Emberfield
+STORE-0095,Verdant Hollow Store 95,Kestrel Bay
+STORE-0096,Emberfield Store 96,Marrow Vale
+STORE-0097,Emberfield Store 97,Draymoor
+STORE-0098,Marrow Vale Store 98,Draymoor
+STORE-0099,Northfell Store 99,Draymoor
+STORE-0100,Stonebrook Junction Store 100,Lindmoor
+STORE-0101,Verdant Hollow Store 101,Windrift
+STORE-0102,Verdant Hollow Store 102,Northfell
+STORE-0103,Northfell Store 103,Marrow Vale
+STORE-0104,Verdant Hollow Store 104,Lindmoor
+STORE-0105,Aurelport Store 105,Stonebrook Junction
+STORE-0106,Kestrel Bay Store 106,Northfell
+STORE-0107,Windrift Store 107,Lindmoor
+STORE-0108,Aurelport Store 108,Marrow Vale
+STORE-0109,Marrow Vale Store 109,Kestrel Bay
+STORE-0110,Draymoor Store 110,Kestrel Bay
+STORE-0111,Stonebrook Junction Store 111,Windrift
+STORE-0112,Stonebrook Junction Store 112,Emberfield
+STORE-0113,Stonebrook Junction Store 113,Lindmoor
+STORE-0114,Aurelport Store 114,Lindmoor
+STORE-0115,Kestrel Bay Store 115,Windrift
+STORE-0116,Windrift Store 116,Kestrel Bay
+STORE-0117,Verdant Hollow Store 117,Marrow Vale
+STORE-0118,Aurelport Store 118,Aurelport
+STORE-0119,Lindmoor Store 119,Draymoor
+STORE-0120,Lindmoor Store 120,Lindmoor
+STORE-0121,Kestrel Bay Store 121,Windrift
+STORE-0122,Kestrel Bay Store 122,Verdant Hollow
+STORE-0123,Northfell Store 123,Marrow Vale
+STORE-0124,Marrow Vale Store 124,Verdant Hollow
+STORE-0125,Lindmoor Store 125,Emberfield
+STORE-0126,Marrow Vale Store 126,Verdant Hollow
+STORE-0127,Stonebrook Junction Store 127,Draymoor
+STORE-0128,Verdant Hollow Store 128,Kestrel Bay
+STORE-0129,Kestrel Bay Store 129,Windrift
+STORE-0130,Kestrel Bay Store 130,Northfell
+STORE-0131,Emberfield Store 131,Lindmoor
+STORE-0132,Kestrel Bay Store 132,Verdant Hollow
+STORE-0133,Stonebrook Junction Store 133,Lindmoor
+STORE-0134,Stonebrook Junction Store 134,Lindmoor
+STORE-0135,Draymoor Store 135,Emberfield
+STORE-0136,Stonebrook Junction Store 136,Draymoor
+STORE-0137,Verdant Hollow Store 137,Stonebrook Junction
+STORE-0138,Windrift Store 138,Windrift
+STORE-0139,Kestrel Bay Store 139,Lindmoor
+STORE-0140,Lindmoor Store 140,Marrow Vale
+STORE-0141,Kestrel Bay Store 141,Marrow Vale
+STORE-0142,Marrow Vale Store 142,Marrow Vale
+STORE-0143,Marrow Vale Store 143,Verdant Hollow
+STORE-0144,Draymoor Store 144,Emberfield
+STORE-0145,Aurelport Store 145,Emberfield
+STORE-0146,Emberfield Store 146,Verdant Hollow
+STORE-0147,Lindmoor Store 147,Emberfield
+STORE-0148,Verdant Hollow Store 148,Windrift
+STORE-0149,Northfell Store 149,Lindmoor
+STORE-0150,Marrow Vale Store 150,Draymoor
+STORE-0151,Verdant Hollow Store 151,Verdant Hollow
+STORE-0152,Emberfield Store 152,Verdant Hollow
+STORE-0153,Stonebrook Junction Store 153,Kestrel Bay
+STORE-0154,Lindmoor Store 154,Kestrel Bay
+STORE-0155,Draymoor Store 155,Marrow Vale
+STORE-0156,Draymoor Store 156,Emberfield
+STORE-0157,Verdant Hollow Store 157,Stonebrook Junction
+STORE-0158,Northfell Store 158,Marrow Vale
+STORE-0159,Lindmoor Store 159,Marrow Vale
+STORE-0160,Verdant Hollow Store 160,Windrift
+STORE-0161,Kestrel Bay Store 161,Stonebrook Junction
+STORE-0162,Lindmoor Store 162,Draymoor
+STORE-0163,Draymoor Store 163,Draymoor
+STORE-0164,Emberfield Store 164,Windrift
+STORE-0165,Stonebrook Junction Store 165,Marrow Vale
+STORE-0166,Stonebrook Junction Store 166,Lindmoor
+STORE-0167,Emberfield Store 167,Stonebrook Junction
+STORE-0168,Windrift Store 168,Northfell
+STORE-0169,Marrow Vale Store 169,Stonebrook Junction
+STORE-0170,Windrift Store 170,Stonebrook Junction
+STORE-0171,Aurelport Store 171,Windrift
+STORE-0172,Verdant Hollow Store 172,Windrift
+STORE-0173,Marrow Vale Store 173,Draymoor
+STORE-0174,Lindmoor Store 174,Northfell
+STORE-0175,Emberfield Store 175,Verdant Hollow
+STORE-0176,Aurelport Store 176,Verdant Hollow
+STORE-0177,Verdant Hollow Store 177,Northfell
+STORE-0178,Kestrel Bay Store 178,Marrow Vale
+STORE-0179,Lindmoor Store 179,Emberfield
+STORE-0180,Windrift Store 180,Windrift
+STORE-0181,Lindmoor Store 181,Emberfield
+STORE-0182,Northfell Store 182,Aurelport
+STORE-0183,Lindmoor Store 183,Aurelport
+STORE-0184,Windrift Store 184,Verdant Hollow
+STORE-0185,Marrow Vale Store 185,Marrow Vale
+STORE-0186,Verdant Hollow Store 186,Stonebrook Junction
+STORE-0187,Lindmoor Store 187,Aurelport
+STORE-0188,Kestrel Bay Store 188,Verdant Hollow
+STORE-0189,Lindmoor Store 189,Verdant Hollow
+STORE-0190,Northfell Store 190,Aurelport
+STORE-0191,Northfell Store 191,Kestrel Bay
+STORE-0192,Northfell Store 192,Draymoor
+STORE-0193,Stonebrook Junction Store 193,Emberfield
+STORE-0194,Marrow Vale Store 194,Northfell
+STORE-0195,Aurelport Store 195,Aurelport
+STORE-0196,Verdant Hollow Store 196,Emberfield
+STORE-0197,Stonebrook Junction Store 197,Marrow Vale
+STORE-0198,Emberfield Store 198,Aurelport
+STORE-0199,Draymoor Store 199,Draymoor
+STORE-0200,Draymoor Store 200,Aurelport
+STORE-0201,Windrift Store 201,Lindmoor
+STORE-0202,Verdant Hollow Store 202,Draymoor
+STORE-0203,Emberfield Store 203,Aurelport
+STORE-0204,Draymoor Store 204,Emberfield
+STORE-0205,Marrow Vale Store 205,Kestrel Bay
+STORE-0206,Windrift Store 206,Lindmoor
+STORE-0207,Windrift Store 207,Aurelport
+STORE-0208,Aurelport Store 208,Kestrel Bay
+STORE-0209,Verdant Hollow Store 209,Draymoor
+STORE-0210,Marrow Vale Store 210,Aurelport
+STORE-0211,Windrift Store 211,Kestrel Bay
+STORE-0212,Windrift Store 212,Kestrel Bay
+STORE-0213,Emberfield Store 213,Verdant Hollow
+STORE-0214,Marrow Vale Store 214,Emberfield
+STORE-0215,Verdant Hollow Store 215,Emberfield
+STORE-0216,Verdant Hollow Store 216,Verdant Hollow
+STORE-0217,Stonebrook Junction Store 217,Stonebrook Junction
+STORE-0218,Windrift Store 218,Stonebrook Junction
+STORE-0219,Marrow Vale Store 219,Aurelport
+STORE-0220,Draymoor Store 220,Draymoor
+STORE-0221,Marrow Vale Store 221,Verdant Hollow
+STORE-0222,Aurelport Store 222,Verdant Hollow
+STORE-0223,Kestrel Bay Store 223,Stonebrook Junction
+STORE-0224,Lindmoor Store 224,Lindmoor
+STORE-0225,Marrow Vale Store 225,Kestrel Bay
+STORE-0226,Verdant Hollow Store 226,Emberfield
+STORE-0227,Emberfield Store 227,Draymoor
+STORE-0228,Northfell Store 228,Draymoor
+STORE-0229,Windrift Store 229,Stonebrook Junction
+STORE-0230,Lindmoor Store 230,Verdant Hollow
+STORE-0231,Draymoor Store 231,Lindmoor
+STORE-0232,Marrow Vale Store 232,Aurelport
+STORE-0233,Windrift Store 233,Aurelport
+STORE-0234,Northfell Store 234,Emberfield
+STORE-0235,Marrow Vale Store 235,Verdant Hollow
+STORE-0236,Windrift Store 236,Stonebrook Junction
+STORE-0237,Northfell Store 237,Stonebrook Junction
+STORE-0238,Northfell Store 238,Northfell
+STORE-0239,Kestrel Bay Store 239,Draymoor
+STORE-0240,Kestrel Bay Store 240,Verdant Hollow
+STORE-0241,Draymoor Store 241,Lindmoor
+STORE-0242,Windrift Store 242,Windrift
+STORE-0243,Emberfield Store 243,Windrift
+STORE-0244,Kestrel Bay Store 244,Northfell
+STORE-0245,Emberfield Store 245,Windrift
+STORE-0246,Northfell Store 246,Draymoor
+STORE-0247,Stonebrook Junction Store 247,Stonebrook Junction
+STORE-0248,Draymoor Store 248,Marrow Vale
+STORE-0249,Stonebrook Junction Store 249,Aurelport
+STORE-0250,Aurelport Store 250,Draymoor
+STORE-0251,Stonebrook Junction Store 251,Windrift
+STORE-0252,Draymoor Store 252,Northfell
+STORE-0253,Northfell Store 253,Northfell
+STORE-0254,Aurelport Store 254,Windrift
+STORE-0255,Verdant Hollow Store 255,Aurelport
+STORE-0256,Aurelport Store 256,Marrow Vale
+STORE-0257,Marrow Vale Store 257,Emberfield
+STORE-0258,Stonebrook Junction Store 258,Draymoor
+STORE-0259,Stonebrook Junction Store 259,Northfell
+STORE-0260,Verdant Hollow Store 260,Stonebrook Junction
+STORE-0261,Verdant Hollow Store 261,Draymoor
+STORE-0262,Aurelport Store 262,Aurelport
+STORE-0263,Draymoor Store 263,Marrow Vale
+STORE-0264,Windrift Store 264,Verdant Hollow
+STORE-0265,Kestrel Bay Store 265,Stonebrook Junction
+STORE-0266,Verdant Hollow Store 266,Kestrel Bay
+STORE-0267,Aurelport Store 267,Verdant Hollow
+STORE-0268,Emberfield Store 268,Draymoor
+STORE-0269,Lindmoor Store 269,Kestrel Bay
+STORE-0270,Verdant Hollow Store 270,Windrift
+STORE-0271,Kestrel Bay Store 271,Lindmoor
+STORE-0272,Northfell Store 272,Verdant Hollow
+STORE-0273,Lindmoor Store 273,Draymoor
+STORE-0274,Northfell Store 274,Marrow Vale
+STORE-0275,Windrift Store 275,Emberfield
+STORE-0276,Draymoor Store 276,Lindmoor
+STORE-0277,Lindmoor Store 277,Stonebrook Junction
+STORE-0278,Marrow Vale Store 278,Draymoor
+STORE-0279,Emberfield Store 279,Verdant Hollow
+STORE-0280,Windrift Store 280,Lindmoor
+STORE-0281,Windrift Store 281,Draymoor
+STORE-0282,Stonebrook Junction Store 282,Marrow Vale
+STORE-0283,Northfell Store 283,Aurelport
+STORE-0284,Stonebrook Junction Store 284,Stonebrook Junction
+STORE-0285,Kestrel Bay Store 285,Aurelport
+STORE-0286,Kestrel Bay Store 286,Northfell
+STORE-0287,Aurelport Store 287,Marrow Vale
+STORE-0288,Northfell Store 288,Emberfield
+STORE-0289,Northfell Store 289,Marrow Vale
+STORE-0290,Verdant Hollow Store 290,Lindmoor
+STORE-0291,Emberfield Store 291,Windrift
+STORE-0292,Kestrel Bay Store 292,Northfell
+STORE-0293,Northfell Store 293,Kestrel Bay
+STORE-0294,Stonebrook Junction Store 294,Windrift
+STORE-0295,Stonebrook Junction Store 295,Aurelport
+STORE-0296,Stonebrook Junction Store 296,Emberfield
+STORE-0297,Verdant Hollow Store 297,Verdant Hollow
+STORE-0298,Northfell Store 298,Marrow Vale
+STORE-0299,Marrow Vale Store 299,Verdant Hollow
+STORE-0300,Marrow Vale Store 300,Draymoor
+STORE-0301,Windrift Store 301,Emberfield
+STORE-0302,Emberfield Store 302,Verdant Hollow
+STORE-0303,Northfell Store 303,Stonebrook Junction
+STORE-0304,Stonebrook Junction Store 304,Marrow Vale
+STORE-0305,Verdant Hollow Store 305,Windrift
+STORE-0306,Marrow Vale Store 306,Marrow Vale
+STORE-0307,Windrift Store 307,Aurelport
+STORE-0308,Draymoor Store 308,Kestrel Bay
+STORE-0309,Stonebrook Junction Store 309,Marrow Vale
+STORE-0310,Aurelport Store 310,Windrift
+STORE-0311,Kestrel Bay Store 311,Windrift
+STORE-0312,Kestrel Bay Store 312,Aurelport
+STORE-0313,Aurelport Store 313,Draymoor
+STORE-0314,Aurelport Store 314,Emberfield
+STORE-0315,Stonebrook Junction Store 315,Stonebrook Junction
+STORE-0316,Verdant Hollow Store 316,Lindmoor
+STORE-0317,Stonebrook Junction Store 317,Verdant Hollow
+STORE-0318,Northfell Store 318,Emberfield
+STORE-0319,Aurelport Store 319,Verdant Hollow
+STORE-0320,Northfell Store 320,Northfell
+STORE-0321,Kestrel Bay Store 321,Draymoor
+STORE-0322,Draymoor Store 322,Stonebrook Junction
+STORE-0323,Stonebrook Junction Store 323,Emberfield
+STORE-0324,Draymoor Store 324,Kestrel Bay
+STORE-0325,Lindmoor Store 325,Windrift
+STORE-0326,Marrow Vale Store 326,Windrift
+STORE-0327,Verdant Hollow Store 327,Verdant Hollow
+STORE-0328,Windrift Store 328,Stonebrook Junction
+STORE-0329,Aurelport Store 329,Windrift
+STORE-0330,Windrift Store 330,Kestrel Bay
+STORE-0331,Lindmoor Store 331,Emberfield
+STORE-0332,Verdant Hollow Store 332,Windrift
+STORE-0333,Kestrel Bay Store 333,Windrift
+STORE-0334,Marrow Vale Store 334,Verdant Hollow
+STORE-0335,Draymoor Store 335,Kestrel Bay
+STORE-0336,Verdant Hollow Store 336,Stonebrook Junction
+STORE-0337,Draymoor Store 337,Draymoor
+STORE-0338,Stonebrook Junction Store 338,Lindmoor
+STORE-0339,Verdant Hollow Store 339,Draymoor
+STORE-0340,Emberfield Store 340,Lindmoor
+STORE-0341,Emberfield Store 341,Verdant Hollow
+STORE-0342,Kestrel Bay Store 342,Emberfield
+STORE-0343,Kestrel Bay Store 343,Northfell
+STORE-0344,Windrift Store 344,Northfell
+STORE-0345,Windrift Store 345,Stonebrook Junction
+STORE-0346,Draymoor Store 346,Emberfield
+STORE-0347,Marrow Vale Store 347,Lindmoor
+STORE-0348,Kestrel Bay Store 348,Windrift
+STORE-0349,Stonebrook Junction Store 349,Kestrel Bay
+STORE-0350,Lindmoor Store 350,Marrow Vale
+STORE-0351,Draymoor Store 351,Aurelport
+STORE-0352,Marrow Vale Store 352,Kestrel Bay
+STORE-0353,Emberfield Store 353,Draymoor
+STORE-0354,Emberfield Store 354,Stonebrook Junction
+STORE-0355,Emberfield Store 355,Northfell
+STORE-0356,Stonebrook Junction Store 356,Stonebrook Junction
+STORE-0357,Kestrel Bay Store 357,Windrift
+STORE-0358,Northfell Store 358,Emberfield
+STORE-0359,Marrow Vale Store 359,Marrow Vale
+STORE-0360,Marrow Vale Store 360,Aurelport
+STORE-0361,Northfell Store 361,Lindmoor
+STORE-0362,Windrift Store 362,Stonebrook Junction
+STORE-0363,Draymoor Store 363,Emberfield
+STORE-0364,Kestrel Bay Store 364,Lindmoor
+STORE-0365,Marrow Vale Store 365,Lindmoor
+STORE-0366,Northfell Store 366,Verdant Hollow
+STORE-0367,Windrift Store 367,Northfell
+STORE-0368,Windrift Store 368,Stonebrook Junction
+STORE-0369,Windrift Store 369,Marrow Vale
+STORE-0370,Northfell Store 370,Lindmoor
+STORE-0371,Draymoor Store 371,Emberfield
+STORE-0372,Aurelport Store 372,Aurelport
+STORE-0373,Stonebrook Junction Store 373,Northfell
+STORE-0374,Northfell Store 374,Draymoor
+STORE-0375,Lindmoor Store 375,Kestrel Bay
+STORE-0376,Windrift Store 376,Aurelport
+STORE-0377,Verdant Hollow Store 377,Stonebrook Junction
+STORE-0378,Northfell Store 378,Emberfield
+STORE-0379,Kestrel Bay Store 379,Emberfield
+STORE-0380,Stonebrook Junction Store 380,Windrift
+STORE-0381,Northfell Store 381,Kestrel Bay
+STORE-0382,Stonebrook Junction Store 382,Northfell
+STORE-0383,Aurelport Store 383,Stonebrook Junction
+STORE-0384,Stonebrook Junction Store 384,Aurelport
+STORE-0385,Stonebrook Junction Store 385,Northfell
+STORE-0386,Marrow Vale Store 386,Kestrel Bay
+STORE-0387,Verdant Hollow Store 387,Windrift
+STORE-0388,Aurelport Store 388,Northfell
+STORE-0389,Lindmoor Store 389,Aurelport
+STORE-0390,Lindmoor Store 390,Lindmoor
+STORE-0391,Northfell Store 391,Marrow Vale
+STORE-0392,Windrift Store 392,Verdant Hollow
+STORE-0393,Aurelport Store 393,Draymoor
+STORE-0394,Verdant Hollow Store 394,Lindmoor
+STORE-0395,Windrift Store 395,Northfell
+STORE-0396,Windrift Store 396,Northfell
+STORE-0397,Windrift Store 397,Aurelport
+STORE-0398,Windrift Store 398,Marrow Vale
+STORE-0399,Kestrel Bay Store 399,Verdant Hollow
+STORE-0400,Northfell Store 400,Northfell
+STORE-0401,Windrift Store 401,Kestrel Bay
+STORE-0402,Emberfield Store 402,Windrift
+STORE-0403,Aurelport Store 403,Marrow Vale
+STORE-0404,Emberfield Store 404,Stonebrook Junction
+STORE-0405,Northfell Store 405,Draymoor
+STORE-0406,Aurelport Store 406,Kestrel Bay
+STORE-0407,Windrift Store 407,Lindmoor
+STORE-0408,Verdant Hollow Store 408,Marrow Vale
+STORE-0409,Verdant Hollow Store 409,Northfell
+STORE-0410,Windrift Store 410,Aurelport
+STORE-0411,Northfell Store 411,Kestrel Bay
+STORE-0412,Windrift Store 412,Kestrel Bay
+STORE-0413,Marrow Vale Store 413,Northfell
+STORE-0414,Emberfield Store 414,Kestrel Bay
+STORE-0415,Marrow Vale Store 415,Emberfield
+STORE-0416,Lindmoor Store 416,Lindmoor
+STORE-0417,Aurelport Store 417,Windrift
+STORE-0418,Aurelport Store 418,Verdant Hollow
+STORE-0419,Aurelport Store 419,Emberfield
+STORE-0420,Marrow Vale Store 420,Aurelport
+STORE-0421,Draymoor Store 421,Northfell
+STORE-0422,Emberfield Store 422,Windrift
+STORE-0423,Lindmoor Store 423,Stonebrook Junction
+STORE-0424,Emberfield Store 424,Aurelport
+STORE-0425,Kestrel Bay Store 425,Draymoor
+STORE-0426,Northfell Store 426,Aurelport
+STORE-0427,Marrow Vale Store 427,Draymoor
+STORE-0428,Kestrel Bay Store 428,Emberfield
+STORE-0429,Marrow Vale Store 429,Windrift
+STORE-0430,Stonebrook Junction Store 430,Emberfield
+STORE-0431,Marrow Vale Store 431,Lindmoor
+STORE-0432,Emberfield Store 432,Emberfield
+STORE-0433,Draymoor Store 433,Draymoor
+STORE-0434,Draymoor Store 434,Lindmoor
+STORE-0435,Aurelport Store 435,Verdant Hollow
+STORE-0436,Emberfield Store 436,Aurelport
+STORE-0437,Draymoor Store 437,Marrow Vale
+STORE-0438,Stonebrook Junction Store 438,Windrift
+STORE-0439,Aurelport Store 439,Emberfield
+STORE-0440,Northfell Store 440,Marrow Vale
+STORE-0441,Northfell Store 441,Verdant Hollow
+STORE-0442,Aurelport Store 442,Windrift
+STORE-0443,Kestrel Bay Store 443,Northfell
+STORE-0444,Kestrel Bay Store 444,Windrift
+STORE-0445,Emberfield Store 445,Emberfield
+STORE-0446,Windrift Store 446,Verdant Hollow
+STORE-0447,Lindmoor Store 447,Emberfield
+STORE-0448,Northfell Store 448,Windrift
+STORE-0449,Aurelport Store 449,Kestrel Bay
+STORE-0450,Draymoor Store 450,Aurelport
+STORE-0451,Lindmoor Store 451,Emberfield
+STORE-0452,Emberfield Store 452,Stonebrook Junction
+STORE-0453,Kestrel Bay Store 453,Verdant Hollow
+STORE-0454,Draymoor Store 454,Emberfield
+STORE-0455,Stonebrook Junction Store 455,Northfell
+STORE-0456,Stonebrook Junction Store 456,Aurelport
+STORE-0457,Draymoor Store 457,Aurelport
+STORE-0458,Emberfield Store 458,Lindmoor
+STORE-0459,Lindmoor Store 459,Kestrel Bay
+STORE-0460,Windrift Store 460,Windrift
+STORE-0461,Aurelport Store 461,Draymoor
+STORE-0462,Windrift Store 462,Aurelport
+STORE-0463,Draymoor Store 463,Verdant Hollow
+STORE-0464,Stonebrook Junction Store 464,Northfell
+STORE-0465,Windrift Store 465,Aurelport
+STORE-0466,Lindmoor Store 466,Emberfield
+STORE-0467,Aurelport Store 467,Windrift
+STORE-0468,Windrift Store 468,Northfell
+STORE-0469,Marrow Vale Store 469,Northfell
+STORE-0470,Verdant Hollow Store 470,Emberfield
+STORE-0471,Northfell Store 471,Stonebrook Junction
+STORE-0472,Windrift Store 472,Windrift
+STORE-0473,Verdant Hollow Store 473,Marrow Vale
+STORE-0474,Marrow Vale Store 474,Aurelport
+STORE-0475,Kestrel Bay Store 475,Kestrel Bay
+STORE-0476,Draymoor Store 476,Northfell
+STORE-0477,Aurelport Store 477,Emberfield
+STORE-0478,Aurelport Store 478,Windrift
+STORE-0479,Stonebrook Junction Store 479,Emberfield
+STORE-0480,Draymoor Store 480,Emberfield
+STORE-0481,Northfell Store 481,Stonebrook Junction
+STORE-0482,Windrift Store 482,Kestrel Bay
+STORE-0483,Emberfield Store 483,Aurelport
+STORE-0484,Stonebrook Junction Store 484,Emberfield
+STORE-0485,Verdant Hollow Store 485,Stonebrook Junction
+STORE-0486,Marrow Vale Store 486,Northfell
+STORE-0487,Emberfield Store 487,Stonebrook Junction
+STORE-0488,Aurelport Store 488,Emberfield
+STORE-0489,Emberfield Store 489,Aurelport
+STORE-0490,Northfell Store 490,Draymoor
+STORE-0491,Emberfield Store 491,Lindmoor
+STORE-0492,Marrow Vale Store 492,Verdant Hollow
+STORE-0493,Draymoor Store 493,Northfell
+STORE-0494,Stonebrook Junction Store 494,Lindmoor
+STORE-0495,Emberfield Store 495,Northfell
+STORE-0496,Aurelport Store 496,Stonebrook Junction
+STORE-0497,Aurelport Store 497,Aurelport
+STORE-0498,Draymoor Store 498,Windrift
+STORE-0499,Lindmoor Store 499,Stonebrook Junction
+STORE-0500,Stonebrook Junction Store 500,Windrift

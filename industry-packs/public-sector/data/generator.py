@@ -58,6 +58,7 @@ class Application:
 _SCALE_COUNTS = {
     "demo": {"citizens": 8, "agencies": 3, "cases": 10, "applications": 12},
     "realistic": {"citizens": 500, "agencies": 15, "cases": 1200, "applications": 1500},
+    "enterprise": {"citizens": 10000, "agencies": 50, "cases": 15000, "applications": 22000},
 }
 
 

@@ -1,0 +1,152 @@
+# Enterprise-scale synthetic prompts; all values are safe test content.
+prompts:
+  - id: enterprise-case-history-01
+    text: "Review the latest synthetic encounter and identify documentation gaps."
+    scenario: healthcare-case-history
+  - id: enterprise-case-history-02
+    text: "Summarize encounter history for a synthetic patient."
+    scenario: healthcare-case-history
+  - id: enterprise-case-history-03
+    text: "Find encounters with incomplete provider or patient references."
+    scenario: healthcare-case-history
+  - id: enterprise-case-history-04
+    text: "Trace a clinical event to its encounter."
+    scenario: healthcare-case-history
+  - id: enterprise-case-history-05
+    text: "Compare encounter reasons over the reporting period."
+    scenario: healthcare-case-history
+  - id: enterprise-case-history-06
+    text: "Prepare a care coordination review without clinical diagnosis."
+    scenario: healthcare-case-history
+  - id: enterprise-case-history-07
+    text: "Find patients with repeated encounters."
+    scenario: healthcare-case-history
+  - id: enterprise-case-history-08
+    text: "Identify missing context for a documentation review."
+    scenario: healthcare-case-history
+  - id: enterprise-case-history-09
+    text: "Summarize administrative follow-up actions."
+    scenario: healthcare-case-history
+  - id: enterprise-case-history-10
+    text: "List questions for the care coordinator."
+    scenario: healthcare-case-history
+  - id: enterprise-care-coordination-11
+    text: "Find encounters requiring care coordination follow-up."
+    scenario: healthcare-care-coordination
+  - id: enterprise-care-coordination-12
+    text: "Summarize provider involvement by encounter."
+    scenario: healthcare-care-coordination
+  - id: enterprise-care-coordination-13
+    text: "Compare care coordination records across synthetic patients."
+    scenario: healthcare-care-coordination
+  - id: enterprise-care-coordination-14
+    text: "Identify unresolved administrative events."
+    scenario: healthcare-care-coordination
+  - id: enterprise-care-coordination-15
+    text: "Trace a patient record to provider and encounter context."
+    scenario: healthcare-care-coordination
+  - id: enterprise-care-coordination-16
+    text: "Prepare a coordination meeting agenda."
+    scenario: healthcare-care-coordination
+  - id: enterprise-care-coordination-17
+    text: "Find encounters without recent clinical events."
+    scenario: healthcare-care-coordination
+  - id: enterprise-care-coordination-18
+    text: "Explain uncertainty in the administrative data."
+    scenario: healthcare-care-coordination
+  - id: enterprise-care-coordination-19
+    text: "List missing documentation evidence."
+    scenario: healthcare-care-coordination
+  - id: enterprise-care-coordination-20
+    text: "Draft non-clinical follow-up questions."
+    scenario: healthcare-care-coordination
+  - id: enterprise-documentation-quality-21
+    text: "Identify encounters with potential documentation completeness gaps."
+    scenario: healthcare-documentation-quality
+  - id: enterprise-documentation-quality-22
+    text: "Compare event coverage by provider role."
+    scenario: healthcare-documentation-quality
+  - id: enterprise-documentation-quality-23
+    text: "Find clinical events without a valid encounter reference."
+    scenario: healthcare-documentation-quality
+  - id: enterprise-documentation-quality-24
+    text: "Summarize recent documentation patterns."
+    scenario: healthcare-documentation-quality
+  - id: enterprise-documentation-quality-25
+    text: "Prepare a quality review using only synthetic administrative data."
+    scenario: healthcare-documentation-quality
+  - id: enterprise-documentation-quality-26
+    text: "Find repeated event types by encounter."
+    scenario: healthcare-documentation-quality
+  - id: enterprise-documentation-quality-27
+    text: "Explain which facts are confirmed and which are unknown."
+    scenario: healthcare-documentation-quality
+  - id: enterprise-documentation-quality-28
+    text: "List records needing manual documentation review."
+    scenario: healthcare-documentation-quality
+  - id: enterprise-documentation-quality-29
+    text: "Identify stale encounter records."
+    scenario: healthcare-documentation-quality
+  - id: enterprise-documentation-quality-30
+    text: "Create an audit-ready documentation summary."
+    scenario: healthcare-documentation-quality
+  - id: enterprise-capacity-planning-31
+    text: "Summarize encounter volume by provider role."
+    scenario: healthcare-capacity-planning
+  - id: enterprise-capacity-planning-32
+    text: "Find periods with unusually high encounter counts."
+    scenario: healthcare-capacity-planning
+  - id: enterprise-capacity-planning-33
+    text: "Compare administrative workload across providers."
+    scenario: healthcare-capacity-planning
+  - id: enterprise-capacity-planning-34
+    text: "Identify capacity signals for care coordination."
+    scenario: healthcare-capacity-planning
+  - id: enterprise-capacity-planning-35
+    text: "Prepare a staffing discussion using synthetic data only."
+    scenario: healthcare-capacity-planning
+  - id: enterprise-capacity-planning-36
+    text: "Find providers with no recent encounters."
+    scenario: healthcare-capacity-planning
+  - id: enterprise-capacity-planning-37
+    text: "Explain limitations in the capacity sample."
+    scenario: healthcare-capacity-planning
+  - id: enterprise-capacity-planning-38
+    text: "Trace workload to encounter reason."
+    scenario: healthcare-capacity-planning
+  - id: enterprise-capacity-planning-39
+    text: "List planning questions for the operations team."
+    scenario: healthcare-capacity-planning
+  - id: enterprise-capacity-planning-40
+    text: "Create a non-clinical workload snapshot."
+    scenario: healthcare-capacity-planning
+  - id: enterprise-safety-and-governance-41
+    text: "Confirm that this response does not make a clinical diagnosis."
+    scenario: healthcare-safety-and-governance
+  - id: enterprise-safety-and-governance-42
+    text: "Separate administrative facts from recommendations."
+    scenario: healthcare-safety-and-governance
+  - id: enterprise-safety-and-governance-43
+    text: "Identify required human review points."
+    scenario: healthcare-safety-and-governance
+  - id: enterprise-safety-and-governance-44
+    text: "Flag sensitive-data handling concerns in the workflow."
+    scenario: healthcare-safety-and-governance
+  - id: enterprise-safety-and-governance-45
+    text: "Prepare a privacy-aware synthetic case summary."
+    scenario: healthcare-safety-and-governance
+  - id: enterprise-safety-and-governance-46
+    text: "List unsupported assumptions in the analysis."
+    scenario: healthcare-safety-and-governance
+  - id: enterprise-safety-and-governance-47
+    text: "Explain why an automated clinical action must not be taken."
+    scenario: healthcare-safety-and-governance
+  - id: enterprise-safety-and-governance-48
+    text: "Identify data-quality risks."
+    scenario: healthcare-safety-and-governance
+  - id: enterprise-safety-and-governance-49
+    text: "Create a traceable administrative review."
+    scenario: healthcare-safety-and-governance
+  - id: enterprise-safety-and-governance-50
+    text: "Draft questions for a qualified reviewer."
+    scenario: healthcare-safety-and-governance

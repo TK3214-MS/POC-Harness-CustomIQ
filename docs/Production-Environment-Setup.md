@@ -78,6 +78,32 @@ pytest tests/
 
 サンプルデータは業界ごとに分離して投入してください。複数業界を1つのKnowledge Baseへ混在させる場合は、Knowledge Source名、検索指示、引用元を業界単位で識別できるようにします。
 
+### 2.4 エンタープライズ規模のサンプル
+
+各Packには、既存generatorから再現可能なenterprise規模のCSVと、業界5シナリオ×10件、合計50件のpromptライブラリを用意しています。
+
+| 業界 | Enterprise CSV | Foundry JSONL | Promptライブラリ | レコード規模の目安 |
+|---|---|---|---|---|
+| Manufacturing | `sample-data/fabric/enterprise/` | `sample-data/foundry/enterprise/records.jsonl` | `sample-data/prompts/enterprise_prompts.yaml` | 約23,000行 |
+| Financial Services | `sample-data/fabric/enterprise/` | `sample-data/foundry/enterprise/records.jsonl` | `sample-data/prompts/enterprise_prompts.yaml` | 約65,000行 |
+| Retail | `sample-data/fabric/enterprise/` | `sample-data/foundry/enterprise/records.jsonl` | `sample-data/prompts/enterprise_prompts.yaml` | 約160,000行 |
+| Healthcare | `sample-data/fabric/enterprise/` | `sample-data/foundry/enterprise/records.jsonl` | `sample-data/prompts/enterprise_prompts.yaml` | 約85,000行 |
+| Public Sector | `sample-data/fabric/enterprise/` | `sample-data/foundry/enterprise/records.jsonl` | `sample-data/prompts/enterprise_prompts.yaml` | 約47,000行 |
+
+CSVを再生成する場合:
+
+```bash
+python3 scripts/generate_enterprise_sample_data.py
+```
+
+promptを再生成する場合:
+
+```bash
+python3 scripts/generate_enterprise_prompts.py
+```
+
+両スクリプトは固定seedを使用するため、同じ入力から同じ合成データを再生成できます。CSVは全テーブルをFabric Lakehouseへ取り込み、Ontologyのentity typeごとに対応テーブルをバインドしてください。JSONLはBlob Knowledge Sourceのcontainerへアップロードし、`id`をキー、`content`を検索対象フィールドとしてインデックス化してください。promptはFoundry IQの評価質問、Copilot StudioのPreviewテスト、Work IQの質問テンプレートとして利用できます。
+
 ## 3. Fabric IQ側の構成
 
 ### 3.1 Fabric tenantとworkspace
@@ -99,7 +125,7 @@ pytest tests/
 
 **オプションのサンプル投入**:
 
-1. 対象Industry Packの`sample-data/fabric/*.csv`をローカルからFabric Lakehouseの`Files`へアップロードする。
+1. 対象Industry Packの`sample-data/fabric/enterprise/*.csv`をローカルからFabric Lakehouseの`Files`へアップロードする。短時間の接続確認だけなら、同階層の小容量CSVを使用する。
 2. CSVをLakehouse tableとして読み込む。テーブル名はCSVの業務名に合わせる(例: `quality_issues`, `fraud_cases`, `encounters`, `cases`, `inventory_records`)。
 3. Ontologyで使うentity type keyとCSV列の型を確認する。
 4. 業界Packの`ontology/entities.yaml`と同じentity typeを作成し、CSV列をpropertyへマッピングする。
@@ -177,6 +203,12 @@ Blob Knowledge Sourceを使う場合:
 4. 取り込み完了後、各文書に固有の質問を実行し、引用元が正しい業界文書であることを確認する。
 
 このリポジトリのKnowledge文書はFoundry IQ用の合成ナレッジとしてそのまま使えます。Markdown以外の形式へ変換する場合も、内容、業界名、文書ID、合成データであることを保持してください。
+
+promptライブラリの利用例:
+
+1. `sample-data/prompts/enterprise_prompts.yaml`を読み込む。
+2. `scenario`ごとに質問を分け、Foundry IQの引用品質、Fabric IQのOntology検索、Work IQの権限境界、MCP Backendの業界Tool応答を個別に評価する。
+3. 同じpromptを複数回実行する場合は、回答、引用、Activity trace、Tool選択を保存して比較する。
 
 Blob以外にAzure SQL、OneLake、SharePoint、Fabric Data Agent、Fabric Ontology、Work IQなどのKnowledge Sourceを追加する場合も、先に各接続先の認証・権限を完成させてからKnowledge Baseへ追加します。
 

@@ -60,6 +60,7 @@ class FraudCase:
 _SCALE_COUNTS = {
     "demo": {"customers": 8, "accounts": 10, "transactions": 80, "fraud_cases": 6},
     "realistic": {"customers": 400, "accounts": 550, "transactions": 6000, "fraud_cases": 250},
+    "enterprise": {"customers": 5000, "accounts": 7500, "transactions": 50000, "fraud_cases": 3000},
 }
 
 

@@ -1,0 +1,152 @@
+# Enterprise-scale synthetic prompts; all values are safe test content.
+prompts:
+  - id: enterprise-fraud-investigation-01
+    text: "Summarize the highest-risk open fraud cases."
+    scenario: financial-services-fraud-investigation
+  - id: enterprise-fraud-investigation-02
+    text: "Investigate the latest flagged transaction."
+    scenario: financial-services-fraud-investigation
+  - id: enterprise-fraud-investigation-03
+    text: "Find transactions with unusually high amounts and explain the evidence."
+    scenario: financial-services-fraud-investigation
+  - id: enterprise-fraud-investigation-04
+    text: "Trace a fraud case to its account and customer segment."
+    scenario: financial-services-fraud-investigation
+  - id: enterprise-fraud-investigation-05
+    text: "Compare fraud cases by status and risk score."
+    scenario: financial-services-fraud-investigation
+  - id: enterprise-fraud-investigation-06
+    text: "Identify cases that need manual escalation."
+    scenario: financial-services-fraud-investigation
+  - id: enterprise-fraud-investigation-07
+    text: "Summarize the timeline for the most recent investigation."
+    scenario: financial-services-fraud-investigation
+  - id: enterprise-fraud-investigation-08
+    text: "Find accounts with multiple flagged transactions."
+    scenario: financial-services-fraud-investigation
+  - id: enterprise-fraud-investigation-09
+    text: "Prepare an investigator briefing with citations to source records."
+    scenario: financial-services-fraud-investigation
+  - id: enterprise-fraud-investigation-10
+    text: "What information is missing before closing this case?"
+    scenario: financial-services-fraud-investigation
+  - id: enterprise-transaction-monitoring-11
+    text: "Identify transaction patterns that warrant review."
+    scenario: financial-services-transaction-monitoring
+  - id: enterprise-transaction-monitoring-12
+    text: "Group flagged transactions by currency and transaction type."
+    scenario: financial-services-transaction-monitoring
+  - id: enterprise-transaction-monitoring-13
+    text: "Find accounts with repeated high-value activity."
+    scenario: financial-services-transaction-monitoring
+  - id: enterprise-transaction-monitoring-14
+    text: "Summarize monitoring signals by customer segment."
+    scenario: financial-services-transaction-monitoring
+  - id: enterprise-transaction-monitoring-15
+    text: "Compare recent transaction activity with the available fraud cases."
+    scenario: financial-services-transaction-monitoring
+  - id: enterprise-transaction-monitoring-16
+    text: "Find transactions with inconsistent case status."
+    scenario: financial-services-transaction-monitoring
+  - id: enterprise-transaction-monitoring-17
+    text: "Prepare a transaction monitoring review agenda."
+    scenario: financial-services-transaction-monitoring
+  - id: enterprise-transaction-monitoring-18
+    text: "Explain uncertainty in the current risk signals."
+    scenario: financial-services-transaction-monitoring
+  - id: enterprise-transaction-monitoring-19
+    text: "Identify data quality gaps in transaction records."
+    scenario: financial-services-transaction-monitoring
+  - id: enterprise-transaction-monitoring-20
+    text: "List questions for the compliance analyst."
+    scenario: financial-services-transaction-monitoring
+  - id: enterprise-customer-and-account-21
+    text: "Summarize accounts associated with the latest fraud case."
+    scenario: financial-services-customer-and-account
+  - id: enterprise-customer-and-account-22
+    text: "Find customers with multiple accounts under investigation."
+    scenario: financial-services-customer-and-account
+  - id: enterprise-customer-and-account-23
+    text: "Compare account types across customer segments."
+    scenario: financial-services-customer-and-account
+  - id: enterprise-customer-and-account-24
+    text: "Trace a transaction from customer to account and case."
+    scenario: financial-services-customer-and-account
+  - id: enterprise-customer-and-account-25
+    text: "Identify accounts with no recent transaction activity."
+    scenario: financial-services-customer-and-account
+  - id: enterprise-customer-and-account-26
+    text: "Prepare a customer risk context without making a decision."
+    scenario: financial-services-customer-and-account
+  - id: enterprise-customer-and-account-27
+    text: "Find orphaned transactions without a valid account."
+    scenario: financial-services-customer-and-account
+  - id: enterprise-customer-and-account-28
+    text: "Summarize account opening periods for investigated accounts."
+    scenario: financial-services-customer-and-account
+  - id: enterprise-customer-and-account-29
+    text: "Explain which customer facts are confirmed."
+    scenario: financial-services-customer-and-account
+  - id: enterprise-customer-and-account-30
+    text: "List missing customer context for manual review."
+    scenario: financial-services-customer-and-account
+  - id: enterprise-compliance-review-31
+    text: "Prepare a compliance review summary for open cases."
+    scenario: financial-services-compliance-review
+  - id: enterprise-compliance-review-32
+    text: "Identify cases that need enhanced review."
+    scenario: financial-services-compliance-review
+  - id: enterprise-compliance-review-33
+    text: "Separate evidence from investigator recommendations."
+    scenario: financial-services-compliance-review
+  - id: enterprise-compliance-review-34
+    text: "Find cases with conflicting status and risk signals."
+    scenario: financial-services-compliance-review
+  - id: enterprise-compliance-review-35
+    text: "List required human approvals for the proposed next steps."
+    scenario: financial-services-compliance-review
+  - id: enterprise-compliance-review-36
+    text: "Summarize policy-relevant facts without exposing sensitive data."
+    scenario: financial-services-compliance-review
+  - id: enterprise-compliance-review-37
+    text: "Identify stale or incomplete case records."
+    scenario: financial-services-compliance-review
+  - id: enterprise-compliance-review-38
+    text: "Create an audit trail for the latest investigation."
+    scenario: financial-services-compliance-review
+  - id: enterprise-compliance-review-39
+    text: "Explain why an automatic account action is not appropriate."
+    scenario: financial-services-compliance-review
+  - id: enterprise-compliance-review-40
+    text: "Draft questions for the compliance committee."
+    scenario: financial-services-compliance-review
+  - id: enterprise-portfolio-analytics-41
+    text: "Compare transaction volume across customer segments."
+    scenario: financial-services-portfolio-analytics
+  - id: enterprise-portfolio-analytics-42
+    text: "Summarize fraud case rates by account type."
+    scenario: financial-services-portfolio-analytics
+  - id: enterprise-portfolio-analytics-43
+    text: "Find segments with increasing investigation activity."
+    scenario: financial-services-portfolio-analytics
+  - id: enterprise-portfolio-analytics-44
+    text: "Identify the largest concentration of open risk."
+    scenario: financial-services-portfolio-analytics
+  - id: enterprise-portfolio-analytics-45
+    text: "Prepare a management summary of portfolio signals."
+    scenario: financial-services-portfolio-analytics
+  - id: enterprise-portfolio-analytics-46
+    text: "Explain limitations in the available sample data."
+    scenario: financial-services-portfolio-analytics
+  - id: enterprise-portfolio-analytics-47
+    text: "Find trends by currency and transaction type."
+    scenario: financial-services-portfolio-analytics
+  - id: enterprise-portfolio-analytics-48
+    text: "Compare closed and open case distributions."
+    scenario: financial-services-portfolio-analytics
+  - id: enterprise-portfolio-analytics-49
+    text: "List recommended analysis follow-ups for an analyst."
+    scenario: financial-services-portfolio-analytics
+  - id: enterprise-portfolio-analytics-50
+    text: "Provide a traceable portfolio snapshot."
+    scenario: financial-services-portfolio-analytics

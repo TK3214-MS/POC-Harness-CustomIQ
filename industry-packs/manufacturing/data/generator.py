@@ -116,6 +116,14 @@ _SCALE_COUNTS = {
         "quality_issues": 2500,
         "engineering_changes": 900,
     },
+    "enterprise": {
+        "factories": 40,
+        "production_lines_per_factory": 8,
+        "suppliers": 1000,
+        "parts": 5000,
+        "quality_issues": 12000,
+        "engineering_changes": 5000,
+    },
 }
 
 

@@ -71,6 +71,7 @@ class DemandSignal:
 _SCALE_COUNTS = {
     "demo": {"stores": 4, "products": 10, "inventory_records": 25, "orders": 25, "demand_signals": 8},
     "realistic": {"stores": 50, "products": 500, "inventory_records": 4000, "orders": 5000, "demand_signals": 1200},
+    "enterprise": {"stores": 500, "products": 5000, "inventory_records": 60000, "orders": 80000, "demand_signals": 15000},
 }
 
 
