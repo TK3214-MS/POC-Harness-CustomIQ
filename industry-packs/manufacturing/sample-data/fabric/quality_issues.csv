@@ -1,0 +1,6 @@
+issue_id,part_id,factory_id,summary,severity,status,defect_rate_percent,detected_at
+QI-SYN-001,PART-SYN-101,FAC-SYN-01,Surface crack on valve housing,high,open,4.8,2026-01-12T09:30:00Z
+QI-SYN-002,PART-SYN-102,FAC-SYN-01,Connector pin misalignment,medium,investigating,2.1,2026-01-13T11:00:00Z
+QI-SYN-003,PART-SYN-103,FAC-SYN-02,Coating thickness below target,high,contained,3.7,2026-01-15T14:20:00Z
+QI-SYN-004,PART-SYN-101,FAC-SYN-02,Dimensional variance at final inspection,medium,open,1.9,2026-01-17T08:45:00Z
+QI-SYN-005,PART-SYN-104,FAC-SYN-01,Packaging seal failure,low,closed,0.8,2026-01-19T16:10:00Z

@@ -1,0 +1,6 @@
+encounter_id,patient_id,provider_id,encounter_date,reason
+ENC-SYN-001,PAT-SYN-101,PROV-SYN-01,2026-02-10,follow-up review
+ENC-SYN-002,PAT-SYN-102,PROV-SYN-02,2026-02-11,documentation completeness
+ENC-SYN-003,PAT-SYN-103,PROV-SYN-01,2026-02-12,care coordination
+ENC-SYN-004,PAT-SYN-104,PROV-SYN-03,2026-02-13,discharge planning
+ENC-SYN-005,PAT-SYN-105,PROV-SYN-02,2026-02-14,case escalation review

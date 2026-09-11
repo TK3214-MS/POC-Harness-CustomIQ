@@ -1,0 +1,6 @@
+case_id,citizen_id,agency_id,case_type,status,opened_at
+CASE-SYN-301,CIT-SYN-101,AGENCY-SYN-01,permit_review,open,2026-03-01T09:00:00Z
+CASE-SYN-302,CIT-SYN-102,AGENCY-SYN-02,benefit_eligibility,in_review,2026-03-02T10:30:00Z
+CASE-SYN-303,CIT-SYN-103,AGENCY-SYN-01,records_request,awaiting_documents,2026-03-03T13:15:00Z
+CASE-SYN-304,CIT-SYN-104,AGENCY-SYN-03,inspection_followup,closed,2026-03-04T15:45:00Z
+CASE-SYN-305,CIT-SYN-105,AGENCY-SYN-02,service_referral,open,2026-03-05T08:20:00Z

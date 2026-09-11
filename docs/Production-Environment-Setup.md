@@ -64,6 +64,20 @@ pytest tests/
 
 この手順はリポジトリのMCP Backendを検証するためのものです。Fabric、Foundry、Work IQの接続にPython Adapterを設定する手順ではありません。
 
+### 2.3 オプション: 業界別サンプルデータ
+
+サンプルデータを投入しなくても、空のSaaS環境とCopilot Studio接続の確認は実施できます。回答内容まで検証する場合は、各Industry Packの`sample-data/`を使用してください。すべて合成データであり、実在の個人、企業、患者、顧客、口座、住民、従業員の情報は含めません。
+
+| 業界 | Fabric投入用CSV | Foundry用ナレッジ | Work IQ用M365テンプレート |
+|---|---|---|---|
+| Manufacturing | `industry-packs/manufacturing/sample-data/fabric/quality_issues.csv` | `industry-packs/manufacturing/knowledge/` | `industry-packs/manufacturing/sample-data/work-iq/` |
+| Financial Services | `industry-packs/financial-services/sample-data/fabric/fraud_cases.csv` | `industry-packs/financial-services/knowledge/` | `industry-packs/financial-services/sample-data/work-iq/` |
+| Retail | `industry-packs/retail/sample-data/fabric/inventory_records.csv` | `industry-packs/retail/knowledge/` | `industry-packs/retail/sample-data/work-iq/` |
+| Healthcare | `industry-packs/healthcare/sample-data/fabric/encounters.csv` | `industry-packs/healthcare/knowledge/` | `industry-packs/healthcare/sample-data/work-iq/` |
+| Public Sector | `industry-packs/public-sector/sample-data/fabric/cases.csv` | `industry-packs/public-sector/knowledge/` | `industry-packs/public-sector/sample-data/work-iq/` |
+
+サンプルデータは業界ごとに分離して投入してください。複数業界を1つのKnowledge Baseへ混在させる場合は、Knowledge Source名、検索指示、引用元を業界単位で識別できるようにします。
+
 ## 3. Fabric IQ側の構成
 
 ### 3.1 Fabric tenantとworkspace
@@ -82,6 +96,14 @@ pytest tests/
 3. `Files`へ置いたデータを、Ontologyで利用できるmanaged Lakehouse tableへ変換する。
 4. テーブルのキー列、業務プロパティ列、時系列列を確認する。
 5. OneLake security、column mapping、external tableの利用可否をOntologyの制約に照らして確認する。
+
+**オプションのサンプル投入**:
+
+1. 対象Industry Packの`sample-data/fabric/*.csv`をローカルからFabric Lakehouseの`Files`へアップロードする。
+2. CSVをLakehouse tableとして読み込む。テーブル名はCSVの業務名に合わせる(例: `quality_issues`, `fraud_cases`, `encounters`, `cases`, `inventory_records`)。
+3. Ontologyで使うentity type keyとCSV列の型を確認する。
+4. 業界Packの`ontology/entities.yaml`と同じentity typeを作成し、CSV列をpropertyへマッピングする。
+5. 追加のentity typeやrelationshipを作成する場合は、既存のgeneratorやOntology定義を参照して同じ合成ID体系を維持する。
 
 参照:
 
@@ -147,6 +169,15 @@ Blob Knowledge Sourceを使う場合:
 6. Knowledge Sourceの取り込み状態を確認し、失敗件数が0になるまで修正する。
 7. 生成されたdata source、skillset、index、indexerを確認する。
 
+**オプションの業界別ナレッジ投入**:
+
+1. 対象Industry Packの`knowledge/`配下にあるMarkdown文書をBlob containerへコピーする。
+2. Blob Knowledge Sourceのcontainerを業界単位に分けるか、Blob metadata/ディレクトリで業界を識別する。
+3. Knowledge Source名に業界を含める(例: `ks-manufacturing`, `ks-financial-services`)。
+4. 取り込み完了後、各文書に固有の質問を実行し、引用元が正しい業界文書であることを確認する。
+
+このリポジトリのKnowledge文書はFoundry IQ用の合成ナレッジとしてそのまま使えます。Markdown以外の形式へ変換する場合も、内容、業界名、文書ID、合成データであることを保持してください。
+
 Blob以外にAzure SQL、OneLake、SharePoint、Fabric Data Agent、Fabric Ontology、Work IQなどのKnowledge Sourceを追加する場合も、先に各接続先の認証・権限を完成させてからKnowledge Baseへ追加します。
 
 参照: [Create a Blob Knowledge Source](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-blob)
@@ -191,6 +222,16 @@ Work IQへデータをアップロードしたり、別の検索インデック�
 3. テストユーザーがそのデータを通常のMicrosoft 365権限で参照できることを確認する。
 4. 読み取りテスト用の質問を決める(例: 最近の会議、プロジェクトに関する最近のTeams会話、指定文書の要約)。
 5. 書き込みテストを行う場合は、送信・作成・更新・アクションを許可するテナントポリシーとテスト対象を別途レビューする。
+
+**オプションの業界別M365サンプル投入**:
+
+1. 対象Industry Packの`sample-data/work-iq/`からMarkdownテンプレートを選ぶ。
+2. 専用のテストSharePointライブラリへアップロードするか、専用のテストTeamsチャンネルへ内容を投稿する。メール・予定表を検証する場合は、テストユーザー間で合成内容のメールまたは会議を作成する。
+3. テンプレートに書かれた合成ID(`QI-SYN-*`、`CASE-SYN-*`等)を変更せず、Fabric/Foundry側のサンプル質問と関連付ける。
+4. Copilot StudioのWork IQ Toolから、最近の会話、会議、文書の要約を質問する。
+5. テスト終了後は、作成したテスト文書、Teams投稿、メール、会議を削除し、残存データと保持ポリシーを確認する。
+
+Work IQへファイルをAPIでアップロードする手順ではありません。Microsoft 365サービス側にテストコンテンツを作成し、Work IQがユーザー権限の範囲でそれを参照できることを確認する手順です。
 
 Work IQ側の完了条件は「Work IQにファイルを登録した」ではなく、テストユーザーがCopilot Studioから自分の権限範囲のM365コンテキストを取得できることです。
 
