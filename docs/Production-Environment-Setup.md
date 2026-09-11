@@ -8,15 +8,15 @@
 
 ```mermaid
 flowchart LR
-    M365[Microsoft 365<br/>メール・予定表・Teams・SharePoint・OneDrive] --> WIQ[Work IQ (preview)]
-    Files[業務文書] --> Blob[Azure Blob Storage]
-    Blob --> KS[Azure AI Search<br/>Knowledge Source]
-    KS --> KB[Foundry IQ<br/>Knowledge Base]
-    Lake[Fabric Lakehouse<br/>managed tables] --> Ont[Fabric Ontology]
-    Agent[Copilot Studio<br/>GitHub Copilot harness] --> WIQ
+    M365["Microsoft 365<br/>メール・予定表・Teams・SharePoint・OneDrive"] --> WIQ["Work IQ (preview)"]
+    Files["業務文書"] --> Blob["Azure Blob Storage"]
+    Blob --> KS["Azure AI Search<br/>Knowledge Source"]
+    KS --> KB["Foundry IQ<br/>Knowledge Base"]
+    Lake["Fabric Lakehouse<br/>managed tables"] --> Ont["Fabric Ontology"]
+    Agent["Copilot Studio<br/>GitHub Copilot harness"] --> WIQ
     Agent --> KB
     Agent --> Ont
-    Agent --> MCP[本リポジトリ MCP Backend<br/>/mcp]
+    Agent --> MCP["本リポジトリ MCP Backend<br/>/mcp"]
 ```
 
 次の順序で実施します。
