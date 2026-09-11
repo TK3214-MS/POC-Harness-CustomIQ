@@ -22,7 +22,7 @@
 2. **Foundry IQ は Copilot Studio の GitHub Copilot harness エージェントに、専用の一次機能として直接接続できる。** Build タブ → Tools → 「Foundry IQ」を選択し、API キー・クライアント証明書・サービスプリンシパル・Entra ID 統合のいずれかで接続を作成する。この接続設定は Copilot Studio 自身が提供する UI/バックエンドで完結する。
 3. **Fabric IQ も同様に、Copilot Studio の GitHub Copilot harness エージェントに専用の一次機能として直接接続できる**(プレビュー)。
 4. **Copilot Studio の GitHub Copilot harness は、汎用の Tool 種別として任意の MCP サーバーへの接続もネイティブにサポートする。**「Add a Model Context Protocol (MCP) server as a tool」フローで、Server URL(HTTPS エンドポイント)・認証方式を入力すると、Copilot Studio がプロトコルハンドシェイクを行い、そのサーバーが公開する Tool 一覧を取得する。**これは本リポジトリの MCP Backend が Copilot Studio に接続される際の正式な経路である。**
-5. **Work IQ が Copilot Studio から一次機能として利用できることは、今回調査した範囲では確認できなかった。**「Available knowledge sources for agents」に列挙されたナレッジソース種別(SharePoint、OneDrive、ServiceNow、Confluence、Dataverse、Azure AI Search 等)に "Work IQ" という名称は登場せず、専用の "work-iq-connect" ページも存在しなかった(404)。ただし [ADR-0015](0015-mcp-native-iq-layer-integration.md) で確認した通り Work IQ 自体は標準的な MCP サーバーを公開しているため、上記4の汎用 MCP サーバー登録フローを使って手動接続できる可能性が高いが、**これは推測であり確認された事実ではない**。ユーザーに確認が必要な残課題として扱う。
+5. **Work IQ (preview) は Copilot Studio の一次機能として利用できる。** [Work IQ in Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-work-iq) は、GitHub Copilot harnessで動作するWork IQを、**Tools → Add Tool → Model Context Protocol → Work IQ (preview)** から追加し、**Create New Connection → Create → サインイン → Add and Configure** で接続する手順を明記している。Work IQはPreviewであり、Copilot Creditsの使用量ベース課金、テナント有効化、spending policy、管理者によるMCPポリシー管理が必要である。これは汎用Remote MCP URLを手入力する経路ではない。
 
 ## 決定
 
@@ -31,7 +31,7 @@
 3. **現行の `services/mcp-backend/` は、`/health` / `/tools` / `/tools/{name}/invoke` という独自形状の REST API であり、Model Context Protocol の実際のワイヤーフォーマット(JSON-RPC 2.0 ベースの initialize/tools-list/tools-call ハンドシェイク)には準拠していない。** Copilot Studio の「Add MCP server」フローが行う「プロトコルハンドシェイク」に応答できるようにするため、実際の MCP プロトコルに準拠したサーバー実装を追加する。
 4. **実装言語は Python とする。** 本リポジトリは既に Python 3.11+ で統一されており([ADR-0002](0002-python-primary-language.md))、Model Context Protocol の公式 SDK(`mcp` パッケージ、`mcp.server.fastmcp.FastMCP` を含む)は Python と TypeScript の双方で最も高いカバレッジ・公式サポートを持つ。追加言語を導入するコストを避けるため、Python 版の公式 SDK を採用する。
 5. **既存のカスタム REST API(`/health`/`/tools`/`/tools/{name}/invoke`)は削除せず併存させる。** これは実 MCP プロトコル未対応のクライアント(本リポジトリ自身のテスト・デモ CLI 等)から使われ続けるため、廃止せずそのまま残す。実 MCP プロトコルのエンドポイントは別途追加する形とする。
-6. **Work IQ の Copilot Studio からの利用可否は未確認のまま残し、断定しない。** [docs/decisions/product-verification.md](product-verification.md) にその旨を明記し、ユーザーに確認を仰ぐ。
+6. **Work IQの専用Copilot Studio接続を採用する。** Work IQ Knowledge SourceをFoundry IQに組み込む構成は、Foundry IQの検索計画にWork IQを含める必要がある場合の代替構成として扱い、Work IQをCopilot Studioで利用する標準手順とは混同しない。
 
 ## 影響
 

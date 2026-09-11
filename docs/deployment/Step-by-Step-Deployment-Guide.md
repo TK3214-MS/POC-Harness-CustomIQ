@@ -161,7 +161,7 @@ Foundry IQ・Fabric IQ は Copilot Studio の GitHub Copilot harness エージ�
 
 - Foundry IQ: Build タブ → Tools →「Foundry IQ」→ 接続作成(API キー / クライアント証明書 / サービスプリンシパル / Entra ID 統合のいずれか)→ Knowledge Base を選択。([Connect to Foundry IQ from an agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/foundry-iq-connect))
 - Fabric IQ(プレビュー): Build タブ →「+ Add tool」→「Fabric IQ」→ 標準の Tool 追加フローに従う。([Connect to Fabric IQ from an agent (preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/fabric-iq-connect))
-- Work IQ: Copilot Studio からの一次機能としての利用可否は確認できていません(**未確認、断定しない**)。Work IQ 自体は標準的な MCP サーバーを公開しているため([docs/decisions/product-verification.md](../decisions/product-verification.md))、上記11.1と同じ「Add MCP server」の汎用フローで手動接続できる可能性がありますが、未検証です。
+- Work IQ (preview): **Tools → Add Tool → Model Context Protocol → Work IQ (preview) → Create New Connection → Create → サインイン → Add and Configure** の専用フローで追加します。Work IQはGitHub Copilot harnessで動作し、テナント有効化・Copilot Creditsの使用量ベース課金・Work IQ spending policy・管理者によるMCPポリシー設定が必要です。([Work IQ in Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-work-iq))
 
 **11.3 環境変数(参考、`.env` での存在確認のみ)**
 
