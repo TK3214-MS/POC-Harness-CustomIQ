@@ -19,7 +19,6 @@ Fabric IQ、Foundry IQ、Work IQをMicrosoft Copilot StudioのGitHub Copilot har
 
 本リポジトリが提供するものは、Industry Pack、MCP Tool契約、MCP Backend、Azureデプロイ定義、テストです。Fabric IQ、Foundry IQ、Work IQのSaaS側構成と、IQデータの取得は各SaaS管理画面およびCopilot Studioが担当します。
 
-Local Preview、Mock/Simulated Adapter、ローカルOrchestrator、Demo CLIは本リポジトリの構成対象に含めません。
 
 ## 開発者向け確認
 
