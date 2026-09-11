@@ -5,7 +5,7 @@
 
 ## コンテキスト
 
-指示書 §15 はデプロイ方式の優先順位を azd → Bicep → Terraform と定めている（[ADR-0008](0008-deployment-tooling-priority.md)）。Phase 5 時点でデプロイ可能な実体は `services/mcp-backend/`（FastAPI コンテナ）のみであり、Work IQ / Foundry IQ / Fabric IQ の Live Adapter（Phase 4）はまだ存在しないため、これらのためのインフラは含めない。
+MCP BackendはAzure Container Appsへデプロイする。IQ SaaS側は各製品の管理面とCopilot Studioで構成するため、本リポジトリのインフラには含めない。
 
 ## 決定
 
@@ -24,5 +24,3 @@
 ## 影響
 
 - README・デプロイガイドには「Bicep テンプレートはコンパイル検証済みだが実デプロイ未検証」であることを明記する。
-- Terraform は本 Phase では着手しない（[ADR-0008](0008-deployment-tooling-priority.md) の優先順位通り）。
-- Work IQ / Foundry IQ / Fabric IQ Live Adapter 用のインフラ（Phase 4）は、実際に Adapter を実装し Microsoft 製品仕様を検証した後に追加する。

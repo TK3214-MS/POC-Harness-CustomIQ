@@ -28,4 +28,4 @@
 - Toolが表示されない: `MCP_BACKEND_ALLOWED_TOOLS`、Industry Packのmanifest、MCP Backendログを確認する。
 - Tool実行が失敗する: Activity trace、MCP Backendのcorrelation ID、Tool入力スキーマ、業務Toolのエラーを確認する。
 
-Local Preview、Demo CLI、IQ用Adapterのトラブルシューティングは本リポジトリの対象外です。
+本リポジトリはSaaS側の管理画面や顧客Business System内部の障害を直接診断しません。各サービスの管理者向けログとActivity traceを確認してください。

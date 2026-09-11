@@ -14,7 +14,7 @@
 | `source` | `str` | レスポンスの出処ラベル（例: `mcp_backend:manufacturing`）。 |
 | `provenance` | `list[str]` | データの来歴情報。 |
 | `executed_at` | `datetime` | 実行日時（UTC）。 |
-| `adapter_mode` | `AdapterMode` | `live`/`mock`/`simulated`/`unavailable`/`verification_required` のいずれか。 |
+| `adapter_mode` | `AdapterMode` | `live`または`unavailable`。本番MCP Backendの実行状態を表す。 |
 | `warnings` | `list[str]` | 警告メッセージ一覧。 |
 | `errors` | `list[str]` | エラーメッセージ一覧。 |
 | `human_approval_required` | `bool` | このアクションの実施に人間承認が必要かどうか。 |

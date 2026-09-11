@@ -9,7 +9,7 @@ MCP Backend は指示書で FastAPI（Python）が明示されている。Orches
 
 ## 決定
 
-`iq_platform/`（Adapter・契約・Capability Registry）、`services/mcp-backend/`（MCP Backend）、`apps/demo-cli/`（CLI）、`tests/` の全テストスイートを Python 3.11+ で実装する。将来 `apps/demo-ui/` を実装する場合のみ、別言語（TypeScript 等）を検討してよい。ただし UI とバックエンドの契約は JSON（`iq_platform.contracts` の Pydantic モデルから生成する JSON Schema）で越境させる。
+`iq_platform/`（契約・Capability Registry）、`services/mcp-backend/`（MCP Backend）、`tests/`をPython 3.11+で実装する。
 
 ## 影響
 

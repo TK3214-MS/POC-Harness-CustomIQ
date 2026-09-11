@@ -5,7 +5,7 @@
 
 ## コンテキスト
 
-指示書 §15 は、Terraform / Bicep / Azure Developer CLI を全て同時に完全実装することが合理的でない場合の優先順位（1. azd、2. Bicep、3. Terraform）を明示し、未完成の方式を完成済みとして記載しないことを求めている。[docs/decisions/open-questions.md](../decisions/open-questions.md) の Q4 の回答（テスト用 Azure サブスクリプションで Full Hybrid テストを行いたい）により、Phase 5 のデプロイ実装は実際に検証可能になる見込みである。
+Azureデプロイ方式は、MCP Backendの現行構成に合わせてAzure Developer CLIとBicepに限定する。未実装の方式を完成済みとして記載しない。
 
 ## 決定
 
@@ -13,7 +13,6 @@ Phase 5 で次の優先順位に従って実装する。
 
 1. Azure Developer CLI (`azd`)（`deployment/azd/`）
 2. Bicep（`deployment/bicep/`）
-3. Terraform（`deployment/terraform/`、時間的余裕がある場合のみ）
 
 ## 影響
 

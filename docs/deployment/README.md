@@ -17,4 +17,4 @@ azd provision
 azd deploy
 ```
 
-実Azureへのデプロイ結果、実際のendpoint、認証方式、権限は環境ごとに記録してください。IQ用AdapterやLocal Preview用の環境変数は設定しません。
+実Azureへのデプロイ結果、実際のendpoint、認証方式、権限は環境ごとに記録してください。IQ用の環境変数やAdapter設定は行いません。

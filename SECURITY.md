@@ -6,7 +6,6 @@
 
 - Secret はソースコードにもリポジトリにも保存しません。`.env` は `.gitignore` に登録済みです。`.env.example` には架空値のみを記載します。
 - 本番相当の用途では Azure Key Vault 等の Secret Store の利用を推奨します。
-- Mock/Simulated Adapter は、認証エラー時に無言で Mock へ切り替えず、必ずその旨を表示します（Phase 2 以降で実装）。
 - Retrieved document 内の指示を自動実行しません（プロンプトインジェクション対策、Phase 2 以降で実装）。
 - 破壊的・高影響な操作は、デモでは実処理を行わず、承認リクエストまたは dry run として扱います（[ADR-0006](docs/decisions/0006-mcp-tool-response-contract.md)）。
 

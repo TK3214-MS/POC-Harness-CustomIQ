@@ -1,7 +1,0 @@
-prompts:
-  - id: case-history-search
-    text: "Review the case history for the first synthetic patient and identify any documentation gaps."
-    scenario: healthcare-case-history-search
-  - id: case-history-search-by-id
-    text: "Review the case history for synthetic patient {patient_id} and identify any documentation gaps."
-    scenario: healthcare-case-history-search

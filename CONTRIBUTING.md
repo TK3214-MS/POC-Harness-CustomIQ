@@ -5,7 +5,7 @@
 ## 開発の進め方
 
 1. 大きな設計判断は [docs/decisions/](docs/decisions/) に ADR として記録してください（テンプレートは既存の ADR ファイルを参照）。
-2. 前提や未解決事項は、新しく作らず [docs/decisions/assumptions.md](docs/decisions/assumptions.md) / [docs/decisions/open-questions.md](docs/decisions/open-questions.md) に追記してください。
+2. 未解決事項は、新しく作らず [docs/decisions/open-questions.md](docs/decisions/open-questions.md) に追記してください。製品仕様は[docs/decisions/product-verification.md](docs/decisions/product-verification.md)に記録してください。
 3. Microsoft 製品の仕様・ライセンス・価格・リージョン・GA/Preview 状態を推測で確定情報として書かないでください。不明な場合は `TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION` と明記し、[docs/decisions/product-verification.md](docs/decisions/product-verification.md) に追記してください。
 4. Mock/Simulated な実装には、コード・ログ・回答のいずれにも Mock であることが分かる表示を必ず含めてください。
 5. 実装していない機能を README やドキュメントで完成済みと記載しないでください。
@@ -35,7 +35,6 @@ pytest
 - `tests/unit/` — 個別のクラス・関数（Adapter、設定読み込み、認証処理など）の単体挙動を変更・追加した場合。
 - `tests/integration/` — 複数コンポーネントを組み合わせた挙動（例: MCP Backend と Industry Pack の連携）を変更した場合。
 - `tests/end-to-end/` — CLI コマンドの一連の流れや、Industry Pack 切り替え時の挙動を変更した場合。
-- `tests/evaluation/` — 評価エンジン（`iq_platform/evaluation/rubric_evaluator.py`）やルーブリック（`evaluations/rubric.yaml`）を変更した場合。
 - `tests/security/` — Secret スキャンや合成データ検証など、セキュリティ関連スクリプトの挙動を変更した場合。
 
 新しい Industry Pack を追加する場合は、`manifest.yaml`、`mcp_tools_path`、Tool契約、関連する契約テストを追加してください。実際の利用・接続手順は[本番環境構築ガイド](docs/Production-Environment-Setup.md)を参照してください。

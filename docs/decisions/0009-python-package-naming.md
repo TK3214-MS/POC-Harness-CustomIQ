@@ -15,7 +15,7 @@
 
 - 実装上のトップレベル Python パッケージ名は `platform/` ではなく **`iq_platform/`** とする。
 - `platform/capability-registry/` は **`iq_platform/capability_registry/`**（アンダースコア）とする。
-- それ以外の、Python パッケージとして直接 `import` されないコンテナフォルダ（`industry-packs/`, `sample-data/`, `apps/demo-cli/`, `apps/demo-ui/`, `services/mcp-backend/` 等）は、指示書どおりケバブケースの名称を維持する。これらのフォルダ内部に Python コードを置く場合（例: `services/mcp-backend/` 内の FastAPI アプリ）は、内部のインポート可能なパッケージ名を snake_case（例: `mcp_backend`）にする。
+- Pythonパッケージとして直接`import`しないコンテナフォルダはケバブケースを維持する。`services/mcp-backend/`内部のimport可能なパッケージ名は`mcp_backend`とする。
 
 ## 影響
 

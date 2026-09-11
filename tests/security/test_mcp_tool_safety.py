@@ -17,7 +17,7 @@ def _make_registry(allowed_tools=None) -> ToolRegistry:
         dataset={},
         tool_functions={"echo": _echo_tool},
         descriptions={"echo": "Echoes a message back."},
-        adapter_mode=AdapterMode.MOCK,
+        adapter_mode=AdapterMode.LIVE,
         source_label="test",
         allowed_tools=allowed_tools,
     )

@@ -30,4 +30,4 @@ flowchart TB
 
 ## 4. 非責務
 
-IQサービスのSaaSデータ取得を本リポジトリのAdapterで再実装しません。Local Preview、Mock/Simulated Adapter、ローカルOrchestrator、Demo CLIは本番アーキテクチャに含めません。
+IQサービスのSaaSデータ取得を本リポジトリで再実装しません。IQ接続はCopilot StudioのToolが担当します。

@@ -33,10 +33,7 @@ _VERIFIED_STATUSES = frozenset(
 
 class AdapterMode(str, Enum):
     LIVE = "live"
-    MOCK = "mock"
-    SIMULATED = "simulated"
     UNAVAILABLE = "unavailable"
-    VERIFICATION_REQUIRED = "verification_required"
 
 
 class Capability(BaseModel):

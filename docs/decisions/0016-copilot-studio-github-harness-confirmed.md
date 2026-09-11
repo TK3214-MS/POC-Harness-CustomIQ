@@ -26,7 +26,7 @@
 
 ## 決定
 
-1. **[open-questions.md](open-questions.md) Q11 を解決する。本番のオーケストレーション層は Microsoft Foundry Agent Service ではなく、Copilot Studio の GitHub Copilot harness で作成されたエージェントである。** Local Preview用の代替Orchestratorは本リポジトリから削除し、本番経路だけを維持する。
+1. **[open-questions.md](open-questions.md) Q11 を解決する。本番のオーケストレーション層は Microsoft Foundry Agent Service ではなく、Copilot Studio の GitHub Copilot harness で作成されたエージェントである。**
 2. **本リポジトリのコード側の責務は、Copilot Studio の GitHub Copilot harness が「Add MCP server」フローで接続できる、実プロトコル準拠の MCP サーバーを提供することに限定される。** Foundry IQ / Fabric IQ への接続は Copilot Studio 自身が一次機能として提供するため、本リポジトリが Foundry IQ / Fabric IQ 用の独自クライアントコードを実装する必要はない。
 3. **現行の `services/mcp-backend/` は、`/health` / `/tools` / `/tools/{name}/invoke` という独自形状の REST API であり、Model Context Protocol の実際のワイヤーフォーマット(JSON-RPC 2.0 ベースの initialize/tools-list/tools-call ハンドシェイク)には準拠していない。** Copilot Studio の「Add MCP server」フローが行う「プロトコルハンドシェイク」に応答できるようにするため、実際の MCP プロトコルに準拠したサーバー実装を追加する。
 4. **実装言語は Python とする。** 本リポジトリは既に Python 3.11+ で統一されており([ADR-0002](0002-python-primary-language.md))、Model Context Protocol の公式 SDK(`mcp` パッケージ、`mcp.server.fastmcp.FastMCP` を含む)は Python と TypeScript の双方で最も高いカバレッジ・公式サポートを持つ。追加言語を導入するコストを避けるため、Python 版の公式 SDK を採用する。

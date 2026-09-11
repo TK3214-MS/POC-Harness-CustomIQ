@@ -23,7 +23,7 @@ def test_mcp_tool_response_round_trips_through_json():
         source="mock:manufacturing",
         provenance=["mock-data-set-v1"],
         executed_at=datetime.now(UTC),
-        adapter_mode=AdapterMode.MOCK,
+        adapter_mode=AdapterMode.LIVE,
         warnings=[],
         errors=[],
         human_approval_required=False,
@@ -31,7 +31,7 @@ def test_mcp_tool_response_round_trips_through_json():
     payload = response.model_dump(mode="json")
     restored = MCPToolResponse.model_validate(payload)
     assert restored.tool_name == "search_quality_issues"
-    assert restored.adapter_mode == AdapterMode.MOCK
+    assert restored.adapter_mode == AdapterMode.LIVE
 
 
 def test_mcp_tool_response_requires_core_fields():
@@ -47,7 +47,7 @@ def test_mcp_tool_response_defaults_human_approval_to_false():
         status="ok",
         source="mock:public-sector",
         executed_at=datetime.now(UTC),
-        adapter_mode=AdapterMode.MOCK,
+        adapter_mode=AdapterMode.LIVE,
     )
     assert response.human_approval_required is False
     assert response.data == {}

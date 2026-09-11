@@ -18,19 +18,10 @@ def _valid_manifest_kwargs(**overrides):
         "description": "Manufacturing Quality Issue Investigation industry pack.",
         "default_scenario": "manufacturing-quality-issue-investigation",
         "ontology_path": "ontology/",
-        "semantic_model_path": "semantic-model/",
         "sample_data_path": "data/",
         "knowledge_path": "knowledge/",
-        "work_context_path": "work-context/",
         "mcp_tools_path": "tools/",
-        "semantic_relationships_path": "semantics/pack_semantics.py",
-        "scenario_module_path": "agents/scenario.py",
         "agent_instructions_path": "agents/",
-        "demo_prompts_path": "prompts/",
-        "expected_results_path": "expected-results/",
-        "evaluation_path": "evaluations/",
-        "terminology_path": "terminology/",
-        "responsible_ai_path": "responsible-ai/",
     }
     base.update(overrides)
     return base

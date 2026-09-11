@@ -9,19 +9,10 @@ description: >-
 default_scenario: case-investigation
 
 ontology_path: ontology/entities.yaml
-semantic_model_path: ontology/entities.yaml
 sample_data_path: data/generator.py
 knowledge_path: knowledge/
-work_context_path: work-context/fixtures.json
 mcp_tools_path: tools/public_sector_tools.py
-semantic_relationships_path: semantics/public_sector_semantics.py
-scenario_module_path: agents/scenario.py
 agent_instructions_path: agents/investigation_agent_instructions.md
-demo_prompts_path: prompts/demo_prompts.yaml
-expected_results_path: expected-results/case_investigation.md
-evaluation_path: evaluations/rubric.yaml
-terminology_path: terminology/glossary.md
-responsible_ai_path: responsible-ai/notice.md
 
 prohibited_actions:
   - "Automatically deciding a benefit or permit outcome"

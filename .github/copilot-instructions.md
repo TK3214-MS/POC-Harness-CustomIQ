@@ -13,7 +13,7 @@
 3. **未実装の機能を完成済みとして README やドキュメントに書かない。**
 4. **テストを削除・無効化して成功扱いにしない。** 失敗したテストはそのまま報告する。
 5. **大きな設計判断は ADR ([docs/decisions/](../docs/decisions/)) に記録する。**
-6. **前提・未解決事項は新しいファイルを作らず、既存の [assumptions.md](../docs/decisions/assumptions.md) / [open-questions.md](../docs/decisions/open-questions.md) に追記する。**
+6. **未解決事項は新しいファイルを作らず、既存の [open-questions.md](../docs/decisions/open-questions.md) に追記する。製品仕様は [product-verification.md](../docs/decisions/product-verification.md) に追記する。**
 7. **一度に大規模な変更をせず、フェーズ単位（Phase 0〜6、[docs/decisions](../docs/decisions/) 参照）で実装する。**
 8. **ドキュメントは日本語で書く**（[Q1 の回答](../docs/decisions/open-questions.md) により確定）。
 
@@ -21,9 +21,7 @@
 
 - 実装言語は Python 3.11+ に統一（[ADR-0002](../docs/decisions/0002-python-primary-language.md)）。
 - トップレベル Python パッケージ名は `platform` ではなく `iq_platform` を使う。標準ライブラリの `platform` モジュールと衝突するため（[ADR-0009](../docs/decisions/0009-python-package-naming.md)）。
-- 全 Adapter は `iq_platform.contracts.adapter.Adapter` を継承する（[ADR-0003](../docs/decisions/0003-adapter-contract-and-mode-enum.md)）。
 - 全 Industry Pack の `manifest.yaml` は `iq_platform.contracts.manifest.IndustryPackManifest` で検証する（[ADR-0004](../docs/decisions/0004-industry-pack-manifest-schema.md)）。
-- 全エージェント最終回答は `iq_platform.contracts.agent_response.AgentResponse` を経由する（[ADR-0005](../docs/decisions/0005-agent-response-contract.md)）。
 - 全 MCP Tool レスポンスは `iq_platform.contracts.mcp_tool.MCPToolResponse` を使う（[ADR-0006](../docs/decisions/0006-mcp-tool-response-contract.md)）。
 - Capability Registry (`config/capabilities.yaml`) が Microsoft 製品状態の唯一の真実の情報源（[ADR-0007](../docs/decisions/0007-capability-registry-authority.md)）。
 

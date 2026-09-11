@@ -1,7 +1,0 @@
-prompts:
-  - id: demand-and-inventory-analysis
-    text: "Investigate the most recent demand signal and recommend inventory actions."
-    scenario: retail-demand-and-inventory-analysis
-  - id: demand-and-inventory-analysis-by-id
-    text: "Investigate demand signal {signal_id} and recommend inventory actions."
-    scenario: retail-demand-and-inventory-analysis
