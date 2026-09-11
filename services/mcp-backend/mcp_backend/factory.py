@@ -36,7 +36,7 @@ def build_app(dataset: dict, pack_dir: Path, manifest: IndustryPackManifest | No
         dataset=dataset,
         tool_functions=tools_module.TOOL_FUNCTIONS,
         descriptions=tools_module.TOOL_DESCRIPTIONS,
-        adapter_mode=AdapterMode.MOCK,
+        adapter_mode=AdapterMode.LIVE,
         source_label=f"mcp_backend:{manifest.id}",
         allowed_tools=_allowed_tools_from_env(),
     )
