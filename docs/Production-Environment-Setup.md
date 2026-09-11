@@ -284,7 +284,28 @@ Work IQ (preview)はGitHub Copilot harnessで動作し、Copilot Creditsの使�
 
 ### 6.5 本リポジトリのMCP Backend
 
-IQのデータ取得は上記のCopilot Studio Toolが担当します。本リポジトリのMCP Backendは、Industry Pack固有の業務ツールが必要な場合だけ追加します。
+IQのデータ取得は上記のCopilot Studio Toolが担当します。本リポジトリのMCP Backendは、Foundry IQ、Fabric IQ、Work IQに存在しない顧客固有Business Systemを、Copilot Studioから呼び出せる業務Toolとして公開するための共通層です。IQのKnowledge SourceやOntologyを代替・再実装するものではありません。
+
+現在の実装は、各Industry Packの`tools/*.py`を共通のMCPプロトコルで公開し、起動時に渡されたdatasetへ問い合わせます。したがって、**業界別のTool実装と合成サンプルdatasetは実装済み**ですが、顧客Business Systemへの実接続アダプターは未実装です。顧客環境では、同じTool契約を維持したまま、datasetの取得元をERP、CRM、MES、ケース管理、在庫管理などの実システムへ置き換えます。
+
+業界別のサンプルToolは次のPackに含まれています。
+
+| 業界 | サンプルTool実装 | 主なサンプルdataset |
+|---|---|---|
+| Manufacturing | `industry-packs/manufacturing/tools/manufacturing_tools.py` | Factory、ProductionLine、Supplier、Part、QualityIssue、EngineeringChange |
+| Financial Services | `industry-packs/financial-services/tools/financial_services_tools.py` | Customer、Account、Transaction、FraudCase |
+| Retail | `industry-packs/retail/tools/retail_tools.py` | Store、Product、InventoryRecord、Order、DemandSignal |
+| Healthcare | `industry-packs/healthcare/tools/healthcare_tools.py` | SyntheticPatient、Provider、Encounter、ClinicalEvent |
+| Public Sector | `industry-packs/public-sector/tools/public_sector_tools.py` | SyntheticCitizen、Agency、Case、Application |
+
+顧客固有Business Systemを接続する場合の責務は、次の通りです。
+
+1. 顧客側API/DBからdatasetを取得する実装を追加する。
+2. 認証、Secret管理、ネットワーク、レート制限、監査ログを顧客環境に合わせて構成する。
+3. Industry PackのTool入力・出力契約を維持する。
+4. Copilot StudioからMCP Backendを呼び出し、`tools/list`と`tools/call`を検証する。
+
+現時点の`run_dev_server.py`は、5業界のうちManufacturingの合成datasetを使って共通Backendを起動する開発用サンプルです。これは顧客Business Systemへの接続完了を意味しません。
 
 1. [deployment/README.md](deployment/README.md)のazd/Bicep手順でMCP Backendをデプロイする。
 2. HTTPSの`/mcp` endpointを公開する。

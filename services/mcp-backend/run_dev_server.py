@@ -1,10 +1,10 @@
-"""Optional standalone dev server for the Manufacturing MCP Backend.
+"""Optional standalone server for the Manufacturing sample MCP Backend.
 
 Useful for manually exercising the FastAPI app over real HTTP (e.g. with curl)
-outside of the in-process TestClient path used by the Local Orchestrator.
+outside of the in-process test path.
 
 Run with:
-    PYTHONPATH=.:apps/demo-cli:services/mcp-backend python3 services/mcp-backend/run_dev_server.py
+    PYTHONPATH=.:services/mcp-backend python3 services/mcp-backend/run_dev_server.py
 """
 from __future__ import annotations
 
