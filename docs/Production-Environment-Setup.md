@@ -137,7 +137,58 @@ python3 scripts/generate_enterprise_prompts.py
 - [Load data into a lakehouse](https://learn.microsoft.com/en-us/fabric/data-engineering/load-data-lakehouse)
 - [Ontology data binding limitations](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-bind-data#limitations-and-troubleshooting)
 
-### 3.3 Ontology item、entity type、property、relationship
+### 3.3 具体例: ManufacturingサンプルをLakehouseへ登録する
+
+以下はManufacturing Packを最初に構築する場合の入力例です。`<workspace-name>`と実際の容量は組織の命名規則に置き換えてください。
+
+1. Fabric workspaceを`iiq-manufacturing-dev`として作成し、対象のFabric capacityへ割り当てる。
+2. **New item > Lakehouse**でLakehouse名に`IIQManufacturingLH`を入力して作成する。
+3. `industry-packs/manufacturing/sample-data/fabric/enterprise/`配下のCSVを`Files/enterprise/`へアップロードする。
+4. 各CSVをmanaged tableとして読み込み、次のテーブル名を使う。
+
+| CSVファイル | Lakehouse table名 | 行数目安 | 主キー |
+| --- | --- | --- | --- |
+| `factories.csv` | `factories` | 40 | `factory_id` |
+| `production_lines.csv` | `production_lines` | 320 | `line_id` |
+| `suppliers.csv` | `suppliers` | 1,000 | `supplier_id` |
+| `parts.csv` | `parts` | 5,000 | `part_id` |
+| `quality_issues.csv` | `quality_issues` | 12,000 | `issue_id` |
+| `engineering_changes.csv` | `engineering_changes` | 5,000 | `change_id` |
+
+1. 最低限、`quality_issues`の読み込み結果が12,000行であること、`issue_id`が重複していないことを確認する。最初の行は`QI-00001`で、`part_id`は`PART-04011`、`factory_id`は`FAC-010`である。
+2. Ontology data bindingの前に、全テーブルが**managed** tableであり、OneLake securityとDelta column mappingが有効ではないことを確認する。
+
+### 3.4 具体例: Manufacturing Ontologyを作成する
+
+1. **New item > Ontology (preview)**を選択し、Nameに`IIQManufacturingOntology`を入力して**Create**を選択する。名前には空白・ハイフンを使わない。
+2. **Build directly from OneLake**を選択する。
+3. 次のentity typeを作成し、各行の**Bind data > Add data binding > Lakehouse table**で`IIQManufacturingLH`と対応tableを選択する。
+
+| Entity type | Source table | Entity type key | Display name property | 追加するproperty |
+| --- | --- | --- | --- | --- |
+| `Factory` | `factories` | `factory_id` | `name` | `factory_id`, `name`, `location` |
+| `ProductionLine` | `production_lines` | `line_id` | `name` | `line_id`, `factory_id`, `name` |
+| `Supplier` | `suppliers` | `supplier_id` | `name` | `supplier_id`, `name`, `region`, `reliability_score` |
+| `Part` | `parts` | `part_id` | `name` | `part_id`, `name`, `supplier_id`, `used_in_line_ids` |
+| `QualityIssue` | `quality_issues` | `issue_id` | `summary` | `issue_id`, `part_id`, `factory_id`, `summary`, `severity`, `status`, `defect_rate_percent`, `detected_at` |
+| `EngineeringChange` | `engineering_changes` | `change_id` | `description` | `change_id`, `issue_id`, `description`, `status`, `created_at` |
+
+1. 各entity typeで**Define entity type key**を選択し、表の主キーpropertyを選択して**Save**する。文字列型のIDを使用する。
+2. 次のrelationshipを作成する。Relationshipを選択後、**Mapping table**と両側の**Matched**列を表の通り設定して**Save**する。
+
+| Relationship name | Origin entity | Target entity | Mapping table | Matched origin | Matched target |
+| --- | --- | --- | --- | --- | --- |
+| `produces` | `ProductionLine` | `Factory` | `production_lines` | `line_id` | `factory_id` |
+| `supplies` | `Part` | `Supplier` | `parts` | `part_id` | `supplier_id` |
+| `affects` | `QualityIssue` | `Part` | `quality_issues` | `issue_id` | `part_id` |
+| `observedAt` | `QualityIssue` | `Factory` | `quality_issues` | `issue_id` | `factory_id` |
+| `addresses` | `EngineeringChange` | `QualityIssue` | `engineering_changes` | `change_id` | `issue_id` |
+
+`Part.used_in_line_ids`はJSON配列であり、relationship bindingが要求する単一のMatched列ではありません。このサンプルでは`usedIn` relationshipを作成しません。必要な場合は、`part_id`と`line_id`を1行ずつ持つmanaged junction table(例: `part_production_lines`)を別途作成してからbindingします。
+
+1. `QualityIssue`の**Instances**で`QI-00001`を検索し、`PART-04011`、`FAC-010`、`medium`、`resolved`が表示されることを確認する。Overview/Graphでは`affects`と`observedAt`のrelationshipを確認する。
+
+### 3.5 Ontology item、entity type、property、relationship
 
 1. Workspaceで **New item > Ontology (preview)** を作成する。
 2. OneLakeから直接構築するか、既存のPower BI semantic modelから生成するかを選択する。
@@ -156,7 +207,7 @@ python3 scripts/generate_enterprise_prompts.py
 - [Bind data](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-bind-data)
 - [View entity type details and refresh](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-view-entity-type-details)
 
-### 3.4 Copilot Studio接続に必要な値
+### 3.6 Copilot Studio接続に必要な値
 
 Ontology itemのURLから次の2つを控えます。
 
@@ -214,16 +265,63 @@ Blob以外にAzure SQL、OneLake、SharePoint、Fabric Data Agent、Fabric Ontol
 
 参照: [Create a Blob Knowledge Source](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-blob)
 
-### 4.3 Knowledge Baseの作成と検証
+### 4.3 具体例: Manufacturing Knowledge Sourceを作成する
 
-1. **Build > Knowledge > Create knowledge base** を選択する。
-2. 作成済みKnowledge Sourceを追加する。
-3. retrieval instructions、answer instructions、output mode、reasoning effortを設定する。
-4. 必要な場合は回答生成用モデルを指定する。
-5. Knowledge Baseを保存する。
-6. Foundry側のPlaygroundまたはRetrieveで質問を実行する。
-7. 回答、引用、取得対象、失敗したKnowledge Sourceを確認する。
-8. ここで作成したKnowledge Baseを、後続のCopilot Studio接続で選択する。Copilot Studio側でKnowledge Baseを作り直さない。
+以下は、最初の検証用に公開ネットワーク接続とKeyless authenticationを使う例です。Private network、ユーザー単位の文書権限、画像処理が必要な場合は、公式ドキュメントの追加要件を先に満たしてください。
+
+1. 次の名前をこの例の設定値として使用する。Azure resource名は組織内で一意になるよう、`<unique-suffix>`を実値に置換する。
+
+| 設定項目 | 設定値の例 |
+| --- | --- |
+| Resource group | `rg-iiq-manufacturing-dev` |
+| Storage account | `stiiqmanufacturing<unique-suffix>` |
+| Blob container | `manufacturing-knowledge` |
+| Azure AI Search service | `srch-iiq-manufacturing-<unique-suffix>` |
+| Foundry project | `iiq-manufacturing-project` |
+| Knowledge Source name | `ks-manufacturing-policy` |
+| Knowledge Base name | `kb-manufacturing-operations` |
+| Content extraction mode | `minimal` |
+| Network access mode | `public` |
+
+1. Blob container `manufacturing-knowledge`へ次の3ファイルをアップロードする。
+
+    - `industry-packs/manufacturing/knowledge/quality_control_procedure.md`
+    - `industry-packs/manufacturing/knowledge/supplier_quality_manual.md`
+    - `industry-packs/manufacturing/knowledge/engineering_change_process.md`
+
+2. Azure AI Search serviceのsystem-assigned managed identityを有効化し、Storage accountスコープで**Storage Blob Data Reader**、Foundryモデルresourceスコープで**Cognitive Services User**を付与する。作成者には**Search Service Contributor**と**Search Index Data Contributor**を付与する。
+3. Foundryの**Build > Knowledge**で**Create knowledge source**を選択し、次を入力する。
+
+| 画面項目 | 設定値 |
+| --- | --- |
+| Name | `ks-manufacturing-policy` |
+| Description | `Synthetic manufacturing quality, supplier, and engineering procedures.` |
+| Source type | `Azure Blob Storage` |
+| Container | `manufacturing-knowledge` |
+| Folder path | 空欄 |
+| Content extraction mode | `minimal` |
+| Image verbalization | 無効 |
+| Network access mode | `public` |
+| Embedding model | `<your-embedding-deployment>` |
+| Chat completion model | `<your-chat-deployment>` |
+
+`<your-embedding-deployment>`と`<your-chat-deployment>`は、同じFoundry resource上で事前にデプロイしたモデルの**deployment name**を入力する。モデル名を推測で固定しないでください。2026-08-01-preview APIを用いる場合、公式ドキュメントには`text-embedding-3-large`と`gpt-5-mini`の例がありますが、リージョンと利用可否を確認してから実際のdeploymentを選択します。
+
+1. 作成後、Knowledge Source statusで`lastSynchronizationState.endTime`が設定され、`itemsUpdatesFailed`が`0`であることを確認する。自動生成されたdata source、skillset、indexer、indexは直接編集しない。
+
+enterprise JSONL(`sample-data/foundry/enterprise/records.jsonl`)は生成済みの補助データです。Blob Knowledge Sourceへ投入する前に、利用するAPI versionとBlob indexerがJSONLを対応コンテンツ形式として扱うことを実環境で確認してください。未確認のまま投入形式を断定しないため、最初の構築は上記Markdown 3ファイルで開始します。
+
+### 4.4 具体例: Manufacturing Knowledge Baseを作成して検証する
+
+1. **Build > Knowledge > Create knowledge base**を選択する。
+2. Nameに`kb-manufacturing-operations`、Descriptionに`Synthetic knowledge base for manufacturing quality, supplier, and engineering-change procedures.`を入力する。
+3. Knowledge Sourceに`ks-manufacturing-policy`を追加する。
+4. LLMを使用するPreview構成では、Modelsに`<your-chat-deployment>`を選択し、Output modeに`answerSynthesis`、Retrieval reasoning effortに`auto`を設定する。
+5. Retrieval instructionsに`Use ks-manufacturing-policy for questions about quality procedures, supplier quality, and engineering changes. Cite the source document used.`を入力する。
+6. Answer instructionsに`Answer in Japanese. Separate confirmed facts from recommendations. Do not approve engineering changes or close quality issues.`を入力する。
+7. Retrieve defaultsを設定できる場合は、`maxRuntimeInSeconds`を`45`、`maxOutputDocuments`を`8`、`maxOutputSizeInTokens`を`12000`に設定する。これは公式ドキュメントの設定例であり、組織の応答時間とコスト要件に応じて見直す。
+8. Knowledge Baseを保存し、Foundry側のPlaygroundまたはRetrieveで`What does the supplier quality manual require before escalating a quality issue?`を実行する。回答にアップロード済みのMarkdown文書への引用が含まれることを確認する。
+9. ここで作成した`kb-manufacturing-operations`を、後続のCopilot Studio接続で選択する。Copilot Studio側でKnowledge Baseを作り直さない。
 
 ## 5. Work IQとMicrosoft 365側の構成
 
