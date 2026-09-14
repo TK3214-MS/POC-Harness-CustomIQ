@@ -3,8 +3,7 @@
 
 Industry Pack directories (e.g. industry-packs/manufacturing/) use kebab-case
 top-level names that are not valid Python package identifiers, and are meant to
-be swappable content rather than statically-imported code. See
-docs/decisions/0010-industry-pack-plugin-loading.md.
+be swappable content rather than statically imported code.
 """
 from __future__ import annotations
 

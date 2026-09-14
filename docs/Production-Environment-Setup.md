@@ -450,7 +450,9 @@ IQのデータ取得は上記のCopilot Studio Toolが担当します。本リ�
 
 現時点の`run_dev_server.py`は、5業界のうちManufacturingの合成datasetを使って共通Backendを起動する開発用サンプルです。これは顧客Business Systemへの接続完了を意味しません。
 
-1. [deployment/bicep/README.md](../deployment/bicep/README.md)と[deployment/azd/README.md](../deployment/azd/README.md)の手順でMCP Backendをデプロイする。
+Tool契約とendpointの詳細は[MCP Backendドキュメント](mcp/README.md)、公開前の実装済み対策と未実装項目は[MCPセキュリティガイド](mcp/MCP-Security-Guide.md)を参照する。
+
+1. [Bicepデプロイ手順](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/deployment/bicep/README.md)と[Azure Developer CLIデプロイ手順](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/deployment/azd/README.md)でMCP Backendをデプロイする。
 2. HTTPSの`/mcp` endpointを公開する。
 3. Copilot Studioの**Tools > Add Tool > Model Context Protocol**から、MCP BackendのURLを追加する。
 4. `tools/list`で期待するIndustry Packのツールが表示されることを確認する。
@@ -467,6 +469,8 @@ IQのデータ取得は上記のCopilot Studio Toolが担当します。本リ�
 | 権限境界 | 別ユーザーの未許可データや、許可していない書き込み操作が実行されない |
 
 小容量サンプルの生成と各SaaSへの反映は[IQデモデータ投入・再構成ランブック](evaluation/Demo-Data-Deployment-Runbook.md)、業界別の単一レイヤー疎通、複合質問、性能測定は[Copilot Studio IQレイヤー別テスト質問集](evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md)に従って実施する。
+
+0件、NL query変換失敗、権限不足、Tool接続失敗の切り分けは[トラブルシューティング](troubleshooting/README.md)を参照する。
 
 ## 8. このリポジトリの責務
 

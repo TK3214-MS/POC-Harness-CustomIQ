@@ -4,7 +4,7 @@ Fabric IQ、Foundry IQ、Work IQをMicrosoft Copilot StudioのGitHub Copilot har
 
 ## 開始点
 
-開発者・アーキテクトは、まず [本番環境構築ガイド](docs/Production-Environment-Setup.md) を実施してください。
+ハンズオンで構成を確認する場合は、[Industry IQ Platform Labs](docs/index.md)から開始してください。開発者・アーキテクトが本番構成を確認する場合は、[本番環境構築ガイド](docs/Production-Environment-Setup.md)を参照してください。
 
 このガイドでは、次の順序で環境を構成します。
 
@@ -35,8 +35,23 @@ MCP BackendのAzureデプロイ定義は [本番環境構築ガイド](docs/Prod
 
 ## 設計・検証記録
 
+- [ラボポータル](docs/index.md)
 - [本番環境構築ガイド](docs/Production-Environment-Setup.md)
-- [MCP設計ガイド](docs/mcp/MCP-Design-and-Contract-Guide.md)
+- [実顧客データ向けOntology設計・構築ガイド](docs/Customer-Data-Ontology-Design-Guide.md)
+- [IQデモデータ投入・再構成ランブック](docs/evaluation/Demo-Data-Deployment-Runbook.md)
+- [Copilot Studio IQレイヤー別テスト質問集](docs/evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md)
+- [トラブルシューティング](docs/troubleshooting/README.md)
+- [MCP Backendドキュメント](docs/mcp/README.md)
+- [セキュリティポリシー](SECURITY.md)
+
+## ラボサイトのローカル確認
+
+```bash
+source .venv/bin/activate
+mkdocs serve
+```
+
+GitHub Pagesへの公開方法は[公開手順](docs/labs/publishing.md)を参照してください。
 
 ## ライセンス
 

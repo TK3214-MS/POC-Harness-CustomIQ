@@ -1,19 +1,14 @@
 """Real Model Context Protocol (MCP) server for the MCP Backend.
 
-Built on the official `mcp` Python SDK's FastMCP (chosen per ADR-0016: Python
-has the highest-coverage, most mature official MCP SDK, and this repo is
-already Python-only, ADR-0002). This is the endpoint Microsoft Copilot
-Studio's GitHub Copilot harness "Add MCP server" flow (Server URL + auth) is
-designed to connect to.
+Built on the official `mcp` Python SDK's FastMCP. This is the endpoint used by
+Microsoft Copilot Studio's MCP server connection flow.
 
 This is NOT a replacement for the existing REST API in app.py
 (/health, /tools, /tools/{name}/invoke) - that API predates this module, does
 not speak the actual MCP JSON-RPC wire protocol, and is kept for this repo's
 own internal use (CLI, tests). This module wraps the same ToolRegistry so both
-surfaces stay behind one source of truth for tool behavior.
-
-See docs/decisions/0016-copilot-studio-github-harness-confirmed.md and
-docs/mcp/MCP-Design-and-Contract-Guide.md.
+surfaces stay behind one source of truth for tool behavior. See
+docs/mcp/MCP-Design-and-Contract-Guide.md for the current contract.
 """
 from __future__ import annotations
 

@@ -1,7 +1,4 @@
-"""Contract tests for iq_platform.contracts.manifest.IndustryPackManifest.
-
-See docs/decisions/0004-industry-pack-manifest-schema.md.
-"""
+"""Contract tests for iq_platform.contracts.manifest.IndustryPackManifest."""
 from __future__ import annotations
 
 import pytest

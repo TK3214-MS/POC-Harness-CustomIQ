@@ -1,7 +1,4 @@
-"""Loads and validates config/capabilities.yaml into a CapabilityRegistry.
-
-See docs/decisions/0007-capability-registry-authority.md.
-"""
+"""Load and validate config/capabilities.yaml into a CapabilityRegistry."""
 from __future__ import annotations
 
 from pathlib import Path

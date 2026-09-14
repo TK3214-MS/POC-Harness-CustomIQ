@@ -1,7 +1,4 @@
-"""Capability Registry schema (config/capabilities.yaml).
-
-See docs/decisions/0007-capability-registry-authority.md.
-"""
+"""Capability Registry schema for config/capabilities.yaml."""
 from __future__ import annotations
 
 from datetime import date
@@ -63,7 +60,7 @@ class Capability(BaseModel):
             if self.last_verified_date is None:
                 raise ValueError(
                     f"{self.capability_id}: status '{self.status.value}' requires a real "
-                    "last_verified_date (see docs/decisions/product-verification.md)."
+                    "last_verified_date."
                 )
             if _TBD in self.documentation_reference:
                 raise ValueError(

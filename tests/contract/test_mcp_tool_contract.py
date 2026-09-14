@@ -1,7 +1,4 @@
-"""Contract tests for iq_platform.contracts.mcp_tool.MCPToolResponse.
-
-See docs/decisions/0006-mcp-tool-response-contract.md.
-"""
+"""Contract tests for iq_platform.contracts.mcp_tool.MCPToolResponse."""
 from __future__ import annotations
 
 from datetime import UTC, datetime

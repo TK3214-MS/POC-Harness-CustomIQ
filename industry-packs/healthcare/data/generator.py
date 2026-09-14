@@ -1,8 +1,7 @@
 """Synthetic Healthcare dataset generator (Industry Pack plugin module).
 
-Loaded dynamically by iq_platform.orchestration.industry_pack_loader - NOT
-imported as a dotted Python package. See
-docs/decisions/0010-industry-pack-plugin-loading.md.
+Loaded dynamically by iq_platform.orchestration.industry_pack_loader instead
+of being imported as a dotted Python package.
 
 All data is COMPLETELY SYNTHETIC. No real patients, providers, or clinical
 events are used or represented. Reasons/event descriptions are deliberately

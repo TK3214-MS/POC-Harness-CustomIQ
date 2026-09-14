@@ -23,7 +23,7 @@ jobs:
       - name: Lint (ruff)
         run: ruff check .
 
-      - name: Tests (contract + end-to-end)
+      - name: Tests
         run: pytest tests/ -v
 
       - name: Secret scan (heuristic)

@@ -1,3 +1,1 @@
-"""FastAPI MCP Backend (Phase 2: Manufacturing tools). See
-services/mcp-backend/README.md for scope/status.
-"""
+"""FastAPI MCP Backend shared by all Industry Packs."""

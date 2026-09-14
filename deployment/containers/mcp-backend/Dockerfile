@@ -1,6 +1,5 @@
-# MCP Backend container image (Phase 5). Serves any Industry Pack selected via
-# the IIQ_INDUSTRY_PACK environment variable - see services/mcp-backend/server.py
-# and docs/decisions/0010/0011.
+# MCP Backend container image. Serves any Industry Pack selected via the
+# IIQ_INDUSTRY_PACK environment variable; see services/mcp-backend/server.py.
 #
 # Build from the REPOSITORY ROOT (not this directory), since the image needs
 # iq_platform/ and industry-packs/ alongside services/mcp-backend/:

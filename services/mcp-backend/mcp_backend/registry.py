@@ -1,7 +1,4 @@
-"""Generic MCP tool registry + request/response wrapping shared by every tool.
-
-See docs/decisions/0006-mcp-tool-response-contract.md and instruction section 10.
-"""
+"""Generic MCP tool registry and response wrapper shared by every tool."""
 from __future__ import annotations
 
 import uuid

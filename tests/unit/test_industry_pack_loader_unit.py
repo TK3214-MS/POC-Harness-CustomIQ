@@ -1,6 +1,4 @@
-"""Unit tests: Industry Pack loader (manifest + dynamic plugin loading). See
-docs/decisions/0010-industry-pack-plugin-loading.md.
-"""
+"""Unit tests for Industry Pack manifest and dynamic plugin loading."""
 from __future__ import annotations
 
 import pytest

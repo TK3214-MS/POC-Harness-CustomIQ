@@ -16,6 +16,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
+    "mkdocs-material>=9.5,<10",
     "pytest>=8.0,<9",
     "ruff>=0.5,<1",
     "uvicorn[standard]>=0.30,<1",

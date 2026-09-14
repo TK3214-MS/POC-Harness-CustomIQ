@@ -1,5 +1,7 @@
 # industry-packs/retail/
 
-標準 Industry Pack（instruction §9.3）。標準シナリオ: Retail Demand and Inventory Analysis。
+Retail向けIndustry Packです。標準シナリオはRetail Demand and Inventory Analysisです。
 
-**状態: 実装済み(Phase 3)**。エンティティ: Store, Product, InventoryRecord, Order, DemandSignal。
+実装済みentityはStore、Product、InventoryRecord、Order、DemandSignalです。`manifest.yaml`は`IndustryPackManifest`で検証されます。
+
+利用方法は[ラボポータル](../../docs/index.md)または[本番環境構築ガイド](../../docs/Production-Environment-Setup.md)を参照してください。

@@ -1,7 +1,6 @@
 """Public Sector-specific MCP tools (Industry Pack plugin module).
 
-Loaded dynamically by services/mcp-backend/mcp_backend/factory.py. See
-docs/decisions/0010-industry-pack-plugin-loading.md.
+Loaded dynamically by services/mcp-backend/mcp_backend/factory.py.
 
 Every function here is read-only / advisory. Nothing in this module approves,
 denies, or closes a case automatically - see

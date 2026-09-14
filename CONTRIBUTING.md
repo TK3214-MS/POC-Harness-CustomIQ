@@ -1,7 +1,5 @@
 # コントリビューションガイド
 
-> このファイルは Phase 1 時点の暫定版です。CI/レビュー体制が固まり次第、詳細化します。
-
 ## 開発の進め方
 
 1. 大きな設計判断は、変更対象のドキュメントまたはコードの近くに記録してください。
@@ -29,13 +27,13 @@ pytest
 
 ## テストの追加方針
 
-このリポジトリのテストは `tests/` 配下に6つのカテゴリで分かれています。変更内容に応じて、少なくとも次のいずれかにテストを追加・更新してください。
+このリポジトリのテストは`tests/`配下に5つのカテゴリで分かれています。変更内容に応じて、少なくとも次のいずれかにテストを追加・更新してください。
 
-- `tests/contract/` — Pydantic 契約（Adapter、Industry Pack Manifest、MCP Tool Response、Agent Response、Capability）のスキーマ検証を変更した場合、または新しい Industry Pack の manifest を追加した場合。
-- `tests/unit/` — 個別のクラス・関数（Adapter、設定読み込み、認証処理など）の単体挙動を変更・追加した場合。
+- `tests/contract/` — Industry Pack Manifest、MCP Tool Response、Capability Registry、ラボ用データとエージェント指示の契約を変更した場合。
+- `tests/unit/` — 個別のクラス・関数（現在はIndustry Pack loaderなど）の単体挙動を変更・追加した場合。
 - `tests/integration/` — 複数コンポーネントを組み合わせた挙動（例: MCP Backend と Industry Pack の連携）を変更した場合。
-- `tests/end-to-end/` — CLI コマンドの一連の流れや、Industry Pack 切り替え時の挙動を変更した場合。
 - `tests/security/` — Secret スキャンや合成データ検証など、セキュリティ関連スクリプトの挙動を変更した場合。
+- `tests/validation/` — Markdownリンクなどrepository全体の静的検証を変更した場合。
 
 新しい Industry Pack を追加する場合は、`manifest.yaml`、`mcp_tools_path`、Tool契約、関連する契約テストを追加してください。実際の利用・接続手順は[本番環境構築ガイド](docs/Production-Environment-Setup.md)を参照してください。
 

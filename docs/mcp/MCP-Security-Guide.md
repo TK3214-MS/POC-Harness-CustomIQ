@@ -15,7 +15,7 @@
 MCP_BACKEND_ALLOWED_TOOLS=
 ```
 
-未設定（空文字列）の場合は、選択中の Industry Pack の `manifest.yaml`（`mcp_tools_path` が指すモジュールの `TOOL_FUNCTIONS`）が宣言する全 Tool が許可されます。この許可リストは Tool 名の集合をさらに狭めるためだけに使え、Pack が宣言していない Tool 名を追加で許可することはできません（`ToolRegistry.invoke()` は許可リストのチェックの後、実際に `tool_functions` 辞書にその Tool 名が存在するかを別途確認するため）。挙動は [tests/security/test_mcp_tool_safety.py](../../tests/security/test_mcp_tool_safety.py) の `test_tool_not_in_allowlist_is_rejected` / `test_tool_in_allowlist_is_permitted` / `test_list_tools_respects_allowlist` で検証されています。
+未設定（空文字列）の場合は、選択中の Industry Pack の `manifest.yaml`（`mcp_tools_path` が指すモジュールの `TOOL_FUNCTIONS`）が宣言する全 Tool が許可されます。この許可リストは Tool 名の集合をさらに狭めるためだけに使え、Pack が宣言していない Tool 名を追加で許可することはできません（`ToolRegistry.invoke()` は許可リストのチェックの後、実際に `tool_functions` 辞書にその Tool 名が存在するかを別途確認するため）。挙動は [MCP Tool safety test](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/tests/security/test_mcp_tool_safety.py) の `test_tool_not_in_allowlist_is_rejected` / `test_tool_in_allowlist_is_permitted` / `test_list_tools_respects_allowlist` で検証されています。
 
 ### 1.2 非 root コンテナ実行
 

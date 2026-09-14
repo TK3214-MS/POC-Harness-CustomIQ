@@ -1,5 +1,5 @@
-# docs/security/
+# セキュリティドキュメント
 
-セキュリティガイド（instruction §24 Security Requirements の詳細版）。
+このページはセキュリティ文書の索引です。一般的なrepository方針と脆弱性報告は[SECURITY.md](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/SECURITY.md)、MCP Backend固有の管理策は[MCPセキュリティガイド](../mcp/MCP-Security-Guide.md)を正本とします。
 
-Secret scanningは [scripts/security/scan_secrets.py](../../scripts/security/scan_secrets.py)で実装し、CIで実行します。Containerはnon-rootで実行します([deployment/containers/mcp-backend/Dockerfile](../../deployment/containers/mcp-backend/Dockerfile))。基本方針は[SECURITY.md](../../SECURITY.md)を参照してください。
+Secret scanningは[scan_secrets.py](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/scripts/security/scan_secrets.py)で実装し、CIで実行します。Containerはnon-rootで実行します（[Dockerfile](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/deployment/containers/mcp-backend/Dockerfile)）。基本方針は[SECURITY.md](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/SECURITY.md)を参照してください。

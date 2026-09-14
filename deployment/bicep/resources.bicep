@@ -1,5 +1,5 @@
 // Resource-group-scoped resources for hosting the MCP Backend on Azure
-// Container Apps. Deliberately minimal (Phase 5): Log Analytics, Container
+// Container Apps. Deliberately minimal: Log Analytics, Container
 // Registry, a user-assigned managed identity with AcrPull, a Container Apps
 // Environment, and one Container App. Ingress is internal-only by default -
 // flip to external only with explicit approval (see instruction section 24).

@@ -1,7 +1,4 @@
-"""Contract tests for config/capabilities.yaml against iq_platform.contracts.capability.
-
-See docs/decisions/0007-capability-registry-authority.md.
-"""
+"""Contract tests for config/capabilities.yaml."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -60,7 +57,7 @@ def test_registry_missing_required_field_raises(tmp_path):
 
 def test_registry_rejects_ga_status_without_verification(tmp_path):
     """A capability cannot claim GA status without a real last_verified_date and
-    documentation_reference - this is the core safety rail from ADR-0007."""
+    documentation_reference."""
     bad_registry = tmp_path / "capabilities.yaml"
     bad_registry.write_text(
         yaml.safe_dump(

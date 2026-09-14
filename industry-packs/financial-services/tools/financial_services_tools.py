@@ -1,7 +1,6 @@
 """Financial Services-specific MCP tools (Industry Pack plugin module).
 
-Loaded dynamically by services/mcp-backend/mcp_backend/factory.py. See
-docs/decisions/0010-industry-pack-plugin-loading.md.
+Loaded dynamically by services/mcp-backend/mcp_backend/factory.py.
 
 Every function here is read-only / advisory. Nothing in this module freezes an
 account, denies a transaction, or makes a legal/credit determination - see
@@ -48,8 +47,7 @@ def get_account_relationships(dataset: dict, params: dict) -> dict:
 
 
 def get_risk_events(dataset: dict, params: dict) -> dict:
-    """Phase 3 minimal implementation: risk events are represented by FraudCase
-    records rather than a separate RiskEvent entity."""
+    """Return FraudCase records, which represent risk events in this pack."""
     account_id = params["account_id"]
     events = [fc for fc in dataset.get("fraud_cases", []) if fc["account_id"] == account_id]
     return {"risk_events": events}

@@ -1,7 +1,4 @@
-"""Industry Pack manifest.yaml schema.
-
-See docs/decisions/0004-industry-pack-manifest-schema.md and instruction section 8.
-"""
+"""Industry Pack manifest.yaml schema."""
 from __future__ import annotations
 
 from pydantic import BaseModel, Field

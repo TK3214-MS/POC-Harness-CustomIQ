@@ -1,12 +1,10 @@
 # セキュリティポリシー
 
-> このファイルは Phase 1 時点の暫定版です。詳細なセキュリティガイドは Phase 5 (`docs/security/`) で整備します。
-
 ## 基本方針（現時点で確定している範囲）
 
 - Secret はソースコードにもリポジトリにも保存しません。`.env` は `.gitignore` に登録済みです。`.env.example` には架空値のみを記載します。
 - 本番相当の用途では Azure Key Vault 等の Secret Store の利用を推奨します。
-- Retrieved document 内の指示を自動実行しません（プロンプトインジェクション対策、Phase 2 以降で実装）。
+- Retrieved document内の指示を自動実行しません。専用のプロンプトインジェクション自動テストは未実装です。
 - 破壊的・高影響な操作は、顧客Business System側の承認ポリシーとMCP Toolのhuman approvalルールに従います。
 
 ## 脆弱性の報告
@@ -35,3 +33,5 @@
 - **Microsoft Purview / DLP 等のガバナンスツール統合**: データ分類・DLP ポリシー適用・監査証跡の外部システム連携は実装されていません。
 
 上記の項目は、本番デプロイ前に環境ごとに確認してください。
+
+MCP Backend固有の実装と公開前確認は[docs/mcp/MCP-Security-Guide.md](docs/mcp/MCP-Security-Guide.md)を参照してください。

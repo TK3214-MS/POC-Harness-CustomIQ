@@ -1,13 +1,12 @@
 """FastAPI MCP Backend app factory.
 
-See docs/decisions/0006-mcp-tool-response-contract.md and instruction §5.5/§10.
 Every tool response - including errors - conforms to MCPToolResponse; the HTTP
 status code is always 200 so clients always get the structured contract instead
 of a generic HTTP error body.
 
 If a `mcp_server` (see mcp_protocol_server.py) is supplied, this also mounts a
 real Model Context Protocol endpoint at /mcp, alongside the REST endpoints
-below - see docs/decisions/0016-copilot-studio-github-harness-confirmed.md.
+below.
 """
 from __future__ import annotations
 

@@ -1,9 +1,8 @@
 """Integration test: the real Model Context Protocol (MCP) server mounted at
 /mcp (mcp_backend/mcp_protocol_server.py), exercised via raw JSON-RPC requests
 through fastapi.testclient.TestClient - the same wire protocol Microsoft
-Copilot Studio's "Add MCP server" flow uses (see
-docs/decisions/0016-copilot-studio-github-harness-confirmed.md). This
-complements scripts/demo/test_mcp_protocol_connectivity.py, which exercises
+Copilot Studio's MCP server connection flow uses. This complements
+scripts/demo/test_mcp_protocol_connectivity.py, which exercises
 the same server through the official `mcp` client SDK over a real HTTP
 socket - this test stays in-process for speed.
 """

@@ -1,7 +1,4 @@
-"""MCP tool response contract shared by every generic and industry-specific MCP tool.
-
-See docs/decisions/0006-mcp-tool-response-contract.md and instruction section 10.
-"""
+"""MCP response contract shared by generic and industry-specific tools."""
 from __future__ import annotations
 
 from datetime import datetime

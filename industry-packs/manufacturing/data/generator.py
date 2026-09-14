@@ -1,9 +1,7 @@
 """Synthetic Manufacturing dataset generator (Industry Pack plugin module).
 
-Loaded dynamically by iq_platform.orchestration.industry_pack_loader - NOT
-imported as a dotted Python package, because "industry-packs" contains a hyphen
-and is not a valid Python package name. See
-docs/decisions/0010-industry-pack-plugin-loading.md.
+Loaded dynamically by iq_platform.orchestration.industry_pack_loader because
+"industry-packs" contains a hyphen and is not a valid Python package name.
 
 All data is synthetic. Names are drawn from invented place/company/part name
 pools; no real companies, people, or locations are used. See instruction
@@ -95,10 +93,9 @@ class EngineeringChange:
     created_at: str
 
 
-# "scale" controls dataset size. "realistic" targets thousands of records for the
-# higher-cardinality entity types (Part, QualityIssue, EngineeringChange), per the
-# stakeholder decision in docs/decisions/open-questions.md (Q10). Lower-cardinality
-# entities (Factory) don't realistically need thousands of rows.
+# "scale" controls dataset size. "realistic" targets thousands of records for
+# higher-cardinality entity types (Part, QualityIssue, EngineeringChange).
+# Lower-cardinality entities such as Factory do not need thousands of rows.
 _SCALE_COUNTS = {
     "demo": {
         "factories": 3,

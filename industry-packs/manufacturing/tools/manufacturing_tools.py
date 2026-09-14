@@ -1,8 +1,7 @@
 """Manufacturing-specific MCP tools (Industry Pack plugin module).
 
 Loaded dynamically by services/mcp-backend/mcp_backend/factory.py - not imported
-as a dotted package (industry-packs/ is not a valid Python package name). See
-docs/decisions/0010-industry-pack-plugin-loading.md.
+as a dotted package (industry-packs/ is not a valid Python package name).
 
 Every function here is read-only / advisory. Nothing in this module closes a
 quality issue or approves an engineering change automatically - see

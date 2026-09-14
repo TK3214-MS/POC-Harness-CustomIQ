@@ -1,5 +1,5 @@
 # tests/integration/
 
-Orchestrator ⇄ Adapter、Adapter ⇄ mock data、MCP client ⇄ FastAPI server、Industry Pack 切り替え等の統合テスト（instruction §22.3）。
+MCP client、MCP Backend、Industry Packを組み合わせた統合テストです。
 
-**状態: 実装済み。** MCP Backend の health/tools/invoke エンドポイント、Industry Pack の動的ロード（generator/tools/semantics/scenario プラグイン）、correlation_id ロギング、human-in-the-loop フローを5業界すべてで検証。
+現在はMCP Backendのhealth/tools/invoke endpoint、Industry Packのgenerator/tools動的load、correlation ID、構造化error、実MCP protocolを5業界で検証します。

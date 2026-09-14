@@ -1,9 +1,7 @@
 // Subscription-scoped entry point (azd convention). Creates the resource
 // group, then deploys resources.bicep into it. Deploys only the MCP Backend
-// container hosting (Phase 5 scope) - Work IQ/Foundry IQ/Fabric IQ Live
-// adapters have no infrastructure here since they are not yet implemented
-// (Phase 4, pending real Microsoft product verification - see
-// docs/decisions/product-verification.md).
+// container hosting. Fabric IQ, Foundry IQ, and Work IQ are configured in
+// their SaaS administration surfaces and have no infrastructure here.
 targetScope = 'subscription'
 
 @minLength(1)

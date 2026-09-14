@@ -10,3 +10,4 @@
 ## 関連ドキュメント
 
 - [本番環境構築ガイド](../Production-Environment-Setup.md) — Industry Pack ToolをCopilot Studioへ接続する手順
+- [トラブルシューティング](../troubleshooting/README.md) — `tools/list`、Tool実行、接続失敗の切り分け

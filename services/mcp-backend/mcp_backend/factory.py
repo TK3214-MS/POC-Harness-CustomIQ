@@ -1,8 +1,6 @@
 """Builds an Industry-Pack-aware MCP Backend app instance.
 
-See docs/decisions/0010-industry-pack-plugin-loading.md and
-docs/decisions/0011-generic-orchestrator-and-semantic-adapter.md. Contains no
-industry-specific logic - works for any pack whose manifest.mcp_tools_path
+Contains no industry-specific logic and works for any pack whose manifest.mcp_tools_path
 points to a module exposing TOOL_FUNCTIONS/TOOL_DESCRIPTIONS.
 """
 from __future__ import annotations

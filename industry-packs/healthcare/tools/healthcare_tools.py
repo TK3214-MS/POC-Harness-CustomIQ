@@ -1,7 +1,6 @@
 """Healthcare-specific MCP tools (Industry Pack plugin module).
 
-Loaded dynamically by services/mcp-backend/mcp_backend/factory.py. See
-docs/decisions/0010-industry-pack-plugin-loading.md.
+Loaded dynamically by services/mcp-backend/mcp_backend/factory.py.
 
 These tools NEVER diagnose, decide treatment, or recommend medication - they
 only retrieve and summarize synthetic case history data. See

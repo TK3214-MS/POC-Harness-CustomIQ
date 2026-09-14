@@ -1,10 +1,8 @@
-"""Production entrypoint for the MCP Backend container (Phase 5).
+"""Production entrypoint for the MCP Backend container.
 
 Unlike run_dev_server.py (hardcoded to Manufacturing, for local ad-hoc testing),
 this reads its Industry Pack selection from environment variables so the same
-container image can serve any pack without a code change or rebuild - see
-docs/decisions/0010-industry-pack-plugin-loading.md /
-docs/decisions/0011-generic-orchestrator-and-semantic-adapter.md.
+container image can serve any pack without a code change or rebuild.
 
 Environment variables:
     IIQ_INDUSTRY_PACK   Industry Pack id under industry-packs/ (default: manufacturing)

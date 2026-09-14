@@ -1,8 +1,7 @@
 """Synthetic Retail dataset generator (Industry Pack plugin module).
 
-Loaded dynamically by iq_platform.orchestration.industry_pack_loader - NOT
-imported as a dotted Python package. See
-docs/decisions/0010-industry-pack-plugin-loading.md.
+Loaded dynamically by iq_platform.orchestration.industry_pack_loader instead
+of being imported as a dotted Python package.
 
 All data is synthetic. No real stores, products, or orders are used. See
 instruction section 23 and SECURITY.md.
