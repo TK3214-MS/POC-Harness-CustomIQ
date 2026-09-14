@@ -1,0 +1,6 @@
+account_id,customer_id,account_type,opened_at
+ACC-SYN-201,CUST-SYN-101,checking,2024-03-12
+ACC-SYN-202,CUST-SYN-102,savings,2024-05-08
+ACC-SYN-203,CUST-SYN-103,credit_card,2024-08-21
+ACC-SYN-204,CUST-SYN-104,checking,2025-01-10
+ACC-SYN-205,CUST-SYN-105,savings,2025-04-18

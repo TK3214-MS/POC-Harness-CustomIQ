@@ -1,0 +1,4 @@
+order_id,store_id,product_id,quantity,order_date,status
+ORD-SYN-601,STORE-SYN-01,PROD-SYN-501,25,2026-03-12,draft
+ORD-SYN-602,STORE-SYN-02,PROD-SYN-501,20,2026-03-12,in_transit
+ORD-SYN-603,STORE-SYN-02,PROD-SYN-503,18,2026-03-11,approved

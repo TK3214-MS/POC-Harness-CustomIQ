@@ -1,9 +1,25 @@
-# Synthetic Work IQ content: Fraud investigation
+# 不正調査ケース概要（合成データ）
 
-Create this as a test SharePoint document or paste it into a test Teams channel. Do not use real customer or account data.
+> Work IQ接続検証用の架空SharePoint文書。実在する顧客、口座、取引、従業員を含まない。
 
-- Topic: CASE-SYN-001 transaction investigation
-- Decision needed: determine whether enhanced review is required
-- Context: risk score is 0.97 for TX-SYN-1001
-- Related account: ACC-SYN-201
-- Requested follow-up: summarize recent analyst discussion and list open actions
+- 文書ID: `WIQ-FIN-SP-001`
+- 更新日時: 2026-02-03 09:15 JST
+- ケース: `CASE-SYN-001`
+- 取引: `TX-SYN-1001`
+- 口座: `ACC-SYN-201`
+- ケース状態: 調査中
+- 検出値: risk score 0.97
+
+## 確認済み事項
+
+- 対象取引は拡張レビュー候補として登録された。
+- risk scoreは検出シグナルであり、不正の確定判断ではない。
+- 顧客連絡、口座凍結、取引取消は未決定である。
+
+## 未解決事項
+
+- 比較期間内の通常取引との差異
+- 顧客連絡の要否と担当者
+- compliance officerレビュー日時
+
+口座凍結、取引取消、ケース終結はこの文書だけでは実行しない。

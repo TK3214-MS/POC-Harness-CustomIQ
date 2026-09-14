@@ -1,0 +1,4 @@
+signal_id,product_id,store_id,signal_type,trend_percent,detected_at
+SIGNAL-SYN-001,PROD-SYN-501,STORE-SYN-01,promotion_spike,18.5,2026-03-10T08:00:00Z
+SIGNAL-SYN-002,PROD-SYN-502,STORE-SYN-01,seasonal_decline,-12.3,2026-03-09T08:00:00Z
+SIGNAL-SYN-003,PROD-SYN-503,STORE-SYN-02,local_spike,25.0,2026-03-08T08:00:00Z

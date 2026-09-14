@@ -1,0 +1,6 @@
+application_id,case_id,application_type,status,submitted_at
+APP-SYN-401,CASE-SYN-301,permit_application,pending_more_information,2026-03-01T08:30:00Z
+APP-SYN-402,CASE-SYN-302,benefit_application,in_review,2026-03-02T09:45:00Z
+APP-SYN-403,CASE-SYN-303,records_request,awaiting_documents,2026-03-03T12:50:00Z
+APP-SYN-404,CASE-SYN-304,inspection_response,completed,2026-03-04T14:30:00Z
+APP-SYN-405,CASE-SYN-305,service_referral,draft,2026-03-05T08:00:00Z

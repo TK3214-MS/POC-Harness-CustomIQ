@@ -70,11 +70,11 @@ pytest tests/
 
 | 業界 | Fabric投入用CSV | Foundry用ナレッジ | Work IQ用M365テンプレート |
 | --- | --- | --- | --- |
-| Manufacturing | `industry-packs/manufacturing/sample-data/fabric/quality_issues.csv` | `industry-packs/manufacturing/knowledge/` | `industry-packs/manufacturing/sample-data/work-iq/` |
-| Financial Services | `industry-packs/financial-services/sample-data/fabric/fraud_cases.csv` | `industry-packs/financial-services/knowledge/` | `industry-packs/financial-services/sample-data/work-iq/` |
-| Retail | `industry-packs/retail/sample-data/fabric/inventory_records.csv` | `industry-packs/retail/knowledge/` | `industry-packs/retail/sample-data/work-iq/` |
-| Healthcare | `industry-packs/healthcare/sample-data/fabric/encounters.csv` | `industry-packs/healthcare/knowledge/` | `industry-packs/healthcare/sample-data/work-iq/` |
-| Public Sector | `industry-packs/public-sector/sample-data/fabric/cases.csv` | `industry-packs/public-sector/knowledge/` | `industry-packs/public-sector/sample-data/work-iq/` |
+| Manufacturing | `industry-packs/manufacturing/sample-data/fabric/quality_issues.csv` | `industry-packs/manufacturing/knowledge/`（8文書） | `industry-packs/manufacturing/sample-data/work-iq/`（4記録） |
+| Financial Services | `industry-packs/financial-services/sample-data/fabric/fraud_cases.csv` | `industry-packs/financial-services/knowledge/`（8文書） | `industry-packs/financial-services/sample-data/work-iq/`（4記録） |
+| Retail | `industry-packs/retail/sample-data/fabric/inventory_records.csv` | `industry-packs/retail/knowledge/`（8文書） | `industry-packs/retail/sample-data/work-iq/`（4記録） |
+| Healthcare | `industry-packs/healthcare/sample-data/fabric/encounters.csv` | `industry-packs/healthcare/knowledge/`（8文書） | `industry-packs/healthcare/sample-data/work-iq/`（4記録） |
+| Public Sector | `industry-packs/public-sector/sample-data/fabric/cases.csv` | `industry-packs/public-sector/knowledge/`（8文書） | `industry-packs/public-sector/sample-data/work-iq/`（4記録） |
 
 サンプルデータは業界ごとに分離して投入してください。複数業界を1つのKnowledge Baseへ混在させる場合は、Knowledge Source名、検索指示、引用元を業界単位で識別できるようにします。
 
@@ -116,6 +116,8 @@ python3 scripts/generate_enterprise_prompts.py
 参照: [Ontology required tenant settings](https://learn.microsoft.com/en-us/fabric/iq/ontology/overview-tenant-settings)
 
 ### 3.2 Lakehouseと業務データ
+
+実顧客データから業務概念、entity key、relationship、curated tableを設計する場合は、先に[実顧客データ向けOntology設計・構築ガイド](Customer-Data-Ontology-Design-Guide.md)を完了する。生成AIによる候補抽出を利用する場合も、Data owner、Data steward、Security/Privacyによる承認前に本番Ontologyへ反映しない。
 
 1. Workspaceで **New item > Lakehouse** を作成する。
 2. このリポジトリのIndustry Packデータ、または検証用の合成データをLakehouseへ投入する。
@@ -178,8 +180,8 @@ python3 scripts/generate_enterprise_prompts.py
 
 | Relationship name | Origin entity | Target entity | Mapping table | Matched origin | Matched target |
 | --- | --- | --- | --- | --- | --- |
-| `produces` | `ProductionLine` | `Factory` | `production_lines` | `line_id` | `factory_id` |
-| `supplies` | `Part` | `Supplier` | `parts` | `part_id` | `supplier_id` |
+| `produces` | `Factory` | `ProductionLine` | `production_lines` | `factory_id` | `line_id` |
+| `supplies` | `Supplier` | `Part` | `parts` | `supplier_id` | `part_id` |
 | `affects` | `QualityIssue` | `Part` | `quality_issues` | `issue_id` | `part_id` |
 | `observedAt` | `QualityIssue` | `Factory` | `quality_issues` | `issue_id` | `factory_id` |
 | `addresses` | `EngineeringChange` | `QualityIssue` | `engineering_changes` | `change_id` | `issue_id` |
@@ -283,7 +285,7 @@ Blob以外にAzure SQL、OneLake、SharePoint、Fabric Data Agent、Fabric Ontol
 | Content extraction mode | `minimal` |
 | Network access mode | `public` |
 
-1. Blob container `manufacturing-knowledge`へ次の3ファイルをアップロードする。
+1. Blob container `manufacturing-knowledge`へ`industry-packs/manufacturing/knowledge/`配下の8ファイルをアップロードする。最小接続確認だけを行う場合は、最初に次の3ファイルを投入し、疎通確認後に残り5ファイルを追加する。
 
     - `industry-packs/manufacturing/knowledge/quality_control_procedure.md`
     - `industry-packs/manufacturing/knowledge/supplier_quality_manual.md`
@@ -309,7 +311,7 @@ Blob以外にAzure SQL、OneLake、SharePoint、Fabric Data Agent、Fabric Ontol
 
 1. 作成後、Knowledge Source statusで`lastSynchronizationState.endTime`が設定され、`itemsUpdatesFailed`が`0`であることを確認する。自動生成されたdata source、skillset、indexer、indexは直接編集しない。
 
-enterprise JSONL(`sample-data/foundry/enterprise/records.jsonl`)は生成済みの補助データです。Blob Knowledge Sourceへ投入する前に、利用するAPI versionとBlob indexerがJSONLを対応コンテンツ形式として扱うことを実環境で確認してください。未確認のまま投入形式を断定しないため、最初の構築は上記Markdown 3ファイルで開始します。
+enterprise JSONL(`sample-data/foundry/enterprise/records.jsonl`)は構造化業務レコードの検索検証用に生成した補助データであり、上記8件の管理文書とは用途が異なります。Blob Knowledge Sourceへ投入する前に、利用するAPI versionとBlob indexerがJSONLを対応コンテンツ形式として扱うことを実環境で確認してください。未確認のまま投入形式を断定しないため、最初の構築はMarkdown文書で開始します。
 
 ### 4.4 具体例: Manufacturing Knowledge Baseを作成して検証する
 
@@ -357,7 +359,7 @@ Work IQへデータをアップロードしたり、別の検索インデック�
 
 1. 対象Industry Packの`sample-data/work-iq/`からMarkdownテンプレートを選ぶ。
 2. 専用のテストSharePointライブラリへアップロードするか、専用のテストTeamsチャンネルへ内容を投稿する。メール・予定表を検証する場合は、テストユーザー間で合成内容のメールまたは会議を作成する。
-3. テンプレートに書かれた合成ID(`QI-SYN-*`、`CASE-SYN-*`等)を変更せず、Fabric/Foundry側のサンプル質問と関連付ける。
+3. 小容量CSVを使用する場合は、テンプレートに書かれた合成ID（`QI-SYN-*`、`CASE-SYN-*`等）を変更せず、Fabric側の同じIDと関連付ける。enterprise CSVを使用する場合はID体系が異なるため（Manufacturingの例: `QI-00001`）、投入済みレコードを1件選び、同一案件を参照するすべてのWork IQテンプレート内のIDをそのレコードのIDへ一貫して置換する。小容量とenterpriseのIDを混在させない。
 4. Copilot StudioのWork IQ Toolから、最近の会話、会議、文書の要約を質問する。
 5. テスト終了後は、作成したテスト文書、Teams投稿、メール、会議を削除し、残存データと保持ポリシーを確認する。
 
@@ -370,8 +372,19 @@ Work IQ側の完了条件は「Work IQにファイルを登録した」ではな
 ### 6.1 エージェント
 
 1. Copilot StudioでGitHub Copilot harnessのエージェントを作成または選択する。
-2. エージェントのInstructionsに、利用可能なIQ Toolと業務上の利用目的を記載する。
-3. 本リポジトリのIndustry Packにあるエージェント指示を使う場合は、対象Industry Packのinstructionsを確認して反映する。
+2. 対象業界に対応する次のファイル本文を、エージェントのInstructionsへ設定する。複数業界を1エージェントへ混在させず、業界ごとにエージェント、接続、評価結果を分離する。
+
+| 業界 | Copilot Studio用指示文 |
+| --- | --- |
+| Manufacturing | `industry-packs/manufacturing/agents/investigation_agent_instructions.md` |
+| Financial Services | `industry-packs/financial-services/agents/investigation_agent_instructions.md` |
+| Retail | `industry-packs/retail/agents/investigation_agent_instructions.md` |
+| Healthcare | `industry-packs/healthcare/agents/investigation_agent_instructions.md` |
+| Public Sector | `industry-packs/public-sector/agents/investigation_agent_instructions.md` |
+
+1. Instructionsに記載されたFabric IQ、Foundry IQ、Work IQ、MCP Backendを後続手順で追加する。接続していないTool名をInstructionsから削除せず、公開前に接続を完了するか、そのToolを利用できないことを回答する運用を確認する。
+2. Preview画面で、正常取得、0件、権限不足、Tool失敗、情報源矛盾、禁止操作要求をテストする。
+3. 回答が確認済み事実、推奨、不足情報、人手承認、参照元を分離し、サンプル利用時だけ合成データと表示することを確認する。
 
 ### 6.2 Fabric IQ MCP
 
@@ -452,6 +465,8 @@ IQのデータ取得は上記のCopilot Studio Toolが担当します。本リ�
 | Work IQ | テストユーザーがアクセス可能なメール・予定表・Teamsデータだけが返る |
 | MCP Backend | Copilot Studioが`initialize`、`tools/list`、`tools/call`を完了する |
 | 権限境界 | 別ユーザーの未許可データや、許可していない書き込み操作が実行されない |
+
+小容量サンプルの生成と各SaaSへの反映は[IQデモデータ投入・再構成ランブック](evaluation/Demo-Data-Deployment-Runbook.md)、業界別の単一レイヤー疎通、複合質問、性能測定は[Copilot Studio IQレイヤー別テスト質問集](evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md)に従って実施する。
 
 ## 8. このリポジトリの責務
 

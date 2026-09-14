@@ -1,0 +1,6 @@
+customer_id,display_name,segment
+CUST-SYN-101,Synthetic Customer 101,business
+CUST-SYN-102,Synthetic Customer 102,retail
+CUST-SYN-103,Synthetic Customer 103,retail
+CUST-SYN-104,Synthetic Customer 104,private_banking
+CUST-SYN-105,Synthetic Customer 105,business

@@ -1,8 +1,21 @@
-# Synthetic Work IQ content: Care coordination
+# ケア連携概要（合成データ）
 
-Create this as a test SharePoint document or test Teams message. Do not use real patient information.
+> Work IQ接続検証用の架空SharePoint文書。実在する患者、医療従事者、医療機関を含まない。
 
-- Topic: ENC-SYN-003 care coordination
-- Decision needed: identify the next documentation review step
-- Context: the synthetic encounter is associated with PAT-SYN-103
-- Requested follow-up: summarize the test team discussion and identify unresolved coordination actions
+- 文書ID: `WIQ-HC-SP-001`
+- 更新日時: 2026-04-07 09:00 JST
+- 合成患者: `PAT-SYN-103`
+- 受診: `ENC-SYN-003`
+- 確認目的: 記録完全性と引継ぎ状況の確認
+
+## 確認済み事項
+
+- 受診記録は登録済みである。
+- ケアノートの署名状態とフォローアップ担当が未確認である。
+- 本文書は診断、治療、投薬の判断を含まない。
+
+## 未解決事項
+
+- 記録者と署名日時
+- 次回確認の担当Provider
+- clinicianによるケースレビュー完了日時

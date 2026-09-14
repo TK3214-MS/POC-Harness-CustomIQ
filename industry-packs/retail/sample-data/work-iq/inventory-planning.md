@@ -1,8 +1,23 @@
-# Synthetic Work IQ content: Retail inventory planning
+# 在庫補充レビュー概要（合成データ）
 
-Create this as a test SharePoint document or test Teams message. Do not use real employee or customer information.
+> Work IQ接続検証用の架空SharePoint文書。実在する店舗、商品、顧客、従業員を含まない。
 
-- Topic: STORE-SYN-01 replenishment review
-- Decision needed: prioritize PROD-SYN-501 replenishment
-- Context: inventory is 12 units and the reorder point is 20 units
-- Requested follow-up: summarize the planning discussion and list unresolved actions
+- 文書ID: `WIQ-RET-SP-001`
+- 更新日時: 2026-03-10 08:45 JST
+- 店舗: `STORE-SYN-01`
+- 商品: `PROD-SYN-501`
+- 需要シグナル: `SIGNAL-SYN-001`
+- 現在庫: 12個
+- reorder point: 20個
+
+## 確認済み事項
+
+- 在庫はreorder pointを8個下回る。
+- 需要増加シグナルは確認済みだが、販促との因果関係は未確認である。
+- 発注と価格変更は未承認である。
+
+## 未解決事項
+
+- 入荷予定注文の確定数量
+- 販促期間と需要シグナルの重複
+- inventory managerの補充レビュー

@@ -1,0 +1,4 @@
+line_id,factory_id,name
+LINE-SYN-01,FAC-SYN-01,Valve Assembly Line
+LINE-SYN-02,FAC-SYN-01,Connector Assembly Line
+LINE-SYN-03,FAC-SYN-02,Coating Line

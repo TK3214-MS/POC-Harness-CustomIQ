@@ -1,0 +1,3 @@
+supplier_id,name,region,reliability_score
+SUP-SYN-01,Northfield Precision Works,Aurelport,0.82
+SUP-SYN-02,Silverline Components,Lindmoor,0.94

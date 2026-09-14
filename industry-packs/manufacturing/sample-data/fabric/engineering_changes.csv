@@ -1,0 +1,4 @@
+change_id,issue_id,description,status,created_at
+EC-SYN-001,QI-SYN-001,Review valve housing tolerance and inspection gate,in_progress,2026-01-14T10:00:00Z
+EC-SYN-002,QI-SYN-002,Update connector alignment fixture,approved,2026-01-15T09:00:00Z
+EC-SYN-003,QI-SYN-003,Validate coating process parameters,proposed,2026-01-16T13:00:00Z

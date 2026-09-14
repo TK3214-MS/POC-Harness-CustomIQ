@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Synthetic data validation scanner (instruction §23).
 
-Scans Industry Pack content (data generators, knowledge documents, work
-context fixtures) for patterns that would indicate real company names, real
+Scans Industry Pack data assets (data generators, sample data, knowledge
+documents, and work context fixtures) for patterns that would indicate real company names, real
 person names, real contact info, or non-synthetic identifiers slipped in.
 This is a heuristic denylist/pattern scan, NOT a guarantee of "fully
 synthetic" - combine with manual review per instruction §23.
@@ -40,12 +40,20 @@ _PHONE_PATTERN = re.compile(r"\b(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4
 _SSN_LIKE_PATTERN = re.compile(r"\b\d{3}-\d{2}-\d{4}\b")
 
 _SCAN_EXTENSIONS = {".py", ".md", ".json", ".yaml", ".yml"}
+_DATA_DIRECTORIES = {"data", "knowledge", "sample-data", "work-context"}
 
 
 def _iter_pack_files():
-    for path in INDUSTRY_PACKS_DIR.rglob("*"):
-        if path.is_file() and path.suffix in _SCAN_EXTENSIONS:
-            yield path
+    for pack_dir in INDUSTRY_PACKS_DIR.iterdir():
+        if not pack_dir.is_dir():
+            continue
+        for directory_name in _DATA_DIRECTORIES:
+            data_dir = pack_dir / directory_name
+            if not data_dir.exists():
+                continue
+            for path in data_dir.rglob("*"):
+                if path.is_file() and path.suffix in _SCAN_EXTENSIONS:
+                    yield path
 
 
 def scan() -> list[str]:

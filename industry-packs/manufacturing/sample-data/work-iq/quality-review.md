@@ -1,9 +1,26 @@
-# Synthetic Work IQ content: Manufacturing quality review
+# 品質問題レビュー概要（合成データ）
 
-Create this as a test SharePoint document or paste the content into a test Teams channel. Do not use real people or production data.
+> Work IQ接続検証用の架空SharePoint文書。実在する人物、企業、工場、製品、品質記録を含まない。
 
-- Topic: QI-SYN-001 valve housing surface crack
-- Decision needed: confirm containment owner and engineering change review date
-- Context: FAC-SYN-01 saw a 4.8 percent defect rate on 2026-01-12
-- Related part: PART-SYN-101
-- Requested follow-up: summarize recent discussion and identify unresolved actions
+- 文書ID: `WIQ-MFG-SP-001`
+- 更新日時: 2026-01-14 09:00 JST
+- 対象: `QI-SYN-001`（バルブハウジング表面クラック）
+- 工場: `FAC-SYN-01`
+- 部品: `PART-SYN-101`
+- 仕入先: `SUP-SYN-01`
+- 現在の状態: 調査中
+- 観測値: 2026-01-12のサンプル不良率4.8%
+
+## 確認済み事項
+
+- 受入検査で表面クラックが確認され、対象ロットは識別済みである。
+- 品質担当は流出防止範囲を確認中であり、恒久対策は未承認である。
+- 関連する設計変更候補`EC-SYN-001`は提案状態である。
+
+## 未解決事項
+
+- 封じ込め対象ロットの最終範囲
+- 仕入先側の原因分析提出日
+- `EC-SYN-001`のengineering leadレビュー日
+
+本書は判断記録ではない。品質問題のクローズにはquality engineer、設計変更の承認にはengineering leadの確認が必要である。

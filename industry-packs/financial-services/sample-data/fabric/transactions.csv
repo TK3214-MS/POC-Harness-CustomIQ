@@ -1,0 +1,6 @@
+transaction_id,account_id,amount,currency,merchant,transaction_type,occurred_at
+TX-SYN-1001,ACC-SYN-201,2450.0,USD,Aurelport Digital Goods,purchase,2026-02-03T09:45:00Z
+TX-SYN-1002,ACC-SYN-202,980.5,USD,Northgate Travel,purchase,2026-02-03T12:10:00Z
+TX-SYN-1003,ACC-SYN-203,3100.0,EUR,Silverline Electronics,purchase,2026-02-04T08:40:00Z
+TX-SYN-1004,ACC-SYN-204,640.25,USD,Marrow Vale Market,transfer,2026-02-05T14:50:00Z
+TX-SYN-1005,ACC-SYN-205,1250.75,JPY,Cobalt Peak Retail,withdrawal,2026-02-06T08:20:00Z

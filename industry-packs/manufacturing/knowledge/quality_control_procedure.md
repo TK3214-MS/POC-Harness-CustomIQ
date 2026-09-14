@@ -12,6 +12,10 @@ This procedure describes how incoming and in-process quality issues are triaged 
 2. A defect rate at or above **5%** on any sampled batch triggers an automatic escalation to Engineering Review.
 3. A defect rate below 5% but trending upward over three consecutive batches also triggers escalation.
 
+## 3バッチ傾向判定
+
+直近3バッチの不良率が前バッチ以上で連続上昇し、最新バッチが3%以上の場合は、最新値が5%未満でもEngineering Reviewへエスカレーションする。判定には3件のbatch ID、不良率、検査日時を証跡として残す。3バッチ未満しか取得できない場合は傾向を確定せず、quality engineerへデータ不足を通知する。
+
 ## Escalation to Engineering Review
 
 When a quality issue is escalated:

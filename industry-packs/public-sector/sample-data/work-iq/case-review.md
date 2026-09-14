@@ -1,8 +1,22 @@
-# Synthetic Work IQ content: Public sector case review
+# 許認可案件レビュー概要（合成データ）
 
-Create this as a test SharePoint document or test Teams message. Do not use real citizen information.
+> Work IQ接続検証用の架空SharePoint文書。実在する市民、機関、申請を含まない。
 
-- Topic: CASE-SYN-301 permit review
-- Decision needed: identify the missing review action
-- Context: the synthetic case is handled by AGENCY-SYN-01
-- Requested follow-up: summarize recent coordination notes and list unresolved actions
+- 文書ID: `WIQ-PS-SP-001`
+- 更新日時: 2026-05-18 09:10 JST
+- 案件: `CASE-SYN-301`
+- 申請: `APP-SYN-401`
+- 担当機関: `AGENCY-SYN-01`
+- 状態: 追加情報待ち
+
+## 確認済み事項
+
+- 申請は受領済みである。
+- 不足項目の通知案は作成済みだが、適格性判断は行っていない。
+- 配慮要望の有無は原記録で確認が必要である。
+
+## 未解決事項
+
+- 不足項目通知の承認
+- 他機関照会の要否
+- case officerレビュー日時

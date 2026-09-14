@@ -1,0 +1,5 @@
+part_id,name,supplier_id,used_in_line_ids
+PART-SYN-101,Valve Housing A,SUP-SYN-01,"[""LINE-SYN-01""]"
+PART-SYN-102,Connector Pin B,SUP-SYN-02,"[""LINE-SYN-02""]"
+PART-SYN-103,Protective Coating C,SUP-SYN-01,"[""LINE-SYN-03""]"
+PART-SYN-104,Packaging Seal D,SUP-SYN-02,"[""LINE-SYN-01""]"
