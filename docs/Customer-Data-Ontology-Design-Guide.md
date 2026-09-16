@@ -15,7 +15,7 @@ Ontologyの設計をテーブル一覧から始めない。最初に、デモま
 例:
 
 - 未解決の品質問題が影響する部品、工場、設計変更は何か。
-- 高リスク取引に関連するケース、口座、確認済み証跡は何か。
+- 高リスク取引に関連するケース、口座、確認済み情報は何か。
 - 在庫不足候補に、未着注文と需要シグナルを加味すると何が不足しているか。
 
 各質問について次を記録する。
@@ -79,7 +79,7 @@ Microsoftの公開情報では、Microsoft Copilotは利用者が閲覧権限を
 - 法的根拠、保護属性、機密区分、保持期間の決定。
 - 欠損keyの推測補完。
 - 相関から因果関係を作ること。
-- relationship方向、cardinality、履歴の有効期間を証拠なしに確定すること。
+- relationship方向、cardinality、履歴の有効期間をsource確認なしに確定すること。
 - sourceに存在しない業務ルールや承認ルールを作ること。
 - 本番Ontology、source table、権限、レコードを自動変更すること。
 
@@ -233,7 +233,7 @@ B. property候補
 entity_name | property_name | business_definition | source_column | proposed_type | unit | sensitivity | include_reason
 
 C. relationship候補
-unique_relationship_name | origin_entity | target_entity | mapping_table | origin_match_column | target_match_column | expected_cardinality | evidence
+unique_relationship_name | origin_entity | target_entity | mapping_table | origin_match_column | target_match_column | expected_cardinality | validation_basis
 
 D. 未解決事項
 question | required_owner | blocking_or_nonblocking
@@ -241,7 +241,7 @@ question | required_owner | blocking_or_nonblocking
 制約:
 - tableを自動的にentityと見なさないでください。
 - foreign key名だけで意味を推測しないでください。
-- key、方向、cardinalityの証拠がない候補は「要確認」としてください。
+- key、方向、cardinalityを検証できない候補は「要確認」としてください。
 - sourceにないrelationshipや業務ルールを作らないでください。
 - relationship名は方向が分かる動詞にしてください。
 ```
@@ -300,14 +300,14 @@ relationship名はOntology全体で一意にし、`has`や`relatesTo`だけを�
 確認観点:
 - 各質問をどのentityから開始し、どのpropertyでfilterし、どのrelationshipを辿るか
 - keyが不安定、NULL、重複、またはsource依存になっていないか
-- relationshipの方向とmapping列に証拠があるか
+- relationshipの方向とmapping列をsourceから検証できるか
 - N:M関係にjunction tableが必要か
 - 現在状態と履歴が混ざっていないか
 - PIIや機密propertyが質問に不要なのに含まれていないか
 - 曖昧または重複するentity/property/relationship名がないか
 
 出力:
-question_id | proposed_query_path | pass_or_gap | evidence | required_change | owner
+question_id | proposed_query_path | pass_or_gap | validation_result | required_change | owner
 
 制約:
 台帳にないkey、join、業務ルールを作らないでください。確信度ではなく、参照した行またはsourceを示してください。
@@ -451,7 +451,7 @@ source schema変更がOntologyへ与える影響候補を整理してくださ�
 - gold questions: <添付>
 
 出力:
-change | affected_binding | affected_relationship | affected_question | severity | evidence | recommended_test | owner_to_approve
+change | affected_binding | affected_relationship | affected_question | severity | validation_result | recommended_test | owner_to_approve
 
 制約:
 - 自動修正案を実行しないでください。
@@ -470,7 +470,7 @@ change | affected_binding | affected_relationship | affected_question | severity
 | `has`を複数箇所で使用 | 曖昧化と重複名問題 | 一意で方向が分かる名前にする |
 | PIIを全列公開 | 不要な露出と権限リスク | 質問に必要な最小propertyへ削減する |
 | source更新後に未refresh | 古い回答または0件 | batch更新後にGraph refreshを実行する |
-| Copilot案を無承認で採用 | 架空のjoinや定義が混入 | source evidenceとowner承認を必須にする |
+| Copilot案を無承認で採用 | 架空のjoinや定義が混入 | source定義の確認とowner承認を必須にする |
 | 曖昧な質問だけで試験 | NL2Ontologyとbinding障害を分離できない | schema、単一entity、1-hopの順で試す |
 
 ## 14. 完了判定

@@ -1,5 +1,5 @@
 site_name: Industry IQ Platform Labs
-site_description: Fabric IQ、Foundry IQ、Work IQ、Copilot Studioを段階的に構成・検証するラボ
+site_description: 合成データでFabric IQ、Foundry IQ、Work IQ、Copilot Studioを段階的に構成・検証するラボ
 site_url: https://tk3214-ms.github.io/POC-Harness-CustomIQ/
 repo_url: https://github.com/TK3214-MS/POC-Harness-CustomIQ
 repo_name: TK3214-MS/POC-Harness-CustomIQ
@@ -7,13 +7,38 @@ edit_uri: edit/main/docs/
 docs_dir: docs
 strict: true
 
+extra_css:
+  - assets/stylesheets/lab.css
+
 theme:
   name: material
   language: ja
+  icon:
+    logo: material/graph-outline
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: ダークモードに切り替え
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: ライトモードに切り替え
   features:
+    - content.code.copy
+    - content.tabs.link
     - navigation.footer
     - navigation.indexes
     - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.top
     - search.highlight
     - search.suggest
@@ -29,38 +54,33 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
 
 nav:
   - ホーム: index.md
-  - ラボを開始:
-      - ラボガイド: labs/index.md
-      - 事前チェック: labs/prerequisites.md
-      - 業界を選択: labs/choose-industry.md
-  - トラックA 合成データE2E:
-      - 概要: labs/synthetic/index.md
-      - 1. ローカル準備: labs/synthetic/01-local-setup.md
-      - 2. Fabric IQ: labs/synthetic/02-fabric-iq.md
-      - 3. Foundry IQ: labs/synthetic/03-foundry-iq.md
-      - 4. Work IQ: labs/synthetic/04-work-iq.md
-      - 5. Copilot Studio: labs/synthetic/05-copilot-studio.md
-      - 6. 完了確認: labs/synthetic/06-complete.md
-  - トラックB 実顧客Ontology:
-      - 概要: labs/customer-ontology/index.md
-      - 1. 質問とデータ認可: labs/customer-ontology/01-scope-and-authorization.md
-      - 2. Source inventoryとprofile: labs/customer-ontology/02-inventory-and-profile.md
-      - 3. Ontology論理設計: labs/customer-ontology/03-model.md
-      - 4. Bindingと段階検証: labs/customer-ontology/04-bind-and-validate.md
-      - 5. 承認と変更管理: labs/customer-ontology/05-approve-and-operate.md
-  - 上級ラボ:
-      - MCP Backend: labs/advanced-mcp.md
-  - 運営者向け:
-      - GitHub Pages公開: labs/publishing.md
+  - ラボ:
+      - 概要: labs/index.md
+      - 手順と成果物: labs/synthetic/index.md
+      - 0. 事前チェック: labs/prerequisites.md
+      - 1. 業界を選択: labs/choose-industry.md
+      - 2. サンプルデータ確認: labs/synthetic/01-local-setup.md
+      - 3. Fabric IQ: labs/synthetic/02-fabric-iq.md
+      - 4. Foundry IQ: labs/synthetic/03-foundry-iq.md
+      - 5. Work IQ: labs/synthetic/04-work-iq.md
+      - 6. Copilot Studio: labs/synthetic/05-copilot-studio.md
+      - 7. 完了確認: labs/synthetic/06-complete.md
+      - 任意. Custom MCP Backend: labs/advanced-mcp.md
   - リファレンス:
       - 本番環境構築: Production-Environment-Setup.md
       - 実顧客Ontology設計: Customer-Data-Ontology-Design-Guide.md
+      - サンプルデータ再生成: reference/Sample-Data-Regeneration-Guide.md
       - デモデータ投入: evaluation/Demo-Data-Deployment-Runbook.md
       - IQレイヤー別テスト: evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md
       - トラブルシューティング: troubleshooting/README.md

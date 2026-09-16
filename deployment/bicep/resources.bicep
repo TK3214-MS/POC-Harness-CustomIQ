@@ -12,14 +12,21 @@ param resourceToken string
 @description('Tags applied to all resources.')
 param tags object = {}
 
-@description('Container image for the MCP Backend.')
-param mcpBackendImage string
+@description('Indicates whether azd has already provisioned the MCP Backend Container App.')
+param mcpBackendExists bool
+
+@description('Industry Pack served by the MCP Backend.')
+param industryPack string
+
+@description('Seed used to generate the in-memory synthetic demo dataset.')
+param dataSeed int
 
 var containerRegistryName = 'acrxx${resourceToken}'
 var logAnalyticsName = 'log-${resourceToken}'
 var containerAppsEnvironmentName = 'cae-${resourceToken}'
 var userAssignedIdentityName = 'id-${resourceToken}'
 var containerAppName = 'ca-mcp-backend-${resourceToken}'
+var containerAppFqdn = '${containerAppName}.${containerAppsEnvironment.properties.defaultDomain}'
 
 // Well-known built-in role: AcrPull
 var acrPullRoleDefinitionId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '7f951dda-4ed3-4680-a7ca-43fe172d538d')
@@ -75,53 +82,45 @@ resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2024-03-01'
   }
 }
 
-resource mcpBackendApp 'Microsoft.App/containerApps@2024-03-01' = {
-  name: containerAppName
-  location: location
-  tags: union(tags, { 'azd-service-name': 'mcp-backend' })
-  identity: {
-    type: 'UserAssigned'
-    userAssignedIdentities: {
-      '${userAssignedIdentity.id}': {}
-    }
-  }
-  properties: {
-    environmentId: containerAppsEnvironment.id
-    configuration: {
-      // Internal-only by default - this is a demo/sample-data service, not a
-      // production API. Flip to external=true only with explicit approval.
-      ingress: {
-        external: false
-        targetPort: 8000
-        transport: 'http'
-      }
-      registries: [
-        {
-          server: containerRegistry.properties.loginServer
-          identity: userAssignedIdentity.id
+module mcpBackendApp 'br/public:avm/ptn/azd/container-app-upsert:0.4.0' = {
+  params: {
+    name: containerAppName
+    location: location
+    containerAppsEnvironmentName: containerAppsEnvironment.name
+    containerRegistryName: containerRegistry.name
+    containerName: 'mcp-backend'
+    containerCpuCoreCount: '0.5'
+    containerMemory: '1Gi'
+    containerMinReplicas: 1
+    containerMaxReplicas: 2
+    containerProbes: [
+      {
+        type: 'Liveness'
+        httpGet: {
+          path: '/health'
+          port: 8000
         }
-      ]
-    }
-    template: {
-      containers: [
-        {
-          name: 'mcp-backend'
-          image: mcpBackendImage
-          resources: {
-            cpu: json('0.5')
-            memory: '1Gi'
-          }
-          env: [
-            { name: 'IIQ_INDUSTRY_PACK', value: 'manufacturing' }
-            { name: 'IIQ_DATA_SCALE', value: 'demo' }
-          ]
-        }
-      ]
-      scale: {
-        minReplicas: 0
-        maxReplicas: 2
+        initialDelaySeconds: 10
+        periodSeconds: 30
+        timeoutSeconds: 5
       }
-    }
+    ]
+    env: [
+      { name: 'IIQ_INDUSTRY_PACK', value: industryPack }
+      { name: 'IIQ_DATA_SCALE', value: 'demo' }
+      { name: 'IIQ_DATA_SEED', value: string(dataSeed) }
+      { name: 'MCP_BACKEND_ALLOWED_HOSTS', value: containerAppFqdn }
+      { name: 'PORT', value: '8000' }
+    ]
+    exists: mcpBackendExists
+    external: false
+    identityType: 'UserAssigned'
+    identityName: userAssignedIdentity.name
+    identityPrincipalId: userAssignedIdentity.properties.principalId
+    userAssignedIdentityResourceId: userAssignedIdentity.id
+    ingressEnabled: true
+    tags: union(tags, { 'azd-service-name': 'mcp-backend' })
+    targetPort: 8000
   }
   dependsOn: [
     acrPullRoleAssignment
@@ -130,4 +129,5 @@ resource mcpBackendApp 'Microsoft.App/containerApps@2024-03-01' = {
 
 output containerRegistryLoginServer string = containerRegistry.properties.loginServer
 output containerRegistryName string = containerRegistry.name
-output mcpBackendUrl string = 'https://${mcpBackendApp.properties.configuration.ingress.fqdn}'
+output mcpBackendName string = mcpBackendApp.outputs.name
+output mcpBackendUrl string = mcpBackendApp.outputs.uri

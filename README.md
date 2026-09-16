@@ -51,8 +51,6 @@ source .venv/bin/activate
 mkdocs serve
 ```
 
-GitHub Pagesへの公開方法は[公開手順](docs/labs/publishing.md)を参照してください。
-
 ## ライセンス
 
 [MIT License](LICENSE)

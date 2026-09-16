@@ -13,7 +13,6 @@ python3 --version
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
-python scripts/generate_demo_iq_data.py
 pytest tests/contract/test_demo_iq_data.py -q
 python scripts/validation/validate_synthetic_data.py
 ```
@@ -21,8 +20,11 @@ python scripts/validation/validate_synthetic_data.py
 ## 成功条件
 
 - Python 3.11以上を使用している。
+- [`industry-packs/<pack>/sample-data/`](https://github.com/TK3214-MS/POC-Harness-CustomIQ/tree/main/industry-packs){ target="_blank" rel="noopener" }に格納済みの合成データを使用できる。
 - demo data contract testsが成功する。
 - synthetic data validationが成功する。
+
+サンプルを再生成する必要はありません。生成元を変更する場合だけ[サンプルデータ再生成ガイド](../reference/Sample-Data-Regeneration-Guide.md)を参照してください。
 
 ## 2. Microsoft環境
 
@@ -47,18 +49,6 @@ python scripts/validation/validate_synthetic_data.py
 
 !!! danger "不足している場合"
     不足項目を推測で回避せず、管理者へworkspace名、必要操作、対象ユーザー、利用期間を伝えて確認します。条件が揃うまで[業界選択](choose-industry.md)以降の構築を開始しません。
-
-## 4. 証跡フォルダー
-
-ラボ外の承認済み保存先に、次の情報を記録する場所を準備します。
-
-- 実施日時とタイムゾーン
-- 選択したIndustry Packとdataset種別
-- workspace、Ontology、Knowledge Baseの識別情報
-- Activity traceのTool名、結果、Correlation ID
-- 自動検証コマンドと結果
-
-アクセストークン、接続文字列、Secretは記録しません。
 
 **完了条件**: ローカル検証が成功し、Microsoft環境の全チェック項目を確認できた。
 

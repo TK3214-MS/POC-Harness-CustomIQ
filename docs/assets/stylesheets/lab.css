@@ -1,0 +1,262 @@
+:root {
+  --lab-header-bg: #fff;
+  --lab-header-border: #dce3e8;
+  --lab-header-fg: #17212b;
+  --lab-toggle-track: #a9b6bf;
+  --lab-toggle-thumb: #fff;
+}
+
+[data-md-color-scheme="slate"] {
+  --lab-header-bg: #151c22;
+  --lab-header-border: #303b43;
+  --lab-header-fg: #f3f7f8;
+  --lab-toggle-track: #37c6d0;
+  --lab-toggle-thumb: #0d1f2d;
+}
+
+.md-header,
+.md-tabs {
+  background-color: var(--lab-header-bg);
+  color: var(--lab-header-fg);
+}
+
+.md-header {
+  border-bottom: 1px solid var(--lab-header-border);
+  box-shadow: none;
+}
+
+.md-header--shadow {
+  box-shadow: none;
+}
+
+.md-tabs {
+  border-bottom: 1px solid var(--lab-header-border);
+}
+
+.md-header__button,
+.md-header__title,
+.md-tabs__link {
+  color: var(--lab-header-fg);
+}
+
+.md-search__form {
+  background-color: var(--md-default-fg-color--lightest);
+  border: 1px solid var(--lab-header-border);
+  border-radius: 4px;
+}
+
+.md-header__source {
+  flex: 0 0 auto;
+  margin-left: 0.35rem;
+  width: auto;
+}
+
+.md-header__source .md-source {
+  padding: 0.55rem;
+  width: auto;
+}
+
+.md-header__source .md-source__repository {
+  display: none;
+}
+
+.md-header__option {
+  background: var(--lab-toggle-track);
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 12%);
+  flex: 0 0 2.4rem;
+  height: 1.35rem;
+  margin: 0 0.4rem;
+  position: relative;
+  width: 2.4rem;
+}
+
+.md-header__option .md-header__button {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.md-header__option .md-header__button svg {
+  display: none;
+}
+
+.md-header__option .md-header__button::after {
+  background: var(--lab-toggle-thumb);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 28%);
+  content: "";
+  height: 0.95rem;
+  left: 0.2rem;
+  position: absolute;
+  top: 0.2rem;
+  transition: transform 160ms ease;
+  width: 0.95rem;
+}
+
+[data-md-color-scheme="slate"] .md-header__option .md-header__button::after {
+  transform: translateX(1.05rem);
+}
+
+.lab-hero {
+  align-items: end;
+  background:
+    linear-gradient(120deg, rgb(13 31 45 / 94%), rgb(19 68 83 / 88%)),
+    repeating-linear-gradient(90deg, transparent 0 55px, rgb(255 255 255 / 5%) 56px 57px);
+  border-left: 5px solid #37c6d0;
+  box-sizing: border-box;
+  color: #fff;
+  display: block;
+  margin: 0 0 2rem;
+  min-height: 18rem;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.lab-hero > div:first-child {
+  min-width: 0;
+}
+
+.lab-hero h1 {
+  color: inherit;
+  font-size: 2.25rem;
+  letter-spacing: 0;
+  margin: 0 0 0.6rem;
+}
+
+.lab-hero p {
+  color: rgb(255 255 255 / 82%);
+  font-size: 1rem;
+  margin: 0;
+  max-width: 44rem;
+}
+
+.lab-hero__actions {
+  margin-top: 1rem;
+}
+
+.lab-hero__actions p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.lab-hero__actions .md-button {
+  margin: 0;
+}
+
+.lab-grid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 1.25rem 0 2rem;
+  overflow: hidden;
+}
+
+.lab-card {
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  color: var(--md-default-fg-color);
+  display: block;
+  min-height: 10rem;
+  padding: 1.2rem;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.lab-card:hover {
+  border-color: var(--md-accent-fg-color);
+  transform: translateY(-2px);
+}
+
+.lab-card .twemoji {
+  color: var(--md-accent-fg-color);
+  font-size: 1.65rem;
+}
+
+.lab-card strong {
+  display: block;
+  font-size: 1rem;
+  margin: 0.7rem 0 0.25rem;
+}
+
+.lab-card small {
+  color: var(--md-default-fg-color--light);
+  display: block;
+  line-height: 1.55;
+}
+
+.lab-step-strip {
+  counter-reset: lab-step;
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin: 1.5rem 0 2rem;
+}
+
+.lab-step-strip > div {
+  border-top: 3px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+  padding: 0.65rem 0.4rem 0;
+}
+
+.lab-step-strip > div::before {
+  color: var(--md-accent-fg-color);
+  content: counter(lab-step, decimal-leading-zero);
+  counter-increment: lab-step;
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.lab-image-placeholder {
+  border: 1px dashed var(--md-default-fg-color--light);
+  border-radius: 6px;
+  margin: 1.25rem 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.lab-image-placeholder code {
+  display: block;
+  margin-top: 0.35rem;
+  overflow-wrap: anywhere;
+}
+
+.lab-image-placeholder figcaption {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 76.2344em) {
+  .lab-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 44.9844em) {
+  .lab-hero {
+    min-height: 0;
+  }
+
+  .lab-hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .lab-hero__actions .md-button {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .lab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-step-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1rem;
+  }
+}

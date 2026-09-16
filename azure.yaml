@@ -15,7 +15,9 @@ services:
   mcp-backend:
     project: services/mcp-backend
     host: containerapp
+    apiVersion: 2025-02-02-preview
     language: python
     docker:
       path: ../../deployment/containers/mcp-backend/Dockerfile
       context: ../..
+      remoteBuild: true

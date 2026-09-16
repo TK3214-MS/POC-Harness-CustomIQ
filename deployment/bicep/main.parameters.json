@@ -7,6 +7,15 @@
     },
     "location": {
       "value": "${AZURE_LOCATION}"
+    },
+    "mcpBackendExists": {
+      "value": "${SERVICE_MCP_BACKEND_RESOURCE_EXISTS}"
+    },
+    "industryPack": {
+      "value": "${IIQ_INDUSTRY_PACK}"
+    },
+    "dataSeed": {
+      "value": "${IIQ_DATA_SEED}"
     }
   }
 }

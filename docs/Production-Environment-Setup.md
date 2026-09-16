@@ -452,11 +452,14 @@ IQのデータ取得は上記のCopilot Studio Toolが担当します。本リ�
 
 Tool契約とendpointの詳細は[MCP Backendドキュメント](mcp/README.md)、公開前の実装済み対策と未実装項目は[MCPセキュリティガイド](mcp/MCP-Security-Guide.md)を参照する。
 
-1. [Bicepデプロイ手順](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/deployment/bicep/README.md)と[Azure Developer CLIデプロイ手順](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/deployment/azd/README.md)でMCP Backendをデプロイする。
-2. HTTPSの`/mcp` endpointを公開する。
-3. Copilot Studioの**Tools > Add Tool > Model Context Protocol**から、MCP BackendのURLを追加する。
-4. `tools/list`で期待するIndustry Packのツールが表示されることを確認する。
-5. `tools/call`を実行し、認証・allowlist・エラー応答を確認する。
+1. [Custom MCP Backendラボ](labs/advanced-mcp.md)に従い、`azd provision --preview`で作成対象を確認する。
+2. `azd up`でsourceからimageをbuildし、ACRへpushして内部IngressのContainer Appへdeployする。
+3. Container内から`/health`を検証し、Ingressの`external`が`false`であることを確認する。
+4. 受信request認証とCopilot Studioから到達可能なnetwork経路を設計・実装する。
+5. Security承認後に限り、Copilot Studioの**Tools > Add Tool > Model Context Protocol**へHTTPSの`/mcp` endpointを追加する。
+6. `initialize`、`tools/list`、`tools/call`と、認証拒否、allowlist、エラー応答を検証する。
+
+現在のBicepは意図的に内部Ingressを使用します。MCP Backendには受信request認証が実装されていないため、手順4が完了するまでCopilot Studioとの外部接続は**未実装**です。単に`external: true`へ変更して完了扱いにしません。
 
 ## 7. 最終検証
 

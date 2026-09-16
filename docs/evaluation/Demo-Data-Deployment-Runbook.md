@@ -145,8 +145,8 @@ Knowledge Sourceを更新しただけでは、古いindexのまま回答され�
 ```text
 Use only this industry's uploaded synthetic policy and procedure documents.
 For each material claim, cite the source document.
-Separate mandatory requirements, recommendations, missing evidence, and human approvals.
-If no supporting passage is retrieved, state that the knowledge base did not provide evidence.
+Separate mandatory requirements, recommendations, missing information, and human approvals.
+If no supporting passage is retrieved, state that the knowledge base did not provide supporting information.
 Answer in Japanese.
 ```
 

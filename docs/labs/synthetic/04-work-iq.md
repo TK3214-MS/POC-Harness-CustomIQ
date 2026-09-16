@@ -8,9 +8,11 @@
 
 ラボ専用のSharePoint site、Teams team/channel、Exchange test mailboxとcalendarを使用します。本番利用者の既存コンテンツへ混在させません。
 
+Work IQを使用する前に、管理者が実施日時点の公式手順でtenant有効化、使用量ベース課金、spending policy、MCP policyを確認します。初期検証は読み取り専用とし、作成・更新・送信操作を許可しません。
+
 ## 2. 合成コンテンツを配置
 
-`industry-packs/<pack>/sample-data/work-iq/*.md`を開き、文書の用途に応じて配置します。
+[`industry-packs/<pack>/sample-data/work-iq/*.md`](https://github.com/TK3214-MS/POC-Harness-CustomIQ/tree/main/industry-packs){ target="_blank" rel="noopener" }を開き、文書の用途に応じて配置します。
 
 | 内容 | 配置先の例 |
 | --- | --- |
@@ -21,17 +23,31 @@
 
 Markdownファイル自体を置くだけでなく、メールや会議として検証する内容は対応するMicrosoft 365 workloadへ作成します。各記録に`*-SYN-*` IDを残します。
 
+1. SharePoint document libraryへケース・レビュー資料を保存する。
+2. `teams-thread`の内容をラボ専用Teams channelへ投稿する。
+3. `email`の内容をtest mailbox間で送信する。
+4. `meeting`の内容をtest calendarの会議本文または議事録へ登録する。
+5. Fabric Labで確認した起点IDと同じ`*-SYN-*` IDが、各コンテンツの件名または本文にあることを確認する。
+
+<figure class="lab-image-placeholder" markdown>
+	**画像差し替え位置: Microsoft 365合成コンテンツ**
+	`assets/images/labs/work-iq-synthetic-content.png`
+	<figcaption>TeamsまたはSharePointで合成IDが見える画面へ差し替えます。個人情報は含めません。</figcaption>
+</figure>
+
 ## 3. 権限を確認
 
 1. Copilot Studioで使用するtest userとしてMicrosoft 365へサインインする。
 2. 配置したSharePoint文書、Teams投稿、メール、会議を通常の画面から開けることを確認する。
 3. test userに許可していない別のラボ領域を開けないことを確認する。
 
-## 証跡
+Work IQへ別の検索indexとしてファイルをアップロードする手順ではありません。成功条件は、Copilot Studioの接続ユーザーが既存Microsoft 365権限の範囲で対象コンテンツを取得できることです。
 
-- 配置先と合成record IDの対応表
-- test userでの閲覧成功
-- 未許可領域を取得できないことの確認結果
+<figure class="lab-image-placeholder" markdown>
+	**画像差し替え位置: Test userのアクセス確認**
+	`assets/images/labs/work-iq-permission-check.png`
+	<figcaption>許可された対象を開けることを示す画面へ差し替えます。</figcaption>
+</figure>
 
 ## 成功条件
 
