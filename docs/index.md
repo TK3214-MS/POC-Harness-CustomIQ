@@ -45,6 +45,13 @@ hide:
 | メインラボ | ソリューションアーキテクト、Copilot Studio作成者 | 3〜4時間 | 5業界から1つを選び、合成データで3つのIQレイヤーを接続して検証する |
 | Custom MCP Backend | 上級者、連携実装担当者 | 任意 | 合成データを公開するMCP BackendをAzure Container Appsで検証する |
 
+<figure class="lab-architecture">
+    <a class="lab-architecture__link" href="assets/images/Architecture.png" target="_blank" rel="noopener" aria-label="Industry IQ Platformアーキテクチャ図を原寸で開く">
+        <img src="assets/images/Architecture.png" alt="Industry IQ Platformの全体アーキテクチャ" width="4349" height="2190" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Industry IQ Platform アーキテクチャ</figcaption>
+</figure>
+
 !!! warning "開始前に確認"
     このラボは受講者ごとの既存tenantと、リポジトリに格納済みの合成データだけを使用します。実顧客データは使用しません。必要なライセンス、Preview提供状況、tenant設定、capacity、ロールが確認できない場合は、構築を開始せず管理者へ確認してください。
 

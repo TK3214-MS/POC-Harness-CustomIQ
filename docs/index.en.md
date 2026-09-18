@@ -45,6 +45,13 @@ These hands-on labs build industry knowledge from synthetic data and connect Mic
 | Main lab | Solution architects and Copilot Studio authors | 3-4 hours | Select one of five industries, then connect and validate three IQ layers with synthetic data |
 | Custom MCP Backend | Advanced users and integration implementers | Optional | Validate an MCP Backend that exposes synthetic data on Azure Container Apps |
 
+<figure class="lab-architecture">
+    <a class="lab-architecture__link" href="assets/images/Architecture.png" target="_blank" rel="noopener" aria-label="Open the Industry IQ Platform architecture diagram at full size">
+        <img src="assets/images/Architecture.png" alt="Industry IQ Platform architecture overview" width="4349" height="2190" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Industry IQ Platform architecture</figcaption>
+</figure>
+
 !!! warning "Check Before You Begin"
     This lab uses only each participant's existing tenant and the synthetic data already stored in the repository. Do not use real customer data. If you cannot confirm the required licenses, Preview availability, tenant settings, capacity, and roles, do not begin the setup; consult your administrator.
 
