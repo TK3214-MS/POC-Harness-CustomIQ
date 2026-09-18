@@ -1,7 +1,5 @@
 # 合成サンプルデータラボ
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/index.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/index.en.md)
-
 想定時間: 3〜4時間
 
 選択した1つのIndustry Packを、格納済みサンプルデータの確認からCopilot Studioの複合質問まで段階的に構成します。

@@ -1,7 +1,5 @@
 # 事前チェック
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/prerequisites.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/prerequisites.en.md)
-
 想定時間: 20〜30分
 
 このページの全項目を確認できない場合、SaaS構築へ進みません。提供条件、ライセンス、region、Preview状態は変更されるため、実施日時点のMicrosoft公式文書とtenant管理者の判断を優先します。

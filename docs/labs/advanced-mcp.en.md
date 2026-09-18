@@ -1,7 +1,5 @@
 # Optional Lab: Custom MCP Backend
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/advanced-mcp.md) [![English](https://img.shields.io/badge/A-English-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/advanced-mcp.en.md)
-
 This lab is optional. Complete it only when connecting a tool for a customer-specific Business System, which Fabric IQ, Foundry IQ, and Work IQ do not provide, to Copilot Studio.
 
 The implementation deployed by this procedure is a validation Backend that generates the selected Industry Pack's **synthetic dataset** in memory. It does not implement a customer Business System connection or authentication of incoming requests.

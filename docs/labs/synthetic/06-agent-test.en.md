@@ -1,7 +1,5 @@
 # Lab 6: Test the Copilot Studio Agent
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/06-agent-test.md) [![English](https://img.shields.io/badge/A-English-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/06-agent-test.en.md)
-
 Estimated time: 30-45 minutes
 
 On this page, do not modify the agent developed in Lab 5; perform only testing and result recording. If you need to add questions or correct tool settings, save the test results before returning to [Copilot Studio configuration](05-copilot-studio.md).

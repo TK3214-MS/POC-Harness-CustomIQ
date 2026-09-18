@@ -1,7 +1,5 @@
 # Synthetic Sample Data Lab
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/index.md) [![English](https://img.shields.io/badge/A-English-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/index.en.md)
-
 Estimated time: 3-4 hours
 
 Configure the selected Industry Pack step by step, from reviewing the stored sample data through asking cross-layer questions in Copilot Studio.

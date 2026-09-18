@@ -1,7 +1,5 @@
 # Lab 3: Foundry IQ
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/03-foundry-iq.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/03-foundry-iq.en.md)
-
 想定時間: 60〜90分
 
 選択したIndustry Packの手順・ポリシー文書を登録し、文書名と引用を含む回答が得られる状態にします。

@@ -1,7 +1,5 @@
 # Industry Packを選択
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/choose-industry.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/choose-industry.en.md)
-
 1回のラボでは1業界を選び、同じIndustry Packの合成データをFabric IQ、Foundry IQ、Work IQ、Copilot Studioで使用します。途中で業界を混在させません。
 
 <div class="lab-grid" markdown>

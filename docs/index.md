@@ -19,19 +19,20 @@ hide:
 </div>
 </section>
 
+<!-- Solution icon PNGs: assets/images/solution-icons/{fabric-iq,foundry-iq,work-iq}.png -->
 <div class="lab-grid" markdown>
 <div class="lab-card" markdown>
-:material-database-outline:
+<span class="lab-card__icon-placeholder" aria-label="Fabric IQアイコン画像のプレースホルダー">fabric-iq.png</span>
 **Fabric IQ**
 <small>Lakehouseの合成データをOntologyのentityとrelationshipへbindingします。</small>
 </div>
 <div class="lab-card" markdown>
-:material-bookshelf:
+<span class="lab-card__icon-placeholder" aria-label="Foundry IQアイコン画像のプレースホルダー">foundry-iq.png</span>
 **Foundry IQ**
 <small>業界文書をKnowledge Sourceへ取り込み、引用付き回答を検証します。</small>
 </div>
 <div class="lab-card" markdown>
-:material-account-search-outline:
+<span class="lab-card__icon-placeholder" aria-label="Work IQアイコン画像のプレースホルダー">work-iq.png</span>
 **Work IQ**
 <small>合成Microsoft 365コンテンツから業務コンテキストを確認します。</small>
 </div>

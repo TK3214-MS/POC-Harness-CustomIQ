@@ -1,7 +1,5 @@
 # Lab 4: Work IQ
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/04-work-iq.md) [![English](https://img.shields.io/badge/A-English-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/04-work-iq.en.md)
-
 Estimated time: 30 minutes
 
 Place synthetic content from the selected Industry Pack in Microsoft 365 so it can be retrieved under the test user's existing permissions.
