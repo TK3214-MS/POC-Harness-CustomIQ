@@ -9,6 +9,8 @@ hide:
 
 # Industry IQ Platform Labs
 
+[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/index.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/index.en.md)
+
 合成データから業界知識を組み立て、Microsoft Fabric IQ、Foundry IQ、Work IQをCopilot Studioへ接続するハンズオンラボです。
 
 <div class="lab-hero__actions" markdown>
@@ -53,7 +55,7 @@ hide:
 - [実顧客データ向けOntology設計・構築ガイド](Customer-Data-Ontology-Design-Guide.md)
 - [サンプルデータ再生成ガイド](reference/Sample-Data-Regeneration-Guide.md)
 - [IQデモデータ投入・再構成ランブック](evaluation/Demo-Data-Deployment-Runbook.md)
-- [Copilot Studio IQレイヤー別テスト質問集](evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md)
+- [Copilot Studio IQレイヤー別テスト実行・評価ガイド](evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md)
 - [トラブルシューティング](troubleshooting/README.md)
 
-ラボ本編はこれらの文書を置き換えるものではない。画面操作と合格条件を短い単位に分け、必要な詳細だけをリファレンスへ案内する。
+ラボ本編はこれらの文書を置き換えるものではありません。画面操作と合格条件を短い単位に分け、必要な詳細だけをリファレンスへ案内します。

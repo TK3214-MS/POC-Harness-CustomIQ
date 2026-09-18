@@ -1,0 +1,61 @@
+---
+hide:
+    - navigation
+    - toc
+---
+
+<section class="lab-hero" markdown>
+<div markdown>
+
+# Industry IQ Platform Labs
+
+[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/index.md) [![English](https://img.shields.io/badge/A-English-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/index.en.md)
+
+These hands-on labs build industry knowledge from synthetic data and connect Microsoft Fabric IQ, Foundry IQ, and Work IQ to Copilot Studio.
+
+<div class="lab-hero__actions" markdown>
+[Start the labs](labs/index.md){ .md-button .md-button--primary }
+[Pre-lab checklist](labs/prerequisites.md){ .md-button }
+</div>
+
+</div>
+</section>
+
+<div class="lab-grid" markdown>
+<div class="lab-card" markdown>
+:material-database-outline:
+**Fabric IQ**
+<small>Bind synthetic Lakehouse data to Ontology entities and relationships.</small>
+</div>
+<div class="lab-card" markdown>
+:material-bookshelf:
+**Foundry IQ**
+<small>Ingest industry documents into a Knowledge Source and validate answers with citations.</small>
+</div>
+<div class="lab-card" markdown>
+:material-account-search-outline:
+**Work IQ**
+<small>Review business context from synthetic Microsoft 365 content.</small>
+</div>
+</div>
+
+## Lab Structure
+
+| Content | Audience | Duration | Goal |
+| --- | --- | ---: | --- |
+| Main lab | Solution architects and Copilot Studio authors | 3-4 hours | Select one of five industries, then connect and validate three IQ layers with synthetic data |
+| Custom MCP Backend | Advanced users and integration implementers | Optional | Validate an MCP Backend that exposes synthetic data on Azure Container Apps |
+
+!!! warning "Check Before You Begin"
+    This lab uses only each participant's existing tenant and the synthetic data already stored in the repository. Do not use real customer data. If you cannot confirm the required licenses, Preview availability, tenant settings, capacity, and roles, do not begin the setup; consult your administrator.
+
+## Existing References
+
+- [Production environment setup guide](Production-Environment-Setup.md)
+- [Ontology design and implementation guide for real customer data](Customer-Data-Ontology-Design-Guide.md)
+- [Sample data regeneration guide](reference/Sample-Data-Regeneration-Guide.md)
+- [IQ demo data deployment and reconfiguration runbook](evaluation/Demo-Data-Deployment-Runbook.md)
+- [Copilot Studio IQ layer test execution and evaluation guide](evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md)
+- [Troubleshooting](troubleshooting/README.md)
+
+The main lab does not replace these documents. It divides UI procedures and acceptance criteria into short units and directs you to the references only for the details you need.

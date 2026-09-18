@@ -1,5 +1,7 @@
 # 行動規範
 
+[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](CODE_OF_CONDUCT.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](CODE_OF_CONDUCT.en.md)
+
 本プロジェクトは [Contributor Covenant](https://www.contributor-covenant.org/) の精神を採用します。
 
 ## 私たちの約束

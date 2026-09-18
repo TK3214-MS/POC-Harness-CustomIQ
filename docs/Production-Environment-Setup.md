@@ -1,5 +1,7 @@
 # 本番環境構築ガイド
 
+[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/Production-Environment-Setup.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/Production-Environment-Setup.en.md)
+
 このガイドは、Microsoft Copilot Studio の GitHub Copilot harness をオーケストレーション層として、Fabric IQ、Foundry IQ、Work IQ、および本リポジトリの MCP Backend を接続するための唯一の構築手順です。
 
 **重要**: Fabric IQ、Foundry IQ、Work IQ のデータ取得は Copilot Studio の Tool が直接担当します。本リポジトリの IQ Adapter、`LiveAdapterSettings`、`WORK_IQ_*` / `FOUNDRY_IQ_*` / `FABRIC_IQ_*` 環境変数は、この構成では使用しません。
@@ -471,7 +473,7 @@ Tool契約とendpointの詳細は[MCP Backendドキュメント](mcp/README.md)�
 | MCP Backend | Copilot Studioが`initialize`、`tools/list`、`tools/call`を完了する |
 | 権限境界 | 別ユーザーの未許可データや、許可していない書き込み操作が実行されない |
 
-小容量サンプルの生成と各SaaSへの反映は[IQデモデータ投入・再構成ランブック](evaluation/Demo-Data-Deployment-Runbook.md)、業界別の単一レイヤー疎通、複合質問、性能測定は[Copilot Studio IQレイヤー別テスト質問集](evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md)に従って実施する。
+小容量サンプルの生成と各SaaSへの反映は[IQデモデータ投入・再構成ランブック](evaluation/Demo-Data-Deployment-Runbook.md)、業界別の単一レイヤー疎通、複合質問、性能測定は[Copilot Studio IQレイヤー別テスト実行・評価ガイド](evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md)に従って実施する。
 
 0件、NL query変換失敗、権限不足、Tool接続失敗の切り分けは[トラブルシューティング](troubleshooting/README.md)を参照する。
 

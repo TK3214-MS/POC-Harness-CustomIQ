@@ -1,5 +1,7 @@
 # Lab 4: Work IQ
 
+[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/04-work-iq.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/04-work-iq.en.md)
+
 想定時間: 30分
 
 選択したIndustry Packの合成コンテンツをMicrosoft 365へ配置し、テストユーザーの既存権限で取得できる状態にします。
@@ -23,37 +25,37 @@ Work IQを使用する前に、管理者が実施日時点の公式手順でtena
 
 Markdownファイル自体を置くだけでなく、メールや会議として検証する内容は対応するMicrosoft 365 workloadへ作成します。各記録に`*-SYN-*` IDを残します。
 
-1. SharePoint document libraryへケース・レビュー資料を保存する。
-2. `teams-thread`の内容をラボ専用Teams channelへ投稿する。
-3. `email`の内容をtest mailbox間で送信する。
-4. `meeting`の内容をtest calendarの会議本文または議事録へ登録する。
-5. Fabric Labで確認した起点IDと同じ`*-SYN-*` IDが、各コンテンツの件名または本文にあることを確認する。
+1. SharePoint document libraryへケース・レビュー資料を保存します。
+2. `teams-thread`の内容をラボ専用Teams channelへ投稿します。
+3. `email`の内容をtest mailbox間で送信します。
+4. `meeting`の内容をtest calendarの会議本文または議事録へ登録します。
+5. Fabric Labで確認した起点IDと同じ`*-SYN-*` IDが、各コンテンツの件名または本文にあることを確認します。
 
 <figure class="lab-image-placeholder" markdown>
-	**画像差し替え位置: Microsoft 365合成コンテンツ**
-	`assets/images/labs/work-iq-synthetic-content.png`
-	<figcaption>TeamsまたはSharePointで合成IDが見える画面へ差し替えます。個人情報は含めません。</figcaption>
+    **画像差し替え位置: Microsoft 365合成コンテンツ**
+    `assets/images/labs/work-iq-synthetic-content.png`
+    <figcaption>TeamsまたはSharePointで合成IDが見える画面へ差し替えます。個人情報は含めません。</figcaption>
 </figure>
 
 ## 3. 権限を確認
 
-1. Copilot Studioで使用するtest userとしてMicrosoft 365へサインインする。
-2. 配置したSharePoint文書、Teams投稿、メール、会議を通常の画面から開けることを確認する。
-3. test userに許可していない別のラボ領域を開けないことを確認する。
+1. Copilot Studioで使用するtest userとしてMicrosoft 365へサインインします。
+2. 配置したSharePoint文書、Teams投稿、メール、会議を通常の画面から開けることを確認します。
+3. test userに許可していない別のラボ領域を開けないことを確認します。
 
 Work IQへ別の検索indexとしてファイルをアップロードする手順ではありません。成功条件は、Copilot Studioの接続ユーザーが既存Microsoft 365権限の範囲で対象コンテンツを取得できることです。
 
 <figure class="lab-image-placeholder" markdown>
-	**画像差し替え位置: Test userのアクセス確認**
-	`assets/images/labs/work-iq-permission-check.png`
-	<figcaption>許可された対象を開けることを示す画面へ差し替えます。</figcaption>
+    **画像差し替え位置: Test userのアクセス確認**
+    `assets/images/labs/work-iq-permission-check.png`
+    <figcaption>許可された対象を開けることを示す画面へ差し替えます。</figcaption>
 </figure>
 
 ## 成功条件
 
-- [ ] SharePoint、Teams、Exchange、calendarの必要な合成コンテンツを配置した。
-- [ ] 起点となる`*-SYN-*` IDが各記録に含まれる。
-- [ ] test userが対象記録だけを閲覧できる。
+- [ ] SharePoint、Teams、Exchange、calendarの必要な合成コンテンツを配置しました。
+- [ ] 起点となる`*-SYN-*` IDが各記録に含まれています。
+- [ ] test userが対象記録だけを閲覧できます。
 
 Work IQの提供条件、課金、policy、書き込み可否は実施日時点の公式文書とtenant設定を確認します。
 

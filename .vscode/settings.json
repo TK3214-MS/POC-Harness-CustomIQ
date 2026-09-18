@@ -1,3 +1,16 @@
 {
+    "markdownlint.config": {
+        "MD033": {
+            "allowed_elements": [
+                "br",
+                "div",
+                "figcaption",
+                "figure",
+                "section",
+                "small"
+            ]
+        },
+        "MD041": false
+    },
     "sarif-viewer.connectToGithubCodeScanning": "off"
 }

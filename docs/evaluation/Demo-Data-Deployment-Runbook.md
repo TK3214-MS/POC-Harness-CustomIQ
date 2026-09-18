@@ -1,5 +1,7 @@
 # IQデモデータ投入・再構成ランブック
 
+[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/evaluation/Demo-Data-Deployment-Runbook.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/evaluation/Demo-Data-Deployment-Runbook.en.md)
+
 ## 1. 目的
 
 5業界の合成データをFabric IQ、Foundry IQ、Work IQへ投入し、Copilot Studioの質問集で0件や検索失敗が発生した場合に、データ不足とサービス構成不備を切り分ける。
@@ -174,7 +176,7 @@ Work IQで0件の場合は、文書内容を増やす前に、対象ユーザー
 5. すべて成功した後にX-01からX-03を実行する。
 6. Activity traceで実際に呼ばれたTool、入力、結果、応答時間、Correlation IDを保存する。
 
-質問と評価項目は[Copilot Studio IQレイヤー別テスト質問集](Copilot-Studio-IQ-Layer-Test-Catalog.md)を使用する。
+質問と評価項目は[Copilot Studio IQレイヤー別テスト実行・評価ガイド](Copilot-Studio-IQ-Layer-Test-Catalog.md)を使用する。
 
 ## 7. 0件・検索失敗の切り分け
 

@@ -1,5 +1,7 @@
 # Lab 3: Foundry IQ
 
+[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/03-foundry-iq.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/synthetic/03-foundry-iq.en.md)
+
 想定時間: 60〜90分
 
 選択したIndustry Packの手順・ポリシー文書を登録し、文書名と引用を含む回答が得られる状態にします。
@@ -157,7 +159,7 @@ Storage accountの**Containers > `<pack>-knowledge` > Upload**で8ファイル�
     回答末尾に参照文書名を示す。
     ```
 
-6. 保存後、PlaygroundまたはRetrieveで「このKnowledge Baseで参照できる手順文書名を一覧表示してください」と質問する。
+6. 保存後、PlaygroundまたはRetrieveで「このKnowledge Baseで参照できる手順文書名を一覧表示してください」と質問します。
 7. 選択業界の質問を実行します。
 
     | 業界 | 質問 | 期待する主な引用元 |
@@ -168,7 +170,7 @@ Storage accountの**Containers > `<pack>-knowledge` > Upload**で8ファイル�
     | Healthcare | ケース履歴の記録完全性を確認する項目を、文書名と該当箇所付きで示してください。 | completeness/checklist文書 |
     | Public Sector | 追加情報待ち案件の確認手順を、文書名と該当箇所付きで示してください。 | case/application文書 |
 
-8. 回答に文書名と該当箇所の引用があり、別業界の文書が含まれないことを確認する。
+8. 回答に文書名と該当箇所の引用があり、別業界の文書が含まれないことを確認します。
 
 <figure class="lab-image-placeholder" markdown>
     **画像差し替え位置: Knowledge Baseの引用付き回答**
@@ -181,12 +183,12 @@ Storage accountの**Containers > `<pack>-knowledge` > Upload**で8ファイル�
 
 ## 成功条件
 
-- [ ] 選択したpackの文書だけが取込対象である。
-- [ ] Storage、Search、Foundry project、2つのmodel deploymentを作成し、実値をメモした。
-- [ ] 利用者とSearch identityのroleを正しいscopeへ付与した。
-- [ ] indexerが8文書を処理し、失敗0件である。
-- [ ] 文書名を指定しない質問でも関連文書を取得できる。
-- [ ] 回答に引用が含まれ、sourceにない手順を生成していない。
+- [ ] 選択したpackの文書だけが取込対象です。
+- [ ] Storage、Search、Foundry project、2つのmodel deploymentを作成し、実値をメモしました。
+- [ ] 利用者とSearch identityのroleを正しいscopeへ付与しました。
+- [ ] indexerが8文書を処理し、失敗0件です。
+- [ ] 文書名を指定しない質問でも関連文書を取得できます。
+- [ ] 回答に引用が含まれ、sourceにない手順を生成していません。
 
 [前へ: Fabric IQ](02-fabric-iq.md){ .md-button }
 [次へ: Work IQ](04-work-iq.md){ .md-button .md-button--primary }

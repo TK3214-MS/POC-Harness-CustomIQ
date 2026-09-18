@@ -1,5 +1,7 @@
 # Healthcareサンプルデータ
 
+[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](README.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](README.en.md)
+
 すべて合成データであり、医療助言ではない。`fabric/`直下にはOntologyの全4 entity typeに対応する小容量CSVがあり、同じ`*-SYN-*` IDでrelationshipを検証できる。`fabric/enterprise/`にはgeneratorから再現可能な大規模CSVがある。
 
 `work-iq/`には同一合成患者・受診を参照するSharePoint文書、Teams会話、Outlookメール、会議記録の4件がある。専用テストアカウントだけで使用し、実在患者情報を投入しない。

@@ -1,5 +1,7 @@
 # deployment/azd/
 
+[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](README.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](README.en.md)
+
 Azure Developer CLI構成です。
 
 **状態: 構成実装済み、実デプロイ未検証。** `azd`はリポジトリルートの`azure.yaml`を必要とするため、実体はリポジトリルート直下に配置しています。インフラ本体は[deployment/bicep/](../bicep/)を参照してください。

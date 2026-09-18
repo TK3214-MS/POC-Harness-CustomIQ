@@ -12,8 +12,10 @@ extra_css:
 
 theme:
   name: material
+  custom_dir: overrides
   language: ja
   icon:
+    alternate: material/translate
     logo: material/graph-outline
     repo: fontawesome/brands/github
   palette:
@@ -44,6 +46,61 @@ theme:
     - search.suggest
 
 plugins:
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: false
+      reconfigure_material: true
+      languages:
+        - locale: ja
+          default: true
+          name: 日本語
+          build: true
+        - locale: en
+          name: English
+          build: true
+          site_description: A reproducible synthetic-data lab for configuring and validating Fabric IQ, Foundry IQ, Work IQ, and Copilot Studio
+          theme:
+            palette:
+              - media: "(prefers-color-scheme: light)"
+                scheme: default
+                primary: indigo
+                accent: cyan
+                toggle:
+                  icon: material/weather-night
+                  name: Switch to dark mode
+              - media: "(prefers-color-scheme: dark)"
+                scheme: slate
+                primary: indigo
+                accent: cyan
+                toggle:
+                  icon: material/weather-sunny
+                  name: Switch to light mode
+          nav_translations:
+            ホーム: Home
+            ラボ: Labs
+            概要: Overview
+            手順と成果物: Steps and deliverables
+            0. 事前チェック: 0. Prerequisites
+            1. 業界を選択: 1. Choose an industry
+            2. サンプルデータ確認: 2. Review sample data
+            3. Fabric IQ: 3. Fabric IQ
+            4. Foundry IQ: 4. Foundry IQ
+            5. Work IQ: 5. Work IQ
+            6. Copilot Studioを構成: 6. Configure Copilot Studio
+            7. エージェントをテスト: 7. Test the agent
+            8. 完了確認: 8. Completion checklist
+            任意. Custom MCP Backend: Optional. Custom MCP Backend
+            リファレンス: Reference
+            本番環境構築: Production environment setup
+            実顧客Ontology設計: Customer-data ontology design
+            サンプルデータ再生成: Regenerate sample data
+            ラボコスト見積もり: Lab cost estimation
+            デモデータ投入: Deploy demo data
+            IQレイヤー別テスト実行・評価: IQ-layer test execution and evaluation
+            トラブルシューティング: Troubleshooting
+            MCP Backend: MCP Backend
+            設計と契約: Design and contracts
+            セキュリティ: Security
   - search:
       lang:
         - ja
@@ -74,15 +131,17 @@ nav:
       - 3. Fabric IQ: labs/synthetic/02-fabric-iq.md
       - 4. Foundry IQ: labs/synthetic/03-foundry-iq.md
       - 5. Work IQ: labs/synthetic/04-work-iq.md
-      - 6. Copilot Studio: labs/synthetic/05-copilot-studio.md
-      - 7. 完了確認: labs/synthetic/06-complete.md
+      - 6. Copilot Studioを構成: labs/synthetic/05-copilot-studio.md
+      - 7. エージェントをテスト: labs/synthetic/06-agent-test.md
+      - 8. 完了確認: labs/synthetic/06-complete.md
       - 任意. Custom MCP Backend: labs/advanced-mcp.md
   - リファレンス:
       - 本番環境構築: Production-Environment-Setup.md
       - 実顧客Ontology設計: Customer-Data-Ontology-Design-Guide.md
       - サンプルデータ再生成: reference/Sample-Data-Regeneration-Guide.md
+      - ラボコスト見積もり: reference/Cost-Estimation-Guide.md
       - デモデータ投入: evaluation/Demo-Data-Deployment-Runbook.md
-      - IQレイヤー別テスト: evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md
+      - IQレイヤー別テスト実行・評価: evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md
       - トラブルシューティング: troubleshooting/README.md
       - MCP Backend:
           - 概要: mcp/README.md

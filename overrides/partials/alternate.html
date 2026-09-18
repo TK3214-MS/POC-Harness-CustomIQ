@@ -1,0 +1,24 @@
+{# Two-language switch using contextual alternate links from mkdocs-static-i18n. #}
+{% set current_language = config.theme.language %}
+{% set icon = config.theme.icon.alternate or "material/translate" %}
+<div class="md-header__option lab-language-toggle lab-language-toggle--{{ current_language }}" data-md-component="language">
+  {% for alt in config.extra.alternate %}
+    {% if alt.lang != current_language %}
+      {% if alt.lang == "ja" %}
+        {% set switch_label = "Switch to Japanese" %}
+      {% else %}
+        {% set switch_label = "Switch to English" %}
+      {% endif %}
+      <a href="{{ alt.link | url }}" hreflang="{{ alt.lang }}" class="lab-language-toggle__link" aria-label="{{ switch_label }}" title="{{ switch_label }}">
+        <span class="lab-language-toggle__icon md-icon" aria-hidden="true">
+          {% include ".icons/" ~ icon ~ ".svg" %}
+        </span>
+        <span class="lab-language-toggle__labels" aria-hidden="true">
+          <span class="lab-language-toggle__label-ja">JA</span>
+          <span class="lab-language-toggle__label-en">EN</span>
+        </span>
+        <span class="lab-language-toggle__thumb" aria-hidden="true"></span>
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>

@@ -1,5 +1,7 @@
 # 任意ラボ: Custom MCP Backend
 
+[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/advanced-mcp.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/labs/advanced-mcp.en.md)
+
 このラボは任意です。Fabric IQ、Foundry IQ、Work IQでは提供しない顧客固有Business SystemのToolをCopilot Studioへ接続する場合だけ実施します。
 
 この手順でデプロイする実装は、選択したIndustry Packの**合成dataset**をmemory上に生成する検証用Backendです。顧客Business System接続と受信request認証は実装していません。
@@ -104,11 +106,11 @@ az containerapp logs show \
 
 ## 完了条件
 
-- [ ] ローカルのcontract、integration、公式MCP client connectivity testが成功した。
-- [ ] `azd provision --preview`を承認者が確認した。
+- [ ] ローカルのcontract、integration、公式MCP client connectivity testが成功しました。
+- [ ] `azd provision --preview`を承認者が確認しました。
 - [ ] ACR remote buildを含む`azd up`が成功し、latest ready revisionに生成imageがある。
-- [ ] Ingressの`external`が`false`である。
-- [ ] Container内から`/health`が成功した。
-- [ ] Copilot Studio接続を認証実装済みと誤記していない。
+- [ ] Ingressの`external`が`false`です。
+- [ ] Container内から`/health`が成功しました。
+- [ ] Copilot Studio接続を認証実装済みと誤記していません。
 
 実装と契約は[MCP Backendドキュメント](../mcp/README.md)、公開前の要件は[MCPセキュリティガイド](../mcp/MCP-Security-Guide.md)、本番構成の位置付けは[本番環境構築ガイド](../Production-Environment-Setup.md)を参照してください。
