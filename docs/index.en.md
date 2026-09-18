@@ -22,17 +22,17 @@ These hands-on labs build industry knowledge from synthetic data and connect Mic
 <!-- Solution icon PNGs: assets/images/solution-icons/{fabric-iq,foundry-iq,work-iq}.png -->
 <div class="lab-grid" markdown>
 <div class="lab-card" markdown>
-<span class="lab-card__icon-placeholder" aria-label="Placeholder for the Fabric IQ icon image">fabric-iq.png</span>
+<img class="lab-card__icon" src="assets/images/solution-icons/fabric-iq.png" alt="Fabric IQ">
 **Fabric IQ**
 <small>Bind synthetic Lakehouse data to Ontology entities and relationships.</small>
 </div>
 <div class="lab-card" markdown>
-<span class="lab-card__icon-placeholder" aria-label="Placeholder for the Foundry IQ icon image">foundry-iq.png</span>
+<img class="lab-card__icon" src="assets/images/solution-icons/foundry-iq.png" alt="Foundry IQ">
 **Foundry IQ**
 <small>Ingest industry documents into a Knowledge Source and validate answers with citations.</small>
 </div>
 <div class="lab-card" markdown>
-<span class="lab-card__icon-placeholder" aria-label="Placeholder for the Work IQ icon image">work-iq.png</span>
+<img class="lab-card__icon" src="assets/images/solution-icons/work-iq.png" alt="Work IQ">
 **Work IQ**
 <small>Review business context from synthetic Microsoft 365 content.</small>
 </div>

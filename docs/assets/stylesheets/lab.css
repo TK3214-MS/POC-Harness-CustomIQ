@@ -274,17 +274,10 @@
   transform: translateY(-2px);
 }
 
-.lab-card__icon-placeholder {
-  align-items: center;
-  aspect-ratio: 1;
-  border: 1px dashed var(--md-default-fg-color--light);
-  color: var(--md-default-fg-color--light);
-  display: flex;
-  font-size: 0.52rem;
-  justify-content: center;
-  overflow-wrap: anywhere;
-  padding: 0.2rem;
-  text-align: center;
+.lab-card__icon {
+  display: block;
+  height: 2.4rem;
+  object-fit: contain;
   width: 2.4rem;
 }
 

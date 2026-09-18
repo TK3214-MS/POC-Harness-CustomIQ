@@ -22,17 +22,17 @@ hide:
 <!-- Solution icon PNGs: assets/images/solution-icons/{fabric-iq,foundry-iq,work-iq}.png -->
 <div class="lab-grid" markdown>
 <div class="lab-card" markdown>
-<span class="lab-card__icon-placeholder" aria-label="Fabric IQアイコン画像のプレースホルダー">fabric-iq.png</span>
+<img class="lab-card__icon" src="assets/images/solution-icons/fabric-iq.png" alt="Fabric IQ">
 **Fabric IQ**
 <small>Lakehouseの合成データをOntologyのentityとrelationshipへbindingします。</small>
 </div>
 <div class="lab-card" markdown>
-<span class="lab-card__icon-placeholder" aria-label="Foundry IQアイコン画像のプレースホルダー">foundry-iq.png</span>
+<img class="lab-card__icon" src="assets/images/solution-icons/foundry-iq.png" alt="Foundry IQ">
 **Foundry IQ**
 <small>業界文書をKnowledge Sourceへ取り込み、引用付き回答を検証します。</small>
 </div>
 <div class="lab-card" markdown>
-<span class="lab-card__icon-placeholder" aria-label="Work IQアイコン画像のプレースホルダー">work-iq.png</span>
+<img class="lab-card__icon" src="assets/images/solution-icons/work-iq.png" alt="Work IQ">
 **Work IQ**
 <small>合成Microsoft 365コンテンツから業務コンテキストを確認します。</small>
 </div>
