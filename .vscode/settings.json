@@ -2,13 +2,18 @@
     "markdownlint.config": {
         "MD033": {
             "allowed_elements": [
+                "a",
                 "br",
                 "div",
                 "figcaption",
                 "figure",
+                "img",
                 "section",
                 "small"
             ]
+        },
+        "MD046": {
+            "style": "fenced"
         },
         "MD041": false
     },

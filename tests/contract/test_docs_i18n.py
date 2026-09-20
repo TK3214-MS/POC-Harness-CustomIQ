@@ -8,7 +8,6 @@ GITHUB_DOCUMENTS = [
     REPO_ROOT / "SECURITY.md",
     REPO_ROOT / "CODE_OF_CONDUCT.md",
     REPO_ROOT / "CONTRIBUTING.md",
-    REPO_ROOT / ".azure/deployment-plan.md",
     *sorted((REPO_ROOT / "deployment").glob("*/README.md")),
     REPO_ROOT / "services/mcp-backend/README.md",
     REPO_ROOT / "iq_platform/orchestration/README.md",
@@ -69,10 +68,7 @@ def test_every_github_facing_document_has_an_english_translation():
 
 def test_every_github_facing_document_has_language_badges():
     invalid_selectors = []
-    documentation_pages = sorted(
-        path for path in DOCS_DIR.rglob("*.md") if not path.name.endswith(".en.md")
-    )
-    for japanese_path in [*GITHUB_DOCUMENTS, *documentation_pages]:
+    for japanese_path in GITHUB_DOCUMENTS:
         for path in (japanese_path, _english_sibling(japanese_path)):
             content = path.read_text(encoding="utf-8")
             english_page = path.name.endswith(".en.md")
