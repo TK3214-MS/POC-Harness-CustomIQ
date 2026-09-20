@@ -131,12 +131,6 @@ Storage accountの**Containers > `<pack>-knowledge` > Upload**で8ファイル�
 !!! note "APIとportalの提供状態"
     Agentic Retrievalのcore機能はAzure AI Search REST API `2026-04-01`でGAと記載されていますが、Azure portalとMicrosoft Foundry portalの操作はPreview表示の場合があります。実施日の[Blob Knowledge Source公式手順](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-blob){ target="_blank" rel="noopener" }を優先します。
 
-<figure class="lab-image-placeholder" markdown>
-    **画像差し替え位置: Knowledge Sourceの同期結果**
-    `assets/images/labs/foundry-knowledge-source.png`
-    <figcaption>Source名、同期完了、失敗0件が確認できる画面へ差し替えます。</figcaption>
-</figure>
-
 ## 7. Knowledge Baseを作成して検証
 
 1. **Build > Knowledge > Create knowledge base**を選び、Nameをメモの`kb-<pack>-operations`にします。
@@ -169,12 +163,6 @@ Storage accountの**Containers > `<pack>-knowledge` > Upload**で8ファイル�
     | Public Sector | 追加情報待ち案件の確認手順を、文書名と該当箇所付きで示してください。 | case/application文書 |
 
 8. 回答に文書名と該当箇所の引用があり、別業界の文書が含まれないことを確認します。
-
-<figure class="lab-image-placeholder" markdown>
-    **画像差し替え位置: Knowledge Baseの引用付き回答**
-    `assets/images/labs/foundry-knowledge-base-result.png`
-    <figcaption>質問、回答、引用元文書が一画面で確認できる状態へ差し替えます。</figcaption>
-</figure>
 
 !!! note "モデルと提供条件"
     利用可能なモデル、deployment、リージョン、課金、GA/Preview状態は固定しません。実施日時点のMicrosoft公式文書と対象subscriptionの利用可能一覧で確認してください。

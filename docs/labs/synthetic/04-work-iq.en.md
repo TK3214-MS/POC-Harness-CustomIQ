@@ -29,10 +29,11 @@ Do not merely place the Markdown files. Create content intended for email or mee
 4. Add the `meeting` content to a test calendar meeting body or its minutes.
 5. Confirm that the same `*-SYN-*` starting ID reviewed in the Fabric lab appears in each content item's subject or body.
 
-<figure class="lab-image-placeholder" markdown>
-    **Image replacement location: Synthetic Microsoft 365 content**
-    `assets/images/labs/work-iq-synthetic-content.png`
-    <figcaption>Replace with a screen showing the synthetic ID in Teams or SharePoint. Do not include personal information.</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../../assets/images/labs/work-iq-synthetic-content.png" target="_blank" rel="noopener" aria-label="Open the synthetic Microsoft 365 content image at full size">
+        <img src="../../../../assets/images/labs/work-iq-synthetic-content.png" alt="Microsoft 365 content showing a synthetic ID in Teams or SharePoint" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Synthetic content placed in Microsoft 365</figcaption>
 </figure>
 
 ## 3. Confirm Permissions
@@ -43,10 +44,11 @@ Do not merely place the Markdown files. Create content intended for email or mee
 
 This is not a procedure for uploading files to Work IQ as a separate search index. The acceptance criterion is that the Copilot Studio connection user can retrieve the target content within their existing Microsoft 365 permissions.
 
-<figure class="lab-image-placeholder" markdown>
-    **Image replacement location: Test user access check**
-    `assets/images/labs/work-iq-permission-check.png`
-    <figcaption>Replace with a screen showing that the permitted content can be opened.</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../../assets/images/labs/work-iq-permission-check.png" target="_blank" rel="noopener" aria-label="Open the test user access check image at full size">
+        <img src="../../../../assets/images/labs/work-iq-permission-check.png" alt="Screen showing that the test user can open permitted content" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Test user access check</figcaption>
 </figure>
 
 ## Acceptance Criteria

@@ -11,10 +11,11 @@
 3. 指示内の情報源分離、0件、Tool失敗、人手承認のルールを確認します。
 4. エージェント名、environment、接続ユーザー、選択業界を記録します。
 
-<figure class="lab-image-placeholder" markdown>
-    **画像差し替え位置: Agent Instructions**
-    `assets/images/labs/copilot-studio-instructions.png`
-    <figcaption>選択業界の指示が設定された画面へ差し替えます。</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../assets/images/labs/copilot-studio-instructions.png" target="_blank" rel="noopener" aria-label="Agent Instructions画面を原寸で開く">
+        <img src="../../../assets/images/labs/copilot-studio-instructions.png" alt="選択業界の指示が設定されたCopilot StudioのAgent Instructions画面" loading="lazy" decoding="async">
+    </a>
+    <figcaption>選択業界のAgent Instructions</figcaption>
 </figure>
 
 ## 2. Toolを個別接続
@@ -30,10 +31,11 @@ Toolの表示名だけで接続先を判断せず、workspace、Ontology、Knowl
 !!! warning "Work IQ接続画面"
     Work IQの接続経路、表示名、提供条件は変更される可能性があります。上記選択肢が表示されない場合は推測で汎用Remote MCP URLを入力せず、実施日時点の[公式手順](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-work-iq)とtenant policyを確認します。
 
-<figure class="lab-image-placeholder" markdown>
-    **画像差し替え位置: 3つのIQ Tool一覧**
-    `assets/images/labs/copilot-studio-tools.png`
-    <figcaption>Fabric IQ、Foundry IQ、Work IQと各connectionが見える画面へ差し替えます。</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../assets/images/labs/copilot-studio-tools.png" target="_blank" rel="noopener" aria-label="Copilot StudioのIQ Tool一覧を原寸で開く">
+        <img src="../../../assets/images/labs/copilot-studio-tools.png" alt="Fabric IQ、Foundry IQ、Work IQと各connectionを表示したCopilot StudioのTool一覧" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Copilot Studioに接続した3つのIQ Tool</figcaption>
 </figure>
 
 ## 3. テスト前の構成確認

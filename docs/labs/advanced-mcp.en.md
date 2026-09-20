@@ -55,12 +55,6 @@ azd up
 !!! note "Replicas and Cost"
         Due to constraints of the AVM upsert module, this configuration sets the minimum replicas to `1` and the maximum to `2`. Prices are not stated here. Confirm current pricing and your budget as of the date of the lab.
 
-<figure class="lab-image-placeholder" markdown>
-    **Image replacement location: Container App overview**
-    `assets/images/labs/mcp-container-app-overview.png`
-    <figcaption>Replace with a screen showing internal ingress, the latest revision, image, and status.</figcaption>
-</figure>
-
 ## 4. Validate the Internal Endpoint
 
 Load the output into the shell.

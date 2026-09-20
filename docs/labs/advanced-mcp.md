@@ -55,12 +55,6 @@ azd up
 !!! note "replicaと費用"
         AVM upsert moduleの制約により、この構成は最小replicaを`1`、最大を`2`に設定します。価格は記載しません。実施日時点の料金と予算を確認してください。
 
-<figure class="lab-image-placeholder" markdown>
-    **画像差し替え位置: Container App概要**
-    `assets/images/labs/mcp-container-app-overview.png`
-    <figcaption>Internal ingress、最新revision、image、状態が確認できる画面へ差し替えます。</figcaption>
-</figure>
-
 ## 4. 内部endpointを検証
 
 出力をshellへ読み込みます。

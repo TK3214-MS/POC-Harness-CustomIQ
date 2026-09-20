@@ -11,10 +11,11 @@ Connect each IQ layer to the agent separately and prepare it for testing. Do not
 3. Review the instructions' rules for source separation, zero results, tool failures, and human approval.
 4. Record the agent name, environment, connection user, and selected industry.
 
-<figure class="lab-image-placeholder" markdown>
-    **Image replacement location: Agent Instructions**
-    `assets/images/labs/copilot-studio-instructions.png`
-    <figcaption>Replace with a screen showing the selected industry's instructions.</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../../assets/images/labs/copilot-studio-instructions.png" target="_blank" rel="noopener" aria-label="Open the Agent Instructions image at full size">
+        <img src="../../../../assets/images/labs/copilot-studio-instructions.png" alt="Copilot Studio Agent Instructions configured for the selected industry" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Agent Instructions for the selected industry</figcaption>
 </figure>
 
 ## 2. Connect Tools Individually
@@ -30,10 +31,11 @@ Do not identify a connection by the tool display name alone. Confirm that the wo
 !!! warning "Work IQ Connection Screen"
     The Work IQ connection path, display names, and availability requirements may change. If the options above do not appear, do not enter a generic Remote MCP URL based on assumptions. Review the current [official procedure](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-work-iq) and tenant policy as of the date of the lab.
 
-<figure class="lab-image-placeholder" markdown>
-    **Image replacement location: List of three IQ tools**
-    `assets/images/labs/copilot-studio-tools.png`
-    <figcaption>Replace with a screen showing Fabric IQ, Foundry IQ, Work IQ, and each connection.</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../../assets/images/labs/copilot-studio-tools.png" target="_blank" rel="noopener" aria-label="Open the Copilot Studio IQ tools image at full size">
+        <img src="../../../../assets/images/labs/copilot-studio-tools.png" alt="Copilot Studio tools list showing Fabric IQ, Foundry IQ, Work IQ, and each connection" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Three IQ tools connected to Copilot Studio</figcaption>
 </figure>
 
 ## 3. Pre-Test Configuration Check

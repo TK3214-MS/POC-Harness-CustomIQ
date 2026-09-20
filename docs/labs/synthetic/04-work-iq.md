@@ -29,10 +29,11 @@ Markdownファイル自体を置くだけでなく、メールや会議として
 4. `meeting`の内容をtest calendarの会議本文または議事録へ登録します。
 5. Fabric Labで確認した起点IDと同じ`*-SYN-*` IDが、各コンテンツの件名または本文にあることを確認します。
 
-<figure class="lab-image-placeholder" markdown>
-    **画像差し替え位置: Microsoft 365合成コンテンツ**
-    `assets/images/labs/work-iq-synthetic-content.png`
-    <figcaption>TeamsまたはSharePointで合成IDが見える画面へ差し替えます。個人情報は含めません。</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../assets/images/labs/work-iq-synthetic-content.png" target="_blank" rel="noopener" aria-label="Microsoft 365合成コンテンツを原寸で開く">
+        <img src="../../../assets/images/labs/work-iq-synthetic-content.png" alt="TeamsまたはSharePointで合成IDが確認できるMicrosoft 365コンテンツ" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Microsoft 365に配置した合成コンテンツ</figcaption>
 </figure>
 
 ## 3. 権限を確認
@@ -43,10 +44,11 @@ Markdownファイル自体を置くだけでなく、メールや会議として
 
 Work IQへ別の検索indexとしてファイルをアップロードする手順ではありません。成功条件は、Copilot Studioの接続ユーザーが既存Microsoft 365権限の範囲で対象コンテンツを取得できることです。
 
-<figure class="lab-image-placeholder" markdown>
-    **画像差し替え位置: Test userのアクセス確認**
-    `assets/images/labs/work-iq-permission-check.png`
-    <figcaption>許可された対象を開けることを示す画面へ差し替えます。</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../assets/images/labs/work-iq-permission-check.png" target="_blank" rel="noopener" aria-label="Test userのアクセス確認画面を原寸で開く">
+        <img src="../../../assets/images/labs/work-iq-permission-check.png" alt="Test userが許可された対象を開けることを示す画面" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Test userのアクセス確認</figcaption>
 </figure>
 
 ## 成功条件

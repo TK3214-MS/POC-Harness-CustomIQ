@@ -131,12 +131,6 @@ Under **Containers > `<pack>-knowledge` > Upload** in the Storage account, selec
 !!! note "API and Portal Availability Status"
     The core Agentic Retrieval features are documented as GA in Azure AI Search REST API `2026-04-01`, but operations in the Azure portal and Microsoft Foundry portal may be labeled Preview. Defer to the current [official Blob Knowledge Source procedure](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-blob){ target="_blank" rel="noopener" } as of the date of the lab.
 
-<figure class="lab-image-placeholder" markdown>
-    **Image replacement location: Knowledge Source synchronization result**
-    `assets/images/labs/foundry-knowledge-source.png`
-    <figcaption>Replace with a screen showing the source name, completed synchronization, and zero failures.</figcaption>
-</figure>
-
 ## 7. Create and Validate the Knowledge Base
 
 1. Select **Build > Knowledge > Create knowledge base** and set Name to the recorded `kb-<pack>-operations`.
@@ -169,12 +163,6 @@ Under **Containers > `<pack>-knowledge` > Upload** in the Storage account, selec
     | Public Sector | Show the review procedure for cases awaiting additional information, including the document name and relevant passage. | Case/application documents |
 
 8. Confirm that the answer cites the document name and relevant passage and does not include documents from another industry.
-
-<figure class="lab-image-placeholder" markdown>
-    **Image replacement location: Knowledge Base answer with citations**
-    `assets/images/labs/foundry-knowledge-base-result.png`
-    <figcaption>Replace with a screen showing the question, answer, and cited source documents together.</figcaption>
-</figure>
 
 !!! note "Models and Availability Requirements"
     This lab does not prescribe available models, deployments, regions, billing, or GA/Preview statuses. Confirm them against current official Microsoft documentation and the available options for the target subscription as of the date of the lab.

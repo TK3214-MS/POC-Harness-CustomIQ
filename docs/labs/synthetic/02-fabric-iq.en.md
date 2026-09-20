@@ -30,10 +30,11 @@ In this lab, convert the selected Industry Pack's CSV files into Lakehouse manag
 6. In the table preview, confirm that ID columns are strings, date/time columns are datetime values, and numeric columns use appropriate numeric types.
 7. Compare each table's row count with the small dataset in the [demo data deployment runbook](../../evaluation/Demo-Data-Deployment-Runbook.md).
 
-<figure class="lab-image-placeholder" markdown>
-    **Image replacement location: Lakehouse Files and Tables**
-    `assets/images/labs/fabric-lakehouse-tables.png`
-    <figcaption>Replace with a screen showing the selected industry's CSV files and managed tables together.</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../../assets/images/labs/fabric-lakehouse-tables.png" target="_blank" rel="noopener" aria-label="Open the Lakehouse Files and Tables image at full size">
+        <img src="../../../../assets/images/labs/fabric-lakehouse-tables.png" alt="CSV files and managed tables for the selected industry" loading="lazy" decoding="async">
+    </a>
+    <figcaption>CSV files and managed tables for the selected industry</figcaption>
 </figure>
 
 !!! warning "Binding Constraints"
@@ -144,10 +145,11 @@ Complete only the section for your selected industry. In the `Property <- column
     | `handledBy` | `Case` -> `Agency` | `cases` | `case_id` <- `case_id` | `agency_id` <- `agency_id` |
     | `partOf` | `Application` -> `Case` | `applications` | `application_id` <- `application_id` | `case_id` <- `case_id` |
 
-<figure class="lab-image-placeholder" markdown>
-    **Image replacement location: Entity type binding**
-    `assets/images/labs/fabric-entity-binding.png`
-    <figcaption>Replace with a screen showing the source table, entity key, and property mappings.</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../../assets/images/labs/fabric-entity-binding.png" target="_blank" rel="noopener" aria-label="Open the entity type binding image at full size">
+        <img src="../../../../assets/images/labs/fabric-entity-binding.png" alt="Entity type binding with the source table, entity key, and property mappings" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Entity type binding configuration</figcaption>
 </figure>
 
 ## 3. Configure Relationships
@@ -238,10 +240,11 @@ display(junction.orderBy("part_id", "line_id"))
 
 Confirm that the `PART-SYN-101` and `LINE-SYN-01` pair is displayed, then bind `usedIn` as shown in the industry-specific table. If the assertion fails, do not create the relationship; correct the IDs in `parts` and `production_lines`.
 
-<figure class="lab-image-placeholder" markdown>
-    **Image replacement location: Ontology Graph**
-    `assets/images/labs/fabric-ontology-graph.png`
-    <figcaption>Replace with a screen showing relationship edges between known synthetic IDs.</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../../assets/images/labs/fabric-ontology-graph.png" target="_blank" rel="noopener" aria-label="Open the Ontology Graph image at full size">
+        <img src="../../../../assets/images/labs/fabric-ontology-graph.png" alt="Ontology Graph showing relationship edges between known synthetic IDs" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Ontology Graph for known synthetic IDs</figcaption>
 </figure>
 
 ## 4. Record Copilot Studio Connection Values

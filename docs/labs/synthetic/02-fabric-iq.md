@@ -30,10 +30,11 @@
 6. table previewでID列をstring、日時列をdatetime、数値列を適切な数値型として確認します。
 7. 各tableのrow countを[デモデータ投入runbook](../../evaluation/Demo-Data-Deployment-Runbook.md)の小容量datasetと照合します。
 
-<figure class="lab-image-placeholder" markdown>
-    **画像差し替え位置: LakehouseのFilesとTables**
-    `assets/images/labs/fabric-lakehouse-tables.png`
-    <figcaption>選択業界のCSVとmanaged tableが同時に見える画面へ差し替えます。</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../assets/images/labs/fabric-lakehouse-tables.png" target="_blank" rel="noopener" aria-label="LakehouseのFilesとTablesを原寸で開く">
+        <img src="../../../assets/images/labs/fabric-lakehouse-tables.png" alt="選択業界のCSVファイルとmanaged table" loading="lazy" decoding="async">
+    </a>
+    <figcaption>選択業界のCSVファイルとmanaged table</figcaption>
 </figure>
 
 !!! warning "binding制約"
@@ -144,10 +145,11 @@
     | `handledBy` | `Case` → `Agency` | `cases` | `case_id` ← `case_id` | `agency_id` ← `agency_id` |
     | `partOf` | `Application` → `Case` | `applications` | `application_id` ← `application_id` | `case_id` ← `case_id` |
 
-<figure class="lab-image-placeholder" markdown>
-    **画像差し替え位置: Entity typeのbinding**
-    `assets/images/labs/fabric-entity-binding.png`
-    <figcaption>Source table、entity key、property mappingが確認できる画面へ差し替えます。</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../assets/images/labs/fabric-entity-binding.png" target="_blank" rel="noopener" aria-label="Entity typeのbinding画面を原寸で開く">
+        <img src="../../../assets/images/labs/fabric-entity-binding.png" alt="Source table、entity key、property mappingを含むEntity typeのbinding画面" loading="lazy" decoding="async">
+    </a>
+    <figcaption>Entity typeのbinding設定</figcaption>
 </figure>
 
 ## 3. relationshipを構成
@@ -238,10 +240,11 @@ display(junction.orderBy("part_id", "line_id"))
 
 `PART-SYN-101`と`LINE-SYN-01`の組が表示されることを確認し、業界別表どおりに`usedIn`をbindingします。assertionが失敗した場合はrelationshipを作らず、`parts`と`production_lines`のIDを修正します。
 
-<figure class="lab-image-placeholder" markdown>
-    **画像差し替え位置: Ontology Graph**
-    `assets/images/labs/fabric-ontology-graph.png`
-    <figcaption>既知の合成ID間にrelationship edgeが表示された画面へ差し替えます。</figcaption>
+<figure class="lab-evidence">
+    <a class="lab-evidence__link" href="../../../assets/images/labs/fabric-ontology-graph.png" target="_blank" rel="noopener" aria-label="Ontology Graphを原寸で開く">
+        <img src="../../../assets/images/labs/fabric-ontology-graph.png" alt="既知の合成ID間にrelationship edgeが表示されたOntology Graph" loading="lazy" decoding="async">
+    </a>
+    <figcaption>既知の合成ID間のOntology Graph</figcaption>
 </figure>
 
 ## 4. Copilot Studio接続値を控える

@@ -19,20 +19,20 @@ These hands-on labs build industry knowledge from synthetic data and connect Mic
 </div>
 </section>
 
-<!-- Solution icon PNGs: assets/images/solution-icons/{fabric-iq,foundry-iq,work-iq}.png -->
+<!-- Solution icon PNGs: ../assets/images/solution-icons/{fabric-iq,foundry-iq,work-iq}.png -->
 <div class="lab-grid" markdown>
 <div class="lab-card" markdown>
-<img class="lab-card__icon" src="assets/images/solution-icons/fabric-iq.png" alt="Fabric IQ">
+<img class="lab-card__icon" src="../assets/images/solution-icons/fabric-iq.png" alt="Fabric IQ">
 **Fabric IQ**
 <small>Bind synthetic Lakehouse data to Ontology entities and relationships.</small>
 </div>
 <div class="lab-card" markdown>
-<img class="lab-card__icon" src="assets/images/solution-icons/foundry-iq.png" alt="Foundry IQ">
+<img class="lab-card__icon" src="../assets/images/solution-icons/foundry-iq.png" alt="Foundry IQ">
 **Foundry IQ**
 <small>Ingest industry documents into a Knowledge Source and validate answers with citations.</small>
 </div>
 <div class="lab-card" markdown>
-<img class="lab-card__icon" src="assets/images/solution-icons/work-iq.png" alt="Work IQ">
+<img class="lab-card__icon" src="../assets/images/solution-icons/work-iq.png" alt="Work IQ">
 **Work IQ**
 <small>Review business context from synthetic Microsoft 365 content.</small>
 </div>
@@ -46,8 +46,8 @@ These hands-on labs build industry knowledge from synthetic data and connect Mic
 | Custom MCP Backend | Advanced users and integration implementers | Optional | Validate an MCP Backend that exposes synthetic data on Azure Container Apps |
 
 <figure class="lab-architecture">
-    <a class="lab-architecture__link" href="assets/images/Architecture.png" target="_blank" rel="noopener" aria-label="Open the Industry IQ Platform architecture diagram at full size">
-        <img src="assets/images/Architecture.png" alt="Industry IQ Platform architecture overview" width="4349" height="2190" loading="lazy" decoding="async">
+    <a class="lab-architecture__link" href="../assets/images/Architecture.png" target="_blank" rel="noopener" aria-label="Open the Industry IQ Platform architecture diagram at full size">
+        <img src="../assets/images/Architecture.png" alt="Industry IQ Platform architecture overview" width="4349" height="2190" loading="lazy" decoding="async">
     </a>
     <figcaption>Industry IQ Platform architecture</figcaption>
 </figure>
