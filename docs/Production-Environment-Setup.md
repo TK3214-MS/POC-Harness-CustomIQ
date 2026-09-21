@@ -1,7 +1,5 @@
 # 本番環境構築ガイド
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/Production-Environment-Setup.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/Production-Environment-Setup.en.md)
-
 このガイドは、Microsoft Copilot Studio の GitHub Copilot harness をオーケストレーション層として、Fabric IQ、Foundry IQ、Work IQ、および本リポジトリの MCP Backend を接続するための唯一の構築手順です。
 
 **重要**: Fabric IQ、Foundry IQ、Work IQ のデータ取得は Copilot Studio の Tool が直接担当します。本リポジトリの IQ Adapter、`LiveAdapterSettings`、`WORK_IQ_*` / `FOUNDRY_IQ_*` / `FABRIC_IQ_*` 環境変数は、この構成では使用しません。

@@ -1,7 +1,5 @@
 # ラボコスト見積もりガイド
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/reference/Cost-Estimation-Guide.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/reference/Cost-Estimation-Guide.en.md)
-
 最終確認日: 2026-09-16
 
 このページでは、Industry IQ Platform Labsを構築・実行する際の従量課金コストを、ソリューション別に見積もります。表示価格、為替、契約割引、リージョン、SKU、GA/Preview状態は変わるため、金額を固定値として転記しません。実施時点の公式Calculatorへ数量を入力し、保存した見積もりを承認者と共有してください。

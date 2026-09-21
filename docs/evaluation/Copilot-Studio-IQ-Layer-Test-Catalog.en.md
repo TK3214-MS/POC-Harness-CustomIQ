@@ -1,7 +1,5 @@
 # Copilot Studio IQ Layer Test Execution and Evaluation Guide
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md) [![English](https://img.shields.io/badge/A-English-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.en.md)
-
 ## 1. Purpose
 
 Evaluate Tool selection, retrieval success, grounding, permission controls, and response time under the same conditions for Fabric IQ, Foundry IQ, and Work IQ connected to a Copilot Studio agent. There are 10 questions for each industry, for a total of 50 questions.

@@ -1,7 +1,5 @@
 # Lab Cost Estimation Guide
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/reference/Cost-Estimation-Guide.md) [![English](https://img.shields.io/badge/A-English-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/reference/Cost-Estimation-Guide.en.md)
-
 Last verified: 2026-09-16
 
 This page estimates consumption-based costs by solution when building and running the Industry IQ Platform Labs. Because listed prices, exchange rates, contract discounts, regions, SKUs, and GA/Preview status can change, amounts are not reproduced as fixed values. Enter quantities in the official Calculator at the time of implementation, and share the saved estimate with the approver.

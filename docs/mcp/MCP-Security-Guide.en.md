@@ -1,7 +1,5 @@
 # MCP Security Guide
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/mcp/MCP-Security-Guide.md) [![English](https://img.shields.io/badge/A-English-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/mcp/MCP-Security-Guide.en.md)
-
 Authentication itself, which determines who can make requests, must be configured in the Azure environment that exposes the MCP Backend and in the Copilot Studio connection settings. This page describes MCP Backend security controls other than authentication.
 
 ## 1. Implemented Controls

@@ -12,9 +12,7 @@
                 "small"
             ]
         },
-        "MD046": {
-            "style": "fenced"
-        },
+        "MD046": false,
         "MD041": false
     },
     "sarif-viewer.connectToGithubCodeScanning": "off"

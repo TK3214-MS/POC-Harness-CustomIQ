@@ -1,7 +1,5 @@
 # Production Environment Setup Guide
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/Production-Environment-Setup.md) [![English](https://img.shields.io/badge/A-English-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/Production-Environment-Setup.en.md)
-
 This guide is the single setup procedure for connecting Fabric IQ, Foundry IQ, Work IQ, and this repository's MCP Backend, with the GitHub Copilot harness in Microsoft Copilot Studio serving as the orchestration layer.
 
 **Important**: Copilot Studio Tools directly handle data retrieval from Fabric IQ, Foundry IQ, and Work IQ. This repository's IQ Adapters, `LiveAdapterSettings`, and `WORK_IQ_*` / `FOUNDRY_IQ_*` / `FABRIC_IQ_*` environment variables are not used in this architecture.

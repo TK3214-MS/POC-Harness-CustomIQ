@@ -1,7 +1,5 @@
 # IQ Demo Data Deployment and Reconstruction Runbook
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/evaluation/Demo-Data-Deployment-Runbook.md) [![English](https://img.shields.io/badge/A-English-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/evaluation/Demo-Data-Deployment-Runbook.en.md)
-
 ## 1. Purpose
 
 Deploy synthetic data for five industries to Fabric IQ, Foundry IQ, and Work IQ, and distinguish between insufficient data and service configuration problems when the Copilot Studio question catalog returns zero results or retrieval failures.

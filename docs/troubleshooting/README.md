@@ -1,7 +1,5 @@
 # トラブルシューティング
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/troubleshooting/README.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/troubleshooting/README.en.md)
-
 ## 構築順序
 
 構築順序を飛ばすと、Copilot Studio側で接続できても回答が空になることがあります。まず[本番環境構築ガイド](../Production-Environment-Setup.md)のSaaS側構成を完了し、その後にCopilot Studio Toolを接続してください。

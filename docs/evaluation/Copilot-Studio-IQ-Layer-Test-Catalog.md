@@ -1,7 +1,5 @@
 # Copilot Studio IQレイヤー別テスト実行・評価ガイド
 
-[![日本語](https://img.shields.io/badge/%E3%81%82-%E6%97%A5%E6%9C%AC%E8%AA%9E-087F8C?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.md) [![English](https://img.shields.io/badge/A-English-5B6670?style=for-the-badge)](https://github.com/TK3214-MS/POC-Harness-CustomIQ/blob/main/docs/evaluation/Copilot-Studio-IQ-Layer-Test-Catalog.en.md)
-
 ## 1. 目的
 
 Copilot Studioエージェントに接続したFabric IQ、Foundry IQ、Work IQについて、Tool選択、取得成功、根拠性、権限制御、応答時間を同じ条件で確認します。質問は各業界10件、合計50件です。
