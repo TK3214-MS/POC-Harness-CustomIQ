@@ -41,3 +41,7 @@ Thumbs.db
 # Logs and generated demo output
 *.log
 scripts/demo/output/
+
+# Customer-specific demo material and its local-only tests
+nissan-iq-demo/
+tests/contract/nissan_iq/

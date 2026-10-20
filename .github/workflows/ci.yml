@@ -10,10 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
+
+      - name: Reject private demo paths in repository history
+        run: python3 scripts/security/check_private_demo.py --history HEAD
 
       - name: Install dependencies
         run: |

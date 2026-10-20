@@ -14,3 +14,7 @@ apps/demo-ui/
 .env
 *.env
 .DS_Store
+
+# Never send customer-specific demo material to a build service
+nissan-iq-demo/
+**/nissan-iq-demo/

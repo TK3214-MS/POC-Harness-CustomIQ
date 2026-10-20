@@ -15,6 +15,8 @@ if ! "$PYTHON_BIN" -c 'import sys; sys.exit(0 if sys.version_info >= (3, 11) els
   exit 1
 fi
 
+"$PYTHON_BIN" scripts/security/check_private_demo.py --install
+
 if [ ! -d .venv ]; then
   echo "Creating virtual environment (.venv) with $PYTHON_BIN..."
   "$PYTHON_BIN" -m venv .venv

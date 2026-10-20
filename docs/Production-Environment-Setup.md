@@ -55,6 +55,7 @@ MCP BackendをAzureへデプロイする場合だけ、このリポジトリを�
 ```bash
 git clone <repository-url>
 cd POC-Harness-CustomIQ
+python3 scripts/security/check_private_demo.py --install
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
@@ -63,6 +64,8 @@ pytest tests/
 ```
 
 この手順はリポジトリのMCP Backendを検証するためのものです。Fabric、Foundry、Work IQの接続にPython Adapterを設定する手順ではありません。
+
+
 
 ### 2.3 オプション: 業界別サンプルデータ
 
