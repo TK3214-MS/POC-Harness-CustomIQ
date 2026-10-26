@@ -56,8 +56,8 @@ capabilities:
     display_name: "Foundry IQ"
     product: "Azure AI Search agentic retrieval Knowledge Base"
     status: "Preview"
-    last_verified_date: "2026-09-11"
-    documentation_reference: "https://github.com/Azure/Copilot-Studio-and-Azure"
+    last_verified_date: "2026-10-20"
+    documentation_reference: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/foundry-iq-connect"
     required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     required_role: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     required_admin_setting: "Azure AI Search, Foundry project, model, storage, and Knowledge Base permissions"
@@ -66,20 +66,24 @@ capabilities:
     fallback_adapter: null
     known_limitations:
       - "Knowledge Sources and Knowledge Base must be created and validated before Copilot Studio connects."
+      - "The GitHub Copilot harness connector selects an existing knowledge base using the Search service endpoint; a separate Foundry Agent is not required."
+      - "The current connector documentation allows one Foundry IQ connection per agent."
     customer_facing_disclosure: "Foundry IQ is configured in Foundry/Azure AI Search and selected from Copilot Studio."
 
   - capability_id: fabric_iq
     display_name: "Fabric IQ / Ontology (preview)"
     product: "Microsoft Fabric"
     status: "Preview"
-    last_verified_date: "2026-09-11"
+    last_verified_date: "2026-10-20"
     documentation_reference: "https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-create-agent-copilot-studio"
     required_license: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     required_role: "Fabric workspace and Ontology permissions"
-    required_admin_setting: "Enable Ontology item (preview)"
+    required_admin_setting: "Enable Ontology item (preview) and allow ontology MCP tools in Copilot Studio"
     regional_availability: "TBD - VERIFY AGAINST CURRENT MICROSOFT DOCUMENTATION"
     supported_modes: ["live", "unavailable"]
     fallback_adapter: null
     known_limitations:
       - "Lakehouse managed tables, Ontology definitions, relationships, and data bindings must be configured in Fabric first."
-    customer_facing_disclosure: "Fabric IQ is connected from Copilot Studio through Fabric IQ MCP (Preview)."
+      - "Copilot Studio connects directly through Fabric IQ MCP (Preview), without a Fabric Data Agent."
+      - "Separate HTML visualization does not replace the Ontology item or verify a file-delivery integration."
+    customer_facing_disclosure: "Copilot Studio calls the Ontology MCP tools list_ontology_entity_types and search_ontology directly through Fabric IQ MCP (Preview)."

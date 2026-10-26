@@ -221,6 +221,25 @@ Ontology itemのURLから次の2つを控えます。
 
 Copilot StudioでOntology MCP Toolを追加する際に使用します。FabricのOntology MCP endpointを汎用MCP URLとして手入力するのではなく、Copilot Studioの専用 **Fabric IQ MCP (Preview)** Toolを使用します。
 
+### HTTPによる元データ取得の切り分け（任意・未検証）
+
+Ontology MCPの照会障害を切り分ける場合、LakehouseのSQL analytics endpointを
+Fabric API for GraphQLで公開し、HTTP単体、Power Platformカスタムコネクター、
+Copilot Studioの固定読み取りWorkflowの順に検証する構成を検討できます。
+この代替経路の本アクセラレータへの接続・実環境検証は未実施です。
+
+- GraphQL itemはSSOとし、APIのExecute権限と元データの読み取り権限を確認する。
+- 公開対象を承認済みのtableに限定し、SQLキー・生成schema・ページングを確認する。
+- ユーザー委任認証では `GraphQLApi.Execute.All` を使用し、OAuth接続を検証する。
+- Copilot Studioへは固定queryと許可IDを扱うWorkflowを公開し、任意SQL・GraphQL本文をAgentに入力させない。
+- HTTP非2xx、GraphQL本文のerrors、欠落・不完全データを明示的な失敗として返す。
+- 元データ取得の成功をOntologyの意味検索・ルール評価の成功と扱わず、自動fallbackを有効にしない。
+- 採用前に利用者ごとの認可、対象harnessのWorkflow対応、ライセンス・費用・応答制限を確認する。
+
+参照: [GraphQL作成とSSO](https://learn.microsoft.com/en-us/fabric/data-engineering/get-started-api-graphql)、
+[認証と権限](https://learn.microsoft.com/en-us/fabric/data-engineering/connect-apps-api-graphql)、
+[GitHub Copilot harnessのWorkflow](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/tools-add-workflow)
+
 ## 4. Foundry IQ側の構成
 
 ### 4.1 Azure AI SearchとFoundry
@@ -250,6 +269,12 @@ Blob Knowledge Sourceを使う場合:
 5. チャンク化、embedding、chat completionに使用するモデルdeploymentを指定する。
 6. Knowledge Sourceの取り込み状態を確認し、失敗件数が0になるまで修正する。
 7. 生成されたdata source、skillset、index、indexerを確認する。
+
+Azure portalの **Agentic retrieval > Knowledge sources > Azure blob (Indexed)** を使用する場合は、
+[Portal quickstart](https://learn.microsoft.com/en-us/azure/search/get-started-portal-agentic-retrieval#configure-access)の権限・生成物の要件を適用してください。
+同quickstartはSearchのmanaged identityへStorage accountスコープの **Storage Blob Data Contributor** を付与します。
+読み取り元へのReaderだけで足りる構成と、asset保存先への書き込みも必要な構成を混同せず、共有Storageへの権限拡大は所有者の承認を得てください。
+また、元文書数とチャンク化後のindexレコード数は区別して確認します。
 
 **オプションの業界別ナレッジ投入**:
 
@@ -391,27 +416,33 @@ Work IQ側の完了条件は「Work IQにファイルを登録した」ではな
 
 ### 6.2 Fabric IQ MCP
 
+Copilot StudioからOntology MCPへ直接接続します。Fabric Data Agentを作成・公開して外部エージェントとして接続する構成は使用しません。
+可視化を別のHTMLなどへ切り出す場合も、構造化検索に必要なOntology item、data binding、権限は維持します。
+HTMLのローカル生成とCopilot Studioでのファイル返却は別の処理であり、返却経路を検証するまで接続済みとは扱いません。
+
 1. **Tools > Add Tool > Fabric IQ MCP (Preview)** を選択する。
 2. **Create new connection** を選択し、Microsoft Entra IDで接続する。
 3. Fabric workspace IDとOntology item IDを入力する。
 4. **Create**、続けて**Add**を選択する。
-5. ToolにOntology entity typeの一覧・検索ツールが表示されることを確認する。
+5. Toolに`list_ontology_entity_types`と`search_ontology`が表示されることを確認する。
 6. Ontologyに登録した業務概念を使う質問を実行し、MCP同意とActivity traceを確認する。
 
 参照: [Create an Ontology Agent with Copilot Studio](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-create-agent-copilot-studio)
 
 ### 6.3 Foundry IQ
 
-1. **Tools > Add Tool > Foundry IQ** を選択する。
-2. Copilot Studioの接続画面で認証方式を選択する。
-3. 4.3で作成・検証したKnowledge Baseを選択する。
-4. **Add to agent**、保存する。
-5. Knowledge Baseの文書に関する質問を実行する。
-6. Activity traceでFoundry IQが呼び出され、引用が返ることを確認する。
+1. GitHub Copilot harnessのAgentを開き、**Build > Tools > Foundry IQ > Create new connection** を選択する。
+2. 承認済みの認証方式を選択する。**Microsoft Entra ID Integrated**を使う場合は、対象Knowledge Baseを利用できるidentityで接続する。
+3. 接続先にはSearch service endpoint（`https://<search-service-name>.search.windows.net`）を入力する。Foundry project、モデル、Blobのendpointで代用しない。
+4. **Create > Next** を選択し、4.4で作成・検証した既存Knowledge Baseを一覧から選択する。
+5. **Add to agent > Save** を選択し、Toolの説明を設定して保存する。
+6. **Preview**でKnowledge Baseの文書に関する質問を実行する。
+7. Activity traceでFoundry IQが呼び出され、引用が返ることを確認する。
 
 Foundry IQのKnowledge Source、Indexer、Knowledge Base、モデル、RBACは4章で先に構成します。Copilot StudioはKnowledge Baseを消去・再作成する場所ではありません。
+この直接接続では別のFoundry Agentを作成・公開する必要はありません。参照した公式手順では、1 AgentにつきFoundry IQ接続は1つです。
 
-参照: [Copilot Studio and Azure repository](https://github.com/Azure/Copilot-Studio-and-Azure)
+参照: [Copilot StudioからFoundry IQへ接続](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/foundry-iq-connect)
 
 ### 6.4 Work IQ (preview)
 
